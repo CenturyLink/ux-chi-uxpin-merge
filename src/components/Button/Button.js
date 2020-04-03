@@ -1,42 +1,38 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import ButtonStyles from './Button.styles';
+import '../../styles/chi.css';
 
 const Button = (props) => (
-  <ButtonStyles {...props}>
-    {props.icon}
-    {props.children}
-  </ButtonStyles>
+  <div className="chi">
+    <button className={`
+      chi-btn 
+      ${props.color ? `-${props.color}` : ''}
+      ${props.size ? `-${props.size}` : ''}
+      `}
+      disabled={props.disabled}>
+      {props.value}
+    </button>
+  </div>
 );
 
 /* eslint-disable sort-keys */
 Button.propTypes = {
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
-  type: PropTypes.oneOf(['primary', 'secondary', 'success', 'error', 'warning']),
-  mode: PropTypes.oneOf(['filled', 'ghost', 'minimal', 'flat']),
-  /** @uxpinignoreprop */
-  title: PropTypes.string,
-  /** @uxpinignoreprop */
-  background: PropTypes.string,
-  /**
-   * @uxpinpropname Label
-   */
-  children: PropTypes.string,
-  icon: PropTypes.node,
-  iconDirection: PropTypes.oneOf(['left', 'right']),
-  size: PropTypes.oneOf(['xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl']),
-  stretched: PropTypes.bool,
+  color: PropTypes.oneOf(['primary', 'secondary', 'dark', 'light', 'danger']),
+  leftIcon: PropTypes.node,
+  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  value: PropTypes.string,
 };
 /* eslint-enable sort-keys */
 
 Button.defaultProps = {
   disabled: false,
-  iconDirection: 'left',
   mode: 'filled',
-  size: 'm',
+  size: 'md',
   stretched: true,
   type: 'primary',
+  value: 'Button',
 };
 
 export { Button as default };
