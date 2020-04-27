@@ -1,18 +1,15 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import '../../styles/chi.css';
 
 const Button = (props) => (
-  <div className="chi">
-    <button className={`
-      chi-btn 
-      ${props.color ? `-${props.color}` : ''}
-      ${props.size ? `-${props.size}` : ''}
-      `}
-      disabled={props.disabled}>
-      {props.value}
-    </button>
-  </div>
+  <button className={`
+    chi-btn 
+    ${props.color ? `-${props.color}` : ''}
+    ${props.size ? `-${props.size}` : ''}
+    `}
+    disabled={props.disabled}>
+    {props.value}
+  </button>
 );
 
 /* eslint-disable sort-keys */
@@ -28,10 +25,8 @@ Button.propTypes = {
 
 Button.defaultProps = {
   disabled: false,
-  mode: 'filled',
   size: 'md',
-  stretched: true,
-  type: 'primary',
+  color: 'primary',
   value: 'Button',
 };
 
