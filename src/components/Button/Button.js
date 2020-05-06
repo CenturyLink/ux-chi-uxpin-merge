@@ -1,21 +1,50 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import './button.css';
 
-const Button = (props) => (
-  <button className={`
-    chi-btn 
-    ${props.color ? `-${props.color}` : ''}
-    ${props.size ? `-${props.size}` : ''}
-    `}
-    disabled={props.disabled}>
-    {props.value}
-  </button>
-);
+export default class Button extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hitState: false
+    };
+  }
+
+  render () {
+    const hitState = () => {
+      if (this.props.hit) {
+        this.setState({
+          hitState: true
+        });
+        setTimeout(() => {
+          this.setState({
+            hitState: false
+          });
+        }, 100);
+      }
+    }
+
+    return (
+      <button
+        onClick={hitState}
+        className={`
+          chi-button 
+          ${this.props.color ? `-${this.props.color}` : ''}
+          ${this.props.size ? `-${this.props.size}` : ''}
+          ${this.state.hitState === true ? `-hit` : ''}
+          `}
+          disabled={this.props.disabled}>
+          {this.props.value}
+      </button>
+    );
+  }
+}
 
 /* eslint-disable sort-keys */
 Button.propTypes = {
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
+  hit: PropTypes.bool,
   color: PropTypes.oneOf(['primary', 'secondary', 'dark', 'light', 'danger']),
   leftIcon: PropTypes.node,
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
@@ -29,5 +58,3 @@ Button.defaultProps = {
   color: 'primary',
   value: 'Button',
 };
-
-export { Button as default };

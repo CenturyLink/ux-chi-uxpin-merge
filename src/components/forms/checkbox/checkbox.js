@@ -2,10 +2,10 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
 const Checkbox = (props) => (
-  <div class="chi-form__item">
-    <div class="chi-checkbox">
-      <input type="checkbox" class="chi-checkbox__input" disabled={props.disabled} />
-      <label class="chi-checkbox__label" for="checkbox1">{props.label}</label>
+  <div className="chi-form__item">
+    <div className="chi-checkbox">
+      <input type="checkbox" className="chi-checkbox__input" disabled={props.disabled} />
+      <label className="chi-checkbox__label" htmlFor="checkbox1">{props.label}</label>
     </div>
   </div>
 );

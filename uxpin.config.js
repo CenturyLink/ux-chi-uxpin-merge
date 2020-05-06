@@ -7,10 +7,21 @@ module.exports = {
         include: [
           'src/components/Alert/Alert.js',
           'src/components/Badge/Badge.js',
+          'src/components/Brand/Brand.js',
           'src/components/Button/Button.js',
-          // 'src/components/Icon/Icon.js',
-          'src/components/forms/checkbox/checkbox.js',
+          'src/components/Divider/Divider.js',
+          'src/components/Drawer/Drawer.js',
+          'src/components/Dropdown/Dropdown.js',
+          'src/components/Icon/Icon.js',
           'src/components/Table/Table.js',
+          'src/components/Spinner/Spinner.js',
+        ],
+      },
+      {
+        name: 'Form elements',
+        include: [
+          'src/components/forms/checkbox/checkbox.js',
+          'src/components/Date-picker/Date-picker.js',
           'src/components/forms/text-input/text-input.js',
           'src/components/forms/toggle-switch/toggle-switch.js',
         ],

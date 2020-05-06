@@ -1,7 +1,7 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
-const closeButton = <button class="chi-alert__close-button chi-btn -icon -close" aria-label="Close">
+const closeButton = <button className="chi-alert__close-button chi-button -icon -close" aria-label="Close">
   <div class="chi-btn__content">
     <i class="chi-icon icon-x"></i>
   </div>
