@@ -26,6 +26,6 @@ Spinner.propTypes = {
 /* eslint-enable sort-keys */
 
 Spinner.defaultProps = {
-    color: 'primary',
-    backdrop: 'inverse',
+    color: 'light',
+    backdrop: 'Default',
 };

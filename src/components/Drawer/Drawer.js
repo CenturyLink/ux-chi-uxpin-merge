@@ -24,6 +24,9 @@ export default class Drawer extends React.Component {
           console.log(this.state);
     }
 
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps);
+    }
   render () {
     return (
         <div style={{width: '100%', height: '100vh'}}>
