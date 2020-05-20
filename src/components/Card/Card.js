@@ -1,30 +1,48 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import Icon from '../Icon/Icon';
 
-export default class Card extends React.Component {
-    render() {
-        return <div className={`
-            chi-card
-            ${this.props.portal ? '-portal' : ''}
-            `}
-            style={{height: '100%', display: 'flex'}}>
+/**
+ * @uxpinwrappers
+ * SkipContainerWrapper
+ */
+const Card = (props, {uxpinRef}) => (
+    <div className={`
+        chi-card
+        ${props.portal ? '-portal' : ''}
+        ${props.state ? `-${props.state}` : ''}
+        `}
+        ref={uxpinRef}>
+        {props.title ?
             <div className="chi-card__header -sm">
-                <div className="chi-card__title">Title</div>
-            </div>
-            <div className="chi-card__content">
-                <div className="chi-card__caption">Aenean pretium massa sed vehicula porta. Phasellus id metus felis. Ut
-                    felis magna, facilisis ut malesuada nec.
+                <div className="chi-card__title">
+                    {props.title}
                 </div>
             </div>
-        </div>;
-    }
-}
+        : ''}
+        <div
+            style={{display: 'flex'}}
+            className="chi-card__content">
+            <div className="chi-card__caption">
+                <Icon icon="atom"></Icon>
+            </div>
+        </div>
+    </div>
+);
 
 /* eslint-disable sort-keys */
 Card.propTypes = {
     portal: PropTypes.bool,
+    state: PropTypes.oneOf(['active', 'active--alt', 'empty', 'no-border']),
+    title: PropTypes.string,
+    content: PropTypes.string,
 };
 /* eslint-enable sort-keys */
 
 Card.defaultProps = {
+    portal: true,
+    title: 'Title',
+    content: 'Content'
 };
+
+export default Card;

@@ -25,7 +25,13 @@ export default class Drawer extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
+        this.setState({
+            position: nextProps.position,
+            active: nextProps.active,
+            title: nextProps.title,
+            backdrop: nextProps.backdrop,
+            content: nextProps.content
+        });
     }
   render () {
     return (

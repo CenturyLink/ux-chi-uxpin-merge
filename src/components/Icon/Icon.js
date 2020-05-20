@@ -2,7 +2,7 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
 const Icon = (props) => (
-  <i class={`
+  <i className={`
     chi-icon
     icon-${props.icon}
     ${props.color ? `-text--${props.color}` : ''}

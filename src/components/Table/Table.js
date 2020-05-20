@@ -172,4 +172,7 @@ Table.propTypes = {
 };
 /* eslint-enable sort-keys */
 
-Table.defaultProps = {};
+Table.defaultProps = {
+  data: '{   "columns": [     {       "title": "Column A",       "align": "left"     },     {       "title": "Column B",       "align": "center"     },     {       "title": "Column C",       "align": "right"     }     ],   "rows": [     {"column a": "1", "column b": "2", "column c": "3"},     {"column a": "3", "column b": "4", "column c": "5"},     {"column a": "6", "column b": "7", "column c": "8", "state": "active"}     ] }',
+  portal: true
+};
