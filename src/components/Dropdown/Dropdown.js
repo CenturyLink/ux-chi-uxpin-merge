@@ -49,4 +49,5 @@ Dropdown.propTypes = {
 /* eslint-enable sort-keys */
 
 Dropdown.defaultProps = {
+  animate: true
 };

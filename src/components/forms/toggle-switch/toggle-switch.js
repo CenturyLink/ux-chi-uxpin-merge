@@ -22,7 +22,7 @@ ToggleSwitch.propTypes = {
 
 ToggleSwitch.defaultProps = {
   disabled: false,
-  label: '',
+  label: 'Label',
 };
 
 export { ToggleSwitch as default };

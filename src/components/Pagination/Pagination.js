@@ -59,7 +59,6 @@ Pagination.propTypes = {
     pages: PropTypes.number,
     startEnd: PropTypes.bool,
     currentPage: PropTypes.number,
-    pagesToShow: PropTypes.number,
 };
 /* eslint-enable sort-keys */
 

@@ -83,7 +83,7 @@ export default class Table extends React.Component {
     let rows = [];
 
     if (this.props.data) {
-      columns = JSON.parse(this.props.data).columns.map((column) => {
+      columns = this.props.data.columns.map((column) => {
         return <th
           className = {`
             ${column.align ? `-text--${column.align}` : ``}
@@ -91,7 +91,7 @@ export default class Table extends React.Component {
           key={this.randomNumber()}
           >{column.title}</th>;
       });
-      rows = JSON.parse(this.props.data).rows.map((row) => {
+      rows = this.props.data.rows.map((row) => {
         return (
           <tr
             className={`
@@ -99,7 +99,7 @@ export default class Table extends React.Component {
           `}
           key={this.randomNumber()}
           >
-            {JSON.parse(this.props.data).columns.map((column) => {
+            {this.props.data.columns.map((column) => {
               return <td
                 className = {`
                   ${column.align ? `-text--${column.align}` : ``}
@@ -164,7 +164,7 @@ export default class Table extends React.Component {
 
 /* eslint-disable sort-keys */
 Table.propTypes = {
-  data: PropTypes.string,
+  data: PropTypes.array,
   randomGrid: PropTypes.string,
   striped: PropTypes.bool,
   hover: PropTypes.bool,
@@ -173,6 +173,5 @@ Table.propTypes = {
 /* eslint-enable sort-keys */
 
 Table.defaultProps = {
-  data: '{   "columns": [     {       "title": "Column A",       "align": "left"     },     {       "title": "Column B",       "align": "center"     },     {       "title": "Column C",       "align": "right"     }     ],   "rows": [     {"column a": "1", "column b": "2", "column c": "3"},     {"column a": "3", "column b": "4", "column c": "5"},     {"column a": "6", "column b": "7", "column c": "8", "state": "active"}     ] }',
   portal: true
 };
