@@ -2,37 +2,28 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
 export default class Dropdown extends React.Component {
-  componentDidMount() {
-    setTimeout(() => {
-      if (chi) {
-        chi.dropdown(document.getElementById('dropdown-1'));
-      }
-    }, 1000);
-  }
-
   render() {
     return (
-      <div class="chi-dropdown">
+      <div className="chi-dropdown">
         <button
-          id="dropdown-1"
-          class={`
+          type="button"
+          className={`
             chi-button
             chi-dropdown__trigger
             ${this.props.active ? '-active' : ''}
-            ${this.props.animate ? `-animate` : ``}
-            ${this.props.disabled ? `-disabled` : ``}
-          `}
-        >
+            ${this.props.animate ? '-animate' : ''}
+            ${this.props.disabled ? '-disabled' : ''}
+          `}>
           Dropdown component
         </button>
-        <div class={`
+        <div
+          className={`
           chi-dropdown__menu
           ${this.props.active ? '-active' : ''}
           `}
           style={{
-          height: `${this.props.height ? `${this.props.height}px` : '200px'}`
-          }}
-          >
+            height: `${this.props.height ? `${this.props.height}px` : '200px'}`,
+          }}>
         </div>
       </div>
     );
@@ -49,5 +40,5 @@ Dropdown.propTypes = {
 /* eslint-enable sort-keys */
 
 Dropdown.defaultProps = {
-  animate: true
+  animate: true,
 };

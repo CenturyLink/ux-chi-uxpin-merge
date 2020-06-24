@@ -2,10 +2,10 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
 export default class Divider extends React.Component {
-  render () {
+  render() {
     return (
       <div
-      class={`
+        className={`
         chi-divider
         ${this.props.colorbar ? '-colorbar' : ''}
         ${this.props.label ? '-label' : ''}
@@ -21,7 +21,7 @@ export default class Divider extends React.Component {
 Divider.propTypes = {
   colorbar: PropTypes.bool,
   label: PropTypes.string,
-  size: PropTypes.oneOf(['1', '2', '3', '4'])
+  size: PropTypes.oneOf(['1', '2', '3', '4']),
 };
 /* eslint-enable sort-keys */
 

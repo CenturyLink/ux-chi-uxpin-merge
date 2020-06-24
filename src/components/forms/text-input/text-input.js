@@ -3,16 +3,18 @@ import * as React from 'react';
 
 const TextInput = (props) => (
   <div className="chi-form__item">
-    <input
-      type="text"
-      className={`
-      chi-input
-      ${props.state ? `-${props.state}` : ''}
-      ${props.size ? `-${props.size}` : ''}
-      `}
+    <chi-text-input
       disabled={props.disabled}
+      size={props.size}
+      state={props.state}
+      icon-left={props.iconLeft}
+      icon-left-color={props.iconLeftColor}
+      icon-right={props.iconRight}
+      icon-right-color={props.iconRightColor}
       placeholder={props.placeholder}
-      value={props.value} />
+      value={props.value}>
+
+    </chi-text-input>
   </div>
 );
 
@@ -22,6 +24,10 @@ TextInput.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   state: PropTypes.oneOf(['success', 'warning', 'danger']),
   value: PropTypes.string,
+  iconLeft: PropTypes.string,
+  iconLeftColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
+  iconRight: PropTypes.string,
+  iconRightColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
   placeholder: PropTypes.string,
 };
 /* eslint-enable sort-keys */
@@ -30,7 +36,6 @@ TextInput.defaultProps = {
   disabled: false,
   size: 'md',
   state: '',
-  value: '',
   placeholder: 'Placeholder',
 };
 

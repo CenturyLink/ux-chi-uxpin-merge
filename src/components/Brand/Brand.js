@@ -8,8 +8,8 @@ export default class Brand extends React.Component {
     return (
       <chi-brand
         color={this.props.color}
-        size={size}
-      ></chi-brand>
+        size={size}>
+      </chi-brand>
     );
   }
 }
@@ -17,7 +17,7 @@ export default class Brand extends React.Component {
 /* eslint-disable sort-keys */
 Brand.propTypes = {
   color: PropTypes.oneOf(['black', 'inverse', 'white']),
-  size: PropTypes.oneOf(['xs (12px)', 'sm (16px)', 'sm--2 (20px)', 'sm--3 (24px)', 'md (32px)', 'lg (64px)', 'xl (96px)', 'xxl (128px)'])
+  size: PropTypes.oneOf(['xs (12px)', 'sm (16px)', 'sm--2 (20px)', 'sm--3 (24px)', 'md (32px)', 'lg (64px)', 'xl (96px)', 'xxl (128px)']),
 };
 /* eslint-enable sort-keys */
 

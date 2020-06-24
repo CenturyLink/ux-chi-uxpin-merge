@@ -5,11 +5,13 @@ export default class NumberInput extends React.Component {
   render() {
     const size = this.props.size ? this.props.size.split(' ')[0] : null;
 
-    return <chi-number-input
-      disabled={this.props.disabled}
-      expanded={this.props.expanded}
-      size={size}
-    ></chi-number-input>;
+    return (
+      <chi-number-input
+        disabled={this.props.disabled}
+        expanded={this.props.expanded}
+        size={size}>
+      </chi-number-input>
+    );
   }
 }
 
@@ -24,5 +26,5 @@ NumberInput.propTypes = {
 NumberInput.defaultProps = {
   disabled: false,
   expanded: false,
-  size: 'md'
+  size: 'md',
 };

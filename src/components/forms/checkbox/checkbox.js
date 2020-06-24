@@ -1,6 +1,7 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
+/* eslint-disable */
 const Checkbox = (props) => (
   <div className="chi-form__item">
     <div className="chi-checkbox">
@@ -10,12 +11,11 @@ const Checkbox = (props) => (
   </div>
 );
 
-/* eslint-disable sort-keys */
 Checkbox.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
 };
-/* eslint-enable sort-keys */
+/* eslint-enable */
 
 Checkbox.defaultProps = {
   disabled: false,

@@ -7,17 +7,18 @@ const Icon = (props) => (
     icon-${props.icon}
     ${props.color ? `-text--${props.color}` : ''}
     ${props.size ? `-${props.size}` : ''}
-  `}></i>
+  `}>
+  </i>
 );
 
-/* eslint-disable sort-keys */
+/* eslint-disable */
 Icon.propTypes = {
   onClick: PropTypes.func,
   color: PropTypes.oneOf(['primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
   size: PropTypes.oneOf(['xs', 'sm', 'sm--2', 'sm--3', 'md', 'lg', 'xl', 'xxl']),
   icon: PropTypes.string,
 };
-/* eslint-enable sort-keys */
+/* eslint-enable */
 
 Icon.defaultProps = {
   size: 'md',

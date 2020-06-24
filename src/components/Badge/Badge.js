@@ -2,7 +2,7 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
 const Badge = (props) => (
-  <div class={
+  <div className={
     `chi-badge
     ${props.color ? `-${props.color}` : ''}
     ${props.size ? `-${props.size}` : ''}
@@ -23,7 +23,7 @@ Badge.propTypes = {
 
 Badge.defaultProps = {
   size: 'md',
-  text: 'Badge'
+  text: 'Badge',
 };
 
 export { Badge as default };

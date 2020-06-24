@@ -7,7 +7,6 @@ export default (
     size="md"
     stretched
     type="primary"
-    uxpId="button"
-    >
+    uxpId="button">
   </Button>
 );

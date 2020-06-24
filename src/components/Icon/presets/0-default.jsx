@@ -4,7 +4,6 @@ import Icon from '../Icon';
 export default (
   <Icon
     icon="atom"
-    size="md"
-    >
+    size="md">
   </Icon>
 );
