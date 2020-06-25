@@ -40,7 +40,8 @@ export default class Drawer extends React.Component {
           position={this.state.position}
           active={this.state.active}
           title={this.state.title}
-          backdrop={this.state.backdrop}>
+          backdrop={this.state.backdrop}
+          prevent-auto-hide>
           <div className="-px--2 -text">
             {this.state.content}
           </div>
