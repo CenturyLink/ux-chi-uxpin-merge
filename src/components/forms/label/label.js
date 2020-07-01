@@ -4,15 +4,30 @@ import * as React from 'react';
 /* eslint-disable */
 export default class Label extends React.Component {
   render() {
-    const size = this.props.size ? this.props.size.split(' ')[0] : null;
+    const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
+    const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
+    let message = '';
 
-    return <chi-label
-      size={size}
-      required={this.props.required}
-      optional={this.props.optional}
-    >
-      {this.props.label}
-    </chi-label>;
+    if (!(this.props.required && this.props.optional)) {
+      if (this.props.required) {
+        message = required;
+      } else if (this.props.optional) {
+        message = optional;
+      }
+    }
+
+    return (
+      <label
+        class={`
+          chi-label
+          ${this.props.size ? `-${this.props.size}` : ``}
+          `}
+        htmlFor={`${this.for}-control`}
+      >
+        {this.props.label}
+        {message}
+      </label>
+    );
   }
 }
 
