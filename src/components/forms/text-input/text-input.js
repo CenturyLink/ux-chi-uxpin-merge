@@ -1,42 +1,61 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import Label from '../label/label';
 
-const TextInput = (props) => (
-  <div className="chi-form__item">
-    <chi-text-input
-      disabled={props.disabled}
-      size={props.size}
-      state={props.state}
-      icon-left={props.iconLeft}
-      icon-left-color={props.iconLeftColor}
-      icon-right={props.iconRight}
-      icon-right-color={props.iconRightColor}
-      placeholder={props.placeholder}
-      value={props.value}>
+export default class TextInput extends React.Component {
+  render() {
+    const label = this.props.label
+      ? (
+        <Label
+          htmlFor="number-input"
+          className="chi-label"
+          required={this.props.labelRequired}
+          optional={this.props.labelOptional}
+          label={this.props.label}>
+        </Label>
+      )
+      : null;
 
-    </chi-text-input>
-  </div>
-);
+    return (
+      <div className="chi-form__item">
+        {label}
+        <chi-text-input
+          disabled={this.props.disabled}
+          size={this.props.size}
+          state={this.props.state}
+          icon-left={this.props.iconLeft}
+          icon-left-color={this.props.iconLeftColor}
+          icon-right={this.props.iconRight}
+          icon-right-color={this.props.iconRightColor}
+          placeholder={this.props.placeholder}
+          value={this.props.value}>
+        </chi-text-input>
+      </div>
+    );
+  }
+}
 
 /* eslint-disable sort-keys */
 TextInput.propTypes = {
   disabled: PropTypes.bool,
-  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
-  state: PropTypes.oneOf(['success', 'warning', 'danger']),
-  value: PropTypes.string,
   iconLeft: PropTypes.string,
   iconLeftColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
   iconRight: PropTypes.string,
   iconRightColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
+  label: PropTypes.string,
+  labelRequired: PropTypes.bool,
+  labelOptional: PropTypes.bool,
   placeholder: PropTypes.string,
+  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  state: PropTypes.oneOf(['success', 'warning', 'danger']),
+  value: PropTypes.string,
 };
 /* eslint-enable sort-keys */
 
 TextInput.defaultProps = {
   disabled: false,
+  label: 'Label',
   size: 'md',
   state: '',
   placeholder: 'Placeholder',
 };
-
-export { TextInput as default };

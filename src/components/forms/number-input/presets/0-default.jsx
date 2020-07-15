@@ -2,5 +2,5 @@ import React from 'react';
 import NumberInput from '../number-input';
 
 export default (
-  <NumberInput>ASD</NumberInput>
+  <NumberInput> </NumberInput>
 );

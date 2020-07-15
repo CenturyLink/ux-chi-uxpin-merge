@@ -18,7 +18,7 @@ export default class Label extends React.Component {
 
     return (
       <label
-        class={`
+        className={`
           chi-label
           ${this.props.size ? `-${this.props.size}` : ``}
           `}
