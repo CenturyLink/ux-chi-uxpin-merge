@@ -15,6 +15,7 @@ module.exports = {
         include: [
           'src/components/forms/checkbox/checkbox.js',
           'src/components/Date-picker/Date-picker.js',
+          'src/components/forms/file-input/file-input.js',
           'src/components/forms/label/label.js',
           'src/components/forms/number-input/number-input.js',
           'src/components/forms/radio/radio.js',

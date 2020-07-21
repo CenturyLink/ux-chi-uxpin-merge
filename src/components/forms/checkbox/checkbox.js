@@ -10,7 +10,7 @@ export default class Checkbox extends React.Component {
         .forEach((_, i) => {
           if (this.props[`label${i}`]) {
             checkboxesToRender.push(
-                <div className="chi-form__item">
+                <div className={`chi-form__item ${this.props.inline ? '-inline' : ''}`}>
                   <div className="chi-checkbox">
                     <input type="checkbox" className="chi-checkbox__input" disabled={this.props[`disabled${i}`]}
                            checked={this.props[`checked${i}`]}/>
@@ -22,16 +22,17 @@ export default class Checkbox extends React.Component {
         });
     const fieldLabel = this.props.fieldLabel ? <div className="chi-label">{this.props.fieldLabel}</div> : '';
     return (
-        <div>
+        <fieldset>
           {fieldLabel}
           {checkboxesToRender}
-        </div>
+        </fieldset>
     );
   }
 }
 
 Checkbox.propTypes = {
   fieldLabel: PropTypes.string,
+  inline: PropTypes.bool,
   label1: PropTypes.string,
   disabled1: PropTypes.bool,
   checked1: PropTypes.bool,

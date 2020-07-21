@@ -17,7 +17,7 @@ export default class DatePicker extends React.Component {
       : null;
 
     return (
-      <div className="chi-form__item">
+      <div className="chi-form__item" style={{width: '14rem'}}>
         {label}
         <chi-date-picker
           disabled={this.props.disabled}
