@@ -14,7 +14,7 @@ export default class Button extends React.Component {
 
     return (
       <button
-          onClick={this.props.onClick}
+        onClick={this.props.onClick}
         type="button"
         className={`
           chi-button 

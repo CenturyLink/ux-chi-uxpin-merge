@@ -3,6 +3,23 @@ import * as React from 'react';
 import Label from '../label/label';
 
 export default class TextInput extends React.Component {
+  componentDidMount() {
+    const textInput = document.querySelector('#chi-text-input');
+
+    textInput.addEventListener('chiFocus', () => {
+      this.props.focus();
+    });
+    textInput.addEventListener('chiBlur', () => {
+      this.props.focusLost();
+    });
+    textInput.addEventListener('chiInput', () => {
+      this.props.input();
+    });
+    textInput.addEventListener('chiChange', () => {
+      this.props.valueChange();
+    });
+  }
+
   render() {
     const label = this.props.label
       ? (
@@ -20,6 +37,7 @@ export default class TextInput extends React.Component {
       <div className="chi-form__item">
         {label}
         <chi-text-input
+          id="chi-text-input"
           disabled={this.props.disabled}
           size={this.props.size}
           state={this.props.state}
@@ -28,7 +46,11 @@ export default class TextInput extends React.Component {
           icon-right={this.props.iconRight}
           icon-right-color={this.props.iconRightColor}
           placeholder={this.props.placeholder}
-          value={this.props.value}>
+          value={this.props.value}
+          onMouseEnter={this.props.mouseOver}
+          onMouseLeave={this.props.mouseLeave}
+          onMouseDown={this.props.mouseDown}
+          onMouseUp={this.props.mouseUp}>
         </chi-text-input>
       </div>
     );
@@ -42,6 +64,14 @@ TextInput.propTypes = {
   iconLeftColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
   iconRight: PropTypes.string,
   iconRightColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
+  focus: PropTypes.func,
+  focusLost: PropTypes.func,
+  input: PropTypes.func,
+  valueChange: PropTypes.func,
+  mouseDown: PropTypes.func,
+  mouseUp: PropTypes.func,
+  mouseOver: PropTypes.func,
+  mouseLeave: PropTypes.func,
   label: PropTypes.string,
   labelRequired: PropTypes.bool,
   labelOptional: PropTypes.bool,
