@@ -17,6 +17,7 @@ module.exports = {
           'src/components/Date-picker/Date-picker.js',
           'src/components/forms/label/label.js',
           'src/components/forms/number-input/number-input.js',
+          'src/components/forms/radio/radio.js',
           'src/components/forms/text-input/text-input.js',
           'src/components/forms/textarea/textarea.js',
           'src/components/forms/toggle-switch/toggle-switch.js',
