@@ -14,14 +14,18 @@ export default class Button extends React.Component {
 
     return (
       <button
-        onClick={this.props.onClick}
         type="button"
         className={`
           chi-button 
           ${this.props.color ? `-${this.props.color}` : ''}
           ${this.props.size ? `-${this.props.size}` : ''}
           `}
-        disabled={this.props.disabled}>
+        disabled={this.props.disabled}
+        onClick={this.props.click}
+        onMouseEnter={this.props.mouseOver}
+        onMouseLeave={this.props.mouseLeave}
+        onMouseDown={this.props.mouseDown}
+        onMouseUp={this.props.mouseUp}>
         {buttonContent}
       </button>
     );
@@ -30,13 +34,17 @@ export default class Button extends React.Component {
 
 /* eslint-disable */
 Button.propTypes = {
-  onClick: PropTypes.func,
   disabled: PropTypes.bool,
   color: PropTypes.oneOf(['primary', 'secondary', 'dark', 'light', 'danger']),
   leftIcon: PropTypes.string,
   rightIcon: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   value: PropTypes.string,
+  click: PropTypes.func,
+  mouseDown: PropTypes.func,
+  mouseUp: PropTypes.func,
+  mouseOver: PropTypes.func,
+  mouseLeave: PropTypes.func,
 };
 /* eslint-enable */
 
