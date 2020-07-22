@@ -33,7 +33,7 @@ export default class NumberInput extends React.Component {
     const label = this.props.label
       ? (
         <Label
-          htmlFor="number-input"
+          htmlFor={uuid}
           className="chi-label"
           required={this.props.labelRequired}
           optional={this.props.labelOptional}
