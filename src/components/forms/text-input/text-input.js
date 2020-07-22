@@ -1,10 +1,12 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import Label from '../label/label';
+import { uuid4 } from '../../../utils/utils';
 
+const uuid = uuid4();
 export default class TextInput extends React.Component {
   componentDidMount() {
-    const textInput = document.querySelector('#chi-text-input');
+    const textInput = document.getElementById(`${uuid}`);
 
     textInput.addEventListener('chiFocus', () => {
       this.props.focus();
@@ -37,7 +39,7 @@ export default class TextInput extends React.Component {
       <div className="chi-form__item">
         {label}
         <chi-text-input
-          id="chi-text-input"
+          id={uuid}
           disabled={this.props.disabled}
           size={this.props.size}
           state={this.props.state}
