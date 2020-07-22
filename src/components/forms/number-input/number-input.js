@@ -8,25 +8,27 @@ export default class NumberInput extends React.Component {
   componentDidMount() {
     const numberInput = document.getElementById(`${uuid}`);
 
-    numberInput.addEventListener('chiChange', () => {
-      this.props.valueChange();
-    });
-    setTimeout(() => {
-      const input = numberInput.querySelector('input');
-      const self = this;
+    if (numberInput) {
+      numberInput.addEventListener('chiChange', () => {
+        this.props.valueChange();
+      });
+      setTimeout(() => {
+        const input = numberInput.querySelector('input');
+        const self = this;
 
-      if (input) {
-        input.addEventListener('focus', () => {
-          self.props.focus();
-        });
-        input.addEventListener('blur', () => {
-          self.props.focusLost();
-        });
-        input.addEventListener('input', () => {
-          self.props.input();
-        });
-      }
-    }, 1000);
+        if (input) {
+          input.addEventListener('focus', () => {
+            self.props.focus();
+          });
+          input.addEventListener('blur', () => {
+            self.props.focusLost();
+          });
+          input.addEventListener('input', () => {
+            self.props.input();
+          });
+        }
+      }, 1000);
+    }
   }
 
   render() {

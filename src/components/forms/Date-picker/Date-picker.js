@@ -1,18 +1,15 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import Label from '../label/label';
-import { uuid4 } from '../../../utils/utils';
 
-const uuid = uuid4();
 export default class DatePicker extends React.Component {
   componentDidMount() {
-    const datePicker = document.getElementById(`${uuid}`);
-
     setTimeout(() => {
-      const input = datePicker.querySelector('input');
+      const datePicker = document.getElementById('chi-datepicker-control');
       const self = this;
 
-      if (input) {
+      if (datePicker) {
+        const input = datePicker.querySelector('input');
         input.addEventListener('focus', () => {
           self.props.focus();
         });
@@ -33,7 +30,6 @@ export default class DatePicker extends React.Component {
     const label = this.props.label
       ? (
         <Label
-          htmlFor={uuid}
           className="chi-label"
           required={this.props.labelRequired}
           optional={this.props.labelOptional}
@@ -46,7 +42,7 @@ export default class DatePicker extends React.Component {
       <div className="chi-form__item" style={{ width: '14rem' }}>
         {label}
         <chi-date-picker
-          id={uuid}
+          id="chi-datepicker-control"
           disabled={this.props.disabled}
           excluded-weekdays={this.props.weekdays}
           excluded-dates={this.props.dates}

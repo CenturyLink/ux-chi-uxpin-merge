@@ -6,20 +6,23 @@ import { uuid4 } from '../../../utils/utils';
 const uuid = uuid4();
 export default class TextInput extends React.Component {
   componentDidMount() {
-    const textInput = document.getElementById(`${uuid}`);
+    setTimeout(() => {
+      const textInput = document.getElementById(`${uuid}`);
+      const self = this;
 
-    textInput.addEventListener('chiFocus', () => {
-      this.props.focus();
-    });
-    textInput.addEventListener('chiBlur', () => {
-      this.props.focusLost();
-    });
-    textInput.addEventListener('chiInput', () => {
-      this.props.input();
-    });
-    textInput.addEventListener('chiChange', () => {
-      this.props.valueChange();
-    });
+      textInput.addEventListener('chiFocus', () => {
+        self.props.focus();
+      });
+      textInput.addEventListener('chiBlur', () => {
+        self.props.focusLost();
+      });
+      textInput.addEventListener('chiInput', () => {
+        self.props.input();
+      });
+      textInput.addEventListener('chiChange', () => {
+        self.props.valueChange();
+      });
+    }, 1000);
   }
 
   render() {
@@ -60,7 +63,7 @@ export default class TextInput extends React.Component {
   }
 }
 
-/* eslint-disable sort-keys */
+/* eslint-disable */
 TextInput.propTypes = {
   disabled: PropTypes.bool,
   iconLeft: PropTypes.string,
@@ -84,7 +87,7 @@ TextInput.propTypes = {
   state: PropTypes.oneOf(['success', 'warning', 'danger']),
   value: PropTypes.string,
 };
-/* eslint-enable sort-keys */
+/* eslint-enable */
 
 TextInput.defaultProps = {
   disabled: false,

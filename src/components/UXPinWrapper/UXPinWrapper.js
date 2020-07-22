@@ -4,32 +4,32 @@ import React from 'react';
 // import '../../assets/chi/js/chi';
 
 export default function UXPinWrapper({ children }) {
-  if (!document.head.querySelector('#chi-css')) {
+  if (!document.getElementById('chi-css')) {
     const chiCss = document.createElement('link');
     chiCss.setAttribute('rel', 'stylesheet');
-    chiCss.setAttribute('href', 'https://assets.ctl.io/chi/2.2.0/chi.css');
+    chiCss.setAttribute('href', 'https://assets.ctl.io/chi/2.4.0/chi.css');
     chiCss.setAttribute('id', 'chi-css');
     document.head.appendChild(chiCss);
   }
 
-  if (!document.head.querySelector('#chi-js')) {
+  if (!document.getElementById('chi-js')) {
     const chiJs = document.createElement('script');
-    chiJs.setAttribute('src', 'https://assets.ctl.io/chi/2.2.0/js/chi.js');
+    chiJs.setAttribute('src', 'https://assets.ctl.io/chi/2.4.0/js/chi.js');
     chiJs.setAttribute('id', 'chi-js');
     document.head.appendChild(chiJs);
   }
 
-  if (!document.head.querySelector('#chi-ce-module')) {
+  if (!document.getElementById('chi-ce-module')) {
     const chiCeModule = document.createElement('script');
-    chiCeModule.setAttribute('src', 'https://assets.ctl.io/chi/2.2.0/js/ce/ux-chi-ce/ux-chi-ce.esm.js');
+    chiCeModule.setAttribute('src', 'https://assets.ctl.io/chi/2.4.0/js/ce/ux-chi-ce/ux-chi-ce.esm.js');
     chiCeModule.setAttribute('type', 'module');
     chiCeModule.setAttribute('id', 'chi-ce-module');
     document.head.appendChild(chiCeModule);
   }
 
-  if (!document.head.querySelector('#chi-ce-nomodule')) {
+  if (!document.getElementById('chi-ce-nomodule')) {
     const chiCeNomodule = document.createElement('script');
-    chiCeNomodule.setAttribute('src', 'https://assets.ctl.io/chi/2.2.0/js/ce/ux-chi-ce/ux-chi-ce.js');
+    chiCeNomodule.setAttribute('src', 'https://assets.ctl.io/chi/2.4.0/js/ce/ux-chi-ce/ux-chi-ce.js');
     chiCeNomodule.setAttribute('nomodule', '');
     chiCeNomodule.setAttribute('id', 'chi-ce-nomodule');
     document.head.appendChild(chiCeNomodule);

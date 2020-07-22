@@ -14,20 +14,25 @@ export default class Textarea extends React.Component {
   }
 
   componentDidMount() {
-    const textArea = document.getElementById(`${uuid}`);
+    setTimeout(() => {
+      const textArea = document.getElementById(`${uuid}`);
+      const self = this;
 
-    textArea.addEventListener('chiFocus', () => {
-      this.props.focus();
-    });
-    textArea.addEventListener('chiBlur', () => {
-      this.props.focusLost();
-    });
-    textArea.addEventListener('chiInput', () => {
-      this.props.input();
-    });
-    textArea.addEventListener('chiChange', () => {
-      this.props.valueChange();
-    });
+      if (textArea) {
+        textArea.addEventListener('chiFocus', () => {
+          self.props.focus();
+        });
+        textArea.addEventListener('chiBlur', () => {
+          self.props.focusLost();
+        });
+        textArea.addEventListener('chiInput', () => {
+          self.props.input();
+        });
+        textArea.addEventListener('chiChange', () => {
+          self.props.valueChange();
+        });
+      }
+    }, 1000);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -84,7 +89,7 @@ export default class Textarea extends React.Component {
   }
 }
 
-/* eslint-disable sort-keys */
+/* eslint-disable */
 Textarea.propTypes = {
   disabled: PropTypes.bool,
   iconLeft: PropTypes.string,
@@ -108,7 +113,7 @@ Textarea.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   value: PropTypes.string,
 };
-/* eslint-enable sort-keys */
+/* eslint-enable */
 
 Textarea.defaultProps = {
   disabled: false,
