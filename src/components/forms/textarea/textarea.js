@@ -72,6 +72,7 @@ export default class Textarea extends React.Component {
           state={this.props.state}
           size={this.props.size}
           placeholder={this.props.placeholder}
+          onClick={this.props.click}
           onMouseEnter={this.props.mouseOver}
           onMouseLeave={this.props.mouseLeave}
           onMouseDown={this.props.mouseDown}
@@ -90,6 +91,7 @@ Textarea.propTypes = {
   iconLeftColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
   iconRight: PropTypes.string,
   iconRightColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
+  click: PropTypes.func,
   focus: PropTypes.func,
   focusLost: PropTypes.func,
   input: PropTypes.func,

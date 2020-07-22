@@ -23,6 +23,7 @@ export default class Label extends React.Component {
           ${this.props.size ? `-${this.props.size}` : ``}
           `}
         htmlFor={`${this.for}-control`}
+        onClick={this.props.click}
         onMouseEnter={this.props.mouseOver}
         onMouseLeave={this.props.mouseLeave}
         onMouseDown={this.props.mouseDown}
@@ -40,6 +41,7 @@ Label.propTypes = {
   required: PropTypes.bool,
   optional: PropTypes.bool,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  click: PropTypes.func,
   mouseDown: PropTypes.func,
   mouseUp: PropTypes.func,
   mouseOver: PropTypes.func,

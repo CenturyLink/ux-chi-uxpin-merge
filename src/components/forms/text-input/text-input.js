@@ -49,6 +49,7 @@ export default class TextInput extends React.Component {
           icon-right-color={this.props.iconRightColor}
           placeholder={this.props.placeholder}
           value={this.props.value}
+          onClick={this.props.click}
           onMouseEnter={this.props.mouseOver}
           onMouseLeave={this.props.mouseLeave}
           onMouseDown={this.props.mouseDown}
@@ -66,6 +67,7 @@ TextInput.propTypes = {
   iconLeftColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
   iconRight: PropTypes.string,
   iconRightColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
+  click: PropTypes.func,
   focus: PropTypes.func,
   focusLost: PropTypes.func,
   input: PropTypes.func,
