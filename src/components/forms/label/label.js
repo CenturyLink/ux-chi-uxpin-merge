@@ -23,6 +23,10 @@ export default class Label extends React.Component {
           ${this.props.size ? `-${this.props.size}` : ``}
           `}
         htmlFor={`${this.for}-control`}
+        onMouseEnter={this.props.mouseOver}
+        onMouseLeave={this.props.mouseLeave}
+        onMouseDown={this.props.mouseDown}
+        onMouseUp={this.props.mouseUp}
       >
         {this.props.label}
         {message}
@@ -36,6 +40,10 @@ Label.propTypes = {
   required: PropTypes.bool,
   optional: PropTypes.bool,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  mouseDown: PropTypes.func,
+  mouseUp: PropTypes.func,
+  mouseOver: PropTypes.func,
+  mouseLeave: PropTypes.func,
 };
 /* eslint-enable */
 
