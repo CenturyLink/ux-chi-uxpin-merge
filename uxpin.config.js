@@ -14,7 +14,7 @@ module.exports = {
         name: 'Form elements',
         include: [
           'src/components/forms/checkbox/checkbox.js',
-          'src/components/Date-picker/Date-picker.js',
+          'src/components/forms/Date-picker/Date-picker.js',
           'src/components/forms/file-input/file-input.js',
           'src/components/forms/label/label.js',
           'src/components/forms/number-input/number-input.js',
@@ -36,6 +36,7 @@ module.exports = {
           'src/components/Dropdown/Dropdown.js',
           'src/components/Icon/Icon.js',
           'src/components/Pagination/Pagination.js',
+          'src/components/progress/progress.js',
           'src/components/Spinner/Spinner.js',
         ],
       },

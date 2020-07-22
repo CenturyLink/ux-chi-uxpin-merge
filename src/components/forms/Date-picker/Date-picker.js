@@ -1,6 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import Label from '../forms/label/label';
+import Label from '../label/label';
 
 export default class DatePicker extends React.Component {
   render() {
@@ -17,7 +17,7 @@ export default class DatePicker extends React.Component {
       : null;
 
     return (
-      <div className="chi-form__item" style={{width: '14rem'}}>
+      <div className="chi-form__item" style={{ width: '14rem' }}>
         {label}
         <chi-date-picker
           disabled={this.props.disabled}
