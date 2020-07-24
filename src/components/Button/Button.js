@@ -20,7 +20,7 @@ export default class Button extends React.Component {
         type="button"
         className={`
           chi-button 
-          ${this.props.color ? `-${this.props.color}` : ''}
+          ${this.props.color && this.props.color !== 'base' ? `-${this.props.color}` : ''}
           ${this.props.size ? `-${this.props.size}` : ''}
           `}
         disabled={this.props.disabled}
@@ -38,7 +38,7 @@ export default class Button extends React.Component {
 /* eslint-disable */
 Button.propTypes = {
   disabled: PropTypes.bool,
-  color: PropTypes.oneOf(['primary', 'secondary', 'dark', 'light', 'danger']),
+  color: PropTypes.oneOf(['base', 'primary', 'secondary', 'dark', 'light', 'danger']),
   leftIcon: PropTypes.string,
   rightIcon: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
@@ -54,6 +54,6 @@ Button.propTypes = {
 Button.defaultProps = {
   disabled: false,
   size: 'md',
-  color: 'primary',
+  color: 'base',
   value: 'Button',
 };
