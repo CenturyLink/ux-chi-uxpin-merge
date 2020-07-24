@@ -74,6 +74,9 @@ const loremIpsum = [
 ];
 
 /* eslint-disable  */
+/**
+ * @uxpincomponent
+ */
 export default class Table extends React.Component {
   randomNumber() {
     return Math.floor(Math.random() * 100000000) + 1;

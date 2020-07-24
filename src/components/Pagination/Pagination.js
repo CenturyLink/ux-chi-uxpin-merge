@@ -2,6 +2,9 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import './pagination.css';
 
+/**
+ * @uxpincomponent
+ */
 export default class Pagination extends React.Component {
   render() {
     return (

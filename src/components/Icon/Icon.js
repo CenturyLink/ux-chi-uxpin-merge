@@ -2,6 +2,9 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
 /* eslint-disable */
+/**
+ * @uxpincomponent
+ */
 const Icon = (props) => (
   <i className={`
     chi-icon

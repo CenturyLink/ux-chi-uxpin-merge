@@ -1,6 +1,9 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
+/**
+ * @uxpincomponent
+ */
 export default class Brand extends React.Component {
   render() {
     const size = this.props.size.split(' ')[0];

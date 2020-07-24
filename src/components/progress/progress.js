@@ -4,6 +4,9 @@ import { uuid4 } from '../../utils/utils';
 
 const uuid = uuid4();
 /* eslint-disable */
+/**
+ * @uxpincomponent
+ */
 const Progress = (props) => (
   <div>
     <div className="chi-label" id={uuid}>{props.progress}%</div>

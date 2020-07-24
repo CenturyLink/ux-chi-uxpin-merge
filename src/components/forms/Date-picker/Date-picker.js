@@ -2,6 +2,9 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import Label from '../label/label';
 
+/**
+ * @uxpincomponent
+ */
 export default class DatePicker extends React.Component {
   componentDidMount() {
     setTimeout(() => {

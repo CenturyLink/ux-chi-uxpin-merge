@@ -1,6 +1,9 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
+/**
+ * @uxpincomponent
+ */
 export default class Spinner extends React.Component {
   render() {
     const backdropColor = this.props.backdrop === 'Default' ? '' : '-inverse';

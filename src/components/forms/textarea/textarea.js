@@ -5,6 +5,9 @@ import Label from '../label/label';
 import { uuid4 } from '../../../utils/utils';
 
 const uuid = uuid4();
+/**
+ * @uxpincomponent
+ */
 export default class Textarea extends React.Component {
   constructor(props) {
     super(props);
@@ -109,7 +112,6 @@ Textarea.propTypes = {
   label: PropTypes.string,
   labelRequired: PropTypes.bool,
   labelOptional: PropTypes.bool,
-  placeholder: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   value: PropTypes.string,
 };

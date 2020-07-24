@@ -3,6 +3,9 @@ import * as React from 'react';
 import { uuid4 } from '../../../utils/utils';
 
 /* eslint-disable */
+/**
+ * @uxpincomponent
+ */
 export default class Radio extends React.Component {
   render() {
     const radiosToRender = [];

@@ -4,6 +4,9 @@ import Label from '../label/label';
 import { uuid4 } from '../../../utils/utils';
 
 const uuid = uuid4();
+/**
+ * @uxpincomponent
+ */
 export default class NumberInput extends React.Component {
   componentDidMount() {
     const numberInput = document.getElementById(`${uuid}`);

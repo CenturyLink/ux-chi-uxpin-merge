@@ -2,6 +2,9 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import './button.css';
 
+/**
+ * @uxpincomponent
+ */
 export default class Button extends React.Component {
   render() {
     const buttonContent = this.props.leftIcon || this.props.rightIcon ? (

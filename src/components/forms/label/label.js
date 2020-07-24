@@ -2,6 +2,9 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
 /* eslint-disable */
+/**
+ * @uxpincomponent
+ */
 export default class Label extends React.Component {
   render() {
     const required = <abbr class="chi-label__required" title="Required field">*</abbr>;

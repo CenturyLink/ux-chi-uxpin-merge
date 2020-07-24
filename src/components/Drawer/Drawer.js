@@ -1,6 +1,9 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
+/**
+ * @uxpincomponent
+ */
 export default class Drawer extends React.Component {
   constructor(props) {
     super(props);

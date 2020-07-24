@@ -1,6 +1,9 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
+/**
+ * @uxpincomponent
+ */
 export default class Divider extends React.Component {
   render() {
     return (

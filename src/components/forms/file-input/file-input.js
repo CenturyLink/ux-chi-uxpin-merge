@@ -4,6 +4,9 @@ import { uuid4 } from '../../../utils/utils';
 
 const uuid = uuid4();
 /* eslint-disable */
+/**
+ * @uxpincomponent
+ */
 const FileInput = (props) => (
   <div className="chi-form__item"
        onMouseEnter={props.mouseOver}
