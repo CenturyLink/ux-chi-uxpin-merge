@@ -45,7 +45,7 @@ export default class TextInput extends React.Component {
           id={uuid}
           disabled={this.props.disabled}
           size={this.props.size}
-          state={this.props.state}
+          state={['success', 'warning', 'danger'].includes(this.props.state) ? this.props.state : ''}
           icon-left={this.props.iconLeft}
           icon-left-color={this.props.iconLeftColor}
           icon-right={this.props.iconRight}
@@ -84,7 +84,7 @@ TextInput.propTypes = {
   labelOptional: PropTypes.bool,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
-  state: PropTypes.oneOf(['success', 'warning', 'danger']),
+  state: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
   value: PropTypes.string,
 };
 /* eslint-enable */
@@ -93,6 +93,6 @@ TextInput.defaultProps = {
   disabled: false,
   label: 'Label',
   size: 'md',
-  state: '',
-  placeholder: 'Placeholder',
+  state: 'default',
+  placeholder: '',
 };
