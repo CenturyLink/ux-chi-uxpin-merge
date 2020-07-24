@@ -1,6 +1,5 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import Icon from '../Icon/Icon';
 /**
  * @uxpincomponent
  */
@@ -27,7 +26,7 @@ const Card = (props, {uxpinRef}) => (
         style={{display: 'flex'}}
         className="chi-card__content">
       <div className="chi-card__caption">
-        <Icon icon="atom"></Icon>
+        {props.content}
       </div>
     </div>
   </div>
