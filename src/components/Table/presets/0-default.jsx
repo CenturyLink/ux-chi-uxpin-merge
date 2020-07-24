@@ -6,5 +6,8 @@ const tableData = JSON.parse('{"columns":[{"title":"ColumnA","align":"left"},{"t
 /* eslint-enable */
 
 export default (
-  <Table data={tableData}></Table>
+  /**
+   * @uxpincomponent
+  */
+  <Table data={tableData}> </Table>
 );

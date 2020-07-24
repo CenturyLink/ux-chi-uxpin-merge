@@ -1,9 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
-/**
- * @uxpincomponent
- */
 const Badge = (props) => (
   <div className={
     `chi-badge

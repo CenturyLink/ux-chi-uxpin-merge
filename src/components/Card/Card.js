@@ -2,8 +2,6 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 /**
  * @uxpincomponent
- */
-/**
  * @uxpinwrappers
  * SkipContainerWrapper
  */
@@ -14,7 +12,8 @@ const Card = (props, {uxpinRef}) => (
     ${props.portal ? '-portal' : ''}
     ${props.state ? `-${props.state}` : ''}
     `}
-     ref={ uxpinRef }>
+     ref={ uxpinRef }
+  style={{width: `${props.width}px`, height: `${props.height}px`}}>
     {props.title ?
       <div className="chi-card__header -sm">
         <div className="chi-card__title">
@@ -37,6 +36,8 @@ Card.propTypes = {
   state: PropTypes.oneOf(['active', 'active--alt', 'empty', 'no-border']),
   title: PropTypes.string,
   content: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number,
 };
 /* eslint-enable */
 
@@ -44,6 +45,8 @@ Card.defaultProps = {
   portal: true,
   title: 'Title',
   content: 'Content',
+  width: 336,
+  height: 300,
 };
 
 export default Card;
