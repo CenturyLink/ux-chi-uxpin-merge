@@ -5,7 +5,7 @@ module.exports = {
       {
         name: 'Enterprise',
         include: [
-          // 'src/components/Card/Card.js',
+          'src/components/Card/Card.js',
           // 'src/components/Modal/Modal.js',
           'src/components/Table/Table.js',
         ],

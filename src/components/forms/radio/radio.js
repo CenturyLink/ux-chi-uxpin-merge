@@ -19,8 +19,8 @@ export default class Radio extends React.Component {
             radiosToRender.push(
                 <div className={`chi-form__item ${inline}`}>
                   <div className="chi-radio">
-                    <input className="chi-radio__input" type="radio" name="radios" id={uuid}
-                           checked={i === this.props.selectedOption} disabled={this.props[`disabled${i}`]}/>
+                    <input className="chi-radio__input" type="radio" name={`radios-${uuid}`} id={uuid}
+                       checked={i === this.props.selectedOption} disabled={this.props[`disabled${i}`]}/>
                     <label className="chi-radio__label" htmlFor={uuid}>{this.props[`option${i}`]}</label>
                   </div>
                 </div>
