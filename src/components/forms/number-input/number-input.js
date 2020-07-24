@@ -61,7 +61,8 @@ export default class NumberInput extends React.Component {
           onMouseEnter={this.props.mouseOver}
           onMouseLeave={this.props.mouseLeave}
           onMouseDown={this.props.mouseDown}
-          onMouseUp={this.props.mouseUp}>
+          onMouseUp={this.props.mouseUp}
+          value={this.props.value}>
         </chi-number-input>
       </div>
     );
@@ -76,6 +77,7 @@ NumberInput.propTypes = {
   labelRequired: PropTypes.bool,
   labelOptional: PropTypes.bool,
   size: PropTypes.oneOf(['sm (24px)', 'md (32px)', 'lg (40px)', 'xl (48px)']),
+  value: PropTypes.string,
   click: PropTypes.func,
   focus: PropTypes.func,
   focusLost: PropTypes.func,
@@ -93,4 +95,5 @@ NumberInput.defaultProps = {
   expanded: false,
   size: 'md',
   label: 'Label',
+  value: '0',
 };

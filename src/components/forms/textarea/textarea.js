@@ -8,11 +8,16 @@ const uuid = uuid4();
 /**
  * @uxpincomponent
  */
+/**
+ * @uxpinwrappers
+ * SkipContainerWrapper
+ */
 export default class Textarea extends React.Component {
-  constructor(props) {
+  constructor(props, { uxpinRef }) {
     super(props);
     this.state = {
-      value: 'Sample Text',
+      value: '',
+      uxpinRef: uxpinRef,
     };
   }
 
@@ -64,11 +69,11 @@ export default class Textarea extends React.Component {
     setTimeout(() => {
       const textareaElement = chiTextareaNode.querySelector('textarea');
 
-      textareaElement.innerText = this.state.value ? this.state.value : 'Sample Text';
+      textareaElement.innerText = this.state.value ? this.state.value : '';
     }, 500);
 
     return (
-      <div className="chi-form__item">
+      <div className="chi-form__item" ref={this.state.uxpinRef}>
         {label}
         <chi-textarea
           id={uuid}
@@ -77,15 +82,13 @@ export default class Textarea extends React.Component {
           icon-left-color={this.props.iconLeftColor}
           icon-right-color={this.props.iconRightColor}
           disabled={this.props.disabled}
-          state={this.props.state}
+          state={['success', 'warning', 'danger'].includes(this.props.state) ? this.props.state : ''}
           size={this.props.size}
-          placeholder={this.props.placeholder}
           onClick={this.props.click}
           onMouseEnter={this.props.mouseOver}
           onMouseLeave={this.props.mouseLeave}
           onMouseDown={this.props.mouseDown}
           onMouseUp={this.props.mouseUp}>
-          Sample Text
         </chi-textarea>
       </div>
     );
@@ -108,7 +111,7 @@ Textarea.propTypes = {
   mouseUp: PropTypes.func,
   mouseOver: PropTypes.func,
   mouseLeave: PropTypes.func,
-  state: PropTypes.oneOf(['', 'success', 'warning', 'danger']),
+  state: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
   label: PropTypes.string,
   labelRequired: PropTypes.bool,
   labelOptional: PropTypes.bool,
@@ -120,7 +123,6 @@ Textarea.propTypes = {
 Textarea.defaultProps = {
   disabled: false,
   label: 'Label',
-  placeholder: 'Placeholder',
   size: 'md',
-  state: '',
+  state: 'default',
 };
