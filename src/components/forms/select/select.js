@@ -28,15 +28,30 @@ export default class Select extends React.Component {
       .forEach((_, i) => {
         if (this.props[`option${i}`]) {
           optionsToRender.push(
-            <option value={(this.props[`option${i}`]).toString().toLowerCase()}>{this.props[`option${i}`]}</option>
+            <option value={i}>{this.props[`option${i}`]}</option>
           );
         }
       });
+    const onChange = (e) => {
+      this.props.valueChange();
+      this.props[`selected${e.target.value}`]();
+    };
 
     return (
       <div className="chi-form__item css-chi">
         {label}
-        <select className={`chi-input ${this.props.size ? `-${this.props.size}` : ''}`} id={uuid}>
+        <select
+          onClick={this.props.click}
+          onFocus={this.props.focus}
+          onBlur={this.props.focusLost}
+          onInput={this.props.input}
+          onChange={(e) => onChange(e)}
+          onMouseDown={this.props.mouseDown}
+          onMouseUp={this.props.mouseUp}
+          onMouseOver={this.props.mouseOver}
+          onMouseLeave={this.props.mouseLeave}
+          id={uuid}
+          className={`chi-input ${this.props.size ? `-${this.props.size}` : ''}`}>
           {optionsToRender}
         </select>
       </div>
@@ -68,6 +83,16 @@ Select.propTypes = {
   mouseUp: PropTypes.func,
   mouseOver: PropTypes.func,
   mouseLeave: PropTypes.func,
+  selected1: PropTypes.func,
+  selected2: PropTypes.func,
+  selected3: PropTypes.func,
+  selected4: PropTypes.func,
+  selected5: PropTypes.func,
+  selected6: PropTypes.func,
+  selected7: PropTypes.func,
+  selected8: PropTypes.func,
+  selected9: PropTypes.func,
+  selected10: PropTypes.func,
 };
 /* eslint-enable */
 
