@@ -7,7 +7,7 @@ module.exports = {
         include: [
           'src/components/Card/Card.js',
           // 'src/components/Modal/Modal.js',
-          'src/components/Table/Table.js',
+          // 'src/components/Table/Table.js',
         ],
       },
       {
@@ -21,7 +21,7 @@ module.exports = {
           'src/components/forms/radio/radio.js',
           'src/components/forms/select/select.js',
           'src/components/forms/text-input/text-input.js',
-          'src/components/forms/textarea/textarea.js',
+          // 'src/components/forms/textarea/textarea.js',
           'src/components/forms/toggle-switch/toggle-switch.js',
         ],
       },
@@ -33,12 +33,12 @@ module.exports = {
           'src/components/Brand/Brand.js',
           'src/components/Button/Button.js',
           'src/components/Divider/Divider.js',
-          'src/components/Drawer/Drawer.js',
-          'src/components/Dropdown/Dropdown.js',
+          // 'src/components/Drawer/Drawer.js',
+          // 'src/components/Dropdown/Dropdown.js',
           'src/components/Icon/Icon.js',
           'src/components/Pagination/Pagination.js',
           'src/components/progress/progress.js',
-          'src/components/Spinner/Spinner.js',
+          // 'src/components/Spinner/Spinner.js',
         ],
       },
       {
