@@ -12,43 +12,6 @@ const uuid = uuid4();
 
 /* eslint-disable */
 export default class Textarea extends React.Component {
-  constructor(props, { uxpinRef }) {
-    super(props);
-    this.state = {
-      value: '',
-      uxpinRef: uxpinRef,
-    };
-  }
-
-  componentDidMount() {
-    setTimeout(() => {
-      const textArea = document.getElementById(`${uuid}`);
-      const self = this;
-
-      if (textArea) {
-        textArea.addEventListener('chiFocus', () => {
-          self.props.focus();
-        });
-        textArea.addEventListener('chiBlur', () => {
-          self.props.focusLost();
-        });
-        textArea.addEventListener('chiInput', () => {
-          self.props.input();
-        });
-        textArea.addEventListener('chiChange', () => {
-          self.props.valueChange();
-        });
-      }
-    }, 1000);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      value: nextProps.value,
-    });
-    this.state.value = nextProps.value;
-  }
-
   render() {
     const label = this.props.label
       ? (
@@ -61,34 +24,33 @@ export default class Textarea extends React.Component {
       )
       : null;
 
-    setTimeout(() => {
-      const textarea = document.getElementById(uuid);
-      const textareaElement = textarea.querySelector('textarea');
-
-      textareaElement.style['width'] = `${this.props.width}px`;
-      textareaElement.style['height'] = `${this.props.height}px`;
-      console.log(textareaElement);
-      textareaElement.innerText = this.state.value ? this.state.value : '';
-    }, 750);
-
     return (
-      <div className="chi-form__item" ref={this.state.uxpinRef}>
+      <div className="chi-form__item">
         {label}
-        <chi-textarea
+        <textarea
           id={uuid}
-          icon-left={this.props.iconLeft}
-          icon-right={this.props.iconRight}
-          icon-left-color={this.props.iconLeftColor}
-          icon-right-color={this.props.iconRightColor}
+          className={`
+            chi-input
+            ${['success', 'warning', 'danger'].includes(this.props.state) ? `-${this.props.state}` : ''}
+            ${this.props.size ? `-${this.props.size}` : ''}
+            `}
           disabled={this.props.disabled}
-          state={['success', 'warning', 'danger'].includes(this.props.state) ? this.props.state : ''}
-          size={this.props.size}
           onClick={this.props.click}
+          onFocus={this.props.focus}
+          onBlur={this.props.focusLost}
+          onInput={this.props.input}
+          onChange={this.props.change}
           onMouseEnter={this.props.mouseOver}
           onMouseLeave={this.props.mouseLeave}
           onMouseDown={this.props.mouseDown}
-          onMouseUp={this.props.mouseUp}>
-        </chi-textarea>
+          onMouseUp={this.props.mouseUp}
+          style={{
+            width: this.props.width ? `${this.props.width}px` : '',
+            height: this.props.height ? `${this.props.height}px` : '',
+          }}
+          >
+            {this.props.value ? this.props.value : ''}
+        </textarea>
       </div>
     );
   }
@@ -99,10 +61,6 @@ Textarea.propTypes = {
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   disabled: PropTypes.bool,
-  // iconLeft: PropTypes.string,
-  // iconLeftColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
-  // iconRight: PropTypes.string,
-  // iconRightColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
   value: PropTypes.string,
   width: PropTypes.number,
   height: PropTypes.number,

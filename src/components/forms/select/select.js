@@ -50,7 +50,8 @@ export default class Select extends React.Component {
           onMouseOver={this.props.mouseOver}
           onMouseLeave={this.props.mouseLeave}
           id={uuid}
-          className={`chi-input ${this.props.size ? `-${this.props.size}` : ''}`}>
+          className={`chi-input ${this.props.size ? `-${this.props.size}` : ''}`}
+          disabled={this.props.disabled}>
           {optionsToRender}
         </select>
       </div>
@@ -59,9 +60,10 @@ export default class Select extends React.Component {
 }
 
 Select.propTypes = {
+  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
-  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  disabled: PropTypes.bool,
   option1: PropTypes.string,
   option2: PropTypes.string,
   option3: PropTypes.string,
@@ -97,5 +99,8 @@ Select.propTypes = {
 Select.defaultProps = {
   label: 'Label',
   size: 'md',
+  option1: 'Option 1',
+  option2: 'Option 2',
+  option3: 'Option 3',
   required: 'none',
 };
