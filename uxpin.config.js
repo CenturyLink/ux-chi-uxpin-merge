@@ -5,6 +5,8 @@ module.exports = {
       {
         name: 'Enterprise',
         include: [
+          'src/components/Primary-button/Primary-button.js',
+          'src/components/Secondary-button/Secondary-button.js',
           'src/components/Card/Card.js',
           // 'src/components/Modal/Modal.js',
           'src/components/Table/Table.js',
