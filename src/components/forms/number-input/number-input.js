@@ -35,13 +35,14 @@ export default class NumberInput extends React.Component {
   }
 
   render() {
+    console.log(this.props.required);
     const label = this.props.label
       ? (
         <Label
           htmlFor={uuid}
           className="chi-label"
-          required={this.props.labelRequired}
-          optional={this.props.labelOptional}
+          required={this.props.required && this.props.required === 'required'}
+          optional={this.props.required && this.props.required === 'optional'}
           label={this.props.label}>
         </Label>
       )
@@ -74,8 +75,7 @@ NumberInput.propTypes = {
   disabled: PropTypes.bool,
   expanded: PropTypes.bool,
   label: PropTypes.string,
-  labelRequired: PropTypes.bool,
-  labelOptional: PropTypes.bool,
+  required: PropTypes.oneOf(['none', 'required', 'optional']),
   size: PropTypes.oneOf(['sm (24px)', 'md (32px)', 'lg (40px)', 'xl (48px)']),
   value: PropTypes.string,
   click: PropTypes.func,
@@ -95,5 +95,6 @@ NumberInput.defaultProps = {
   expanded: false,
   size: 'md',
   label: 'Label',
+  required: 'none',
   value: '0',
 };
