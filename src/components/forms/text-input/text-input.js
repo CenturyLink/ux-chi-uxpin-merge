@@ -34,8 +34,7 @@ export default class TextInput extends React.Component {
         <Label
           htmlFor="number-input"
           className={uuid}
-          required={this.props.required && this.props.required === 'required'}
-          optional={this.props.required && this.props.required === 'optional'}
+          required={this.props.required}
           label={this.props.label}>
         </Label>
       )

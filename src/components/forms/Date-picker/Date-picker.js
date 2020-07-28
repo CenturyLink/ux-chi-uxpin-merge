@@ -34,8 +34,8 @@ export default class DatePicker extends React.Component {
       ? (
         <Label
           className="chi-label"
-          required={this.props.labelRequired}
-          optional={this.props.labelOptional}
+          required={this.props.required && this.props.required === 'required'}
+          optional={this.props.required && this.props.required === 'optional'}
           label={this.props.label}>
         </Label>
       )
@@ -69,8 +69,7 @@ DatePicker.propTypes = {
   weekdays: PropTypes.string,
   dates: PropTypes.string,
   label: PropTypes.string,
-  labelRequired: PropTypes.bool,
-  labelOptional: PropTypes.bool,
+  required: PropTypes.oneOf(['none', 'required', 'optional']),
   min: PropTypes.string,
   max: PropTypes.string,
   value: PropTypes.string,
@@ -89,4 +88,5 @@ DatePicker.propTypes = {
 DatePicker.defaultProps = {
   disabled: false,
   label: 'Label',
+  required: 'none',
 };
