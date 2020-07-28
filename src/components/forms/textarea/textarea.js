@@ -3,7 +3,6 @@ import * as React from 'react';
 import Label from '../label/label';
 import { uuid4 } from '../../../utils/utils';
 
-const uuid = uuid4();
 /**
  * @uxpincomponent
  * @uxpinwrappers
@@ -12,23 +11,37 @@ const uuid = uuid4();
 
 /* eslint-disable */
 export default class Textarea extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { id: uuid4() };
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    if (this.props.value !== prevProps.value) {
+      const textareaElement = document.getElementById(this.state.id);
+
+      textareaElement.value = this.props.value;
+    }
+  }
+
   render() {
     const label = this.props.label
       ? (
         <Label
-          htmlFor={uuid}
+          htmlFor={this.state.id}
           className="chi-label"
           required={this.props.required}
           label={this.props.label}>
         </Label>
       )
-      : null;
+      : null
+    const value = this.props.value ? this.props.value : '';
 
     return (
       <div className="chi-form__item">
         {label}
         <textarea
-          id={uuid}
+          id={this.state.id}
           className={`
             chi-input
             ${['success', 'warning', 'danger'].includes(this.props.state) ? `-${this.props.state}` : ''}
@@ -45,11 +58,10 @@ export default class Textarea extends React.Component {
           onMouseDown={this.props.mouseDown}
           onMouseUp={this.props.mouseUp}
           style={{
-            width: this.props.width ? `${this.props.width}px` : '',
             height: this.props.height ? `${this.props.height}px` : '',
           }}
           >
-            {this.props.value ? this.props.value : ''}
+            {value}
         </textarea>
       </div>
     );
@@ -58,12 +70,11 @@ export default class Textarea extends React.Component {
 
 Textarea.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  height: PropTypes.number,
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   disabled: PropTypes.bool,
   value: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
   state: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
   click: PropTypes.func,
   focus: PropTypes.func,
