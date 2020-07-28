@@ -95,10 +95,10 @@ export default class Textarea extends React.Component {
 /* eslint-disable */
 Textarea.propTypes = {
   disabled: PropTypes.bool,
-  iconLeft: PropTypes.string,
-  iconLeftColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
-  iconRight: PropTypes.string,
-  iconRightColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
+  // iconLeft: PropTypes.string,
+  // iconLeftColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
+  // iconRight: PropTypes.string,
+  // iconRightColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
   state: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),

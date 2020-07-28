@@ -28,8 +28,8 @@ const ToggleSwitch = (props) => (
 );
 
 ToggleSwitch.propTypes = {
-  disabled: PropTypes.bool,
   label: PropTypes.string,
+  disabled: PropTypes.bool,
   click: PropTypes.func,
   focus: PropTypes.func,
   focusLost: PropTypes.func,

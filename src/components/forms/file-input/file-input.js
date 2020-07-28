@@ -26,8 +26,8 @@ const FileInput = (props) => (
   );
 
 FileInput.propTypes = {
-  label: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  label: PropTypes.string,
   click: PropTypes.func,
   focus: PropTypes.func,
   focusLost: PropTypes.func,
