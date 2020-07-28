@@ -12,9 +12,9 @@ export default class Label extends React.Component {
     let message = '';
 
     if (!(this.props.required && this.props.optional)) {
-      if (this.props.required) {
+      if (this.props.required && this.props.required === 'required') {
         message = required;
-      } else if (this.props.optional) {
+      } else if (this.props.required && this.props.required === 'optional')  {
         message = optional;
       }
     }
@@ -40,10 +40,9 @@ export default class Label extends React.Component {
 }
 
 Label.propTypes = {
-  label: PropTypes.string,
-  required: PropTypes.bool,
-  optional: PropTypes.bool,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  label: PropTypes.string,
+  required: PropTypes.oneOf(['none', 'required', 'optional']),
   click: PropTypes.func,
   mouseDown: PropTypes.func,
   mouseLeave: PropTypes.func,
@@ -55,6 +54,5 @@ Label.propTypes = {
 Label.defaultProps = {
   label: 'Label',
   size: 'md',
-  required: false,
-  optional: false,
+  required: 'none',
 };
