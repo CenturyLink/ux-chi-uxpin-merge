@@ -42,7 +42,22 @@ export default class Checkbox extends React.Component {
             );
           }
         });
-    const fieldLabel = this.props.fieldLabel ? <div className="chi-label">{this.props.fieldLabel}</div> : '';
+
+    const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
+    const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
+    let message = '';
+
+    if (this.props.required && this.props.required === 'required') {
+      message = required;
+    } else if (this.props.required && this.props.required === 'optional')  {
+      message = optional;
+    }
+
+    const fieldLabel = this.props.fieldLabel ?
+      <div className="chi-label">
+        {this.props.fieldLabel}
+        {message}
+      </div> : '';
     return (
         <fieldset>
           {fieldLabel}
@@ -54,6 +69,7 @@ export default class Checkbox extends React.Component {
 
 Checkbox.propTypes = {
   fieldLabel: PropTypes.string,
+  required: PropTypes.oneOf(['none', 'required', 'optional']),
   inline: PropTypes.bool,
   label1: PropTypes.string,
   disabled1: PropTypes.bool,
@@ -113,4 +129,5 @@ Checkbox.defaultProps = {
   label1: 'Checkbox 1 label',
   label2: 'Checkbox 2 label',
   label3: 'Checkbox 3 label',
+  required: 'none',
 };
