@@ -7,8 +7,6 @@ import { uuid4 } from '../../../utils/utils';
 const uuid = uuid4();
 /**
  * @uxpincomponent
- */
-/**
  * @uxpinwrappers
  * SkipContainerWrapper
  */
@@ -102,21 +100,21 @@ Textarea.propTypes = {
   iconLeftColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
   iconRight: PropTypes.string,
   iconRightColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
-  click: PropTypes.func,
-  focus: PropTypes.func,
-  focusLost: PropTypes.func,
-  input: PropTypes.func,
-  valueChange: PropTypes.func,
-  mouseDown: PropTypes.func,
-  mouseUp: PropTypes.func,
-  mouseOver: PropTypes.func,
-  mouseLeave: PropTypes.func,
   state: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
   label: PropTypes.string,
   labelRequired: PropTypes.bool,
   labelOptional: PropTypes.bool,
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   value: PropTypes.string,
+  click: PropTypes.func,
+  focus: PropTypes.func,
+  focusLost: PropTypes.func,
+  input: PropTypes.func,
+  mouseDown: PropTypes.func,
+  mouseUp: PropTypes.func,
+  mouseOver: PropTypes.func,
+  mouseLeave: PropTypes.func,
+  valueChange: PropTypes.func,
 };
 /* eslint-enable */
 

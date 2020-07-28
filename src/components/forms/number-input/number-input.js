@@ -82,11 +82,11 @@ NumberInput.propTypes = {
   focus: PropTypes.func,
   focusLost: PropTypes.func,
   input: PropTypes.func,
-  valueChange: PropTypes.func,
   mouseDown: PropTypes.func,
-  mouseUp: PropTypes.func,
-  mouseOver: PropTypes.func,
   mouseLeave: PropTypes.func,
+  mouseOver: PropTypes.func,
+  mouseUp: PropTypes.func,
+  valueChange: PropTypes.func,
 };
 /* eslint-enable */
 

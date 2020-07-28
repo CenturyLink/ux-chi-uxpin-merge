@@ -46,9 +46,9 @@ Label.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   click: PropTypes.func,
   mouseDown: PropTypes.func,
-  mouseUp: PropTypes.func,
-  mouseOver: PropTypes.func,
   mouseLeave: PropTypes.func,
+  mouseOver: PropTypes.func,
+  mouseUp: PropTypes.func,
 };
 /* eslint-enable */
 
