@@ -54,8 +54,7 @@ export default class Textarea extends React.Component {
         <Label
           htmlFor={uuid}
           className="chi-label"
-          required={this.props.labelRequired}
-          optional={this.props.labelOptional}
+          required={this.props.required}
           label={this.props.label}>
         </Label>
       )
@@ -102,8 +101,7 @@ Textarea.propTypes = {
   iconRightColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
   state: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
   label: PropTypes.string,
-  labelRequired: PropTypes.bool,
-  labelOptional: PropTypes.bool,
+  required: PropTypes.oneOf(['none', 'required', 'optional']),
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   value: PropTypes.string,
   click: PropTypes.func,
@@ -123,4 +121,5 @@ Textarea.defaultProps = {
   label: 'Label',
   size: 'md',
   state: 'default',
+  required: 'none'
 };
