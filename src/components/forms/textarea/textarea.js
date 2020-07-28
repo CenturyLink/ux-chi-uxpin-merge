@@ -1,6 +1,5 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import ReactDOM from 'react-dom';
 import Label from '../label/label';
 import { uuid4 } from '../../../utils/utils';
 
@@ -10,6 +9,8 @@ const uuid = uuid4();
  * @uxpinwrappers
  * SkipContainerWrapper
  */
+
+/* eslint-disable */
 export default class Textarea extends React.Component {
   constructor(props, { uxpinRef }) {
     super(props);
@@ -60,14 +61,15 @@ export default class Textarea extends React.Component {
       )
       : null;
 
-    /* eslint-disable react/no-find-dom-node */
-    const chiTextareaNode = ReactDOM.findDOMNode(this);
-    /* eslint-enable react/no-find-dom-node */
     setTimeout(() => {
-      const textareaElement = chiTextareaNode.querySelector('textarea');
+      const textarea = document.getElementById(uuid);
+      const textareaElement = textarea.querySelector('textarea');
 
+      textareaElement.style['width'] = `${this.props.width}px`;
+      textareaElement.style['height'] = `${this.props.height}px`;
+      console.log(textareaElement);
       textareaElement.innerText = this.state.value ? this.state.value : '';
-    }, 500);
+    }, 750);
 
     return (
       <div className="chi-form__item" ref={this.state.uxpinRef}>
@@ -92,18 +94,19 @@ export default class Textarea extends React.Component {
   }
 }
 
-/* eslint-disable */
 Textarea.propTypes = {
+  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  label: PropTypes.string,
+  required: PropTypes.oneOf(['none', 'required', 'optional']),
   disabled: PropTypes.bool,
   // iconLeft: PropTypes.string,
   // iconLeftColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
   // iconRight: PropTypes.string,
   // iconRightColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
-  state: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
-  label: PropTypes.string,
-  required: PropTypes.oneOf(['none', 'required', 'optional']),
-  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   value: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  state: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
   click: PropTypes.func,
   focus: PropTypes.func,
   focusLost: PropTypes.func,
