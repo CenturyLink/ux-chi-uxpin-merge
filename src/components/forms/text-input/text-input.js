@@ -34,8 +34,8 @@ export default class TextInput extends React.Component {
         <Label
           htmlFor="number-input"
           className={uuid}
-          required={this.props.labelRequired}
-          optional={this.props.labelOptional}
+          required={this.props.required && this.props.required === 'required'}
+          optional={this.props.required && this.props.required === 'optional'}
           label={this.props.label}>
         </Label>
       )
@@ -68,18 +68,17 @@ export default class TextInput extends React.Component {
 
 /* eslint-disable */
 TextInput.propTypes = {
+  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  label: PropTypes.string,
+  required: PropTypes.oneOf(['none', 'required', 'optional']),
   disabled: PropTypes.bool,
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
   iconLeft: PropTypes.string,
   iconLeftColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
   iconRight: PropTypes.string,
   iconRightColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
-  label: PropTypes.string,
-  labelRequired: PropTypes.bool,
-  labelOptional: PropTypes.bool,
-  placeholder: PropTypes.string,
-  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   state: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
-  value: PropTypes.string,
   click: PropTypes.func,
   focus: PropTypes.func,
   focusLost: PropTypes.func,
@@ -95,6 +94,7 @@ TextInput.propTypes = {
 TextInput.defaultProps = {
   disabled: false,
   label: 'Label',
+  required: 'none',
   size: 'md',
   state: 'default',
   placeholder: '',
