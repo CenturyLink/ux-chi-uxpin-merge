@@ -41,8 +41,7 @@ export default class NumberInput extends React.Component {
         <Label
           htmlFor={uuid}
           className="chi-label"
-          required={this.props.required && this.props.required === 'required'}
-          optional={this.props.required && this.props.required === 'optional'}
+          required={this.props.required}
           label={this.props.label}>
         </Label>
       )

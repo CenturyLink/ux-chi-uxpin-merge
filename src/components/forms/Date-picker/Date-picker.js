@@ -34,8 +34,7 @@ export default class DatePicker extends React.Component {
       ? (
         <Label
           className="chi-label"
-          required={this.props.required && this.props.required === 'required'}
-          optional={this.props.required && this.props.required === 'optional'}
+          required={this.props.required}
           label={this.props.label}>
         </Label>
       )

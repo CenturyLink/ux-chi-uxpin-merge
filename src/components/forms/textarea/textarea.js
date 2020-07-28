@@ -121,5 +121,5 @@ Textarea.defaultProps = {
   label: 'Label',
   size: 'md',
   state: 'default',
-  required: 'none'
+  required: 'none',
 };
