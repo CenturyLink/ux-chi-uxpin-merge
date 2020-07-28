@@ -47,7 +47,21 @@ export default class Radio extends React.Component {
             );
           }
         });
-    const fieldLabel = this.props.fieldLabel ? <div className="chi-label">{this.props.fieldLabel}</div> : '';
+
+    const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
+    const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
+    let message = '';
+
+    if (this.props.required && this.props.required === 'required') {
+      message = required;
+    } else if (this.props.required && this.props.required === 'optional')  {
+      message = optional;
+    }
+    const fieldLabel = this.props.fieldLabel ?
+      <div className="chi-label">
+        {this.props.fieldLabel}
+        {message}
+      </div> : '';
     return (
         <fieldset>
           {fieldLabel}
@@ -59,6 +73,7 @@ export default class Radio extends React.Component {
 
 Radio.propTypes = {
   fieldLabel: PropTypes.string,
+  required: PropTypes.oneOf(['none', 'required', 'optional']),
   inline: PropTypes.bool,
   selectedOption: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   option1: PropTypes.string,
@@ -99,4 +114,5 @@ Radio.defaultProps = {
   option1: 'Option 1',
   option2: 'Option 2',
   option3: 'Option 3',
+  required: 'none',
 };
