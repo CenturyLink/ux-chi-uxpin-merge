@@ -16,9 +16,13 @@ const ToggleSwitch = (props) => (
           type="checkbox"
           className="chi-switch__input"
           disabled={props.disabled}
-          onClick={props.click}
-          onFocus={props.focus}
-          onBlur={props.focusLost} />
+          onChange={(e) => {
+            if (e.target.checked) {
+              props.turnOn();
+            } else {
+              props.turnOff();
+            }
+          }} />
       <span className="chi-switch__content">
         <span className="chi-switch__thumb"></span>
       </span>
@@ -30,13 +34,8 @@ const ToggleSwitch = (props) => (
 ToggleSwitch.propTypes = {
   label: PropTypes.string,
   disabled: PropTypes.bool,
-  click: PropTypes.func,
-  focus: PropTypes.func,
-  focusLost: PropTypes.func,
-  mouseDown: PropTypes.func,
-  mouseLeave: PropTypes.func,
-  mouseOver: PropTypes.func,
-  mouseUp: PropTypes.func,
+  turnOn: PropTypes.func,
+  turnOff: PropTypes.func,
 };
 /* eslint-enable */
 
