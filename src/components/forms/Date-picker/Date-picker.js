@@ -39,6 +39,15 @@ export default class DatePicker extends React.Component {
         </Label>
       )
       : null;
+    const excludedDays = `
+        ${!this.props.su ? '0,' : ''}
+        ${!this.props.mo ? '1,' : ''}
+        ${!this.props.tu ? '2,' : ''}
+        ${!this.props.we ? '3,' : ''}
+        ${!this.props.th ? '4,' : ''}
+        ${!this.props.fr ? '5,' : ''}
+        ${!this.props.sa ? '6' : ''}
+    `;
 
     return (
       <div className="chi-form__item" style={{ width: '14rem' }}>
@@ -46,11 +55,11 @@ export default class DatePicker extends React.Component {
         <chi-date-picker
           id="chi-datepicker-control"
           disabled={this.props.disabled}
-          excluded-weekdays={this.props.weekdays}
+          excluded-weekdays={excludedDays}
           excluded-dates={this.props.dates}
           min={this.props.min}
           max={this.props.max}
-          value={this.props.value}
+          value={this.props.selected}
           onClick={this.props.click}
           onMouseEnter={this.props.mouseOver}
           onMouseLeave={this.props.mouseLeave}
@@ -65,13 +74,19 @@ export default class DatePicker extends React.Component {
 /* eslint-disable */
 DatePicker.propTypes = {
   disabled: PropTypes.bool,
-  weekdays: PropTypes.string,
-  dates: PropTypes.string,
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   min: PropTypes.string,
   max: PropTypes.string,
-  value: PropTypes.string,
+  selected: PropTypes.string,
+  mo: PropTypes.bool,
+  tu: PropTypes.bool,
+  we: PropTypes.bool,
+  th: PropTypes.bool,
+  fr: PropTypes.bool,
+  sa: PropTypes.bool,
+  su: PropTypes.bool,
+  dates: PropTypes.string,
   click: PropTypes.func,
   focus: PropTypes.func,
   focusLost: PropTypes.func,
@@ -88,4 +103,11 @@ DatePicker.defaultProps = {
   disabled: false,
   label: 'Label',
   required: 'none',
+  mo: true,
+  tu: true,
+  we: true,
+  th: true,
+  fr: true,
+  sa: true,
+  su: true,
 };
