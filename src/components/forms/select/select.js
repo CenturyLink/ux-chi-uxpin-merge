@@ -4,19 +4,23 @@ import Label from '../label/label';
 import { uuid4 } from '../../../utils/utils';
 import './select.css';
 
-const uuid = uuid4();
 /* eslint-disable */
 /**
  * @uxpincomponent
  */
 export default class Select extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { id: uuid4() };
+  }
+
   render() {
     let optionsToRender = [];
     const label = this.props.label
       ? (
         <Label
           className="chi-label"
-          htmlFor={uuid}
+          htmlFor={this.state.id}
           required={this.props.required}
           label={this.props.label}>
         </Label>
@@ -49,7 +53,7 @@ export default class Select extends React.Component {
           onMouseUp={this.props.mouseUp}
           onMouseOver={this.props.mouseOver}
           onMouseLeave={this.props.mouseLeave}
-          id={uuid}
+          id={this.state.id}
           className={`chi-input ${this.props.size ? `-${this.props.size}` : ''}`}
           disabled={this.props.disabled}>
           {optionsToRender}
