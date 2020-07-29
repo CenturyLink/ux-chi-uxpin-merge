@@ -3,13 +3,17 @@ import * as React from 'react';
 import Label from '../label/label';
 import { uuid4 } from '../../../utils/utils';
 
-const uuid = uuid4();
 /**
  * @uxpincomponent
  */
 export default class NumberInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { id: uuid4() };
+  }
+
   componentDidMount() {
-    const numberInput = document.getElementById(`${uuid}`);
+    const numberInput = document.getElementById(`${this.state.id}`);
 
     if (numberInput) {
       numberInput.addEventListener('chiChange', () => {
@@ -39,7 +43,7 @@ export default class NumberInput extends React.Component {
     const label = this.props.label
       ? (
         <Label
-          htmlFor={uuid}
+          htmlFor={this.state.id}
           className="chi-label"
           required={this.props.required}
           label={this.props.label}>
@@ -53,7 +57,7 @@ export default class NumberInput extends React.Component {
       <div className="chi-form__item">
         {label}
         <chi-number-input
-          id={uuid}
+          id={this.state.id}
           disabled={this.props.disabled}
           expanded={this.props.expanded}
           size={size}
