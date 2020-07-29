@@ -57,12 +57,14 @@ export default class NumberInput extends React.Component {
           disabled={this.props.disabled}
           expanded={this.props.expanded}
           size={size}
+          min={this.props.min}
+          max={this.props.max}
           onClick={this.props.click}
           onMouseEnter={this.props.mouseOver}
           onMouseLeave={this.props.mouseLeave}
           onMouseDown={this.props.mouseDown}
           onMouseUp={this.props.mouseUp}
-          value={this.props.value}>
+          value={this.props.startValue}>
         </chi-number-input>
       </div>
     );
@@ -71,12 +73,14 @@ export default class NumberInput extends React.Component {
 
 /* eslint-disable */
 NumberInput.propTypes = {
-  disabled: PropTypes.bool,
+  size: PropTypes.oneOf(['sm (24px)', 'md (32px)', 'lg (40px)', 'xl (48px)']),
   expanded: PropTypes.bool,
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
-  size: PropTypes.oneOf(['sm (24px)', 'md (32px)', 'lg (40px)', 'xl (48px)']),
-  value: PropTypes.string,
+  disabled: PropTypes.bool,
+  startValue: PropTypes.string,
+  min: PropTypes.number,
+  max: PropTypes.number,
   click: PropTypes.func,
   focus: PropTypes.func,
   focusLost: PropTypes.func,
@@ -95,5 +99,5 @@ NumberInput.defaultProps = {
   size: 'md',
   label: 'Label',
   required: 'none',
-  value: '0',
+  startValue: '0',
 };

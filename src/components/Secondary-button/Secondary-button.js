@@ -18,7 +18,6 @@ export default class SecondaryButton extends React.Component {
         type="button"
         className={`
           chi-button
-          -secondary
           ${this.props.size ? `-${this.props.size}` : ''}
           `}
         disabled={this.props.disabled}
