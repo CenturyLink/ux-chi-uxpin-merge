@@ -3,14 +3,18 @@ import * as React from 'react';
 import Label from '../label/label';
 import { uuid4 } from '../../../utils/utils';
 
-const uuid = uuid4();
 /**
  * @uxpincomponent
  */
 export default class TextInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { id: uuid4() };
+  }
+
   componentDidMount() {
     setTimeout(() => {
-      const textInput = document.getElementById(`${uuid}`);
+      const textInput = document.getElementById(`${this.state.id}`);
       const self = this;
 
       textInput.addEventListener('chiFocus', () => {
@@ -33,7 +37,7 @@ export default class TextInput extends React.Component {
       ? (
         <Label
           htmlFor="number-input"
-          className={uuid}
+          className={this.state.id}
           required={this.props.required}
           label={this.props.label}>
         </Label>
@@ -44,7 +48,7 @@ export default class TextInput extends React.Component {
       <div className="chi-form__item">
         {label}
         <chi-text-input
-          id={uuid}
+          id={this.state.id}
           disabled={this.props.disabled}
           size={this.props.size}
           state={['success', 'warning', 'danger'].includes(this.props.state) ? this.props.state : ''}
