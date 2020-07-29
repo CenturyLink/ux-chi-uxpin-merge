@@ -7,6 +7,11 @@ import { uuid4 } from '../../../utils/utils';
  * @uxpincomponent
  */
 export default class Radio extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { id: uuid4() };
+  }
+
   render() {
     const radiosToRender = [];
 
@@ -26,7 +31,7 @@ export default class Radio extends React.Component {
     Array(11).fill()
         .forEach((_, i) => {
           if (this.props[`option${i}`]) {
-            const uuid = uuid4();
+            const uuid = `${this.state.id}-${i}`;
             const inline = this.props.inline ? '-inline' : '';
 
             radiosToRender.push(
