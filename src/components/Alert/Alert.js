@@ -29,7 +29,7 @@ export default class Alert extends React.Component {
   }
 }
 
-/* eslint-disable sort-keys */
+/* eslint-disable */
 Alert.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   state: PropTypes.oneOf(['success', 'warning', 'danger', 'info', 'muted']),
@@ -39,7 +39,7 @@ Alert.propTypes = {
   type: PropTypes.oneOf(['banner', 'toast']),
   closable: PropTypes.bool,
 };
-/* eslint-enable sort-keys */
+/* eslint-enable */
 
 Alert.defaultProps = {
   size: 'md',
