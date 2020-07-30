@@ -37,7 +37,7 @@ module.exports = {
           // 'src/components/Divider/Divider.js',
           // 'src/components/Drawer/Drawer.js',
           // 'src/components/Dropdown/Dropdown.js',
-          // 'src/components/Icon/Icon.js',
+          'src/components/Icon/Icon.js',
           // 'src/components/Pagination/Pagination.js',
           // 'src/components/progress/progress.js',
           // 'src/components/Spinner/Spinner.js',

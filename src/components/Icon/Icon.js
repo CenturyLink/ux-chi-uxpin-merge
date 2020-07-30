@@ -21,20 +21,19 @@ const Icon = (props) => (
 );
 
 Icon.propTypes = {
-  onClick: PropTypes.func,
-  color: PropTypes.oneOf(['primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
   size: PropTypes.oneOf(['xs', 'sm', 'sm--2', 'sm--3', 'md', 'lg', 'xl', 'xxl']),
   icon: PropTypes.string,
+  color: PropTypes.oneOf(['primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
   click: PropTypes.func,
   mouseDown: PropTypes.func,
-  mouseUp: PropTypes.func,
-  mouseOver: PropTypes.func,
   mouseLeave: PropTypes.func,
+  mouseOver: PropTypes.func,
+  mouseUp: PropTypes.func,
 };
 /* eslint-enable */
 
 Icon.defaultProps = {
-  size: 'md',
+  size: 'sm',
   color: 'primary',
   icon: 'atom',
 };
