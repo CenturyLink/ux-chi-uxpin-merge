@@ -111,7 +111,7 @@ DatePicker.propTypes = {
 };
 /* eslint-enable */
 
-const defaultProps = {
+DatePicker.defaultProps = {
   disabled: false,
   label: 'Label',
   required: 'none',
@@ -123,6 +123,4 @@ const defaultProps = {
   fr: true,
   sa: true,
   su: true,
-}
-
-DatePicker.defaultProps = {...defaultProps};
+};
