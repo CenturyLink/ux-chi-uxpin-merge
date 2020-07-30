@@ -2,6 +2,19 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import Label from '../label/label';
 
+/* eslint-disable */
+const selected = function() {
+  const todayDate = new Date();
+  var mm = todayDate.getMonth() + 1;
+  var dd = todayDate.getDate();
+
+  return [(mm>9 ? '' : '0') + mm,
+    (dd>9 ? '' : '0') + dd,
+    todayDate.getFullYear()
+    ].join('/').toString();
+  
+}
+
 /**
  * @uxpincomponent
  */
@@ -71,7 +84,6 @@ export default class DatePicker extends React.Component {
   }
 }
 
-/* eslint-disable */
 DatePicker.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
@@ -99,10 +111,11 @@ DatePicker.propTypes = {
 };
 /* eslint-enable */
 
-DatePicker.defaultProps = {
+const defaultProps = {
   disabled: false,
   label: 'Label',
   required: 'none',
+  selected: selected(),
   mo: true,
   tu: true,
   we: true,
@@ -110,4 +123,6 @@ DatePicker.defaultProps = {
   fr: true,
   sa: true,
   su: true,
-};
+}
+
+DatePicker.defaultProps = {...defaultProps};
