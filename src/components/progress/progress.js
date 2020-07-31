@@ -9,12 +9,13 @@ const uuid = uuid4();
  */
 const Progress = (props) => (
   <div>
-    <div className="chi-label" id={uuid}>{props.progress}%</div>
+    <div className="chi-label" id={uuid}>{props.label} {props.progress}%</div>
     <progress aria-labelledby={uuid} className={props.state ? `-${props.state}` : ''} value={props.progress} max="100"> </progress>
   </div>
   );
 
 Progress.propTypes = {
+  label: PropTypes.string,
   progress: PropTypes.string,
   state: PropTypes.oneOf(['success', 'warning', 'danger']),
 };
