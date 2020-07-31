@@ -12,12 +12,16 @@ export default class Alert extends React.Component {
       switch(this.props.state) {
         case 'success':
           iconToRender = 'circle-check';
+          break;
         case 'warning':
           iconToRender = 'warning';
+          break;
         case 'danger':
           iconToRender = 'x-alt';
+          break;
         default:
           iconToRender = 'circle-info';
+          break;
       }
     }
     let alertTitle = '';
