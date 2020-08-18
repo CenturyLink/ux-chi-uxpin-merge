@@ -25,6 +25,7 @@ export default class Pagination extends React.Component {
             console.log(this.props[`toGo${pageToGo}`]);
             if (this.props[`toGo${pageToGo}`]) {
               this.props[`toGo${pageToGo}`]();
+              pagination.setAttribute('current-page', pageToGo);
             }
           }
         });
