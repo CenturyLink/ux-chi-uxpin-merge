@@ -17,7 +17,7 @@ export default class Alert extends React.Component {
           iconToRender = 'warning';
           break;
         case 'danger':
-          iconToRender = 'x-alt';
+          iconToRender = 'circle-x';
           break;
         default:
           iconToRender = 'circle-info';
