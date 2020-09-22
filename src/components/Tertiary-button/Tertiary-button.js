@@ -20,7 +20,7 @@ export default class TertiaryButton extends React.Component {
           chi-button
           -primary
           -outline
-          -sm
+          ${this.props.size ? `-${this.props.size}` : ''}
           -bg--white
           -px--2
           `}
@@ -41,6 +41,7 @@ TertiaryButton.propTypes = {
   disabled: PropTypes.bool,
   leftIcon: PropTypes.string,
   rightIcon: PropTypes.string,
+  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   value: PropTypes.string,
   click: PropTypes.func,
   mouseDown: PropTypes.func,
@@ -52,5 +53,6 @@ TertiaryButton.propTypes = {
 
 TertiaryButton.defaultProps = {
   disabled: false,
+  size: 'sm',
   value: 'Button',
 };

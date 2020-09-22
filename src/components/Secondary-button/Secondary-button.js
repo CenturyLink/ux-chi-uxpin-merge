@@ -18,7 +18,11 @@ export default class SecondaryButton extends React.Component {
         type="button"
         className={`
           chi-button
+          -primary
+          -outline
           ${this.props.size ? `-${this.props.size}` : ''}
+          -bg--white
+          -px--4
           `}
         disabled={this.props.disabled}
         onClick={this.props.click}
@@ -49,6 +53,6 @@ SecondaryButton.propTypes = {
 
 SecondaryButton.defaultProps = {
   disabled: false,
-  size: 'md',
+  size: 'lg',
   value: 'Button',
 };

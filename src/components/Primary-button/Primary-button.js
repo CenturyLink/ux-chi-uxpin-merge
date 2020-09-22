@@ -20,6 +20,7 @@ export default class PrimaryButton extends React.Component {
           chi-button
           -primary
           ${this.props.size ? `-${this.props.size}` : ''}
+          -px--4
           `}
         disabled={this.props.disabled}
         onClick={this.props.click}
@@ -50,6 +51,6 @@ PrimaryButton.propTypes = {
 
 PrimaryButton.defaultProps = {
   disabled: false,
-  size: 'md',
+  size: 'lg',
   value: 'Button',
 };
