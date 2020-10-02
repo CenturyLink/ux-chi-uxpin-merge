@@ -4,6 +4,8 @@ import './IconButton.css';
 
 /**
  * @uxpincomponent
+ * @uxpinwrappers
+ * SkipContainerWrapper
  */
 export default class IconButton extends React.Component {
   render() {
