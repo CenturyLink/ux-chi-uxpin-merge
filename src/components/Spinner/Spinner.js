@@ -10,6 +10,9 @@ export default class Spinner extends React.Component {
       <chi-spinner
         color={this.props.color}
         size={this.props.size}>
+        <span className="-sr--only">
+          i
+        </span>
       </chi-spinner>
     );
   }
