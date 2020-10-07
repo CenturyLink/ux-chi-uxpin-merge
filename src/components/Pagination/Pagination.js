@@ -44,6 +44,9 @@ export default class Pagination extends React.Component {
         page-size={this.props.pageSize}
         page-jumper={this.props.pageJumper}
         results={this.props.results}>
+          <span class="-sr--only">
+            i
+          </span>
       </chi-pagination>
     );
   }

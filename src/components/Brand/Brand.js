@@ -17,6 +17,9 @@ export default class Brand extends React.Component {
         onMouseLeave={this.props.mouseLeave}
         onMouseDown={this.props.mouseDown}
         onMouseUp={this.props.mouseUp}>
+        <span className="-sr--only">
+          i
+        </span>
       </chi-brand>
     );
   }

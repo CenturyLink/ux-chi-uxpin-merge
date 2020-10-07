@@ -17,6 +17,9 @@ const Icon = (props) => (
      onMouseLeave={props.mouseLeave}
      onMouseDown={props.mouseDown}
      onMouseUp={props.mouseUp}>
+       <span class="-sr--only">
+      i
+      </span>
   </i>
 );
 
