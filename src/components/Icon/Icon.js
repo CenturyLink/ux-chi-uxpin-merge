@@ -6,21 +6,23 @@ import * as React from 'react';
  * @uxpincomponent
  */
 const Icon = (props) => (
-  <i className={`
-    chi-icon
-    icon-${props.icon}
-    ${props.color ? `-text--${props.color}` : ''}
-    ${props.size ? `-${props.size}` : ''}
-  `}
-     onClick={props.click}
-     onMouseEnter={props.mouseOver}
-     onMouseLeave={props.mouseLeave}
-     onMouseDown={props.mouseDown}
-     onMouseUp={props.mouseUp}>
-       <span class="-sr--only">
+  <div
+    onClick={props.click}
+    onMouseEnter={props.mouseOver}
+    onMouseLeave={props.mouseLeave}
+    onMouseDown={props.mouseDown}
+    onMouseUp={props.mouseUp}>
+    <span className="-sr--only">
       i
-      </span>
-  </i>
+    </span>
+    <i className={`
+      chi-icon
+      icon-${props.icon}
+      ${props.color ? `-text--${props.color}` : ''}
+      ${props.size ? `-${props.size}` : ''}
+    `}>
+    </i>
+  </div>
 );
 
 Icon.propTypes = {
