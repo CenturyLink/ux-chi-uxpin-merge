@@ -42,6 +42,7 @@ module.exports = {
           'src/components/Icon/Icon.js',
           'src/components/Pagination/Pagination.js',
           'src/components/progress/progress.js',
+          'src/components/Picker-group/Picker-group.js',
           'src/components/Spinner/Spinner.js',
         ],
       },
