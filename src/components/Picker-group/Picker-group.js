@@ -28,7 +28,13 @@ export default class PickerGroup extends React.Component {
               for={`picker${i}`}
               onClick={(e) => {
                 if (this.props[`select${i}`]) {
+                  const clickedLabelId = e.target.getAttribute('for');
+                  const currentlyActivePicker = e.target.parentNode.querySelector('input[checked]');
+                  const inputToCheck = document.getElementById(clickedLabelId);
+
                   this.props[`select${i}`]();
+                  currentlyActivePicker.checked = false;
+                  inputToCheck.checked = true;
                 }
               }}>{this.props[`picker${i}`]}</label>
             );
