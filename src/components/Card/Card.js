@@ -7,25 +7,32 @@ import * as React from 'react';
  */
 /* eslint-disable */
 const Card = (props, {uxpinRef}) => (
-  <div className={`
-    chi-card
-    ${props.portal ? '-portal' : ''}
-    ${props.state ? `-${props.state}` : ''}
-    `}
-     ref={ uxpinRef }
-  style={{width: `${props.width}px`, height: `${props.height}px`}}>
-    {props.title ?
-      <div className="chi-card__header -sm">
-        <div className="chi-card__title">
-          {props.title}
+  <div style={{
+    minWidth: '336px',
+    resize: 'both',
+    overflow: 'hidden',
+    color: '#fff'
+  }}>
+    <div className={`
+      chi-card
+      ${props.portal ? '-portal' : ''}
+      ${props.state ? `-${props.state}` : ''}
+      -w--100
+      -h--100
+      `}
+      ref={ uxpinRef }>
+        {props.title ?
+        <div className="chi-card__header -sm">
+          <div className="chi-card__title">
+            {props.title}
+          </div>
         </div>
-      </div>
-      : ''}
-    <div
-        style={{display: 'flex'}}
-        className="chi-card__content">
-      <div className="chi-card__caption">
-        {props.content}
+        : ''}
+      <div
+          className="chi-card__content" style={{width: '100%', height: '100%'}}>
+          <div className="chi-card__caption">
+            {props.content}
+          </div>
       </div>
     </div>
   </div>
@@ -33,20 +40,14 @@ const Card = (props, {uxpinRef}) => (
 
 Card.propTypes = {
   portal: PropTypes.bool,
-  state: PropTypes.oneOf(['active', 'active--alt', 'empty', 'no-border']),
   title: PropTypes.string,
-  content: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
+  content: PropTypes.string
 };
 /* eslint-enable */
 
 Card.defaultProps = {
   portal: true,
   title: 'Title',
-  content: 'Content',
-  width: 336,
-  height: 300,
 };
 
 export default Card;

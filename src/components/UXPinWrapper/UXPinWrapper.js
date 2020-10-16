@@ -37,7 +37,7 @@ export default function UXPinWrapper({ children }) {
 
   /* eslint-disable */
   return (
-    <div className="chi">
+    <div className="chi" style={{resize: 'both'}}>
       {children}
     </div>
   );
