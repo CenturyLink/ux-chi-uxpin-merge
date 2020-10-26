@@ -44,6 +44,7 @@ module.exports = {
           'src/components/progress/progress.js',
           'src/components/Picker-group/Picker-group.js',
           'src/components/Spinner/Spinner.js',
+          'src/components/Tooltip/Tooltip.js',
         ],
       },
       {
