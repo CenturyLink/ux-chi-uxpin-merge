@@ -3,45 +3,42 @@ import * as React from 'react';
 import './Tooltip.css';
 import { uuid4 } from '../../utils/utils';
 
-const uuid = uuid4();
 
 /**
  * @uxpincomponent
  * @uxpinwrappers
  * SkipContainerWrapper
  */
-export default class Tooltip extends React.Component {
-  componentDidMount() {
-    setTimeout(() => {
-      window.chi.tooltip(document.getElementById(uuid));
-    }, 2000);
-  }
+export default function Tooltip(props) {
+  const uuid = uuid4();
 
-  render() {
-    return (
-      <button
-        type="button"
-        id={uuid}
-        data-tooltip={this.props.message}
-        data-position={this.props.position}
-        className={`
-          chi-button
-          -icon
-          ${this.props.size ? `-${this.props.size}` : ''}
-          ${this.props.flat ? '-flat' : ''}
-          `}
-        disabled={this.props.disabled}
-        onClick={this.props.click}
-        onMouseEnter={this.props.mouseOver}
-        onMouseLeave={this.props.mouseLeave}
-        onMouseDown={this.props.mouseDown}
-        onMouseUp={this.props.mouseUp}>
-        <div className="chi-button__content">
-          <i className={`chi-icon icon-${this.props.icon}`}></i>
-        </div>
-      </button>
-    );
-  }
+  setTimeout(() => {
+    window.chi.tooltip(document.getElementById(uuid));
+  }, 2000);
+
+  return (
+    <button
+      type="button"
+      id={uuid}
+      data-tooltip={props.message}
+      data-position={props.position}
+      className={`
+        chi-button
+        -icon
+        ${props.size ? `-${props.size}` : ''}
+        ${props.flat ? '-flat' : ''}
+        `}
+      disabled={props.disabled}
+      onClick={props.click}
+      onMouseEnter={props.mouseOver}
+      onMouseLeave={props.mouseLeave}
+      onMouseDown={props.mouseDown}
+      onMouseUp={props.mouseUp}>
+      <div className="chi-button__content">
+        <i className={`chi-icon icon-${props.icon}`}></i>
+      </div>
+    </button>
+  );
 }
 
 /* eslint-disable */
