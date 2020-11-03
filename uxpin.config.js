@@ -45,6 +45,7 @@ module.exports = {
           'src/components/Picker-group/Picker-group.js',
           'src/components/Spinner/Spinner.js',
           'src/components/Tooltip/Tooltip.js',
+          'src/components/Tabs/Tabs.js',
         ],
       },
       {
