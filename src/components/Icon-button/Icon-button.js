@@ -13,10 +13,8 @@ export default class IconButton extends React.Component {
       <button
         type="button"
         className={`
-          chi-button
-          -icon
+          chi-button -icon -flat -bg--none -opacity-hover--80
           ${this.props.size ? `-${this.props.size}` : ''}
-          ${this.props.flat ? '-flat' : ''}
           `}
         disabled={this.props.disabled}
         onClick={this.props.click}
@@ -37,7 +35,6 @@ IconButton.propTypes = {
   disabled: PropTypes.bool,
   icon: PropTypes.string,
   click: PropTypes.func,
-  flat: PropTypes.bool,
   mouseDown: PropTypes.func,
   mouseUp: PropTypes.func,
   mouseOver: PropTypes.func,
