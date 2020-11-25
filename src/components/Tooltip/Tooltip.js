@@ -12,9 +12,12 @@ import { uuid4 } from '../../utils/utils';
 export default function Tooltip(props) {
   const uuid = uuid4();
 
-  setTimeout(() => {
-    window.chi.tooltip(document.getElementById(uuid));
-  }, 2000);
+  const initialize = setInterval(() => {
+    if (window.chi && document.getElementById(uuid)) {
+      window.chi.tooltip(document.getElementById(uuid));
+      clearInterval(initialize);
+    }
+  }, 100);
 
   return (
     <button

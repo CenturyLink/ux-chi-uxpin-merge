@@ -1,6 +1,7 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { uuid4 } from '../../utils/utils';
+import './Tabs.css';
 
 let uuid;
 const tabsToRender = [];

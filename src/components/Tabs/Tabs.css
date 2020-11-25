@@ -1,0 +1,3 @@
+.chi .chi-tabs:not(.-vertical):not(.-responsive)>li.chi-sliding-border:first-child + li:nth-child(2) {
+  margin-left: 0rem;
+}
