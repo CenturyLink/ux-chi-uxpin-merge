@@ -1,73 +1,70 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import { uuid4 } from '../../utils/utils';
 
 /**
  * @uxpincomponent
  */
 export default class Drawer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      position: 'left',
-      active: true,
-      title: 'Title',
-      backdrop: 'backdrop',
-      content: 'Content',
-    };
+  uuid;
+
+  constructor() {
+    super();
+    this.uuid = uuid4();
   }
 
-  componentWillMount() {
-    this.setState({
-      position: this.props.position,
-      active: this.props.active,
-      title: this.props.title,
-      backdrop: this.props.backdrop,
-      content: this.props.content,
+/* eslint-disable */
+  componentDidMount() {
+    const drawer = document.getElementById(this.uuid);
+    const showInteraction = this.props.drawerShow;
+    const hideInteraction = this.props.drawerHide;
+
+    drawer.addEventListener('chiDrawerShow', () => {
+      if (showInteraction) {
+        showInteraction();
+      }
     });
-  }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      position: nextProps.position,
-      active: nextProps.active,
-      title: nextProps.title,
-      backdrop: nextProps.backdrop,
-      content: nextProps.content,
+    drawer.addEventListener('chiDrawerHide', () => {
+      if (hideInteraction) {
+        hideInteraction();
+      }
     });
   }
 
   render() {
     return (
-      <div style={{ width: '100%', height: '100vh' }}>
+      <div style={{
+        width: '100%',
+        height: '1000px'
+        }}>
         <chi-drawer
-          position={this.state.position}
-          active={this.state.active}
-          title={this.state.title}
-          backdrop={this.state.backdrop}
+          id={this.uuid}
+          position={this.props.position}
+          active={this.props.active}
+          title={this.props.title}
+          backdrop={this.props.backdrop}
           prevent-auto-hide>
-          <div className="-px--2 -text">
-            {this.state.content}
-          </div>
+          <div className="-sr--only">i</div>
         </chi-drawer>
       </div>
     );
   }
 }
 
-/* eslint-disable sort-keys */
 Drawer.propTypes = {
   backdrop: PropTypes.oneOf(['', 'inverse', 'backdrop']),
-  content: PropTypes.node,
   position: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
   active: PropTypes.bool,
   title: PropTypes.string,
+  drawerShow: PropTypes.func,
+  drawerHide: PropTypes.func,
 };
-/* eslint-enable sort-keys */
+/* eslint-enable */
 
 Drawer.defaultProps = {
   active: true,
   backdrop: 'backdrop',
-  content: 'Content goes here',
   position: 'left',
   title: 'Header title goes here',
 };
