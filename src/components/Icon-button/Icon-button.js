@@ -26,11 +26,7 @@ export default function IconButton(props) {
       data-tooltip={props.tooltipMessage}
       data-position={props.tooltipPosition}
       disabled={props.disabled}
-      onClick={props.click}
-      onMouseEnter={props.mouseOver}
-      onMouseLeave={props.mouseLeave}
-      onMouseDown={props.mouseDown}
-      onMouseUp={props.mouseUp}>
+      onClick={props.click}>
       <div className="chi-button__content">
         <i className={`chi-icon icon-${props.icon}`}></i>
       </div>
@@ -43,10 +39,6 @@ IconButton.propTypes = {
   disabled: PropTypes.bool,
   icon: PropTypes.string,
   click: PropTypes.func,
-  mouseDown: PropTypes.func,
-  mouseUp: PropTypes.func,
-  mouseOver: PropTypes.func,
-  mouseLeave: PropTypes.func,
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   tooltipMessage: PropTypes.string,
   tooltipPosition: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
