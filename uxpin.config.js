@@ -34,7 +34,7 @@ module.exports = {
         name: 'General',
         include: [
           'src/components/Alert/Alert.js',
-          // 'src/components/Badge/Badge.js',
+          'src/components/Badge/Badge.js',
           'src/components/Brand/Brand.js',
           // 'src/components/Button/Button.js',
           // 'src/components/Divider/Divider.js',

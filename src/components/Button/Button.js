@@ -22,6 +22,8 @@ export default class Button extends React.Component {
           chi-button 
           ${this.props.color && this.props.color !== 'base' ? `-${this.props.color}` : ''}
           ${this.props.size ? `-${this.props.size}` : ''}
+          ${this.props.fluid ? '-fluid' : ''}
+          ${this.props.uppercase ? '-uppercase' : ''}
           `}
         disabled={this.props.disabled}
         onClick={this.props.click}
@@ -43,6 +45,8 @@ Button.propTypes = {
   rightIcon: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   value: PropTypes.string,
+  fluid: PropTypes.bool,
+  uppercase: PropTypes.bool,
   click: PropTypes.func,
   mouseDown: PropTypes.func,
   mouseUp: PropTypes.func,

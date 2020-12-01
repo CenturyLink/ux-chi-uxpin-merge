@@ -29,29 +29,29 @@ export default class Radio extends React.Component {
     }
 
     Array(11).fill()
-        .forEach((_, i) => {
-          if (this.props[`option${i}`]) {
-            const uuid = `${this.state.id}-${i}`;
-            const inline = this.props.inline ? '-inline' : '';
+      .forEach((_, i) => {
+        if (this.props[`option${i}`]) {
+          const uuid = `${this.state.id}-${i}`;
+          const inline = this.props.inline ? '-inline' : '';
 
-            radiosToRender.push(
-                <div className={`chi-form__item ${inline}`} key={`radio-${i}`}>
-                  <div className="chi-radio">
-                    <input className="chi-radio__input" type="radio" name={`radios-${uuid}`} id={uuid}
-                           checked={i === this.props.selectedOption} disabled={this.props[`disabled${i}`]}
-                           onChange={() => {
-                           }}/>
-                    <label onClick={(e) => {
-                      selectRadio(e.target, uuid);
-                      if (this.props[`select${i}`]) {
-                        this.props[`select${i}`]();
-                      }
-                    }} className="chi-radio__label" htmlFor={uuid}>{this.props[`option${i}`]}</label>
-                  </div>
-                </div>
-            );
-          }
-        });
+          radiosToRender.push(
+            <div className={`chi-form__item ${inline}`} key={`radio-${i}`}>
+              <div className="chi-radio">
+                <input className="chi-radio__input" type="radio" name={`radios-${uuid}`} id={uuid}
+                  checked={i === this.props.selectedOption} disabled={this.props[`disabled${i}`]}
+                  onChange={() => {
+                  }} />
+                <label onClick={(e) => {
+                  selectRadio(e.target, uuid);
+                  if (this.props[`select${i}`]) {
+                    this.props[`select${i}`]();
+                  }
+                }} className="chi-radio__label" htmlFor={uuid}>{this.props[`option${i}`]}</label>
+              </div>
+            </div>
+          );
+        }
+      });
 
     const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
     const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
@@ -59,7 +59,7 @@ export default class Radio extends React.Component {
 
     if (this.props.required && this.props.required === 'required') {
       message = required;
-    } else if (this.props.required && this.props.required === 'optional')  {
+    } else if (this.props.required && this.props.required === 'optional') {
       message = optional;
     }
     const fieldLabel = this.props.fieldLabel ?
@@ -68,10 +68,10 @@ export default class Radio extends React.Component {
         {message}
       </div> : '';
     return (
-        <fieldset>
-          {fieldLabel}
-          {radiosToRender}
-        </fieldset>
+      <fieldset>
+        {fieldLabel}
+        {radiosToRender}
+      </fieldset>
     );
   }
 }
