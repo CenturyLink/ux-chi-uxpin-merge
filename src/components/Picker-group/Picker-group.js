@@ -1,5 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import { uuid4 } from '../../utils/utils';
 
 /* eslint-disable */
 /**
@@ -7,6 +8,7 @@ import * as React from 'react';
  */
 export default class PickerGroup extends React.Component {
   render() {
+    const uuid = uuid4();
     const pickersToRender = [];
     const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
     const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
@@ -31,14 +33,14 @@ export default class PickerGroup extends React.Component {
                 class="chi-picker__input"
                 type="radio"
                 name="radio-base"
-                id={`picker${i}`}
+                id={`picker-${uuid}-${i}`}
                 checked={this.props.selected === i}
                 disabled={this.props[`disabled${i}`]}
               />
             );
             pickersToRender.push(
             <label
-              for={`picker${i}`}
+              for={`picker-${uuid}-${i}`}
               onClick={(e) => {
                 if (this.props[`select${i}`]) {
                   const clickedLabelId = e.target.getAttribute('for');

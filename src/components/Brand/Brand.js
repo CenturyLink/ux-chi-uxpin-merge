@@ -29,7 +29,7 @@ export default class Brand extends React.Component {
 }
 
 Brand.propTypes = {
-  size: PropTypes.oneOf(['xs (12px)', 'sm (16px)', 'sm--2 (20px)', 'sm--3 (24px)', 'md (32px)', 'lg (64px)', 'xl (96px)', 'xxl (128px)']),
+  size: PropTypes.oneOf(['xs (12px)', 'sm (16px)', 'md (32px)', 'lg (64px)', 'xl (96px)', 'xxl (128px)']),
   color: PropTypes.oneOf(['black', 'inverse', 'white']),
   click: PropTypes.func,
   mouseDown: PropTypes.func,
