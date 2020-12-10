@@ -57,6 +57,6 @@ SecondaryButton.propTypes = {
 SecondaryButton.defaultProps = {
   disabled: false,
   size: 'lg',
-  value: 'SECONDARY',
+  value: 'Secondary',
   uppercase: true,
 };
