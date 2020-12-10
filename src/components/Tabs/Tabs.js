@@ -51,7 +51,11 @@ export default function Tabs(props) {
 
   return (
     <div>
-      <ul className={`chi-tabs ${props.size ? `-${props.size}` : ''}`} id={uuid}>
+      <ul className={`
+        chi-tabs
+        ${props.size ? `-${props.size}` : ''}
+        ${props.border ? '-border' : ''}
+        `} id={uuid}>
         {tabsToRender}
       </ul>
       <div>
@@ -74,6 +78,7 @@ Tabs.propTypes = {
   tab10: PropTypes.string,
   activeTab: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
+  border: PropTypes.bool,
   click1: PropTypes.func,
   click2: PropTypes.func,
   click3: PropTypes.func,

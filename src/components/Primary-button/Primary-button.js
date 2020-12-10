@@ -55,5 +55,6 @@ PrimaryButton.propTypes = {
 PrimaryButton.defaultProps = {
   disabled: false,
   size: 'lg',
-  value: 'Button',
+  value: 'PRIMARY',
+  uppercase: true,
 };

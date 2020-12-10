@@ -18,7 +18,7 @@ const Icon = (props) => (
     <i className={`
       chi-icon
       icon-${props.icon}
-      ${props.color ? `-text--${props.color}` : ''}
+      ${props.color ? `-icon--${props.color}` : ''}
       ${props.size ? `-${props.size}` : ''}
     `}>
     </i>
@@ -28,7 +28,7 @@ const Icon = (props) => (
 Icon.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'sm--2', 'sm--3', 'md', 'lg', 'xl', 'xxl']),
   icon: PropTypes.string,
-  color: PropTypes.oneOf(['primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
+  color: PropTypes.oneOf(['primary', 'secondary', 'dark', 'light', 'info', 'grey', 'muted', 'success', 'warning', 'danger']),
   click: PropTypes.func,
   mouseDown: PropTypes.func,
   mouseLeave: PropTypes.func,
