@@ -22,7 +22,8 @@ const ToggleSwitch = (props) => (
             } else {
               props.turnOff();
             }
-          }} />
+          }}
+          checked={props.on} />
       <span className="chi-switch__content">
         <span className="chi-switch__thumb"></span>
       </span>
@@ -33,6 +34,7 @@ const ToggleSwitch = (props) => (
 
 ToggleSwitch.propTypes = {
   label: PropTypes.string,
+  on: PropTypes.bool,
   disabled: PropTypes.bool,
   turnOn: PropTypes.func,
   turnOff: PropTypes.func,
