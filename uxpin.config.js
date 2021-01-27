@@ -43,6 +43,7 @@ module.exports = {
           'src/components/Icon/Icon.js',
           'src/components/Pagination/Pagination.js',
           'src/components/progress/progress.js',
+          'src/components/StatCompact/StatCompact.js',
           'src/components/Spinner/Spinner.js',
           // 'src/components/Tooltip/Tooltip.js',
           'src/components/Tabs/Tabs.js',
