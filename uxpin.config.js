@@ -44,6 +44,7 @@ module.exports = {
           'src/components/Pagination/Pagination.js',
           'src/components/progress/progress.js',
           'src/components/StatCompact/StatCompact.js',
+          'src/components/Steps/Steps.js',
           'src/components/Spinner/Spinner.js',
           // 'src/components/Tooltip/Tooltip.js',
           'src/components/Tabs/Tabs.js',
