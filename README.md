@@ -75,7 +75,7 @@ Merge accepts any standard approach to React. The only limitations that you shou
 * Only one component is allowed per file and directory e.g. `./src/Tabs/Tabs.js`
 * You have to add the component to `uxpin.config.js` file
 
-## Component property examples
+## Component properties - most common examples
 
 ```JS
 Alert.propTypes = {
@@ -95,6 +95,26 @@ Alert.defaultProps = {
   closable: true,
 };
 ```
+
+### Component interaction example
+Use `PropTypes.func` to add an interaction to the component
+```JS
+Button.propTypes = {
+  click: PropTypes.func, // Renders as an Interaction provider in UXPin UI
+};
+```
+and use the interaction prop as a function that can be triggered
+```JS
+const Button = (props) => (
+  <button
+    type="button"
+    className="chi-button"
+    onClick={props.click}>
+    Button Content
+  </button>
+);
+```
+Please note that you can also trigger an interaction function in custom scenarios  by using `props.interactionPropName()`.
 
 ## Pushing changes to Chi libraries
 
