@@ -75,6 +75,27 @@ Merge accepts any standard approach to React. The only limitations that you shou
 * Only one component is allowed per file and directory e.g. `./src/Tabs/Tabs.js`
 * You have to add the component to `uxpin.config.js` file
 
+## Component property examples
+
+```JS
+Alert.propTypes = {
+  size: PropTypes.oneOf(['sm', 'md', 'lg']), // Renders a Select with the provided options in UXPin UI
+  width: PropTypes.number, // Renders as a Number input in UXPin UI
+  icon: PropTypes.string, // Renders as a Text Input in UXPin UI
+  closable: PropTypes.bool, // Renders as a Checkbox in UXPin UI
+};
+```
+
+### Providing default property values
+```JS
+Alert.defaultProps = {
+  size: 'md',
+  width: 320,
+  icon: 'warning',
+  closable: true,
+};
+```
+
 ## Pushing changes to Chi libraries
 
 ### Push changes to `Dev` (pre-production) library
