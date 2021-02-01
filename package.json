@@ -1,5 +1,5 @@
 {
-  "name": "uxpin-merge-boilerplate",
+  "name": "ux-chi-uxpin-merge",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uxpin-merge/uxpin-merge-boilerplate.git"
+    "url": "git+https://github.com/CenturyLink/ux-chi-uxpin-merge.git"
   },
   "author": "",
   "license": "ISC",
