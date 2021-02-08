@@ -22,7 +22,7 @@ export default class TertiaryButton extends React.Component {
           -outline
           ${this.props.size ? `-${this.props.size}` : ''}
           ${this.props.fluid ? '-fluid -justify-content--center' : '-px--2'}
-          ${this.props.uppercase ? '-uppercase' : ''}
+          -text--lowercase
           -bg--white
           `}
         disabled={this.props.disabled}
@@ -45,7 +45,6 @@ TertiaryButton.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   value: PropTypes.string,
   fluid: PropTypes.bool,
-  uppercase: PropTypes.bool,
   click: PropTypes.func,
   mouseDown: PropTypes.func,
   mouseUp: PropTypes.func,
