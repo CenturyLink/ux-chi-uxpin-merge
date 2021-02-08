@@ -5,6 +5,9 @@ import * as React from 'react';
 export default class Alert extends React.Component {
   render() {
     let iconToRender;
+    let textToRender;
+    let alertTitle = '';
+    let closeButton = '';
 
     if (this.props.icon) {
       iconToRender = this.props.icon;
@@ -24,11 +27,36 @@ export default class Alert extends React.Component {
           break;
       }
     }
-    let alertTitle = '';
+
+    if (this.props.text) {
+      textToRender = this.props.text;
+    } else {
+      switch (this.props.state) {
+        case 'success':
+          textToRender = 'This is a success alert';
+          break;
+        case 'warning':
+          textToRender = 'This is a warning alert';
+          break;
+        case 'danger':
+          textToRender = 'This is a danger alert';
+          break;
+        case 'info':
+          textToRender = 'This is an info alert';
+          break;
+        case 'muted':
+          textToRender = 'This is a muted alert';
+          break;
+        default:
+          textToRender = 'This is a base alert';
+          break;
+      }
+    }
+
     if (this.props.title) {
       alertTitle = <p class="chi-alert__title">{this.props.title}</p>;
     }
-    let closeButton = '';
+
     if (this.props.closable) {
       closeButton = <button class="chi-alert__close-button chi-button -icon -close" aria-label="Close">
       <div class="chi-button__content">
@@ -48,7 +76,7 @@ export default class Alert extends React.Component {
         <i class={`chi-alert__icon chi-icon icon-${iconToRender}`}></i>
         <div class="chi-alert__content">
           {alertTitle}
-          <p class="chi-alert__text">{this.props.text}</p>
+          <p class="chi-alert__text">{textToRender}</p>
         </div>
         {closeButton}
       </div>
@@ -71,5 +99,4 @@ Alert.defaultProps = {
   size: 'md',
   state: '',
   type: 'bubble',
-  text: 'This is an alert component',
 };
