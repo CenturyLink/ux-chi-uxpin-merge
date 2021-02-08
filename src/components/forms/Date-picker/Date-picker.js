@@ -1,6 +1,7 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import Label from '../label/label';
+import {uuid4} from "../../../utils/utils";
 
 /* eslint-disable */
 const selected = function() {
@@ -43,9 +44,11 @@ export default class DatePicker extends React.Component {
   }
 
   render() {
+    const dpId = `dp-${uuid4()}`;
     const label = this.props.label
       ? (
         <Label
+          htmlFor={`dp-${dpId}-control`}
           className="chi-label"
           required={this.props.required}
           label={this.props.label}>
@@ -66,7 +69,7 @@ export default class DatePicker extends React.Component {
       <div className="chi-form__item" style={{ width: '14rem' }}>
         {label}
         <chi-date-picker
-          id="chi-datepicker-control"
+          id={dpId}
           disabled={this.props.disabled}
           excluded-weekdays={excludedDays}
           excluded-dates={this.props.dates}
