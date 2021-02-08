@@ -74,6 +74,7 @@ export default class DatePicker extends React.Component {
           max={this.props.max}
           value={this.props.selected}
           onClick={this.props.click}
+          mode={this.props.mode}
           onMouseEnter={this.props.mouseOver}
           onMouseLeave={this.props.mouseLeave}
           onMouseDown={this.props.mouseDown}
@@ -88,6 +89,7 @@ DatePicker.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  mode: PropTypes.oneOf(['date', 'datetime']),
   min: PropTypes.string,
   max: PropTypes.string,
   selected: PropTypes.string,
@@ -115,6 +117,7 @@ DatePicker.defaultProps = {
   disabled: false,
   label: 'Label',
   required: 'none',
+  mode: 'date',
   selected: selected(),
   mo: true,
   tu: true,

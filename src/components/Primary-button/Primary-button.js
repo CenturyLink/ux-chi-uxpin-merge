@@ -21,7 +21,7 @@ export default class PrimaryButton extends React.Component {
           -primary
           ${this.props.size ? `-${this.props.size}` : ''}
           ${this.props.fluid ? '-fluid -justify-content--center' : '-px--4'}
-          ${this.props.uppercase ? '-uppercase' : ''}
+          -text--uppercase
           `}
         disabled={this.props.disabled}
         onClick={this.props.click}
@@ -43,7 +43,6 @@ PrimaryButton.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   value: PropTypes.string,
   fluid: PropTypes.bool,
-  uppercase: PropTypes.bool,
   click: PropTypes.func,
   mouseDown: PropTypes.func,
   mouseUp: PropTypes.func,
@@ -56,5 +55,4 @@ PrimaryButton.defaultProps = {
   disabled: false,
   size: 'lg',
   value: 'Primary',
-  uppercase: true,
 };

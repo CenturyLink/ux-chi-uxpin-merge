@@ -22,7 +22,7 @@ export default class SecondaryButton extends React.Component {
           -outline
           ${this.props.size ? `-${this.props.size}` : ''}
           ${this.props.fluid ? '-fluid -justify-content--center' : '-px--4'}
-          ${this.props.uppercase ? '-uppercase' : ''}
+          -text--uppercase
           -bg--white
           `}
         disabled={this.props.disabled}
@@ -45,7 +45,6 @@ SecondaryButton.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   value: PropTypes.string,
   fluid: PropTypes.bool,
-  uppercase: PropTypes.bool,
   click: PropTypes.func,
   mouseDown: PropTypes.func,
   mouseUp: PropTypes.func,
@@ -58,5 +57,4 @@ SecondaryButton.defaultProps = {
   disabled: false,
   size: 'lg',
   value: 'Secondary',
-  uppercase: true,
 };

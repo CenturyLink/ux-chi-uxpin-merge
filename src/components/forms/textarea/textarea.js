@@ -48,6 +48,7 @@ export default class Textarea extends React.Component {
             ${this.props.size ? `-${this.props.size}` : ''}
             `}
           disabled={this.props.disabled}
+          placeholder={this.props.placeholder}
           onClick={this.props.click}
           onFocus={this.props.focus}
           onBlur={this.props.focusLost}
@@ -75,6 +76,7 @@ Textarea.propTypes = {
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   disabled: PropTypes.bool,
   value: PropTypes.string,
+  placeholder: PropTypes.string,
   state: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
   click: PropTypes.func,
   focus: PropTypes.func,
@@ -94,4 +96,5 @@ Textarea.defaultProps = {
   size: 'md',
   state: 'default',
   required: 'none',
+  placeholder: '',
 };
