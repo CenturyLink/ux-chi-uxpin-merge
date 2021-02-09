@@ -1,7 +1,7 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import Label from '../label/label';
-import { uuid4 } from "../../../utils/utils";
+import { uuid4 } from '../../../utils/utils';
 
 /* eslint-disable */
 const selected = function() {
@@ -14,7 +14,7 @@ const selected = function() {
     todayDate.getFullYear()
     ].join('/').toString();
   
-}
+};
 
 /**
  * @uxpincomponent
