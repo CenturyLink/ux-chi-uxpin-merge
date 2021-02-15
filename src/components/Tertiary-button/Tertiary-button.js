@@ -22,7 +22,6 @@ export default class TertiaryButton extends React.Component {
           -outline
           ${this.props.size ? `-${this.props.size}` : ''}
           ${this.props.fluid ? '-fluid -justify-content--center' : '-px--2'}
-          -text--lowercase
           -bg--white
           `}
         disabled={this.props.disabled}
