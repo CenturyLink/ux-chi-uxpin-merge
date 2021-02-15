@@ -123,7 +123,7 @@ Please note that you can also trigger an interaction function in custom scenario
 $ npm push-dev
 ```
 
-### Push changes to `Dev` (Production) library
+### Push changes to `Lumen` (Production) library
 ```sh
 $ npm push-lumen
 ```
