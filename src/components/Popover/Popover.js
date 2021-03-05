@@ -6,8 +6,8 @@ import { uuid4 } from '../../utils/utils';
  * @uxpincomponent
  */
 function Popover(props) {
-  const popoverId = `popover-${uuid4}`;
-  const buttonId = `button-${uuid4}`;
+  const popoverId = `popover-${uuid4()}`;
+  const buttonId = `button-${uuid4()}`;
 
   const initialize = setInterval(() => {
     if (window.chi && document.getElementById(buttonId)) {
@@ -28,10 +28,10 @@ function Popover(props) {
         arrow={props.arrow}
         id={popoverId}
         position={props.position}
-        title="Popover title"
+        title={props.popover[0].title || null}
         variant="text"
         reference={`#${buttonId}`}>
-        Popover Text
+        {props.popover[0].text || ''}
       </chi-popover>
     </>
   );
@@ -51,6 +51,10 @@ Popover.defaultProps = {
   active: false,
   arrow: true,
   position: 'bottom',
+  popover: [{
+    title: 'Popover Title',
+    text: 'Popover Text',
+  }],
 };
 
 export default Popover;
