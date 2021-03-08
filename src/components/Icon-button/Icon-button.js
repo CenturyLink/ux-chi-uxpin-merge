@@ -11,9 +11,14 @@ import './IconButton.css';
 export default function IconButton(props) {
   const uuid = uuid4();
 
-  setTimeout(() => {
-    window.chi.tooltip(document.getElementById(uuid));
-  }, 2000);
+  if (props.tooltipMessage) {
+    const initialize = setInterval(() => {
+      if (window.chi && document.getElementById(uuid)) {
+        window.chi.tooltip(document.getElementById(uuid));
+        clearInterval(initialize);
+      }
+    }, 100);
+  }
 
   return (
     <button
@@ -49,6 +54,5 @@ IconButton.defaultProps = {
   disabled: false,
   icon: 'atom',
   size: 'md',
-  tooltipMessage: 'Tooltip Message',
   tooltipPosition: 'top',
 };
