@@ -7,22 +7,20 @@ import { uuid4 } from '../../utils/utils';
  */
 function Popover(props) {
   const popoverId = `popover-${uuid4()}`;
-  const buttonId = `button-${uuid4()}`;
-
-  const initialize = setInterval(() => {
-    if (window.chi && document.getElementById(buttonId)) {
-      document.querySelector(`#${buttonId}`)
-        .addEventListener('click', () => {
-          const popoverElem = document.querySelector(`#${popoverId}`);
-          popoverElem.toggle();
-        });
-      clearInterval(initialize);
-    }
-  }, 100);
+  const referenceId = `button-${uuid4()}`;
+  const textRender = () => {
+    return { __html: props.popover[0].text.replaceAll('\n', '<br />') };
+  };
+  // eslint-disable-next-line react/no-danger
+  const text = <p dangerouslySetInnerHTML={textRender()} />;
 
   return (
     <>
-      <chi-button id={buttonId}>Click me!</chi-button>
+      <div style={{ border: '1px solid #e9e9e9', height: '16px', width: '16px' }} id={referenceId}>
+        <span className="-sr--only">
+          i
+        </span>
+      </div>
       <chi-popover
         active={props.active}
         arrow={props.arrow}
@@ -30,8 +28,10 @@ function Popover(props) {
         position={props.position}
         title={props.popover[0].title || null}
         variant="text"
-        reference={`#${buttonId}`}>
-        {props.popover[0].text || ''}
+        reference={`#${referenceId}`}
+        closable={props.closeButton}
+        prevent-auto-hide={props.preventAutoHide}>
+        {text || ''}
       </chi-popover>
     </>
   );
@@ -43,18 +43,20 @@ Popover.propTypes = {
   arrow: PropTypes.bool,
   position: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'top-start', 'top-end', 'right-start', 'right-end', 'bottom-start', 'bottom-end', 'left-start', 'left-end']),
   popover: PropTypes.array,
-  button: PropTypes.array,
+  closeButton: PropTypes.bool,
+  preventAutoHide: PropTypes.bool,
 };
 /* eslint-enable */
 
 Popover.defaultProps = {
-  active: false,
+  active: true,
   arrow: true,
   position: 'bottom',
   popover: [{
     title: 'Popover Title',
     text: 'Popover Text',
   }],
+  closeButton: false,
 };
 
 export default Popover;
