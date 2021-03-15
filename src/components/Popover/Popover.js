@@ -8,9 +8,7 @@ import { uuid4 } from '../../utils/utils';
 function Popover(props) {
   const popoverId = `popover-${uuid4()}`;
   const referenceId = `button-${uuid4()}`;
-  const textRender = () => {
-    return { __html: props.popover[0].text.replaceAll('\n', '<br />') };
-  };
+  const textRender = () => ({ __html: props.popover[0].text.replaceAll('\n', '<br />') });
   // eslint-disable-next-line react/no-danger
   const text = <p dangerouslySetInnerHTML={textRender()} />;
 
