@@ -41,6 +41,7 @@ module.exports = {
           // 'src/components/Drawer/Drawer.js',
           // 'src/components/Dropdown/Dropdown.js',
           'src/components/Icon/Icon.js',
+          'src/components/Marketing-icon/Marketing-icon.js',
           'src/components/Pagination/Pagination.js',
           'src/components/Popover/Popover.js',
           'src/components/progress/progress.js',
