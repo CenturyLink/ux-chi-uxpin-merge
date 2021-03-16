@@ -52,9 +52,10 @@ Popover.defaultProps = {
   position: 'bottom',
   popover: [{
     title: 'Popover Title',
-    text: 'Popover Text',
+    text: 'Line 1 \nLine 2 \nLine 3',
   }],
   closeButton: false,
+  preventAutoHide: true,
 };
 
 export default Popover;
