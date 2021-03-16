@@ -21,7 +21,7 @@ const MarketingIcon = (props) => (
 );
 
 MarketingIcon.propTypes = {
-  size: PropTypes.oneOf(['xs', 'sm', 'lg', 'xl']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   icon: PropTypes.string,
   click: PropTypes.func,
   mouseDown: PropTypes.func,
