@@ -17,11 +17,11 @@ collection of components based on our own design system (CHI).
 | Icon | [Icon](https://assets.ctl.io/chi/3.12.0/components/icon/) | ✅ Full Support |
 | Icon Button | [Icon Button](https://assets.ctl.io/chi/3.12.0/templates/portal/#icons) | ✅ Full Support |
 | Label | [Label](https://assets.ctl.io/chi/3.12.0/components/label/) | ✅ Full Support |
-| Marketing Icon | [Marketing Icon](https://assets.ctl.io/chi/3.12.0/components/marketing-icon/) | Available in Dev |
+| Marketing Icon | [Marketing Icon](https://assets.ctl.io/chi/3.12.0/components/marketing-icon/) | ✅ Full Support |
 | Number Input | [Number Input](https://assets.ctl.io/chi/3.12.0/components/forms/number-input/) | ✅ Full Support |
 | Pagination | [Pagination](https://assets.ctl.io/chi/3.12.0/components/pagination/) | ✅ Full Support |
 | Picker Group | [Picker Group](https://assets.ctl.io/chi/3.12.0/components/picker-group/) | ✅ Full Support |
-| Popover | [Popover](https://assets.ctl.io/chi/3.12.0/components/popover/) | Available in Dev |
+| Popover | [Popover](https://assets.ctl.io/chi/3.12.0/components/popover/) | ✅ Full Support |
 | Primary Button | [Primary Button](https://assets.ctl.io/chi/3.12.0/templates/portal/#buttons) | ✅ Full Support |
 | Progress | [Progress](https://assets.ctl.io/chi/3.12.0/components/progress/) | ✅ Full Support |
 | Radio | [Radio](https://assets.ctl.io/chi/3.12.0/components/forms/radio-button/) | ✅ Full Support |
