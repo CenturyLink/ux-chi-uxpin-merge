@@ -1,6 +1,5 @@
-select.chi-input {
+select.chi-select {
     appearance: none !important;
-    background-color: #fff;
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width= '16' height= '16' xmlns= 'http://www.w3.org/2000/svg' %3E%3Cpath d= 'M8.097 10.66l6.005-6.216.58-.6 1.162 1.201-.58.601-6.568 6.798-.58.601-.648-.67-.069-.067L.601 5.741 0 5.161 1.202 4l.6.58 6.295 6.08z' fill= '%23333' fill-rule= 'evenodd' /%3E%3C/svg%3E") !important;
     background-position: right .5rem center !important;
     background-repeat: no-repeat !important;

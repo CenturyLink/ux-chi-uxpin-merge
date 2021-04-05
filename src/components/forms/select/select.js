@@ -54,7 +54,7 @@ export default class Select extends React.Component {
           onMouseOver={this.props.mouseOver}
           onMouseLeave={this.props.mouseLeave}
           id={this.state.id}
-          className={`chi-input ${this.props.size ? `-${this.props.size}` : ''}`}
+          className={`chi-select ${this.props.size ? `-${this.props.size}` : ''}`}
           disabled={this.props.disabled}>
           {optionsToRender}
         </select>
