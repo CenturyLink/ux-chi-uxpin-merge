@@ -48,7 +48,7 @@ export default class DatePicker extends React.Component {
     const label = this.props.label
       ? (
         <Label
-          htmlFor={`dp-${dpId}-control`}
+          htmlFor={`${dpId}-control`}
           className="chi-label"
           required={this.props.required}
           label={this.props.label}>

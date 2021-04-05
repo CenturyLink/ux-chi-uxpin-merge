@@ -1,5 +1,5 @@
 import * as PropTypes from 'prop-types';
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 /* eslint-disable */
 /**
@@ -48,5 +48,5 @@ SearchInput.propTypes = {
 
 SearchInput.defaultProps = {
   disabled: false,
-  size: 'md'
+  size: 'md',
 };

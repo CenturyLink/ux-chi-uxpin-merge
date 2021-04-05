@@ -1,6 +1,7 @@
 import * as PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import { uuid4 } from "../../utils/utils";
+import { uuid4 } from '../../utils/utils';
+import Label from '../forms/label/label';
 
 /* eslint-disable */
 /**
@@ -8,6 +9,16 @@ import { uuid4 } from "../../utils/utils";
  */
 export default function TimePicker(props) {
   const uuid = `time-picker-${uuid4()}`;
+  const label = props.label
+      ? (
+          <Label
+              htmlFor={`${uuid}-control`}
+              className="chi-label"
+              required={props.required}
+              label={props.label}>
+          </Label>
+      )
+      : null;
 
   useEffect(() => {
     const chiTimePicker = document.getElementById(uuid);
@@ -27,25 +38,29 @@ export default function TimePicker(props) {
   });
 
   return (
-      <chi-time-picker
-          active={props.active}
-          displaySeconds={props.displaySeconds}
-          format={props.format}
-          disabled={props.disabled}
-          value={props.value}
-          id={uuid}
-      >
-        <div className="-sr--only">TP</div>
-      </chi-time-picker>
+      <div className="chi-form__item" style={{width: '14rem'}}>
+        {label}
+        <chi-time-picker
+            active={props.active}
+            displaySeconds={props.displaySeconds}
+            format={props.format}
+            disabled={props.disabled}
+            value={props.value}
+            id={uuid}
+        >
+          <div className="-sr--only">TP</div>
+        </chi-time-picker>
+      </div>
   );
 }
 
 TimePicker.propTypes = {
+  disabled: PropTypes.bool,
+  label: PropTypes.string,
   active: PropTypes.bool,
   displaySeconds: PropTypes.bool,
   format: PropTypes.oneOf(['12hr', '24hr']),
   value: PropTypes.string,
-  disabled: PropTypes.bool,
   click: PropTypes.func,
   focus: PropTypes.func,
   focusLost: PropTypes.func,
@@ -56,6 +71,6 @@ TimePicker.propTypes = {
 
 TimePicker.defaultProps = {
   disabled: false,
+  label: 'Label',
   format: '12hr',
-  size: 'md',
 };
