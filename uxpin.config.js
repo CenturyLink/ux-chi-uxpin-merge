@@ -27,6 +27,7 @@ module.exports = {
           'src/components/forms/select/select.js',
           'src/components/forms/text-input/text-input.js',
           'src/components/forms/textarea/textarea.js',
+          'src/components/Time-picker/Time-picker.js',
           'src/components/forms/toggle-switch/toggle-switch.js',
         ],
       },
