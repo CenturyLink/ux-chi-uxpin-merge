@@ -13,7 +13,7 @@ export default function SearchInput(props) {
     chiSearchInput.current.addEventListener('chiBlur', () => props.focusLost());
     chiSearchInput.current.addEventListener('click', () => props.click());
     chiSearchInput.current.addEventListener('chiChange', () => props.valueChange());
-    chiSearchInput.current.addEventListener('chiClean', () => props.clean());
+    chiSearchInput.current.addEventListener('chiClean', () => props.clear());
     chiSearchInput.current.addEventListener('chiInput', () => props.input());
     chiSearchInput.current.addEventListener('chiSearch', () => props.search());
   });
@@ -36,7 +36,7 @@ SearchInput.propTypes = {
   value: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   disabled: PropTypes.bool,
-  clean: PropTypes.func,
+  clear: PropTypes.func,
   click: PropTypes.func,
   focus: PropTypes.func,
   focusLost: PropTypes.func,
@@ -48,5 +48,6 @@ SearchInput.propTypes = {
 
 SearchInput.defaultProps = {
   disabled: false,
+  placeholder: 'Search',
   size: 'md',
 };

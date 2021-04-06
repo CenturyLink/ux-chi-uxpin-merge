@@ -42,7 +42,7 @@ export default function TimePicker(props) {
         {label}
         <chi-time-picker
             active={props.active}
-            displaySeconds={props.displaySeconds}
+            display-seconds={props.displaySeconds}
             format={props.format}
             disabled={props.disabled}
             value={props.value}
