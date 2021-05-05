@@ -28,7 +28,8 @@ function Popover(props) {
         variant="text"
         reference={`#${referenceId}`}
         closable={props.closeButton}
-        prevent-auto-hide={props.preventAutoHide}>
+        prevent-auto-hide={props.preventAutoHide}
+        portal={props.portal}>
         {text || ''}
       </chi-popover>
     </>
@@ -43,6 +44,7 @@ Popover.propTypes = {
   popover: PropTypes.array,
   closeButton: PropTypes.bool,
   preventAutoHide: PropTypes.bool,
+  portal: PropTypes.bool,
 };
 /* eslint-enable */
 
