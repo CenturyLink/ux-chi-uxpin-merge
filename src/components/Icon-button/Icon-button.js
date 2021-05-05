@@ -30,6 +30,7 @@ export default function IconButton(props) {
         `}
       data-tooltip={props.tooltipMessage}
       data-position={props.tooltipPosition}
+      data-tooltip-color={props.tooltipColor}
       disabled={props.disabled}
       onClick={props.click}>
       <div className="chi-button__content">
@@ -47,6 +48,7 @@ IconButton.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   tooltipMessage: PropTypes.string,
   tooltipPosition: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+  tooltipColor: PropTypes.oneOf(['base', 'light']),
 };
 /* eslint-enable */
 
@@ -56,4 +58,5 @@ IconButton.defaultProps = {
   size: 'md',
   tooltipMessage: 'Tooltip message',
   tooltipPosition: 'top',
+  tooltipColor: 'base',
 };

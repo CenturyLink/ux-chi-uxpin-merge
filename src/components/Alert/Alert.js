@@ -68,7 +68,7 @@ export default class Alert extends React.Component {
     return (
       <div class={`
         chi-alert
-        ${this.props.state ? `-${this.props.state}` : ''}
+        ${this.props.state && this.props.state !== 'base' ? `-${this.props.state}` : ''}
         ${this.props.size ? `-${this.props.size}` : ''}
         ${this.props.type ? `-${this.props.type}` : ''}
         `}
@@ -86,7 +86,7 @@ export default class Alert extends React.Component {
 
 Alert.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  state: PropTypes.oneOf(['success', 'warning', 'danger', 'info', 'muted']),
+  state: PropTypes.oneOf(['base', 'success', 'warning', 'danger', 'info', 'muted']),
   text: PropTypes.string,
   title: PropTypes.string,
   icon: PropTypes.string,
@@ -97,6 +97,6 @@ Alert.propTypes = {
 
 Alert.defaultProps = {
   size: 'md',
-  state: '',
+  state: 'base',
   type: 'bubble',
 };
