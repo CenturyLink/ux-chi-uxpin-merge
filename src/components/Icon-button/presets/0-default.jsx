@@ -1,0 +1,15 @@
+import React from 'react';
+import IconButton from '../Icon-button';
+
+export default (
+  <IconButton
+    uxpId="icon-button"
+    disabled={false}
+    icon="atom"
+    click={() => {}}
+    size="md"
+    tooltipMessage="Tooltip message"
+    tooltipPosition="top"
+    tooltipColor="base"
+  />
+);

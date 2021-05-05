@@ -1,7 +1,7 @@
 import * as PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
+import Label from '../Label/Label';
 import { uuid4 } from '../../utils/utils';
-import Label from '../forms/label/label';
 
 /* eslint-disable */
 /**
