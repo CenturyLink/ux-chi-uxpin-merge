@@ -5,9 +5,5 @@ export default (
   <ToggleSwitch
     uxpId="toggle-switch"
     label="Label"
-    on={false}
-    disabled={false}
-    turnOn={() => {}}
-    turnOff={() => {}}
   />
 );
