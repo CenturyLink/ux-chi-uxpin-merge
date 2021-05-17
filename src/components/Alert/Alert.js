@@ -78,7 +78,7 @@ export default class Alert extends React.Component {
         `}
         role="alert">  
 
-        {this.props.state == 'inprogress' ? 
+        {this.props.inProgress ? 
           <div class="chi-alert__icon">
             <svg class="chi-spinner -info -sm--2" viewBox="0 0 66 66">
             <title>Loading</title>
