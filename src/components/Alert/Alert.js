@@ -73,8 +73,6 @@ export default class Alert extends React.Component {
         chi-alert
         ${this.props.state && this.props.state !== 'base' ? `-${this.props.state}` : ''}
         ${this.props.state && this.props.state !== 'base' ? `-b--${this.props.state}-light -bg--${this.props.state}-lighter` : ''}
-        ${this.props.state && this.props.state == 'inprogress' ? `-info` : ''}
-        ${this.props.state && this.props.state == 'inprogress' ? `-b--info-light -bg--info-lighter` : ''}
         ${this.props.size ? `-${this.props.size}` : ''}
         ${this.props.type ? `-${this.props.type}` : ''}
         `}
