@@ -101,7 +101,8 @@ export default class Alert extends React.Component {
 
 Alert.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  state: PropTypes.oneOf(['base', 'success', 'warning', 'danger', 'info', 'muted','inprogress']),
+  state: PropTypes.oneOf(['base', 'success', 'warning', 'danger', 'info', 'muted']),
+  inProgress: PropTypes.bool,
   text: PropTypes.string,
   title: PropTypes.string,
   icon: PropTypes.string,
