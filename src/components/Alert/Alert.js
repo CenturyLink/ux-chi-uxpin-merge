@@ -1,7 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
-/* eslint-disable */
 export default class Alert extends React.Component {
   render() {
     let iconToRender;
@@ -12,7 +11,7 @@ export default class Alert extends React.Component {
     if (this.props.icon) {
       iconToRender = this.props.icon;
     } else {
-      switch(this.props.state) {
+      switch (this.props.state) {
         case 'success':
           iconToRender = 'circle-check';
           break;
@@ -47,6 +46,9 @@ export default class Alert extends React.Component {
         case 'muted':
           textToRender = 'This is a muted alert';
           break;
+        case 'inprogress':
+          textToRender = 'This is a test in progress alert';
+          break;
         default:
           textToRender = 'This is a base alert';
           break;
@@ -54,29 +56,43 @@ export default class Alert extends React.Component {
     }
 
     if (this.props.title) {
-      alertTitle = <p class="chi-alert__title">{this.props.title}</p>;
+      alertTitle = <p className="chi-alert__title -text--lg">{this.props.title}</p>;
     }
 
     if (this.props.closable) {
-      closeButton = <button class="chi-alert__close-button chi-button -icon -close" aria-label="Close">
-      <div class="chi-button__content">
-        <i class="chi-icon icon-x"></i>
-      </div>
-    </button>;
+      closeButton = (
+        <button type="button" className="chi-alert__close-button chi-button -icon -close" aria-label="Close">
+          <div className="chi-button__content">
+            <i className="chi-icon icon-x"></i>
+          </div>
+        </button>
+      );
     }
 
     return (
-      <div class={`
+      <div
+        className={`
         chi-alert
-        ${this.props.state && this.props.state !== 'base' ? `-${this.props.state}` : ''}
+        ${this.props.state && this.props.state !== 'base' ? `-${this.props.state} -b--${this.props.state}-light -bg--${this.props.state}-lighter` : ''}
         ${this.props.size ? `-${this.props.size}` : ''}
         ${this.props.type ? `-${this.props.type}` : ''}
         `}
         role="alert">
-        <i class={`chi-alert__icon chi-icon icon-${iconToRender}`}></i>
-        <div class="chi-alert__content">
+
+        {this.props.inProgress
+          ? (
+            <div className="chi-alert__icon">
+              <svg className="chi-spinner -info -sm--2" viewBox="0 0 66 66">
+                <title>Loading</title>
+                <circle className="path" cx="33" cy="33" r="30" fill="none" strokeWidth="6"></circle>
+              </svg>
+            </div>
+          )
+          : <i className={`chi-alert__icon chi-icon icon-${iconToRender}`}></i>
+        }
+        <div className="chi-alert__content">
           {alertTitle}
-          <p class="chi-alert__text">{textToRender}</p>
+          <p className="chi-alert__text">{textToRender}</p>
         </div>
         {closeButton}
       </div>
@@ -87,13 +103,13 @@ export default class Alert extends React.Component {
 Alert.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   state: PropTypes.oneOf(['base', 'success', 'warning', 'danger', 'info', 'muted']),
+  inProgress: PropTypes.bool,
   text: PropTypes.string,
   title: PropTypes.string,
   icon: PropTypes.string,
   type: PropTypes.oneOf(['bubble', 'banner', 'toast']),
   closable: PropTypes.bool,
 };
-/* eslint-enable */
 
 Alert.defaultProps = {
   size: 'md',
