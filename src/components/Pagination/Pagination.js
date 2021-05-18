@@ -43,6 +43,7 @@ export default class Pagination extends React.Component {
         compact={this.props.compact}
         page-size={this.props.pageSize}
         page-jumper={this.props.pageJumper}
+        size={this.props.size}
         results={this.props.results}>
           <span class="-sr--only">
             i
@@ -59,6 +60,7 @@ Pagination.propTypes = {
   startEnd: PropTypes.bool,
   currentPage: PropTypes.number,
   pageSize: PropTypes.bool,
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
   pageJumper: PropTypes.bool,
   results: PropTypes.number,
   toGo1: PropTypes.func,
@@ -77,4 +79,5 @@ Pagination.propTypes = {
 Pagination.defaultProps = {
   pages: 5,
   currentPage: 3,
+  size: 'sm',
 };
