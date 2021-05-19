@@ -52,9 +52,9 @@ export default function Tabs(props) {
   return (
     <div>
       <ul className={`
-        chi-tabs
-        ${props.size ? `-${props.size}` : ''}
+        chi-tabs -portal 
         ${props.border ? '-border' : ''}
+        ${props.size ? `-${props.size}` : ''}
         `} id={uuid}>
         {tabsToRender}
       </ul>
