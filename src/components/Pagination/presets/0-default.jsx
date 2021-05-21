@@ -10,6 +10,7 @@ export default (
     startEnd={false}
     currentPage={3}
     pageSize={false}
+    size="sm"
     pageJumper={false}
     results={1}
     toGo1={() => {}}

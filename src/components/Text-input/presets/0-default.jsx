@@ -4,7 +4,7 @@ import TextInput from '../Text-input';
 export default (
   <TextInput
     uxpId="text-input"
-    size="md"
+    size="lg"
     label="Label"
     required="none"
     disabled={false}

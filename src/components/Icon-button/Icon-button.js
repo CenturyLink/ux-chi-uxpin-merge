@@ -25,7 +25,7 @@ export default function IconButton(props) {
       type="button"
       id={uuid}
       className={`
-        chi-button -icon -flat -bg--none -opacity-hover--80
+        chi-button -portal -icon -primary -flat -bg--none -opacity-hover--80
         ${props.size ? `-${props.size}` : ''}
         `}
       data-tooltip={props.tooltipMessage}
