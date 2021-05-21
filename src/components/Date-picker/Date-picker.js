@@ -18,6 +18,8 @@ const selected = function() {
 
 /**
  * @uxpincomponent
+ * @uxpinwrappers
+ * SkipContainerWrapper
  */
 export default class DatePicker extends React.Component {
   componentDidMount() {
@@ -66,7 +68,7 @@ export default class DatePicker extends React.Component {
     `;
 
     return (
-      <div className="chi-form__item" style={{ width: '14rem' }}>
+      <div ref={this.props.uxpinRef} className="chi-form__item" style={{ width: '14rem' }}>
         {label}
         <chi-date-picker
           id={dpId}

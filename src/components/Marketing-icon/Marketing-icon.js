@@ -4,15 +4,24 @@ import * as React from 'react';
 /* eslint-disable */
 /**
  * @uxpincomponent
+ * @uxpinwrappers
+ * SkipContainerWrapper
  */
-const MarketingIcon = (props) => (
+const MarketingIcon = ({ click, mouseDown, mouseUp, mouseLeave, mouseOver, icon, size, uxpinRef }) => (
   <div
-    onClick={props.click}
-    onMouseEnter={props.mouseOver}
-    onMouseLeave={props.mouseLeave}
-    onMouseDown={props.mouseDown}
-    onMouseUp={props.mouseUp}>
-      <chi-marketing-icon icon={props.icon} size={props.size}>
+    style={{
+      width: size === 'xs' ? 72 :
+        size === 'sm' ? 80 :
+        size === 'md' ? 90 :
+        size === 'lg' ? 128 : '100%'
+    }}
+    onClick={click}
+    onMouseEnter={mouseOver}
+    onMouseLeave={mouseLeave}
+    onMouseDown={mouseDown}
+    onMouseUp={mouseUp}
+    ref={uxpinRef}>
+      <chi-marketing-icon icon={icon} size={size}>
         <span className="-sr--only">
           i
         </span>
