@@ -1,38 +1,65 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+
 /**
  * @uxpincomponent
+ * @uxpinwrappers
+ * SkipContainerWrapper
  */
-export default class PrimaryButton extends React.Component {
-  render() {
-    const buttonContent = this.props.leftIcon || this.props.rightIcon ? (
-      <div className="chi-button__content">
-        {this.props.leftIcon ? <i style={{ display: 'flex' }} className={`chi-icon icon-${this.props.leftIcon}`}></i> : null}
-        <span>{this.props.value}</span>
-        {this.props.rightIcon ? <i style={{ display: 'flex' }} className={`chi-icon icon-${this.props.rightIcon}`}></i> : null}
-      </div>
-    ) : this.props.value;
+export default function PrimaryButton({
+  disabled,
+  leftIcon,
+  rightIcon,
+  size,
+  value,
+  fluid,
+  click,
+  mouseDown,
+  mouseUp,
+  mouseOver,
+  mouseLeave,
+  uxpinRef,
+}) {
+  const buttonContent = leftIcon || rightIcon ? (
+    <div className="chi-button__content">
+      {leftIcon ? (
+        <i
+          style={{ display: 'flex' }}
+          className={`chi-icon icon-${leftIcon}`}
+        />
+      ) : null}
+      <span>{value}</span>
+      {rightIcon ? (
+        <i
+          style={{ display: 'flex' }}
+          className={`chi-icon icon-${rightIcon}`}
+        />
+      ) : null}
+    </div>
+  ) : (
+    value
+  );
 
-    return (
-      <button
-        type="button"
-        className={`
-          chi-button
-          -primary
-          ${this.props.size ? `-${this.props.size}` : ''}
-          ${this.props.fluid ? '-fluid -justify-content--center' : '-px--4'}
-          -text--uppercase
-          `}
-        disabled={this.props.disabled}
-        onClick={this.props.click}
-        onMouseEnter={this.props.mouseOver}
-        onMouseLeave={this.props.mouseLeave}
-        onMouseDown={this.props.mouseDown}
-        onMouseUp={this.props.mouseUp}>
-        {buttonContent}
-      </button>
-    );
-  }
+  return (
+    <button
+      type="button"
+      className={`
+        chi-button
+        -primary
+        ${size ? `-${size}` : ''}
+        ${fluid ? '-fluid -justify-content--center' : '-px--4'}
+        -text--uppercase
+        `}
+      disabled={disabled}
+      onClick={click}
+      onMouseEnter={mouseOver}
+      onMouseLeave={mouseLeave}
+      onMouseDown={mouseDown}
+      onMouseUp={mouseUp}
+      ref={uxpinRef}>
+      {buttonContent}
+    </button>
+  );
 }
 
 /* eslint-disable */

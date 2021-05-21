@@ -5,6 +5,8 @@ import { uuid4 } from '../../utils/utils';
 
 /**
  * @uxpincomponent
+ * @uxpinwrappers
+ * SkipContainerWrapper
  */
 export default class NumberInput extends React.Component {
   constructor(props) {
@@ -54,7 +56,7 @@ export default class NumberInput extends React.Component {
     const size = this.props.size ? this.props.size.split(' ')[0] : null;
 
     return (
-      <div className="chi-form__item">
+      <div ref={this.props.uxpinRef} className="chi-form__item" style={{width: '14rem'}}>
         {label}
         <chi-number-input
           id={this.state.id}

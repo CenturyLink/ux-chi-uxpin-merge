@@ -4,23 +4,26 @@ import * as React from 'react';
 /* eslint-disable */
 /**
  * @uxpincomponent
+ * @uxpinwrappers
+ * SkipContainerWrapper
  */
-const Icon = (props) => (
+const Icon = ({click, mouseDown, mouseUp, mouseLeave, mouseOver, icon, color, size, uxpinRef}) => (
   <div
-    onClick={props.click}
-    onMouseEnter={props.mouseOver}
-    onMouseLeave={props.mouseLeave}
-    onMouseDown={props.mouseDown}
-    onMouseUp={props.mouseUp}>
+    onClick={click}
+    onMouseEnter={mouseOver}
+    onMouseLeave={mouseLeave}
+    onMouseDown={mouseDown}
+    onMouseUp={mouseUp}>
     <span className="-sr--only">
       i
     </span>
     <i className={`
       chi-icon
-      icon-${props.icon}
-      ${props.color ? `-icon--${props.color}` : ''}
-      ${props.size ? `-${props.size}` : ''}
-    `}>
+      icon-${icon}
+      ${color ? `-icon--${color}` : ''}
+      ${size ? `-${size}` : ''}
+    `}
+      ref={uxpinRef}>
     </i>
   </div>
 );
