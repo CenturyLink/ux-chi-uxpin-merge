@@ -43,11 +43,11 @@ export default class Spinner extends React.Component {
     return (
       <div style={{ width: boundingBoxWidth }} ref={this.props.uxpinRef}>
         <chi-spinner
-            color={this.props.color}
-            size={this.props.size}>
-        <span className="-sr--only">
-          i
-        </span>
+          color={this.props.color}
+          size={this.props.size}>
+          <span className="-sr--only">
+            i
+          </span>
         </chi-spinner>
       </div>
     );

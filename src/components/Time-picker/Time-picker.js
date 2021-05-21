@@ -6,19 +6,35 @@ import { uuid4 } from '../../utils/utils';
 /* eslint-disable */
 /**
  * @uxpincomponent
+ * @uxpinwrappers
+ * SkipContainerWrapper
  */
-export default function TimePicker(props) {
+export default function TimePicker({
+  disabled,
+  label,
+  active,
+  displaySeconds,
+  format,
+  value,
+  click,
+  focus,
+  focusLost,
+  input,
+  timeChange,
+  required,
+  uxpinRef
+}) {
   const uuid = `time-picker-${uuid4()}`;
-  const label = props.label
-      ? (
-          <Label
-              htmlFor={`${uuid}-control`}
-              className="chi-label"
-              required={props.required}
-              label={props.label}>
-          </Label>
-      )
-      : null;
+  const labelElement = label
+    ? (
+      <Label
+        htmlFor={`${uuid}-control`}
+        className="chi-label"
+        required={required}
+        label={label}>
+      </Label>
+    )
+    : null;
 
   useEffect(() => {
     const chiTimePicker = document.getElementById(uuid);
@@ -27,30 +43,30 @@ export default function TimePicker(props) {
       if (chiTimePicker.classList.contains('hydrated')) {
         const inputElement = chiTimePicker.querySelector('input');
 
-        inputElement.addEventListener('focus', () => props.focus());
-        inputElement.addEventListener('blur', () => props.focusLost());
-        inputElement.addEventListener('input', () => props.input());
+        inputElement.addEventListener('focus', () => focus());
+        inputElement.addEventListener('blur', () => focusLost());
+        inputElement.addEventListener('input', () => input());
         window.clearInterval(eventListenerInterval);
       }
     }, 1000);
-    chiTimePicker.addEventListener('click', () => props.click());
-    chiTimePicker.addEventListener('chiTimeChange', () => props.timeChange());
+    chiTimePicker.addEventListener('click', () => click());
+    chiTimePicker.addEventListener('chiTimeChange', () => timeChange());
   });
 
   return (
-      <div className="chi-form__item" style={{width: '14rem'}}>
-        {label}
-        <chi-time-picker
-            active={props.active}
-            display-seconds={props.displaySeconds}
-            format={props.format}
-            disabled={props.disabled}
-            value={props.value}
-            id={uuid}
-        >
-          <div className="-sr--only">TP</div>
-        </chi-time-picker>
-      </div>
+    <div className="chi-form__item" style={{width: '14rem'}} ref={uxpinRef}>
+      {labelElement}
+      <chi-time-picker
+        active={active}
+        display-seconds={displaySeconds}
+        format={format}
+        disabled={disabled}
+        value={value}
+        id={uuid}
+      >
+        <div className="-sr--only">TP</div>
+      </chi-time-picker>
+    </div>
   );
 }
 

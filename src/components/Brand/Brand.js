@@ -34,22 +34,22 @@ export default class Brand extends React.Component {
     }
 
     return (
-      <div
-        onClick={this.props.click}
-        onMouseEnter={this.props.mouseOver}
-        onMouseLeave={this.props.mouseLeave}
-        onMouseDown={this.props.mouseDown}
-        onMouseUp={this.props.mouseUp}
-        style={{width: boundingBoxSize}}
-        ref={this.props.uxpinRef}>
-        <chi-brand
-          color={this.props.color}
-          size={size}>
+        <div
+            onClick={this.props.click}
+            onMouseEnter={this.props.mouseOver}
+            onMouseLeave={this.props.mouseLeave}
+            onMouseDown={this.props.mouseDown}
+            onMouseUp={this.props.mouseUp}
+            style={{width: boundingBoxSize}}
+            ref={this.props.uxpinRef}>
+          <chi-brand
+              color={this.props.color}
+              size={size}>
           <span className="-sr--only">
             i
           </span>
-        </chi-brand>
-      </div>
+          </chi-brand>
+        </div>
     );
   }
 }
