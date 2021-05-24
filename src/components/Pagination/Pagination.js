@@ -44,7 +44,7 @@ export default class Pagination extends React.Component {
         page-size={this.props.pageSize}
         page-jumper={this.props.pageJumper}
         size={this.props.size}
-        results={this.props.results}>
+        results={this.props.results || 0}>
           <span class="-sr--only">
             i
           </span>
@@ -77,7 +77,8 @@ Pagination.propTypes = {
 /* eslint-enable */
 
 Pagination.defaultProps = {
-  pages: 5,
+  compact: true,
   currentPage: 3,
+  pages: 5,
   size: 'sm',
 };

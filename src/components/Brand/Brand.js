@@ -55,7 +55,7 @@ export default class Brand extends React.Component {
 }
 
 Brand.propTypes = {
-  size: PropTypes.oneOf(['xs (12px)', 'sm (16px)', 'md (32px)', 'lg (64px)', 'xl (96px)', 'xxl (128px)']),
+  size: PropTypes.oneOf(['xs (12px)', 'sm (16px)', 'md (20px)', 'lg (24px)', 'xl (32px)', 'xxl (40px)']),
   color: PropTypes.oneOf(['black', 'inverse', 'white']),
   click: PropTypes.func,
   mouseDown: PropTypes.func,
@@ -66,5 +66,5 @@ Brand.propTypes = {
 /* eslint-enable */
 
 Brand.defaultProps = {
-  size: 'md (32px)',
+  size: 'md (20px)',
 };
