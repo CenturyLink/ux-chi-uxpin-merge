@@ -41,7 +41,6 @@ export default class NumberInput extends React.Component {
   }
 
   render() {
-    console.log(this.props.required);
     const label = this.props.label
       ? (
         <Label
@@ -56,7 +55,7 @@ export default class NumberInput extends React.Component {
     const size = this.props.size ? this.props.size.split(' ')[0] : null;
 
     return (
-      <div ref={this.props.uxpinRef} className="chi-form__item" style={{width: '14rem'}}>
+      <div ref={this.props.uxpinRef} className="chi-form__item" style={{ width: '14rem' }}>
         {label}
         <chi-number-input
           id={this.state.id}

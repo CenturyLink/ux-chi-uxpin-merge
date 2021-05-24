@@ -10,9 +10,9 @@ export default class SecondaryButton extends React.Component {
   render() {
     const buttonContent = this.props.leftIcon || this.props.rightIcon ? (
       <div className="chi-button__content">
-        {this.props.leftIcon ? <i style={{display: 'flex'}} className={`chi-icon icon-${this.props.leftIcon}`}/> : null}
+        {this.props.leftIcon ? <i style={{ display: 'flex' }} className={`chi-icon icon-${this.props.leftIcon}`} /> : null}
         <span>{this.props.value}</span>
-        {this.props.rightIcon ? <i style={{display: 'flex'}} className={`chi-icon icon-${this.props.rightIcon}`}/> : null}
+        {this.props.rightIcon ? <i style={{ display: 'flex' }} className={`chi-icon icon-${this.props.rightIcon}`} /> : null}
       </div>
     ) : this.props.value;
 

@@ -5,8 +5,11 @@ import * as React from 'react';
  * @uxpinwrappers
  * SkipContainerWrapper
  */
-const Badge = ({ color, size, variant, text, uxpinRef }) => (
-  <div className={
+const Badge = ({
+  color, size, variant, text, uxpinRef,
+}) => (
+  <div
+    className={
     `chi-badge
     ${color ? `-${color}` : ''}
     ${size ? `-${size}` : ''}
