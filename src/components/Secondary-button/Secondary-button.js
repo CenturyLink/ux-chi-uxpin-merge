@@ -1,15 +1,18 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+
 /**
  * @uxpincomponent
+ * @uxpinwrappers
+ * SkipContainerWrapper
  */
 export default class SecondaryButton extends React.Component {
   render() {
     const buttonContent = this.props.leftIcon || this.props.rightIcon ? (
       <div className="chi-button__content">
-        {this.props.leftIcon ? <i style={{ display: 'flex' }} className={`chi-icon icon-${this.props.leftIcon}`}></i> : null}
+        {this.props.leftIcon ? <i style={{ display: 'flex' }} className={`chi-icon icon-${this.props.leftIcon}`} /> : null}
         <span>{this.props.value}</span>
-        {this.props.rightIcon ? <i style={{ display: 'flex' }} className={`chi-icon icon-${this.props.rightIcon}`}></i> : null}
+        {this.props.rightIcon ? <i style={{ display: 'flex' }} className={`chi-icon icon-${this.props.rightIcon}`} /> : null}
       </div>
     ) : this.props.value;
 
@@ -30,7 +33,8 @@ export default class SecondaryButton extends React.Component {
         onMouseEnter={this.props.mouseOver}
         onMouseLeave={this.props.mouseLeave}
         onMouseDown={this.props.mouseDown}
-        onMouseUp={this.props.mouseUp}>
+        onMouseUp={this.props.mouseUp}
+        ref={this.props.uxpinRef}>
         {buttonContent}
       </button>
     );

@@ -95,5 +95,5 @@ Tabs.defaultProps = {
   tab2: 'Tab 2',
   tab3: 'Tab 3',
   activeTab: 1,
-  size: 'xs'
+  size: 'xs',
 };

@@ -4,7 +4,7 @@ import Pagination from '../Pagination';
 export default (
   <Pagination
     uxpId="pagination"
-    compact={false}
+    compact
     inverse={false}
     pages={5}
     startEnd={false}
@@ -12,7 +12,6 @@ export default (
     pageSize={false}
     size="sm"
     pageJumper={false}
-    results={1}
     toGo1={() => {}}
     toGo2={() => {}}
     toGo3={() => {}}

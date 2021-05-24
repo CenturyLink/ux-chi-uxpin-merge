@@ -1,7 +1,10 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+
 /**
  * @uxpincomponent
+ * @uxpinwrappers
+ * SkipContainerWrapper
  */
 export default class TertiaryButton extends React.Component {
   render() {
@@ -29,7 +32,8 @@ export default class TertiaryButton extends React.Component {
         onMouseEnter={this.props.mouseOver}
         onMouseLeave={this.props.mouseLeave}
         onMouseDown={this.props.mouseDown}
-        onMouseUp={this.props.mouseUp}>
+        onMouseUp={this.props.mouseUp}
+        ref={this.props.uxpinRef}>
         {buttonContent}
       </button>
     );
