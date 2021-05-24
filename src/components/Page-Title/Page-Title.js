@@ -3,11 +3,11 @@ import * as React from 'react';
 
 export default class PageTitle extends React.Component {
   render() {
-    let help = "";
+    let help = '';
     let link = "";
     let subHeader = "";
 
-   if(this.props.helpIcon){
+   if (this.props.helpIcon) {
         help =(
             <a className="chi-button -icon -flat -lg -bg--none -b--transparent -opacity-hover--80">
                     <div className="chi-button__content">
