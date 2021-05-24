@@ -7,7 +7,7 @@ export default class PageTitle extends React.Component {
     let link = "";
     let subHeader = "";
 
-   if(this.props.helpIcon){
+   if (this.props.helpIcon) {
         help =(
             <a className="chi-button -icon -flat -lg -bg--none -b--transparent -opacity-hover--80">
                     <div className="chi-button__content">
