@@ -3,7 +3,7 @@ import * as React from 'react';
 
 export default class PageTitle extends React.Component {
   render() {
-    let help = "";
+    let help = '';
     let link = "";
     let subHeader = "";
 
