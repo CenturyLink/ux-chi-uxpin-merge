@@ -4,11 +4,9 @@ import PageTitle from '../Page-Title';
 export default (
   <PageTitle
     uxpId="pagetitle"
-    title=""
+    title="Page Title"
     helpIcon=""
-    backlink=""
-    backlinkTitle=""
-    subtitle=""
-    subtitleText=""
+    backlink="back link"
+    subtitle="Sub Title"
   />
 );
