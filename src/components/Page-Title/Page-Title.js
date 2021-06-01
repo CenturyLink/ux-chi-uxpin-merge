@@ -11,9 +11,9 @@ export default class PageTitle extends React.Component {
       help = (
         <a
           className="chi-button -icon -flat -lg -bg--none -b--transparent -opacity-hover--80"
-          onClick={this.props.helpclick}
-          onMouseEnter={this.props.mouseoverhelp}
-          onMouseLeave={this.props.mouseleavehelp}>
+          onClick={this.props.clickHelp}
+          onMouseEnter={this.props.mouseoverHelp}
+          onMouseLeave={this.props.mouseleaveHelp}>
           <div className="chi-button__content">
             <i className="chi-icon icon-circle-question-outline"></i>
           </div>
@@ -21,22 +21,22 @@ export default class PageTitle extends React.Component {
       );
     }
 
-    if (this.props.backlink) {
+    if (this.props.backLink) {
       link = (
         <a
           className="chi-link"
-          onClick={this.props.linkclick}>
+          onClick={this.props.clickBackLink}>
           <div className="chi-link__content">
             <i className="chi-icon icon-chevron-left -xs"></i>
-            <span className="-text--md">{this.props.backlink ? this.props.backlink : ''}</span>
+            <span className="-text--md">{this.props.backLink ? this.props.backLink : ''}</span>
           </div>
         </a>
       );
     }
 
-    if (this.props.subtitle) {
+    if (this.props.subTitle) {
       subHeader = (
-        <div className="-text--md -pl--2">{this.props.subtitle ? this.props.subtitle : ''}</div>
+        <div className="-text--md -pl--2">{this.props.subTitle ? this.props.subTitle : ''}</div>
       );
     }
 
@@ -59,15 +59,15 @@ export default class PageTitle extends React.Component {
 PageTitle.propTypes = {
   title: PropTypes.string,
   helpIcon: PropTypes.bool,
-  backlink: PropTypes.string,
-  subtitle: PropTypes.string,
-  linkclick: PropTypes.func,
-  helpclick: PropTypes.func,
-  mouseoverhelp: PropTypes.func,
-  mouseleavehelp: PropTypes.func,
+  backLink: PropTypes.string,
+  subTitle: PropTypes.string,
+  clickBackLink: PropTypes.func,
+  clickHelp: PropTypes.func,
+  mouseoverHelp: PropTypes.func,
+  mouseleaveHelp: PropTypes.func,
 };
 PageTitle.defaultProps = {
   title: 'Page Title',
-  subtitle: 'Sub Title',
-  backlink: 'back link',
+  subTitle: 'Sub Title',
+  backLink: 'Back link',
 };

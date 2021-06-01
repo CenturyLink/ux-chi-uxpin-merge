@@ -6,7 +6,7 @@ export default (
     uxpId="pagetitle"
     title="Page Title"
     helpIcon=""
-    backlink="back link"
-    subtitle="Sub Title"
+    backLink="Back link"
+    subTitle="Sub Title"
   />
 );
