@@ -5,7 +5,7 @@ export default (
   <PageTitle
     uxpId="pagetitle"
     title="Page Title"
-    helpIcon=""
+    helpIcon={false}
     backLink="Back link"
     subTitle="Sub Title"
   />

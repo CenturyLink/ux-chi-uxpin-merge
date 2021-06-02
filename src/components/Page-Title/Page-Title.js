@@ -1,14 +1,13 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
 export default class PageTitle extends React.Component {
   render() {
-    let help = '';
-    let link = '';
-    let subHeader = '';
-
-    if (this.props.helpIcon) {
-      help = (
+    const help = this.props.helpIcon
+      ? (
         <a
           className="chi-button -icon -flat -lg -bg--none -b--transparent -opacity-hover--80"
           onClick={this.props.clickHelp}
@@ -18,11 +17,11 @@ export default class PageTitle extends React.Component {
             <i className="chi-icon icon-circle-question-outline"></i>
           </div>
         </a>
-      );
-    }
+      )
+      : null;
 
-    if (this.props.backLink) {
-      link = (
+    const link = this.props.backLink
+      ? (
         <a
           className="chi-link"
           onClick={this.props.clickBackLink}>
@@ -31,25 +30,24 @@ export default class PageTitle extends React.Component {
             <span className="-text--md">{this.props.backLink ? this.props.backLink : ''}</span>
           </div>
         </a>
-      );
-    }
+      )
+      : null;
 
-    if (this.props.subTitle) {
-      subHeader = (
+    const subtitle = this.props.subTitle
+      ? (
         <div className="-text--md -pl--2">{this.props.subTitle ? this.props.subTitle : ''}</div>
-      );
-    }
+      )
+      : null;
 
     return (
       <div className="-d--flex -flex--column">
         {link }
         <div className="-d--flex -align-items--center -mb--4">
-          <div className={`-text--h3 -text--boldest -text--navy -m--0 
-                                ${subHeader ? '-br--1' : ''} -pr--2`}>
+          <div className={`-text--h3 -text--boldest -text--navy -m--0 ${subtitle ? '-br--1' : ''} -pr--2`}>
             {this.props.title ? this.props.title : ''}
             {help}
           </div>
-          {subHeader}
+          {subtitle}
         </div>
       </div>
     );
@@ -66,6 +64,7 @@ PageTitle.propTypes = {
   mouseoverHelp: PropTypes.func,
   mouseleaveHelp: PropTypes.func,
 };
+
 PageTitle.defaultProps = {
   title: 'Page Title',
   subTitle: 'Sub Title',
