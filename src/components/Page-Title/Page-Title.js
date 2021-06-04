@@ -30,6 +30,7 @@ export default class PageTitle extends React.Component {
         </a>
       )
       : null;
+    /* eslint-enable */
 
     const subtitle = this.props.subTitle
       ? (
