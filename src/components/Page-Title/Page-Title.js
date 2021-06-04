@@ -3,7 +3,6 @@ import * as React from 'react';
 
 export default class PageTitle extends React.Component {
   render() {
-    /* eslint-disable */
     const help = this.props.helpIcon
       ? (
         <a
@@ -30,7 +29,6 @@ export default class PageTitle extends React.Component {
         </a>
       )
       : null;
-    /* eslint-enable */
 
     const subtitle = this.props.subTitle
       ? (
