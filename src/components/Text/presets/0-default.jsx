@@ -6,5 +6,8 @@ export default (
     uxpId="text"
     text="Text"
     size="md"
+    transform="capitalized"
+    color="primary"
+    weight="normal"
   />
 );
