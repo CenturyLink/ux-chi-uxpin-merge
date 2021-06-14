@@ -15,10 +15,10 @@ export default class Text extends React.Component {
 }
 
 Text.propTypes = {
-  size: PropTypes.oneOf(['xl', 'lg', 'md', 'sm', 'xs']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   transform: PropTypes.oneOf(['lowercase', 'uppercase', 'capitalized']),
   color: PropTypes.oneOf(['body', 'primary', 'secondary', 'light', 'success', 'info', 'warning', 'danger', 'muted', 'navy', 'orange']),
-  weight: PropTypes.oneOf(['thin', 'normal', 'bold', 'bolder', 'boldest']),
+  weight: PropTypes.oneOf(['normal', 'bold', 'bolder', 'boldest']),
   text: PropTypes.string,
 };
 
