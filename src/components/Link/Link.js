@@ -3,28 +3,36 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
-export default class Link extends React.Component {
+export default class LinkComp extends React.Component {
   render() {
-    // let help = '';
-    // if (this.props.helpIcon) {
-    //   help = <chi-icon icon="circle-question-outline"></chi-icon>;
-    // }
     return (
-      <chi-link href="#" disabled={this.props.disabled} cta={this.props.cta}>
+      <chi-link
+        href="#"
+        disabled={this.props.disabled}
+        cta={this.props.cta}
+        target={this.props.target}
+        rel={this.props.rel}
+        hreflang={this.props.hreflang}
+        size={this.props.size}>
         {this.props.title ? this.props.title : ''}
       </chi-link>
     );
   }
 }
 
-Link.propTypes = {
+LinkComp.propTypes = {
   disabled: PropTypes.bool,
   cta: PropTypes.bool,
+  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top', 'framename']),
+  rel: PropTypes.oneOf(['alternate', 'external', 'next', 'nofollow', 'noreferrer', 'noopener', 'prev']),
+  hreflang: PropTypes.oneOf(['en']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   title: PropTypes.string,
 };
 
-Link.defaultProps = {
+LinkComp.defaultProps = {
   disabled: false,
   cta: false,
   title: 'Link',
+  size: 'md',
 };

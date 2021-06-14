@@ -1,11 +1,12 @@
 import React from 'react';
-import Link from '../Link';
+import LinkComp from '../Link';
 
 export default (
-  <link
+  <LinkComp
     uxpId="link"
     disabled={false}
-    helpIcon={false}
+    cta={false}
     title="Link"
+    size="md"
   />
 );
