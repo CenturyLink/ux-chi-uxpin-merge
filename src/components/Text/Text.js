@@ -4,11 +4,11 @@ import * as React from 'react';
 export default class Text extends React.Component {
   render() {
     return (
-      <p className={`-text--${this.props.size ? `${this.props.size}` : ''}
-       -text--${this.props.transform ? `${this.props.transform}` : ''}
-       -text--${this.props.color ? `${this.props.color}` : ''}
-       -text--${this.props.weight ? `${this.props.weight}` : ''}`}>
-        {this.props.text ? this.props.text : ''}
+      <p className={`${this.props.size ? `-text--${this.props.size}` : ''}
+       ${this.props.transform ? `-text--${this.props.transform}` : ''}
+       ${this.props.color ? `-text--${this.props.color}` : ''}
+       ${this.props.weight ? `-text--${this.props.weight}` : ''}`}>
+        {this.props.text || ''}
       </p>
     );
   }
