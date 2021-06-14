@@ -1,11 +1,10 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import './Page-Title.css';
 
 export default class PageTitle extends React.Component {
   render() {
+    /* eslint-disable */
     const help = this.props.helpIcon
       ? (
         <a
@@ -32,6 +31,7 @@ export default class PageTitle extends React.Component {
         </a>
       )
       : null;
+    /* eslint-enable */
 
     const subtitle = this.props.subTitle
       ? (
@@ -43,7 +43,7 @@ export default class PageTitle extends React.Component {
       <div className="-d--flex -flex--column">
         {link }
         <div className="-d--flex -align-items--center -mb--4">
-          <div className={`-text--h3 -text--boldest -text--navy -m--0 ${subtitle ? '-br--1' : ''} -pr--2`}>
+          <div className={`-text--h3 -text--boldest -text--navy -m--0 ${subtitle ? '-br--1' : ''} -pr--2 -text--900`}>
             {this.props.title ? this.props.title : ''}
             {help}
           </div>
