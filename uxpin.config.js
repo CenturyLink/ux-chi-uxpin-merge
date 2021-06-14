@@ -25,6 +25,7 @@ module.exports = {
           'src/components/Picker-group/Picker-group.js',
           'src/components/Radio/Radio.js',
           'src/components/Select/Select.js',
+          'src/components/Text/Text.js',
           'src/components/Text-input/Text-input.js',
           'src/components/Textarea/Textarea.js',
           'src/components/Time-picker/Time-picker.js',
