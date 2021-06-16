@@ -1,12 +1,16 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import LinkComp from '../Link';
+import Link from '../Link';
 
 export default (
-  <LinkComp
+  <Link
     uxpId="link"
     disabled={false}
     cta={false}
+    helpIcon={false}
+    download={false}
     title="Link"
     size="md"
+    target="_self"
   />
 );
