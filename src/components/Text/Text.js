@@ -23,7 +23,7 @@ Text.propTypes = {
 };
 
 Text.defaultProps = {
-  text: 'sample ',
+  text: 'sample text',
   size: 'md',
   transform: 'capitalized',
   color: 'body',
