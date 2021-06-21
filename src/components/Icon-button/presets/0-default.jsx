@@ -7,7 +7,6 @@ export default (
     disabled={false}
     icon="atom"
     click={() => {}}
-    size="md"
     tooltipMessage="Tooltip message"
     tooltipPosition="top"
     tooltipColor="base"

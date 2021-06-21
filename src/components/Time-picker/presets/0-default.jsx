@@ -6,6 +6,7 @@ export default (
     uxpId="time-picker"
     disabled={false}
     label="Label"
+    required="none"
     active={false}
     displaySeconds={false}
     format="12hr"
