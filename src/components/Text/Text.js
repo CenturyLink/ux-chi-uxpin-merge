@@ -23,9 +23,9 @@ Text.propTypes = {
 };
 
 Text.defaultProps = {
-  text: 'Text',
+  text: 'sample text',
   size: 'md',
   transform: 'capitalized',
-  color: 'primary',
+  color: 'body',
   weight: 'normal',
 };

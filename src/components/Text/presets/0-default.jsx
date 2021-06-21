@@ -4,10 +4,10 @@ import Text from '../Text';
 export default (
   <Text
     uxpId="text"
-    text="Text"
+    text="sample text"
     size="md"
     transform="capitalized"
-    color="primary"
+    color="body"
     weight="normal"
   />
 );
