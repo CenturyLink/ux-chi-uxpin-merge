@@ -4,7 +4,7 @@ import Text from '../Text';
 export default (
   <Text
     uxpId="text"
-    text="sample text"
+    text="Sample text"
     size="md"
     transform="capitalized"
     color="body"
