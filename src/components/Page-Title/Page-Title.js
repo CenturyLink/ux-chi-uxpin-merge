@@ -8,7 +8,7 @@ export default class PageTitle extends React.Component {
     const help = this.props.helpIcon
       ? (
         <a
-          className="chi-button -icon -flat -lg -bg--none -b--transparent -opacity-hover--80"
+          className="chi-button -icon -primary -flat -bg--none -b--transparent -opacity-hover--80"
           onClick={this.props.clickHelp}
           onMouseEnter={this.props.mouseoverHelp}
           onMouseLeave={this.props.mouseleaveHelp}>
