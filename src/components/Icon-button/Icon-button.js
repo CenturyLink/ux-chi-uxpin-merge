@@ -57,5 +57,5 @@ IconButton.defaultProps = {
   icon: 'atom',
   tooltipMessage: 'Tooltip message',
   tooltipPosition: 'top',
-  tooltipColor: 'base',
+  tooltipColor: 'light',
 };
