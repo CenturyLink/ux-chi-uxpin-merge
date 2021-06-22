@@ -9,6 +9,6 @@ export default (
     click={() => {}}
     tooltipMessage="Tooltip message"
     tooltipPosition="top"
-    tooltipColor="base"
+    tooltipColor="light"
   />
 );
