@@ -1,3 +1,7 @@
 .-text--h3.-text--boldest.-text--900 {
     font-weight: 900!important;
 }
+
+.chi .chi-button.-icon {
+    padding: 0 0 0 8px!important;
+}
