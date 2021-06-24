@@ -8,6 +8,6 @@ export default (
     size="md"
     transform="capitalized"
     color="body"
-    weight="normal"
+    weight="regular"
   />
 );
