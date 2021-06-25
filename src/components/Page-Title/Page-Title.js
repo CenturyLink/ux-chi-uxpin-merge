@@ -7,15 +7,12 @@ export default class PageTitle extends React.Component {
     /* eslint-disable */
     const help = this.props.helpIcon
       ? (
-        <a
-          className="chi-button -icon -primary -flat -bg--none -b--transparent -opacity-hover--80"
+        <chi-icon
+          icon="circle-question-outline"
           onClick={this.props.clickHelp}
           onMouseEnter={this.props.mouseoverHelp}
           onMouseLeave={this.props.mouseleaveHelp}>
-          <div className="chi-button__content">
-            <i className="chi-icon icon-circle-question-outline"></i>
-          </div>
-        </a>
+        </chi-icon>
       )
       : null;
 
@@ -43,7 +40,7 @@ export default class PageTitle extends React.Component {
       <div className="-d--flex -flex--column">
         {link }
         <div className="-d--flex -align-items--center -mb--4">
-          <div className={`-text--h3 -text--boldest -text--navy -m--0 ${subtitle ? '-br--1' : ''} -pr--2 -text--900`}>
+          <div className={`-text--h3 -text--boldest -text--navy -m--0 ${subtitle ? '-br--1' : ''} -pr--2 -padding--16 -text--900`}>
             {this.props.title ? this.props.title : ''}
             {help}
           </div>
