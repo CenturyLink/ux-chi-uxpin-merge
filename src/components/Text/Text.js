@@ -22,6 +22,7 @@ export default class Text extends React.Component {
         fontWeight = 'normal';
         break;
     }
+
     return (
       <p className={`${this.props.size ? `-text--${this.props.size}` : ''}
        ${this.props.transform ? `-text--${this.props.transform}` : ''}
