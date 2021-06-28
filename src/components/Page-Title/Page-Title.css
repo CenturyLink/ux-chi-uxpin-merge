@@ -1,3 +1,15 @@
 .-text--h3.-text--boldest.-text--900 {
     font-weight: 900!important;
 }
+
+.-text--h3.-text--boldest.-padding--16 {
+    padding-right: 16px!important;
+}
+
+chi-icon.sc-chi-icon-h {
+    padding-left: 8px;
+}
+
+.hydrated {
+    color: #0262b9;
+}

@@ -76,6 +76,7 @@ TimePicker.propTypes = {
   active: PropTypes.bool,
   displaySeconds: PropTypes.bool,
   format: PropTypes.oneOf(['12hr', '24hr']),
+  required: PropTypes.oneOf(['none', 'required', 'optional']),
   value: PropTypes.string,
   click: PropTypes.func,
   focus: PropTypes.func,
@@ -89,4 +90,5 @@ TimePicker.defaultProps = {
   disabled: false,
   label: 'Label',
   format: '12hr',
+  required: 'none',
 };
