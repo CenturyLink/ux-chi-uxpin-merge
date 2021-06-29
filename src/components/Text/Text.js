@@ -25,6 +25,7 @@ export default class Text extends React.Component {
 
     return (
       <p className={`${this.props.size ? `-text--${this.props.size}` : ''}
+       ${this.props.lineheight ? `-text ${this.props.lineheight}` : ''}
        ${this.props.transform ? `-text--${this.props.transform}` : ''}
        ${this.props.color ? `-text--${this.props.color}` : ''}
        ${this.props.weight ? `-text--${fontWeight}` : ''}`}>
@@ -40,6 +41,7 @@ Text.propTypes = {
   color: PropTypes.oneOf(['body', 'primary', 'secondary', 'light', 'success', 'info', 'warning', 'danger', 'muted', 'navy', 'orange']),
   weight: PropTypes.oneOf(['regular', 'semi-bold', 'bold', 'black']),
   text: PropTypes.string,
+  lineheight: PropTypes.oneOf(['-lh--1', '-lh--2', '-lh--3', '-lh--4', '-lh--5', '-lh--6', '-lh--7', '-lh--8', '-lh--9']),
 };
 
 Text.defaultProps = {
