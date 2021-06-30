@@ -39,6 +39,7 @@ export default class TextInput extends React.Component {
           htmlFor="number-input"
           className={this.state.id}
           required={this.props.required}
+          info={this.props.info}
           label={this.props.label}>
         </Label>
       )
@@ -74,6 +75,7 @@ TextInput.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  info: PropTypes.bool,
   disabled: PropTypes.bool,
   placeholder: PropTypes.string,
   value: PropTypes.string,
@@ -98,6 +100,7 @@ TextInput.defaultProps = {
   disabled: false,
   label: 'Label',
   required: 'none',
+  info: false,
   size: 'lg',
   state: 'default',
   placeholder: '',

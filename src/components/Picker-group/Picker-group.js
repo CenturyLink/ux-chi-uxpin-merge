@@ -19,10 +19,24 @@ export default class PickerGroup extends React.Component {
     } else if (this.props.required && this.props.required === 'optional')  {
       message = optional;
     }
+
+    const info = this.props.info ?
+    <div class="chi-label__help">
+      <button class="chi-button -icon -sm -flat" id="example__help-button" aria-label="Help" data-target="#example__help-popover">
+        <i class="chi-icon icon-circle-info-outline"></i>
+      </button>
+      <section class="chi-popover chi-popover--top -animated" id="example__help-popover" aria-modal="true" role="dialog" aria-hidden="true" x-placement="top">
+        <div class="chi-popover__content">
+          <p class="chi-popover__text">Helpful information goes here.</p>
+        </div>
+      </section>
+    </div> : '';
+    
     const fieldLabel = this.props.fieldLabel ?
       <legend className="chi-label">
         {this.props.fieldLabel}
         {message}
+        {info}
       </legend> : '';
 
     Array(11).fill()
@@ -70,6 +84,7 @@ export default class PickerGroup extends React.Component {
 PickerGroup.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  info: PropTypes.bool,
   selected: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   picker1: PropTypes.string,
   disabled1: PropTypes.bool,
@@ -110,4 +125,5 @@ PickerGroup.defaultProps = {
   picker2: 'Picker 2',
   picker3: 'Picker 3',
   required: 'none',
+  info: false,
 };

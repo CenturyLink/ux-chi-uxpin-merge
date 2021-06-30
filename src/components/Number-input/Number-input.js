@@ -47,6 +47,7 @@ export default class NumberInput extends React.Component {
           htmlFor={this.state.id}
           className="chi-label"
           required={this.props.required}
+          info={this.props.info}
           label={this.props.label}>
         </Label>
       )
@@ -82,6 +83,7 @@ NumberInput.propTypes = {
   expanded: PropTypes.bool,
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  info: PropTypes.bool,
   disabled: PropTypes.bool,
   startValue: PropTypes.string,
   min: PropTypes.number,
@@ -104,5 +106,6 @@ NumberInput.defaultProps = {
   size: 'md',
   label: 'Label',
   required: 'none',
+  info: false,
   startValue: '0',
 };

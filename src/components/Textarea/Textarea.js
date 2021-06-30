@@ -31,6 +31,7 @@ export default class Textarea extends React.Component {
           htmlFor={this.state.id}
           className="chi-label"
           required={this.props.required}
+          info={this.props.info}
           label={this.props.label}>
         </Label>
       )
@@ -74,6 +75,7 @@ Textarea.propTypes = {
   height: PropTypes.number,
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  info: PropTypes.bool,
   disabled: PropTypes.bool,
   value: PropTypes.string,
   placeholder: PropTypes.string,

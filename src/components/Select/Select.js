@@ -22,6 +22,7 @@ export default class Select extends React.Component {
           className="chi-label"
           htmlFor={this.state.id}
           required={this.props.required}
+          info={this.props.info}
           label={this.props.label}>
         </Label>
       )
@@ -67,6 +68,7 @@ Select.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  info: PropTypes.bool,
   disabled: PropTypes.bool,
   option1: PropTypes.string,
   option2: PropTypes.string,
@@ -107,4 +109,5 @@ Select.defaultProps = {
   option2: 'Option 2',
   option3: 'Option 3',
   required: 'none',
+  info: false,
 };

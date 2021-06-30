@@ -26,6 +26,18 @@ export default class Checkbox extends React.Component {
       }
     };
 
+    const info = this.props.info ?
+    <div class="chi-label__help">
+      <button class="chi-button -icon -sm -flat" id="example__help-button" aria-label="Help" data-target="#example__help-popover">
+        <i class="chi-icon icon-circle-info-outline"></i>
+      </button>
+      <section class="chi-popover chi-popover--top -animated" id="example__help-popover" aria-modal="true" role="dialog" aria-hidden="true" x-placement="top">
+        <div class="chi-popover__content">
+          <p class="chi-popover__text">Helpful information goes here.</p>
+        </div>
+      </section>
+    </div> : '';
+
     Array(11).fill()
         .forEach((_, i) => {
           if (this.props[`label${i}`]) {
@@ -37,6 +49,7 @@ export default class Checkbox extends React.Component {
                     <label onClick={(e) => {
                       toggleCheckbox(e.target, i);
                     }} className="chi-checkbox__label" htmlFor="checkbox1">{this.props[`label${i}`]}</label>
+                    {info}
                   </div>
                 </div>
             );
@@ -70,6 +83,7 @@ export default class Checkbox extends React.Component {
 Checkbox.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  info: PropTypes.bool,
   inline: PropTypes.bool,
   label1: PropTypes.string,
   disabled1: PropTypes.bool,
@@ -130,4 +144,5 @@ Checkbox.defaultProps = {
   label2: 'Checkbox 2 label',
   label3: 'Checkbox 3 label',
   required: 'none',
+  info: false,
 };

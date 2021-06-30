@@ -7,6 +7,7 @@ export default (
     size="md"
     label="Label"
     required="none"
+    info={false}
     click={() => {}}
     mouseDown={() => {}}
     mouseLeave={() => {}}

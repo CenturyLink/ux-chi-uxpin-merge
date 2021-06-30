@@ -19,6 +19,19 @@ export default class Label extends React.Component {
       }
     }
 
+    const info = this.props.info
+      ? (
+        <div className="chi-label__help">
+          <chi-button id="example__help-button" type="icon" size="sm" variant="flat" alternative-text="Help">
+            <chi-icon icon="circle-info-outline"></chi-icon>
+          </chi-button>
+          <chi-popover id="example__help-popover" position="top" variant="text" arrow reference="#example__help-button">
+        Helpful information goes here.
+          </chi-popover>
+        </div>
+      )
+      : null;
+
     return (
       <label
         className={`
@@ -34,6 +47,7 @@ export default class Label extends React.Component {
       >
         {this.props.label}
         {message}
+        {info}
       </label>
     );
   }
@@ -43,6 +57,7 @@ Label.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  info: PropTypes.bool,
   click: PropTypes.func,
   mouseDown: PropTypes.func,
   mouseLeave: PropTypes.func,
@@ -55,4 +70,5 @@ Label.defaultProps = {
   label: 'Label',
   size: 'md',
   required: 'none',
+  info: false,
 };

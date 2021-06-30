@@ -7,6 +7,7 @@ export default (
     size="lg"
     label="Label"
     required="none"
+    info={false}
     disabled={false}
     option1="Option 1"
     option2="Option 2"
