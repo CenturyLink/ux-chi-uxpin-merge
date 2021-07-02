@@ -67,15 +67,14 @@ export default class Checkbox extends React.Component {
     }
 
     const fieldLabel = this.props.fieldLabel ?
-    <div className="chi-label">
-      {this.props.fieldLabel}
-      {message}
-    </div> : '';
-
+      <div className="chi-label">
+        {this.props.fieldLabel}
+        {message}
+      </div> : '';
     return (
         <fieldset>
           {fieldLabel}
-          {checkboxesToRender} 
+          {checkboxesToRender}
         </fieldset>
     );
   }
