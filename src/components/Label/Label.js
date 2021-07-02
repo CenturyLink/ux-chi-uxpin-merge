@@ -1,12 +1,27 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import { uuid4 } from '../../utils/utils';
 
 /* eslint-disable */
 /**
  * @uxpincomponent
  */
 export default class Label extends React.Component {
+
+  componentDidMount() {
+    const infoIcon = setInterval(() => {
+      if(document.getElementById('example__help-button')){
+        document.getElementById('example__help-button').addEventListener('click', () => {
+          var popoverElem = document.getElementById('example__help-popover');
+          popoverElem.toggle();
+          clearInterval(infoIcon);
+        });
+      }
+    });
+  }
+
   render() {
+    const uuid = uuid4();
     const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
     const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
     let message = '';
@@ -22,7 +37,7 @@ export default class Label extends React.Component {
     const info = this.props.info
       ? (
         <div className="chi-label__help">
-          <chi-button id="example__help-button" type="icon" size="sm" variant="flat" alternative-text="Help">
+          <chi-button id={"example__help-button"} type="icon" size="sm" variant="flat" alternative-text="Help">
             <chi-icon icon="circle-info-outline"></chi-icon>
           </chi-button>
           <chi-popover id="example__help-popover" position="top" variant="text" arrow reference="#example__help-button">

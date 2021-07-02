@@ -42,6 +42,7 @@ export default class Checkbox extends React.Component {
         .forEach((_, i) => {
           if (this.props[`label${i}`]) {
             checkboxesToRender.push(
+              <div className={`${this.props.grid ? 'chi-col -w--12 -w-md--3 -w-sm--6 -mb--1' : ''}`}>
                 <div className={`chi-form__item ${this.props.inline ? '-inline' : ''}`} key={`checkbox-${i}`}>
                   <div className="chi-checkbox">
                     <input type="checkbox" className="chi-checkbox__input" disabled={this.props[`disabled${i}`]}
@@ -52,6 +53,7 @@ export default class Checkbox extends React.Component {
                     {info}
                   </div>
                 </div>
+              </div>
             );
           }
         });
@@ -66,15 +68,27 @@ export default class Checkbox extends React.Component {
       message = optional;
     }
 
-    const fieldLabel = this.props.fieldLabel ?
+      const fieldLabel = this.props.fieldLabel ?
+      <div class="chi-col -w--12 -mb--1">
       <div className="chi-label">
         {this.props.fieldLabel}
         {message}
+      </div>
       </div> : '';
+
+      const content = this.props.grid ?
+      <div class="chi-grid">
+        {fieldLabel}
+        {checkboxesToRender} 
+        </div> :
+      <div>
+        {fieldLabel}
+        {checkboxesToRender} 
+      </div>
+
     return (
         <fieldset>
-          {fieldLabel}
-          {checkboxesToRender}
+          {content}
         </fieldset>
     );
   }
@@ -85,6 +99,7 @@ Checkbox.propTypes = {
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   info: PropTypes.bool,
   inline: PropTypes.bool,
+  grid: PropTypes.bool,
   label1: PropTypes.string,
   disabled1: PropTypes.bool,
   checked1: PropTypes.bool,
