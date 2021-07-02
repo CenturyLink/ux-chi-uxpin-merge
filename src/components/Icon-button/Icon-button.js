@@ -9,7 +9,7 @@ import './IconButton.css';
  * SkipContainerWrapper
  */
 export default function IconButton({
-  tooltipMessage, size, tooltipPosition, tooltipColor, disabled, click, icon, uxpinRef,
+  tooltipMessage, tooltipPosition, tooltipColor, disabled, click, icon, uxpinRef,
 }) {
   const uuid = uuid4();
 
@@ -27,9 +27,7 @@ export default function IconButton({
       type="button"
       id={uuid}
       className={`
-        chi-button -portal -icon -primary -flat -bg--none -opacity-hover--80
-        ${size ? `-${size}` : ''}
-        `}
+        chi-button -portal -icon -primary -flat -bg--none -opacity-hover--80`}
       data-tooltip={tooltipMessage}
       data-position={tooltipPosition}
       data-tooltip-color={tooltipColor}
@@ -48,7 +46,6 @@ IconButton.propTypes = {
   disabled: PropTypes.bool,
   icon: PropTypes.string,
   click: PropTypes.func,
-  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   tooltipMessage: PropTypes.string,
   tooltipPosition: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
   tooltipColor: PropTypes.oneOf(['base', 'light']),
@@ -58,8 +55,7 @@ IconButton.propTypes = {
 IconButton.defaultProps = {
   disabled: false,
   icon: 'atom',
-  size: 'md',
   tooltipMessage: 'Tooltip message',
   tooltipPosition: 'top',
-  tooltipColor: 'base',
+  tooltipColor: 'light',
 };
