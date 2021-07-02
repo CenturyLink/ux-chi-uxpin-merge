@@ -42,7 +42,6 @@ export default class Checkbox extends React.Component {
         .forEach((_, i) => {
           if (this.props[`label${i}`]) {
             checkboxesToRender.push(
-              <div className={`${this.props.grid ? 'chi-col -w--12 -w-md--3 -w-sm--6 -mb--1' : ''}`}>
                 <div className={`chi-form__item ${this.props.inline ? '-inline' : ''}`} key={`checkbox-${i}`}>
                   <div className="chi-checkbox">
                     <input type="checkbox" className="chi-checkbox__input" disabled={this.props[`disabled${i}`]}
@@ -53,7 +52,6 @@ export default class Checkbox extends React.Component {
                     {info}
                   </div>
                 </div>
-              </div>
             );
           }
         });
@@ -67,6 +65,12 @@ export default class Checkbox extends React.Component {
     } else if (this.props.required && this.props.required === 'optional')  {
       message = optional;
     }
+
+    const fieldLabel = this.props.fieldLabel ?
+    <div className="chi-label">
+      {this.props.fieldLabel}
+      {message}
+    </div> : '';
 
     return (
         <fieldset>
@@ -102,4 +106,43 @@ Checkbox.propTypes = {
   checked6: PropTypes.bool,
   label7: PropTypes.string,
   disabled7: PropTypes.bool,
+  checked7: PropTypes.bool,
+  label8: PropTypes.string,
+  disabled8: PropTypes.bool,
+  checked8: PropTypes.bool,
+  label9: PropTypes.string,
+  disabled9: PropTypes.bool,
+  checked9: PropTypes.bool,
+  label10: PropTypes.string,
+  disabled10: PropTypes.bool,
+  checked10: PropTypes.bool,
+  select1: PropTypes.func,
+  deselect1: PropTypes.func,
+  select2: PropTypes.func,
+  deselect2: PropTypes.func,
+  select3: PropTypes.func,
+  deselect3: PropTypes.func,
+  select4: PropTypes.func,
+  deselect4: PropTypes.func,
+  select5: PropTypes.func,
+  deselect5: PropTypes.func,
+  select6: PropTypes.func,
+  deselect6: PropTypes.func,
+  select7: PropTypes.func,
+  deselect7: PropTypes.func,
+  select8: PropTypes.func,
+  deselect8: PropTypes.func,
+  select9: PropTypes.func,
+  deselect9: PropTypes.func,
+  select10: PropTypes.func,
+  deselect10: PropTypes.func,
+};
+/* eslint-enable */
+
+Checkbox.defaultProps = {
+  fieldLabel: 'Field Label',
+  label1: 'Checkbox 1 label',
+  label2: 'Checkbox 2 label',
+  label3: 'Checkbox 3 label',
+  required: 'none',
 };
