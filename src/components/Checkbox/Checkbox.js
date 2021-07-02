@@ -68,27 +68,10 @@ export default class Checkbox extends React.Component {
       message = optional;
     }
 
-      const fieldLabel = this.props.fieldLabel ?
-      <div class="chi-col -w--12 -mb--1">
-      <div className="chi-label">
-        {this.props.fieldLabel}
-        {message}
-      </div>
-      </div> : '';
-
-      const content = this.props.grid ?
-      <div class="chi-grid">
-        {fieldLabel}
-        {checkboxesToRender} 
-        </div> :
-      <div>
-        {fieldLabel}
-        {checkboxesToRender} 
-      </div>
-
     return (
         <fieldset>
-          {content}
+          {fieldLabel}
+          {checkboxesToRender} 
         </fieldset>
     );
   }
@@ -99,7 +82,6 @@ Checkbox.propTypes = {
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   info: PropTypes.bool,
   inline: PropTypes.bool,
-  grid: PropTypes.bool,
   label1: PropTypes.string,
   disabled1: PropTypes.bool,
   checked1: PropTypes.bool,
@@ -120,44 +102,4 @@ Checkbox.propTypes = {
   checked6: PropTypes.bool,
   label7: PropTypes.string,
   disabled7: PropTypes.bool,
-  checked7: PropTypes.bool,
-  label8: PropTypes.string,
-  disabled8: PropTypes.bool,
-  checked8: PropTypes.bool,
-  label9: PropTypes.string,
-  disabled9: PropTypes.bool,
-  checked9: PropTypes.bool,
-  label10: PropTypes.string,
-  disabled10: PropTypes.bool,
-  checked10: PropTypes.bool,
-  select1: PropTypes.func,
-  deselect1: PropTypes.func,
-  select2: PropTypes.func,
-  deselect2: PropTypes.func,
-  select3: PropTypes.func,
-  deselect3: PropTypes.func,
-  select4: PropTypes.func,
-  deselect4: PropTypes.func,
-  select5: PropTypes.func,
-  deselect5: PropTypes.func,
-  select6: PropTypes.func,
-  deselect6: PropTypes.func,
-  select7: PropTypes.func,
-  deselect7: PropTypes.func,
-  select8: PropTypes.func,
-  deselect8: PropTypes.func,
-  select9: PropTypes.func,
-  deselect9: PropTypes.func,
-  select10: PropTypes.func,
-  deselect10: PropTypes.func,
-};
-/* eslint-enable */
-
-Checkbox.defaultProps = {
-  fieldLabel: 'Field Label',
-  label1: 'Checkbox 1 label',
-  label2: 'Checkbox 2 label',
-  label3: 'Checkbox 3 label',
-  required: 'none',
-  info: false,
 };
