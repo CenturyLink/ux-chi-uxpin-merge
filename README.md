@@ -8,8 +8,7 @@ collection of components based on our own design system (CHI).
 
 | Component     | Chi URL | Status|
 | ------------- |:-------------:| :-----|
-<!-- | Alert | [Alert](https://assets.ctl.io/chi/3.12.0/components/alert/) | ✅ Full Support | -->
-| Alert | [Alert](https://assets.ctl.io/chi/4.3.0/templates/portal/#alerts/) | ✅ Full Support |
+| Alert | [Alert](https://assets.ctl.io/chi/3.12.0/components/alert/) | ✅ Full Support |
 | Badge | [Badge](https://assets.ctl.io/chi/3.12.0/components/badge/) | ✅ Full Support |
 | Brand | [Brand](https://assets.ctl.io/chi/3.12.0/components/brand/) | ✅ Full Support |
 | Checkbox | [Checkbox](https://assets.ctl.io/chi/3.12.0/components/forms/checkbox/) | ✅ Full Support |
@@ -20,7 +19,6 @@ collection of components based on our own design system (CHI).
 | Label | [Label](https://assets.ctl.io/chi/3.12.0/components/label/) | ✅ Full Support |
 | Marketing Icon | [Marketing Icon](https://assets.ctl.io/chi/3.12.0/components/marketing-icon/) | ✅ Full Support |
 | Number Input | [Number Input](https://assets.ctl.io/chi/3.12.0/components/forms/number-input/) | ✅ Full Support |
-| Page Title | [Page Title](https://assets.ctl.io/chi/4.3.0/templates/portal/#page-title) | ✅ Full Support |
 | Pagination | [Pagination](https://assets.ctl.io/chi/3.12.0/components/pagination/) | ✅ Full Support |
 | Picker Group | [Picker Group](https://assets.ctl.io/chi/3.12.0/components/picker-group/) | ✅ Full Support |
 | Popover | [Popover](https://assets.ctl.io/chi/3.12.0/components/popover/) | ✅ Full Support |
@@ -34,14 +32,13 @@ collection of components based on our own design system (CHI).
 | Step | [Step](https://assets.ctl.io/chi/3.12.0/components/steps/) | ✅ Full Support |
 | Tabs | [Tabs](https://assets.ctl.io/chi/3.12.0/components/tabs/) | ✅ Full Support |
 | Tertiary Button | [Tertiary Button](https://assets.ctl.io/chi/3.12.0/templates/portal/#buttons) | ✅ Full Support |
-| Text | [Text](https://assets.ctl.io/chi/4.3.0/utilities/text/) | ✅ Full Support |
 | Text Input | [Text Input](https://assets.ctl.io/chi/3.12.0/components/forms/text-input/) | ✅ Full Support |
 | Textarea | [Textarea](https://assets.ctl.io/chi/3.12.0/components/forms/textarea/) | ✅ Full Support |
 | Toggle Switch | [Toggle Switch](https://assets.ctl.io/chi/3.12.0/components/forms/toggle-switch/) | ✅ Full Support |
 | Tooltip | [Tooltip](https://assets.ctl.io/chi/3.12.0/components/tooltip/) | ✅ Support as Tooltip property of Icon Button |
 
 ## Development
-Currently, there are 2 Chi based UXPin Merge libraries `Chi Merge 1.0 (Lumen)` (Production - older version),  `Chi Merge 2.0 (Lumen)` (Production - newer version) and `Chi Merge (Dev)` (Pre-production).
+Currently, there are 2 Chi based UXPin Merge libraries `Chi Merge (Lumen)` (Production) and `Chi Merge (Dev)` (Pre-production).
 
 In order to be able to develop and make changes in them,
 define environmental variables `UXPIN_DEV_TOKEN` and `UXPIN_LUMEN_TOKEN`.
