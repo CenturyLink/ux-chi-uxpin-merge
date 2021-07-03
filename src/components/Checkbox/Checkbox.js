@@ -27,13 +27,13 @@ export default class Checkbox extends React.Component {
     };
 
     const info = this.props.info ?
-    <div class="chi-label__help">
-      <button class="chi-button -icon -sm -flat" id="example__help-button" aria-label="Help" data-target="#example__help-popover">
-        <i class="chi-icon icon-circle-info-outline"></i>
+    <div className="chi-label__help">
+      <button className="chi-button -icon -sm -flat" id="example__help-button" aria-label="Help" data-target="#example__help-popover">
+        <i className="chi-icon icon-circle-info-outline"></i>
       </button>
-      <section class="chi-popover chi-popover--top -animated" id="example__help-popover" aria-modal="true" role="dialog" aria-hidden="true" x-placement="top">
-        <div class="chi-popover__content">
-          <p class="chi-popover__text">Helpful information goes here.</p>
+      <section className="chi-popover chi-popover--top -animated" id="example__help-popover" aria-modal="true" role="dialog" aria-hidden="true" x-placement="top">
+        <div className="chi-popover__content">
+          <p className="chi-popover__text">Helpful information goes here.</p>
         </div>
       </section>
     </div> : '';
@@ -56,8 +56,8 @@ export default class Checkbox extends React.Component {
           }
         });
 
-    const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
-    const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
+    const required = <abbr className="chi-label__required" title="Required field">*</abbr>;
+    const optional = <abbr className="chi-label__optional" title="Optional field">(optional)</abbr>;
     let message = '';
 
     if (this.props.required && this.props.required === 'required') {

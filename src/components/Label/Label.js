@@ -22,8 +22,8 @@ export default class Label extends React.Component {
 
   render() {
     const uuid = uuid4();
-    const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
-    const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
+    const required = <abbr className="chi-label__required" title="Required field">*</abbr>;
+    const optional = <abbr className="chi-label__optional" title="Optional field">(optional)</abbr>;
     let message = '';
 
     if (!(this.props.required && this.props.optional)) {

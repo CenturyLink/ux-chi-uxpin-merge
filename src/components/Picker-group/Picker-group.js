@@ -10,8 +10,8 @@ export default class PickerGroup extends React.Component {
   render() {
     const uuid = uuid4();
     const pickersToRender = [];
-    const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
-    const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
+    const required = <abbr className="chi-label__required" title="Required field">*</abbr>;
+    const optional = <abbr className="chi-label__optional" title="Optional field">(optional)</abbr>;
     let message = '';
 
     if (this.props.required && this.props.required === 'required') {
@@ -21,13 +21,13 @@ export default class PickerGroup extends React.Component {
     }
 
     const info = this.props.info ?
-    <div class="chi-label__help">
-      <button class="chi-button -icon -sm -flat" id="example__help-button" aria-label="Help" data-target="#example__help-popover">
-        <i class="chi-icon icon-circle-info-outline"></i>
+    <div className="chi-label__help">
+      <button className="chi-button -icon -sm -flat" id="example__help-button" aria-label="Help" data-target="#example__help-popover">
+        <i className="chi-icon icon-circle-info-outline"></i>
       </button>
-      <section class="chi-popover chi-popover--top -animated" id="example__help-popover" aria-modal="true" role="dialog" aria-hidden="true" x-placement="top">
-        <div class="chi-popover__content">
-          <p class="chi-popover__text">Helpful information goes here.</p>
+      <section className="chi-popover chi-popover--top -animated" id="example__help-popover" aria-modal="true" role="dialog" aria-hidden="true" x-placement="top">
+        <div className="chi-popover__content">
+          <p className="chi-popover__text">Helpful information goes here.</p>
         </div>
       </section>
     </div> : '';
@@ -44,11 +44,11 @@ export default class PickerGroup extends React.Component {
           if (this.props[`picker${i}`]) {
             pickersToRender.push(
               <input
-                class="chi-picker__input"
+                className="chi-picker__input" key={`picker-${i}`}
                 type="radio"
                 name="radio-base"
                 id={`picker-${uuid}-${i}`}
-                checked={this.props.selected === i}
+                checked={this.props.selected === i} onChange={(e) => {}}
                 disabled={this.props[`disabled${i}`]}
               />
             );
@@ -56,7 +56,9 @@ export default class PickerGroup extends React.Component {
             <label
               for={`picker-${uuid}-${i}`}
               onClick={(e) => {
+               // toggleCheckbox(e.target, i);
                 if (this.props[`select${i}`]) {
+                  console.log("here");
                   const clickedLabelId = e.target.getAttribute('for');
                   const currentlyActivePicker = e.target.parentNode.querySelector('input[checked]');
                   const inputToCheck = document.getElementById(clickedLabelId);
@@ -65,7 +67,8 @@ export default class PickerGroup extends React.Component {
                   currentlyActivePicker.checked = false;
                   inputToCheck.checked = true;
                 }
-              }}>{this.props[`picker${i}`]}</label>
+              }}
+              >{this.props[`picker${i}`]}</label>
             );
           }
         });
@@ -73,7 +76,7 @@ export default class PickerGroup extends React.Component {
     return (
       <fieldset>
         {fieldLabel}
-        <div class="chi-picker-group">
+        <div className="chi-picker-group">
           {pickersToRender}
         </div>
       </fieldset>
