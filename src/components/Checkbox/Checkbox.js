@@ -1,6 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-
+import './Checkbox.css';
 /* eslint-disable */
 /**
  * @uxpincomponent
@@ -8,6 +8,7 @@ import * as React from 'react';
 export default class Checkbox extends React.Component {
   render() {
     const checkboxesToRender = [];
+    const checkboxesToRenderGrid = [];
     const toggleCheckbox = (checkboxLabel, i) => {
       const input = checkboxLabel.parentNode.querySelector('input');
 
@@ -43,6 +44,25 @@ export default class Checkbox extends React.Component {
           }
         });
 
+    Array(11).fill()
+      .forEach((_, i) => {
+        if (this.props[`label${i}`]) {
+        checkboxesToRenderGrid.push(
+          <div className="chi-col -w--12 -w-md--3 -w-sm--6 -mb--1">
+            <div className="chi-form__item" key={`checkbox-${i}`}>
+              <div className="chi-checkbox">
+                <input type="checkbox" className="chi-checkbox__input" disabled={this.props[`disabled${i}`]}
+                 checked={this.props[`checked${i}`]} onChange={(e) => {}} />
+                <label onClick={(e) => {
+                  toggleCheckbox(e.target, i);
+                }} className="chi-checkbox__label" htmlFor="checkbox1">{this.props[`label${i}`]}</label>
+              </div>
+            </div>
+          </div>
+        );
+      }
+    });
+
     const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
     const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
     let message = '';
@@ -58,10 +78,22 @@ export default class Checkbox extends React.Component {
         {this.props.fieldLabel}
         {message}
       </div> : '';
+
+    const content = this.props.grid ?
+      <div className="chi-grid">
+        <div class="chi-col -w--12 -mb--1">
+          {fieldLabel}
+        </div>
+        {checkboxesToRenderGrid}
+      </div> : 
+      <div>
+        {fieldLabel}
+        {checkboxesToRender}
+      </div>
+      
     return (
         <fieldset>
-          {fieldLabel}
-          {checkboxesToRender}
+          {content}
         </fieldset>
     );
   }
@@ -71,6 +103,7 @@ Checkbox.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   inline: PropTypes.bool,
+  grid: PropTypes.bool,
   label1: PropTypes.string,
   disabled1: PropTypes.bool,
   checked1: PropTypes.bool,
@@ -130,4 +163,6 @@ Checkbox.defaultProps = {
   label2: 'Checkbox 2 label',
   label3: 'Checkbox 3 label',
   required: 'none',
+  inline: false,
+  grid: false,
 };
