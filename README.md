@@ -40,7 +40,10 @@ collection of components based on our own design system (CHI).
 | Tooltip | [Tooltip](https://assets.ctl.io/chi/4.3.0/components/tooltip/) | ✅ Support as Tooltip property of Icon Button |
 
 ## Development
-Currently, there are 2 Chi based UXPin Merge libraries `Chi Merge 1.0 (Lumen)` (Production - older version, this version is based on Chi 3.12.0),  `Chi Merge 2.0 (Lumen)` (Production - newer version, Chi 4.3.0) and `Chi Merge (Dev)` (Pre-production).
+Currently, there are 3 Chi based UXPin Merge libraries
+`Chi Merge 2.0 (Lumen)` (Production - based on Lumen styleguide 2.0 and Chi 4.3.0),
+`Chi Merge 1.0 (Lumen)` (Production, Legacy - based on Lumen styleguide 1.0 and Chi 3.12.0), 
+`Chi Merge (Dev)` (Pre-production).
 
 In order to be able to develop and make changes in them,
 define environmental variables `UXPIN_DEV_TOKEN` and `UXPIN_LUMEN_TOKEN`.
