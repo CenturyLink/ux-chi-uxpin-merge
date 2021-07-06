@@ -8,9 +8,7 @@ export default (
     disabled={false}
     cta={false}
     helpIcon={false}
-    download={false}
     title="Link"
     size="md"
-    target="_self"
   />
 );

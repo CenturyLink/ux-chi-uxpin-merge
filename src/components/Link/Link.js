@@ -5,10 +5,6 @@ import * as React from 'react';
 
 export default class Link extends React.Component {
   render() {
-    let download = '';
-    if (this.props.download) {
-      download = this.props.downloadText ? this.props.downloadText : '';
-    }
     const help = this.props.helpIcon
       ? (
         <chi-icon
@@ -28,8 +24,8 @@ export default class Link extends React.Component {
         rel={this.props.rel}
         hreflang={this.props.hreflang}
         size={this.props.size}
-        download={this.props.download ? download : null}
-        alternative-text={this.props.alternativeText}>
+        alternative-text={this.props.alternativeText}
+        onClick={this.props.click}>
         {help}
         <span>{this.props.title ? this.props.title : ''}</span>
       </chi-link>
@@ -41,12 +37,11 @@ Link.propTypes = {
   disabled: PropTypes.bool,
   cta: PropTypes.bool,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top', 'framename']),
+  click: PropTypes.func,
   rel: PropTypes.oneOf(['alternate', 'external', 'next', 'nofollow', 'noreferrer', 'noopener', 'prev']),
   hreflang: PropTypes.oneOf(['en']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   title: PropTypes.string,
-  download: PropTypes.bool,
-  downloadText: PropTypes.string,
   helpIcon: PropTypes.bool,
   clickHelp: PropTypes.func,
   mouseoverHelp: PropTypes.func,
@@ -57,9 +52,7 @@ Link.propTypes = {
 Link.defaultProps = {
   disabled: false,
   cta: false,
-  download: false,
   helpIcon: false,
   title: 'Link',
   size: 'md',
-  target: '_self',
 };
