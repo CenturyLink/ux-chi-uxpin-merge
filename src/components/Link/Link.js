@@ -20,12 +20,10 @@ export default class Link extends React.Component {
         href="#"
         disabled={this.props.disabled}
         cta={this.props.cta}
-        target={this.props.target}
-        rel={this.props.rel}
-        hreflang={this.props.hreflang}
         size={this.props.size}
-        alternative-text={this.props.alternativeText}
-        onClick={this.props.click}>
+        onClick={this.props.clickLink}
+        onMouseEnter={this.props.mouseoverLink}
+        onMouseLeave={this.props.mouseleaveLink}>
         {help}
         <span>{this.props.title ? this.props.title : ''}</span>
       </chi-link>
@@ -34,19 +32,17 @@ export default class Link extends React.Component {
 }
 
 Link.propTypes = {
+  title: PropTypes.string,
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   disabled: PropTypes.bool,
   cta: PropTypes.bool,
-  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top', 'framename']),
-  click: PropTypes.func,
-  rel: PropTypes.oneOf(['alternate', 'external', 'next', 'nofollow', 'noreferrer', 'noopener', 'prev']),
-  hreflang: PropTypes.oneOf(['en']),
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-  title: PropTypes.string,
+  clickLink: PropTypes.func,
+  mouseoverLink: PropTypes.func,
+  mouseleaveLink: PropTypes.func,
   helpIcon: PropTypes.bool,
   clickHelp: PropTypes.func,
   mouseoverHelp: PropTypes.func,
   mouseleaveHelp: PropTypes.func,
-  alternativeText: PropTypes.string,
 };
 
 Link.defaultProps = {
