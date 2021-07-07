@@ -22,6 +22,7 @@ export default function TimePicker({
   input,
   timeChange,
   required,
+  info,
   uxpinRef
 }) {
   const uuid = `time-picker-${uuid4()}`;
@@ -31,7 +32,7 @@ export default function TimePicker({
         htmlFor={`${uuid}-control`}
         className="chi-label"
         required={required}
-        info={this.props.info}
+        info={info}
         label={label}>
       </Label>
     )

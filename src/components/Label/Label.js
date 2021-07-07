@@ -1,5 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import './Label.css';
 import { uuid4 } from '../../utils/utils';
 
 /* eslint-disable */
