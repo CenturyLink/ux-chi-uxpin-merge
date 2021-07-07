@@ -8,18 +8,6 @@ import { uuid4 } from '../../utils/utils';
  */
 export default class Label extends React.Component {
 
-  componentDidMount() {
-    const infoIcon = setInterval(() => {
-      if(document.getElementById('example__help-button')){
-        document.getElementById('example__help-button').addEventListener('click', () => {
-          var popoverElem = document.getElementById('example__help-popover');
-          popoverElem.toggle();
-          clearInterval(infoIcon);
-        });
-      }
-    });
-  }
-
   render() {
     const uuid = uuid4();
     const required = <abbr className="chi-label__required" title="Required field">*</abbr>;
@@ -36,13 +24,13 @@ export default class Label extends React.Component {
 
     const info = this.props.info
       ? (
-        <div className="chi-label__help">
-          <chi-button id={"example__help-button"} type="icon" size="sm" variant="flat" alternative-text="Help">
+        <div className="chi-label__help"
+        onClick={this.props.clickInfo}
+        onMouseEnter={this.props.mouseOverInfo}
+        onMouseLeave={this.props.mouseLeaveInfo}>
+          <chi-button id={"example__help-button"} type="icon" color="primary" size="sm" variant="flat" alternative-text="Help">
             <chi-icon icon="circle-info-outline"></chi-icon>
           </chi-button>
-          <chi-popover id="example__help-popover" position="top" variant="text" arrow reference="#example__help-button">
-        Helpful information goes here.
-          </chi-popover>
         </div>
       )
       : null;
@@ -72,12 +60,15 @@ Label.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
-  info: PropTypes.bool,
   click: PropTypes.func,
   mouseDown: PropTypes.func,
   mouseLeave: PropTypes.func,
   mouseOver: PropTypes.func,
   mouseUp: PropTypes.func,
+  info: PropTypes.bool,
+  clickInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
+  mouseLeaveInfo: PropTypes.func,
 };
 /* eslint-enable */
 

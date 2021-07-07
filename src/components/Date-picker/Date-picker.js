@@ -53,6 +53,7 @@ export default class DatePicker extends React.Component {
           htmlFor={`${dpId}-control`}
           className="chi-label"
           required={this.props.required}
+          info={this.props.info}
           label={this.props.label}>
         </Label>
       )
@@ -115,6 +116,10 @@ DatePicker.propTypes = {
   mouseOver: PropTypes.func,
   mouseUp: PropTypes.func,
   valueChange: PropTypes.func,
+  info: PropTypes.bool,
+  clickInfo: PropTypes.func,
+  mouseDownInfo: PropTypes.func,
+  mouseLeaveInfo: PropTypes.func,
 };
 /* eslint-enable */
 
@@ -124,6 +129,7 @@ DatePicker.defaultProps = {
   required: 'none',
   mode: 'date',
   selected: selected(),
+  info: false,
   mo: true,
   tu: true,
   we: true,

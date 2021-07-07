@@ -31,11 +31,6 @@ export default class Checkbox extends React.Component {
       <button className="chi-button -icon -sm -flat" id="example__help-button" aria-label="Help" data-target="#example__help-popover">
         <i className="chi-icon icon-circle-info-outline"></i>
       </button>
-      <section className="chi-popover chi-popover--top -animated" id="example__help-popover" aria-modal="true" role="dialog" aria-hidden="true" x-placement="top">
-        <div className="chi-popover__content">
-          <p className="chi-popover__text">Helpful information goes here.</p>
-        </div>
-      </section>
     </div> : '';
 
     Array(11).fill()
@@ -49,7 +44,6 @@ export default class Checkbox extends React.Component {
                     <label onClick={(e) => {
                       toggleCheckbox(e.target, i);
                     }} className="chi-checkbox__label" htmlFor="checkbox1">{this.props[`label${i}`]}</label>
-                    {info}
                   </div>
                 </div>
             );
@@ -70,6 +64,7 @@ export default class Checkbox extends React.Component {
       <div className="chi-label">
         {this.props.fieldLabel}
         {message}
+        {info}
       </div> : '';
     return (
         <fieldset>
@@ -83,8 +78,11 @@ export default class Checkbox extends React.Component {
 Checkbox.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
-  info: PropTypes.bool,
   inline: PropTypes.bool,
+  info: PropTypes.bool,
+  clickInfo: PropTypes.func,
+  mouseDownInfo: PropTypes.func,
+  mouseLeaveInfo: PropTypes.func,
   label1: PropTypes.string,
   disabled1: PropTypes.bool,
   checked1: PropTypes.bool,

@@ -76,6 +76,9 @@ Textarea.propTypes = {
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   info: PropTypes.bool,
+  clickInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
+  mouseLeaveInfo: PropTypes.func,
   disabled: PropTypes.bool,
   value: PropTypes.string,
   placeholder: PropTypes.string,
@@ -99,4 +102,5 @@ Textarea.defaultProps = {
   state: 'default',
   required: 'none',
   placeholder: '',
+  info: false,
 };

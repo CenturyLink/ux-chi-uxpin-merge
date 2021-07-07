@@ -64,15 +64,13 @@ export default class Radio extends React.Component {
     }
 
     const info = this.props.info ?
-    <div className="chi-label__help">
+    <div className="chi-label__help"
+    onClick={this.props.clickInfo}
+    onMouseEnter={this.props.mouseOverInfo}
+    onMouseLeave={this.props.mouseLeaveInfo}>
       <button className="chi-button -icon -sm -flat" id="example__help-button" aria-label="Help" data-target="#example__help-popover">
         <i className="chi-icon icon-circle-info-outline"></i>
       </button>
-      <section className="chi-popover chi-popover--top -animated" id="example__help-popover" aria-modal="true" role="dialog" aria-hidden="true" x-placement="top">
-        <div className="chi-popover__content">
-          <p className="chi-popover__text">Helpful information goes here.</p>
-        </div>
-      </section>
     </div> : '';
 
     const fieldLabel = this.props.fieldLabel ?
@@ -93,9 +91,12 @@ export default class Radio extends React.Component {
 Radio.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
-  info: PropTypes.bool,
   inline: PropTypes.bool,
   selectedOption: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  info: PropTypes.bool,
+  clickInfo: PropTypes.func,
+  mouseDownInfo: PropTypes.func,
+  mouseLeaveInfo: PropTypes.func,
   option1: PropTypes.string,
   disabled1: PropTypes.bool,
   option2: PropTypes.string,

@@ -31,6 +31,7 @@ export default function TimePicker({
         htmlFor={`${uuid}-control`}
         className="chi-label"
         required={required}
+        info={this.props.info}
         label={label}>
       </Label>
     )
@@ -76,6 +77,10 @@ TimePicker.propTypes = {
   active: PropTypes.bool,
   displaySeconds: PropTypes.bool,
   format: PropTypes.oneOf(['12hr', '24hr']),
+  info: PropTypes.bool,
+  clickInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
+  mouseLeaveInfo: PropTypes.func,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   value: PropTypes.string,
   click: PropTypes.func,
@@ -91,4 +96,5 @@ TimePicker.defaultProps = {
   label: 'Label',
   format: '12hr',
   required: 'none',
+  info: false,
 };
