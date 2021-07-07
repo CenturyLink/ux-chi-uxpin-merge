@@ -6,66 +6,69 @@ import { uuid4 } from '../../utils/utils';
 /**
  * @uxpincomponent
  */
-export default class PickerGroup extends React.Component {
-  render() {
-    const uuid = uuid4();
-    const pickersToRender = [];
-    const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
-    const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
-    let message = '';
 
-    if (this.props.required && this.props.required === 'required') {
-      message = required;
-    } else if (this.props.required && this.props.required === 'optional')  {
-      message = optional;
-    }
-    const fieldLabel = this.props.fieldLabel ?
-      <legend className="chi-label">
-        {this.props.fieldLabel}
-        {message}
-      </legend> : '';
+ let uuid;
+ const pickersToRender = [];
+export default function PickerGroup(props) {
+  const pickerProps = []; 
+  uuid = `picker-${uuid4()}`;
+  pickersToRender.length = 0;
+  const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
+  const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
+  let message = '';
 
-    Array(11).fill()
-        .forEach((_, i) => {
-          if (this.props[`picker${i}`]) {
-            pickersToRender.push(
-              <input
-                class="chi-picker__input"
-                type="radio"
-                name="radio-base"
-                id={`picker-${uuid}-${i}`}
-                checked={this.props.selected === i}
-                disabled={this.props[`disabled${i}`]}
-              />
-            );
-            pickersToRender.push(
+  if (props.required && props.required === 'required') {
+    message = required;
+  } else if (props.required && props.required === 'optional')  {
+    message = optional;
+  }
+  const fieldLabel = props.fieldLabel ?
+    <legend className="chi-label">
+      {props.fieldLabel}
+      {message}
+    </legend> : '';
+
+  Array(11).fill()
+      .forEach((_, i) => {
+        if (props[`picker${i}`]) {
+          pickersToRender.push(
+            <input
+              class="chi-picker__input"
+              type="radio"
+              name="radio-base"
+              id={`picker-${uuid}-${i}`}
+              checked={props.selected === i}
+              disabled={props[`disabled${i}`]}
+            />
+          );
+          pickersToRender.push(
             <label
               for={`picker-${uuid}-${i}`}
               onClick={(e) => {
-                if (this.props[`select${i}`]) {
+                if (props[`select${i}`]) {
                   const clickedLabelId = e.target.getAttribute('for');
                   const currentlyActivePicker = e.target.parentNode.querySelector('input[checked]');
                   const inputToCheck = document.getElementById(clickedLabelId);
 
-                  this.props[`select${i}`]();
+                  props[`select${i}`]();
                   currentlyActivePicker.checked = false;
                   inputToCheck.checked = true;
                 }
-              }}>{this.props[`picker${i}`]}</label>
-            );
-          }
-        });
+              }}>{props[`picker${i}`]}</label>
+          );
+        }
+      });
 
-    return (
-      <fieldset>
-        {fieldLabel}
-        <div class="chi-picker-group">
-          {pickersToRender}
-        </div>
-      </fieldset>
-    );
-  }
+  return (
+    <fieldset>
+      {fieldLabel}
+      <div class="chi-picker-group">
+        {pickersToRender}
+      </div>
+    </fieldset>
+  );
 }
+
 
 PickerGroup.propTypes = {
   fieldLabel: PropTypes.string,
