@@ -104,6 +104,9 @@ export const UTILITY_CLASSES = {
         CENTER: '-justify-content-md--center',
         END: '-justify-content-md--end'
     },
+    DISPLAY: {
+        FLEX: '-d--flex',
+    },
     GRID: 'chi-grid',
     COLUMN: 'chi-col'
 };

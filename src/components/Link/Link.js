@@ -1,20 +1,25 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import { UTILITY_CLASSES } from '../../constants/classes';
+import Icon from '../Icon/Icon';
+import './Link.css';
 
 export default class Link extends React.Component {
   render() {
     const help = this.props.helpIcon
       ? (
-        <chi-icon
+        <span
+          className="link-margin"
           icon="circle-question-outline"
           onClick={this.props.clickHelp}
           onMouseEnter={this.props.mouseoverHelp}
           onMouseLeave={this.props.mouseleaveHelp}>
-        </chi-icon>
+          <Icon icon="circle-question-outline" />
+        </span>
       )
-      : <chi-icon></chi-icon>;
+      : <span></span>;
     return (
       <chi-link
         href="#"
@@ -24,8 +29,10 @@ export default class Link extends React.Component {
         onClick={this.props.clickLink}
         onMouseEnter={this.props.mouseoverLink}
         onMouseLeave={this.props.mouseleaveLink}>
-        {help}
-        <span>{this.props.title ? this.props.title : ''}</span>
+        <div className={UTILITY_CLASSES.DISPLAY.FLEX}>
+          {help}
+          <span>{this.props.title ? this.props.title : ''}</span>
+        </div>
       </chi-link>
     );
   }
