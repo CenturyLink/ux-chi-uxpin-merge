@@ -5,14 +5,16 @@ import { uuid4 } from '../../utils/utils';
 /* eslint-disable */
 /**
  * @uxpincomponent
+ * @uxpinwrappers
  */
 
- let uuid;
- const pickersToRender = [];
-export default function PickerGroup(props) {
-  const pickerProps = []; 
-  uuid = `picker-${uuid4()}`;
-  pickersToRender.length = 0;
+ 
+export default function PickerGroup(props,{uxpinRef}) {
+  //let uuid;
+  const pickersToRender = [];
+  //uuid = `picker-${uuid4()}`;
+  const uuid = uuid4();
+  //pickersToRender.length = 0;
   const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
   const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
   let message = '';
@@ -33,10 +35,12 @@ export default function PickerGroup(props) {
         if (props[`picker${i}`]) {
           pickersToRender.push(
             <input
-              class="chi-picker__input"
+              className="chi-picker__input"
               type="radio"
               name="radio-base"
-              id={`picker-${uuid}-${i}`}
+              id={uuid}
+              ref={uxpinRef}
+              key={`checkbox-${i}`}
               checked={props.selected === i}
               disabled={props[`disabled${i}`]}
             />
