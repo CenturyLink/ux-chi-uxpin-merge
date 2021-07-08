@@ -29,7 +29,7 @@ export default class Link extends React.Component {
         onClick={this.props.clickLink}
         onMouseEnter={this.props.mouseoverLink}
         onMouseLeave={this.props.mouseleaveLink}>
-        <div className={UTILITY_CLASSES.DISPLAY.FLEX}>
+        <div className={`${UTILITY_CLASSES.DISPLAY.FLEX} ${UTILITY_CLASSES.ALIGN_ITEMS.CENTER}`}>
           {help}
           <span>{this.props.title ? this.props.title : ''}</span>
         </div>
