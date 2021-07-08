@@ -104,6 +104,9 @@ export const UTILITY_CLASSES = {
         CENTER: '-justify-content-md--center',
         END: '-justify-content-md--end'
     },
+  ALIGN_ITEMS: {
+    CENTER: '-align-items--center',
+  },
     DISPLAY: {
         FLEX: '-d--flex',
     },
