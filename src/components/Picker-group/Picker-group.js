@@ -54,13 +54,10 @@ export default class PickerGroup extends React.Component {
             <label
               for={`picker-${uuid}-${i}`}
               onClick={(e) => {
-               // toggleCheckbox(e.target, i);
                 if (this.props[`select${i}`]) {
-                  console.log("here");
                   const clickedLabelId = e.target.getAttribute('for');
                   const currentlyActivePicker = e.target.parentNode.querySelector('input[checked]');
                   const inputToCheck = document.getElementById(clickedLabelId);
-
                   this.props[`select${i}`]();
                   currentlyActivePicker.checked = false;
                   inputToCheck.checked = true;

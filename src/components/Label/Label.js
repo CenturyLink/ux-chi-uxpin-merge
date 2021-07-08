@@ -8,7 +8,6 @@ import { uuid4 } from '../../utils/utils';
  * @uxpincomponent
  */
 export default class Label extends React.Component {
-
   render() {
     const uuid = uuid4();
     const required = <abbr className="chi-label__required" title="Required field">*</abbr>;
