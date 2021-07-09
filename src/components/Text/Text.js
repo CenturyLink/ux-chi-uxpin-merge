@@ -25,38 +25,6 @@ export default class Text extends React.Component {
     }
 
     switch (this.props.lineHeight) {
-      case '8':
-        height = '1';
-        break;
-      case '16':
-        height = '2';
-        break;
-      case '24 (default)':
-        height = '3';
-        break;
-      case '32':
-        height = '4';
-        break;
-      case '40':
-        height = '5';
-        break;
-      case '48':
-        height = '6';
-        break;
-      case '56':
-        height = '7';
-        break;
-      case '64':
-        height = '8';
-        break;
-      case '72':
-        height = '9';
-        break;
-      default:
-        height = '3';
-        break;
-    }
-
     return (
       <p className={`${this.props.size ? `-text--${this.props.size}` : ''}
        ${this.props.lineHeight ? `-lh--${lineHeight === 'default' ? 3 : lineHeight / 8}` : ''}
