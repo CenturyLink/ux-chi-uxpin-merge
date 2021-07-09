@@ -1,27 +1,24 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import { UTILITY_CLASSES } from '../../constants/classes';
-import Icon from '../Icon/Icon';
-import './Link.css';
 
 export default class Link extends React.Component {
   render() {
     const help = this.props.helpIcon
       ? (
-        <span
-          className="link-margin"
-          icon="circle-question-outline"
+        <i
+          className="chi-icon icon-circle-question-outline"
           onClick={this.props.clickHelp}
           onMouseEnter={this.props.mouseoverHelp}
           onMouseLeave={this.props.mouseleaveHelp}>
-          <Icon icon="circle-question-outline" />
-        </span>
+        </i>
       )
-      : <span></span>;
+      : '';
     return (
-      <chi-link
+      <a
+        className="chi-link"
         href="#"
         disabled={this.props.disabled}
         cta={this.props.cta}
@@ -29,11 +26,11 @@ export default class Link extends React.Component {
         onClick={this.props.clickLink}
         onMouseEnter={this.props.mouseoverLink}
         onMouseLeave={this.props.mouseleaveLink}>
-        <div className={`${UTILITY_CLASSES.DISPLAY.FLEX} ${UTILITY_CLASSES.ALIGN_ITEMS.CENTER}`}>
+        <div className="chi-link__content">
           {help}
           <span>{this.props.title ? this.props.title : ''}</span>
         </div>
-      </chi-link>
+      </a>
     );
   }
 }
