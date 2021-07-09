@@ -1,8 +1,0 @@
-.chi .chi-picker-group input[type=radio]:checked.chi-picker__input+label {
-    border: .0625rem solid #0075c9;
-    -webkit-box-shadow: inset 0 0 0 0.0625rem #0075c9;
-    box-shadow: inset 0 0 0 0.0625rem #0075c9;
-    color: #0262b9;
-    font-weight: 600;
-    padding-right: .9375rem;
-}
