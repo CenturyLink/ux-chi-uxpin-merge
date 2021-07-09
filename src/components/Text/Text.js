@@ -4,7 +4,6 @@ import * as React from 'react';
 export default class Text extends React.Component {
   render() {
     let fontWeight;
-    let height;
 
     switch (this.props.weight) {
       case 'regular':
@@ -24,10 +23,9 @@ export default class Text extends React.Component {
         break;
     }
 
-    switch (this.props.lineHeight) {
     return (
       <p className={`${this.props.size ? `-text--${this.props.size}` : ''}
-       ${this.props.lineHeight ? `-lh--${lineHeight === 'default' ? 3 : lineHeight / 8}` : ''}
+       ${this.props.lineHeight ? `-text -lh--${this.props.lineHeight === '24 (default)' ? 3 : this.props.lineHeight / 8}` : ''}
        ${this.props.transform !== 'no-transform' ? `-text--${this.props.transform}` : ''}
        ${this.props.color ? `-text--${this.props.color}` : ''}
        ${this.props.truncate ? '-text--truncate' : ''}
@@ -44,7 +42,7 @@ Text.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   weight: PropTypes.oneOf(['regular', 'semi-bold', 'bold', 'black']),
   truncate: PropTypes.bool,
-  lineHeight: PropTypes.oneOf(['8', '16', '24 (default)', '32', '40', '48', '56', '64', '72']),
+  lineHeight: PropTypes.oneOf([8, 16, '24 (default)', 32, 40, 48, 56, 64, 72]),
   transform: PropTypes.oneOf(['no-transform', 'lowercase', 'uppercase', 'capitalized']),
 };
 
