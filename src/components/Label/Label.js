@@ -28,7 +28,7 @@ export default class Label extends React.Component {
         onClick={this.props.clickInfo}
         onMouseEnter={this.props.mouseOverInfo}
         onMouseLeave={this.props.mouseLeaveInfo}>
-          <chi-button id={"example__help-button"} type="icon" color="primary" size="sm" variant="flat" alternative-text="Help">
+          <chi-button type="icon" color="primary" size="sm" variant="flat" alternative-text="Help">
             <chi-icon icon="circle-info-outline"></chi-icon>
           </chi-button>
         </div>

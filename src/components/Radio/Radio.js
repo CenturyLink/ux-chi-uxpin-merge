@@ -64,14 +64,14 @@ export default class Radio extends React.Component {
     }
 
     const info = this.props.info ?
-    <div className="chi-label__help"
-    onClick={this.props.clickInfo}
-    onMouseEnter={this.props.mouseOverInfo}
-    onMouseLeave={this.props.mouseLeaveInfo}>
-      <button className="chi-button -icon -sm -flat" id="example__help-button" aria-label="Help" data-target="#example__help-popover">
-        <i className="chi-icon icon-circle-info-outline"></i>
-      </button>
-    </div> : '';
+      <div className="chi-label__help"
+      onClick={this.props.clickInfo}
+      onMouseEnter={this.props.mouseOverInfo}
+      onMouseLeave={this.props.mouseLeaveInfo}>
+        <button className="chi-button -icon -sm -flat">
+          <i className="chi-icon icon-circle-info-outline"></i>
+        </button>
+      </div> : '';
 
     const fieldLabel = this.props.fieldLabel ?
       <div className="chi-label">
