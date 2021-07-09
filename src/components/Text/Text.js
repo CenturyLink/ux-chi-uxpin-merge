@@ -59,7 +59,7 @@ export default class Text extends React.Component {
 
     return (
       <p className={`${this.props.size ? `-text--${this.props.size}` : ''}
-       ${this.props.lineHeight ? `-text -lh--${height}` : ''}      
+       ${this.props.lineHeight ? `-lh--${lineHeight === 'default' ? 3 : lineHeight / 8}` : ''}
        ${this.props.transform !== 'no-transform' ? `-text--${this.props.transform}` : ''}
        ${this.props.color ? `-text--${this.props.color}` : ''}
        ${this.props.truncate ? '-text--truncate' : ''}
