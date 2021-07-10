@@ -1,7 +1,12 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import './Label.css';
 import { uuid4 } from '../../utils/utils';
+import {
+  BUTTON_CLASSES,
+  ICON_CLASS,
+  LABEL_CLASSES,
+  STAT_CLASSES,
+} from '../../constants/classes';
 
 /* eslint-disable */
 /**
@@ -10,8 +15,8 @@ import { uuid4 } from '../../utils/utils';
 export default class Label extends React.Component {
   render() {
     const uuid = uuid4();
-    const required = <abbr className="chi-label__required" title="Required field">*</abbr>;
-    const optional = <abbr className="chi-label__optional" title="Optional field">(optional)</abbr>;
+    const required = <abbr className={`${LABEL_CLASSES.REQUIRED}`} title="Required field">*</abbr>;
+    const optional = <abbr className={`${LABEL_CLASSES.OPTIONAL}`} title="Optional field">(optional)</abbr>;
     let message = '';
 
     if (!(this.props.required && this.props.optional)) {
@@ -24,13 +29,13 @@ export default class Label extends React.Component {
 
     const info = this.props.info
       ? (
-        <div className="chi-label__help"
+        <div className={`${STAT_CLASSES.TITLE_HELP}`}
         onClick={this.props.clickInfo}
         onMouseEnter={this.props.mouseOverInfo}
         onMouseLeave={this.props.mouseLeaveInfo}>
-          <chi-button type="icon" color="primary" size="sm" variant="flat" alternative-text="Help">
-            <chi-icon icon="circle-info-outline"></chi-icon>
-          </chi-button>
+          <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
+            <i className={`${ICON_CLASS} icon-circle-info-outline -icon--primary`}></i>
+          </button>
         </div>
       )
       : null;

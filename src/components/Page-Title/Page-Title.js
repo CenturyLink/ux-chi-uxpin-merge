@@ -27,7 +27,7 @@ export default class PageTitle extends React.Component {
           </span>
         </div>
       </a>
-    ) : <a className="backlink-padding"></a>;
+    ) : <a className="chi-link -backlink-blank"></a>;
     /* eslint-enable */
 
     const subtitle = this.props.subTitle ? (
@@ -37,7 +37,7 @@ export default class PageTitle extends React.Component {
     ) : null;
 
     return (
-      <div className="-d--flex -flex--column">
+      <div className="-d--flex -flex--column -backlink-blank">
         {link}
         <div className="-d--flex -align-items--center -mb--4">
           <div

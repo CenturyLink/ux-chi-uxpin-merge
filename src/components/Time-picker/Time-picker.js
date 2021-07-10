@@ -2,6 +2,12 @@ import * as PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import Label from '../Label/Label';
 import { uuid4 } from '../../utils/utils';
+import {
+  BUTTON_CLASSES,
+  ICON_CLASS,
+  LABEL_CLASSES,
+  STAT_CLASSES,
+} from '../../constants/classes';
 
 /* eslint-disable */
 /**
@@ -23,16 +29,30 @@ export default function TimePicker({
   timeChange,
   required,
   info,
+  clickInfo,
+  mouseOverInfo,
+  mouseLeaveInfo,
   uxpinRef
 }) {
   const uuid = `time-picker-${uuid4()}`;
+  const infoElement = this.props.info
+      ? (
+        <div
+          className={`${STAT_CLASSES.TITLE_HELP}`}
+          onClick={this.props.clickInfo}
+          onMouseEnter={this.props.mouseOverInfo}
+          onMouseLeave={this.props.mouseLeaveInfo}>
+          <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
+            <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
+          </button>
+        </div>
+      ) : '';
   const labelElement = label
     ? (
       <Label
         htmlFor={`${uuid}-control`}
         className="chi-label"
         required={required}
-        info={info}
         label={label}>
       </Label>
     )
@@ -57,7 +77,10 @@ export default function TimePicker({
 
   return (
     <div className="chi-form__item" style={{width: '14rem'}} ref={uxpinRef}>
-      {labelElement}
+      <div className={`${LABEL_CLASSES.WRAPPER}`}>
+        {labelElement} 
+        {infoElement}
+      </div>
       <chi-time-picker
         active={active}
         display-seconds={displaySeconds}
