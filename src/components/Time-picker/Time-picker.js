@@ -35,7 +35,7 @@ export default function TimePicker({
   uxpinRef
 }) {
   const uuid = `time-picker-${uuid4()}`;
-  const infoElement = this.props.info
+  const infoElement = info
       ? (
         <div
           className={`${STAT_CLASSES.TITLE_HELP}`}
