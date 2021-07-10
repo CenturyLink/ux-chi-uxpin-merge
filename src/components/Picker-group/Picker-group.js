@@ -48,11 +48,11 @@ export default class PickerGroup extends React.Component {
           if (this.props[`picker${i}`]) {
             pickersToRender.push(
               <input
-                className="chi-picker__input" key={`picker-${i}`}
+                className="chi-picker__input"
                 type="radio"
                 name="radio-base"
                 id={`picker-${uuid}-${i}`}
-                checked={this.props.selected === i} onChange={(e) => {}}
+                checked={this.props.selected === i}
                 disabled={this.props[`disabled${i}`]}
               />
             );
@@ -64,12 +64,12 @@ export default class PickerGroup extends React.Component {
                   const clickedLabelId = e.target.getAttribute('for');
                   const currentlyActivePicker = e.target.parentNode.querySelector('input[checked]');
                   const inputToCheck = document.getElementById(clickedLabelId);
+                  
                   this.props[`select${i}`]();
                   currentlyActivePicker.checked = false;
                   inputToCheck.checked = true;
                 }
-              }}
-              >{this.props[`picker${i}`]}</label>
+              }}>{this.props[`picker${i}`]}</label>
             );
           }
         });

@@ -37,7 +37,7 @@ export default class PageTitle extends React.Component {
     ) : null;
 
     return (
-      <div className="-d--flex -flex--column -backlink-blank">
+      <div className="-d--flex -flex--column">
         {link}
         <div className="-d--flex -align-items--center -mb--4">
           <div
