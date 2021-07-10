@@ -39,9 +39,9 @@ export default function TimePicker({
       ? (
         <div
           className={`${STAT_CLASSES.TITLE_HELP}`}
-          onClick={this.props.clickInfo}
-          onMouseEnter={this.props.mouseOverInfo}
-          onMouseLeave={this.props.mouseLeaveInfo}>
+          onClick={clickInfo}
+          onMouseEnter={mouseOverInfo}
+          onMouseLeave={mouseLeaveInfo}>
           <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
             <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
           </button>
