@@ -1,15 +1,14 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable*/
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import { ICON_CLASS } from '../../constants/classes';
 
 export default class Link extends React.Component {
   render() {
     const help = this.props.helpIcon
       ? (
         <i
-          className="chi-icon icon-circle-question-outline"
+          className={`${ICON_CLASS} icon-circle-question-outline`}
           onClick={this.props.clickHelp}
           onMouseEnter={this.props.mouseoverHelp}
           onMouseLeave={this.props.mouseleaveHelp}>
