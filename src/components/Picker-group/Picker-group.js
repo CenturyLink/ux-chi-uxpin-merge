@@ -7,14 +7,9 @@ import { uuid4 } from '../../utils/utils';
  * @uxpincomponent
  * @uxpinwrappers
  */
-
- 
-export default function PickerGroup(props,{uxpinRef}) {
-  //let uuid;
+export default function PickerGroup(props) {
   const pickersToRender = [];
-  //uuid = `picker-${uuid4()}`;
   const uuid = uuid4();
-  //pickersToRender.length = 0;
   const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
   const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
   let message = '';
@@ -38,9 +33,7 @@ export default function PickerGroup(props,{uxpinRef}) {
               className="chi-picker__input"
               type="radio"
               name="radio-base"
-              id={uuid}
-              ref={uxpinRef}
-              key={`checkbox-${i}`}
+              id={`picker-${uuid}-${i}`}
               checked={props.selected === i}
               disabled={props[`disabled${i}`]}
             />
@@ -66,7 +59,7 @@ export default function PickerGroup(props,{uxpinRef}) {
   return (
     <fieldset>
       {fieldLabel}
-      <div class="chi-picker-group">
+      <div class="chi-picker-group" id={`picker-${uuid}`}>
         {pickersToRender}
       </div>
     </fieldset>
