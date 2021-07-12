@@ -1,6 +1,12 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { uuid4 } from '../../utils/utils';
+import {
+  BUTTON_CLASSES,
+  ICON_CLASS,
+  LABEL_CLASSES,
+  STAT_CLASSES,
+} from '../../constants/classes';
 
 /* eslint-disable */
 /**
@@ -53,8 +59,8 @@ export default class Radio extends React.Component {
         }
       });
 
-    const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
-    const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
+    const required = <abbr className={`${LABEL_CLASSES.REQUIRED}`} title="Required field">*</abbr>;
+    const optional = <abbr className={`${LABEL_CLASSES.OPTIONAL}`} title="Optional field">(optional)</abbr>;
     let message = '';
 
     if (this.props.required && this.props.required === 'required') {
@@ -62,10 +68,22 @@ export default class Radio extends React.Component {
     } else if (this.props.required && this.props.required === 'optional') {
       message = optional;
     }
+
+    const info = this.props.info ?
+      <div className={`${STAT_CLASSES.TITLE_HELP}`}
+      onClick={this.props.clickInfo}
+      onMouseEnter={this.props.mouseOverInfo}
+      onMouseLeave={this.props.mouseLeaveInfo}>
+        <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
+          <i className={`${ICON_CLASS} icon-circle-info-outline -icon--primary`}></i>
+        </button>
+      </div> : '';
+
     const fieldLabel = this.props.fieldLabel ?
-      <div className="chi-label">
+      <div className={`${LABEL_CLASSES.LABEL}`}>
         {this.props.fieldLabel}
         {message}
+        {info}
       </div> : '';
     return (
       <fieldset>
@@ -81,6 +99,10 @@ Radio.propTypes = {
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   inline: PropTypes.bool,
   selectedOption: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  info: PropTypes.bool,
+  clickInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
+  mouseLeaveInfo: PropTypes.func,
   option1: PropTypes.string,
   disabled1: PropTypes.bool,
   option2: PropTypes.string,
@@ -120,4 +142,5 @@ Radio.defaultProps = {
   option2: 'Option 2',
   option3: 'Option 3',
   required: 'none',
+  info: false,
 };

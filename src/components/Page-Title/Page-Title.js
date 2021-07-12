@@ -27,7 +27,7 @@ export default class PageTitle extends React.Component {
           </span>
         </div>
       </a>
-    ) : null;
+    ) : <div className="-backlink-blank"></div>;
     /* eslint-enable */
 
     const subtitle = this.props.subTitle ? (

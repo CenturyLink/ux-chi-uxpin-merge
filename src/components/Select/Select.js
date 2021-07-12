@@ -3,6 +3,12 @@ import * as React from 'react';
 import Label from '../Label/Label';
 import { uuid4 } from '../../utils/utils';
 import './select.css';
+import {
+  BUTTON_CLASSES,
+  ICON_CLASS,
+  LABEL_CLASSES,
+  STAT_CLASSES,
+} from '../../constants/classes';
 
 /* eslint-disable */
 /**
@@ -16,6 +22,18 @@ export default class Select extends React.Component {
 
   render() {
     let optionsToRender = [];
+    const info = this.props.info
+      ? (
+        <div
+          className={`${STAT_CLASSES.TITLE_HELP}`}
+          onClick={this.props.clickInfo}
+          onMouseEnter={this.props.mouseOverInfo}
+          onMouseLeave={this.props.mouseLeaveInfo}>
+          <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
+            <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
+          </button>
+        </div>
+      ) : '';
     const label = this.props.label
       ? (
         <Label
@@ -42,7 +60,10 @@ export default class Select extends React.Component {
 
     return (
       <div className="chi-form__item css-chi">
-        {label}
+        <div className={`${LABEL_CLASSES.WRAPPER}`}>
+          {label}
+          {info}
+        </div>
         <select
           onClick={this.props.click}
           onFocus={this.props.focus}
@@ -67,6 +88,10 @@ Select.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  info: PropTypes.bool,
+  clickInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
+  mouseLeaveInfo: PropTypes.func,
   disabled: PropTypes.bool,
   option1: PropTypes.string,
   option2: PropTypes.string,
@@ -107,4 +132,5 @@ Select.defaultProps = {
   option2: 'Option 2',
   option3: 'Option 3',
   required: 'none',
+  info: false,
 };

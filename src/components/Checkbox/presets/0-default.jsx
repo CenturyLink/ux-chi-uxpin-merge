@@ -6,6 +6,7 @@ export default (
     uxpId="checkbox"
     fieldLabel="Field Label"
     required="none"
+    info={false}
     inline={false}
     label1="Checkbox 1 label"
     disabled1={false}

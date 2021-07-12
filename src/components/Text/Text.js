@@ -25,7 +25,7 @@ export default class Text extends React.Component {
 
     return (
       <p className={`${this.props.size ? `-text--${this.props.size}` : ''}
-       ${this.props.lineHeight ? `-text -lh--${this.props.lineHeight / 8}` : ''}
+       ${this.props.lineHeight ? `-text -lh--${this.props.lineHeight === '24 (default)' ? 3 : this.props.lineHeight / 8}` : ''}
        ${this.props.transform !== 'no-transform' ? `-text--${this.props.transform}` : ''}
        ${this.props.color ? `-text--${this.props.color}` : ''}
        ${this.props.truncate ? '-text--truncate' : ''}
@@ -42,7 +42,7 @@ Text.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   weight: PropTypes.oneOf(['regular', 'semi-bold', 'bold', 'black']),
   truncate: PropTypes.bool,
-  lineHeight: PropTypes.oneOf([8, 16, 24, 32, 40, 48, 56, 64, 72]),
+  lineHeight: PropTypes.oneOf([8, 16, '24 (default)', 32, 40, 48, 56, 64, 72]),
   transform: PropTypes.oneOf(['no-transform', 'lowercase', 'uppercase', 'capitalized']),
 };
 
@@ -52,4 +52,5 @@ Text.defaultProps = {
   size: 'md',
   transform: 'no-transform',
   weight: 'regular',
+  lineHeight: '24 (default)',
 };
