@@ -41,9 +41,10 @@ export default function PickerGroup(props) {
 
   const fieldLabel = props.fieldLabel
     ? (
-      <legend className="chi-label">
+      <legend className={`${LABEL_CLASSES.LABEL}`}>
         {props.fieldLabel}
         {message}
+        {info}
       </legend>
     ) : '';
 
@@ -83,7 +84,7 @@ export default function PickerGroup(props) {
   return (
     <fieldset>
       {fieldLabel}
-      <div className="chi-picker-group" id={`picker-${uuid}`}>
+      <div className="chi-picker-group">
         {pickersToRender}
       </div>
     </fieldset>
