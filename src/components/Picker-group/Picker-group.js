@@ -1,6 +1,12 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { uuid4 } from '../../utils/utils';
+import {
+  BUTTON_CLASSES,
+  ICON_CLASS,
+  LABEL_CLASSES,
+  STAT_CLASSES,
+} from '../../constants/classes';
 
 /* eslint-disable */
 /**
@@ -10,56 +16,74 @@ import { uuid4 } from '../../utils/utils';
 export default function PickerGroup(props) {
   const pickersToRender = [];
   const uuid = uuid4();
-  const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
-  const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
+  const required = <abbr className={`${LABEL_CLASSES.REQUIRED}`} title="Required field">*</abbr>;
+  const optional = <abbr className={`${LABEL_CLASSES.OPTIONAL}`} title="Optional field">(optional)</abbr>;
   let message = '';
 
   if (props.required && props.required === 'required') {
     message = required;
-  } else if (props.required && props.required === 'optional')  {
+  } else if (props.required && props.required === 'optional') {
     message = optional;
   }
-  const fieldLabel = props.fieldLabel ?
-    <legend className="chi-label">
-      {props.fieldLabel}
-      {message}
-    </legend> : '';
+
+  const info = props.info
+    ? (
+      <div
+        className={`${STAT_CLASSES.TITLE_HELP}`}
+        onClick={props.clickInfo}
+        onMouseEnter={props.mouseOverInfo}
+        onMouseLeave={props.mouseLeaveInfo}>
+        <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
+          <i className={`${ICON_CLASS} icon-circle-info-outline -icon--primary`}></i>
+        </button>
+      </div>
+    ) : '';
+
+  const fieldLabel = props.fieldLabel
+    ? (
+      <legend className="chi-label">
+        {props.fieldLabel}
+        {message}
+      </legend>
+    ) : '';
 
   Array(11).fill()
-      .forEach((_, i) => {
-        if (props[`picker${i}`]) {
-          pickersToRender.push(
-            <input
-              className="chi-picker__input"
-              type="radio"
-              name="radio-base"
-              id={`picker-${uuid}-${i}`}
-              checked={props.selected === i}
-              disabled={props[`disabled${i}`]}
-            />
-          );
-          pickersToRender.push(
-            <label
-              for={`picker-${uuid}-${i}`}
-              onClick={(e) => {
-                if (props[`select${i}`]) {
-                  const clickedLabelId = e.target.getAttribute('for');
-                  const currentlyActivePicker = e.target.parentNode.querySelector('input[checked]');
-                  const inputToCheck = document.getElementById(clickedLabelId);
+    .forEach((_, i) => {
+      if (props[`picker${i}`]) {
+        pickersToRender.push(
+          <input
+            className="chi-picker__input"
+            type="radio"
+            name="radio-base"
+            id={`picker-${uuid}-${i}`}
+            checked={props.selected === i}
+            disabled={props[`disabled${i}`]}
+          />
+        );
+        pickersToRender.push(
+          <label
+            htmlFor={`picker-${uuid}-${i}`}
+            onClick={(e) => {
+              if (props[`select${i}`]) {
+                const clickedLabelId = e.target.getAttribute('for');
+                const currentlyActivePicker = e.target.parentNode.querySelector('input[checked]');
+                const inputToCheck = document.getElementById(clickedLabelId);
 
-                  props[`select${i}`]();
-                  currentlyActivePicker.checked = false;
-                  inputToCheck.checked = true;
-                }
-              }}>{props[`picker${i}`]}</label>
-          );
-        }
-      });
+                props[`select${i}`]();
+                currentlyActivePicker.checked = false;
+                inputToCheck.checked = true;
+              }
+            }}>
+            {props[`picker${i}`]}
+          </label>
+        );
+      }
+    });
 
   return (
     <fieldset>
       {fieldLabel}
-      <div class="chi-picker-group" id={`picker-${uuid}`}>
+      <div className="chi-picker-group" id={`picker-${uuid}`}>
         {pickersToRender}
       </div>
     </fieldset>
@@ -71,6 +95,10 @@ PickerGroup.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   selected: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  info: PropTypes.bool,
+  clickInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
+  mouseLeaveInfo: PropTypes.func,
   picker1: PropTypes.string,
   disabled1: PropTypes.bool,
   picker2: PropTypes.string,
@@ -110,4 +138,5 @@ PickerGroup.defaultProps = {
   picker2: 'Picker 2',
   picker3: 'Picker 3',
   required: 'none',
+  info: false,
 };

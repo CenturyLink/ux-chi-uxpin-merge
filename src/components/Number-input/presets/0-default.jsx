@@ -8,6 +8,7 @@ export default (
     expanded={false}
     label="Label"
     required="none"
+    info={false}
     disabled={false}
     startValue="0"
     min={1}

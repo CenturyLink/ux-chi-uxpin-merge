@@ -2,7 +2,14 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import Label from '../Label/Label';
 import { uuid4 } from '../../utils/utils';
+import {
+  BUTTON_CLASSES,
+  ICON_CLASS,
+  LABEL_CLASSES,
+  STAT_CLASSES,
+} from '../../constants/classes';
 
+/* eslint-disable */
 /**
  * @uxpincomponent
  * @uxpinwrappers
@@ -41,6 +48,18 @@ export default class NumberInput extends React.Component {
   }
 
   render() {
+    const info = this.props.info
+      ? (
+        <div
+          className={`${STAT_CLASSES.TITLE_HELP}`}
+          onClick={this.props.clickInfo}
+          onMouseEnter={this.props.mouseOverInfo}
+          onMouseLeave={this.props.mouseLeaveInfo}>
+          <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
+            <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
+          </button>
+        </div>
+      ) : '';
     const label = this.props.label
       ? (
         <Label
@@ -56,7 +75,10 @@ export default class NumberInput extends React.Component {
 
     return (
       <div ref={this.props.uxpinRef} className="chi-form__item" style={{ width: '14rem' }}>
-        {label}
+        <div className={`${LABEL_CLASSES.WRAPPER}`}>
+          {label}
+          {info}
+        </div>
         <chi-number-input
           id={this.state.id}
           disabled={this.props.disabled}
@@ -95,6 +117,10 @@ NumberInput.propTypes = {
   mouseOver: PropTypes.func,
   mouseUp: PropTypes.func,
   valueChange: PropTypes.func,
+  info: PropTypes.bool,
+  clickInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
+  mouseLeaveInfo: PropTypes.func,
 };
 /* eslint-enable */
 
@@ -104,5 +130,6 @@ NumberInput.defaultProps = {
   size: 'md',
   label: 'Label',
   required: 'none',
+  info: false,
   startValue: '0',
 };

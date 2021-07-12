@@ -7,6 +7,7 @@ export default (
     fieldLabel="Field Label"
     required="none"
     inline={false}
+    info={false}
     selectedOption={1}
     option1="Option 1"
     disabled1={false}
