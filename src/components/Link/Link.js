@@ -16,7 +16,7 @@ export default class Link extends React.Component {
       )
       : '';
     return (
-      <a
+      <chi-link
         className="chi-link"
         href="#"
         disabled={this.props.disabled}
@@ -29,7 +29,7 @@ export default class Link extends React.Component {
           {help}
           <span>{this.props.title ? this.props.title : ''}</span>
         </div>
-      </a>
+      </chi-link>
     );
   }
 }
@@ -38,6 +38,10 @@ Link.propTypes = {
   title: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   disabled: PropTypes.bool,
+  /**
+   * Icon that goes after the children
+   * @uxpinpropname  CTA
+   * */
   cta: PropTypes.bool,
   clickLink: PropTypes.func,
   mouseoverLink: PropTypes.func,
