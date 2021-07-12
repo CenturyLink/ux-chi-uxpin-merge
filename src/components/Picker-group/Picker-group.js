@@ -90,7 +90,7 @@ PickerGroup.propTypes = {
   selected: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   info: PropTypes.bool,
   clickInfo: PropTypes.func,
-  mouseDownInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
   mouseLeaveInfo: PropTypes.func,
   picker1: PropTypes.string,
   disabled1: PropTypes.bool,

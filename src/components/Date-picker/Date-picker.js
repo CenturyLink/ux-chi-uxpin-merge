@@ -138,7 +138,7 @@ DatePicker.propTypes = {
   valueChange: PropTypes.func,
   info: PropTypes.bool,
   clickInfo: PropTypes.func,
-  mouseDownInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
   mouseLeaveInfo: PropTypes.func,
 };
 /* eslint-enable */

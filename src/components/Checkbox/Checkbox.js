@@ -90,7 +90,7 @@ Checkbox.propTypes = {
   inline: PropTypes.bool,
   info: PropTypes.bool,
   clickInfo: PropTypes.func,
-  mouseDownInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
   mouseLeaveInfo: PropTypes.func,
   label1: PropTypes.string,
   disabled1: PropTypes.bool,

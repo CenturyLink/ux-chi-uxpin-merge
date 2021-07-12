@@ -98,7 +98,7 @@ TextInput.propTypes = {
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   info: PropTypes.bool,
   clickInfo: PropTypes.func,
-  mouseDownInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
   mouseLeaveInfo: PropTypes.func,
   disabled: PropTypes.bool,
   placeholder: PropTypes.string,
