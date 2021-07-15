@@ -1,6 +1,12 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import './Checkbox.css';
+import {
+  BUTTON_CLASSES,
+  ICON_CLASS,
+  LABEL_CLASSES,
+  STAT_CLASSES,
+} from '../../constants/classes';
+
 /* eslint-disable */
 /**
  * @uxpincomponent
@@ -8,7 +14,6 @@ import './Checkbox.css';
 export default class Checkbox extends React.Component {
   render() {
     const checkboxesToRender = [];
-    const checkboxesToRenderGrid = [];
     const toggleCheckbox = (checkboxLabel, i) => {
       const input = checkboxLabel.parentNode.querySelector('input');
 
@@ -27,6 +32,16 @@ export default class Checkbox extends React.Component {
       }
     };
 
+    const info = this.props.info ?
+      <div className={`${STAT_CLASSES.TITLE_HELP}`}
+      onClick={this.props.clickInfo}
+      onMouseEnter={this.props.mouseOverInfo}
+      onMouseLeave={this.props.mouseLeaveInfo}>
+        <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
+          <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
+        </button>
+      </div> : '';
+
     Array(11).fill()
         .forEach((_, i) => {
           if (this.props[`label${i}`]) {
@@ -44,27 +59,8 @@ export default class Checkbox extends React.Component {
           }
         });
 
-    Array(11).fill()
-      .forEach((_, i) => {
-        if (this.props[`label${i}`]) {
-        checkboxesToRenderGrid.push(
-          <div className="chi-col -w--12 -w-md--3 -w-sm--6 -mb--1">
-            <div className="chi-form__item" key={`checkbox-${i}`}>
-              <div className="chi-checkbox">
-                <input type="checkbox" className="chi-checkbox__input" disabled={this.props[`disabled${i}`]}
-                 checked={this.props[`checked${i}`]} onChange={(e) => {}} />
-                <label onClick={(e) => {
-                  toggleCheckbox(e.target, i);
-                }} className="chi-checkbox__label" htmlFor="checkbox1">{this.props[`label${i}`]}</label>
-              </div>
-            </div>
-          </div>
-        );
-      }
-    });
-
-    const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
-    const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
+    const required = <abbr className={`${LABEL_CLASSES.REQUIRED}`} title="Required field">*</abbr>;
+    const optional = <abbr className={`${LABEL_CLASSES.OPTIONAL}`} title="Optional field">(optional)</abbr>;
     let message = '';
 
     if (this.props.required && this.props.required === 'required') {
@@ -74,26 +70,15 @@ export default class Checkbox extends React.Component {
     }
 
     const fieldLabel = this.props.fieldLabel ?
-      <div className="chi-label">
+      <div className={`${LABEL_CLASSES.LABEL}`}>
         {this.props.fieldLabel}
         {message}
+        {info}
       </div> : '';
-
-    const content = this.props.grid ?
-      <div className="chi-grid">
-        <div class="chi-col -w--12 -mb--1">
-          {fieldLabel}
-        </div>
-        {checkboxesToRenderGrid}
-      </div> : 
-      <div>
-        {fieldLabel}
-        {checkboxesToRender}
-      </div>
-      
     return (
         <fieldset>
-          {content}
+          {fieldLabel}
+          {checkboxesToRender}
         </fieldset>
     );
   }
@@ -103,7 +88,10 @@ Checkbox.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   inline: PropTypes.bool,
-  grid: PropTypes.bool,
+  info: PropTypes.bool,
+  clickInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
+  mouseLeaveInfo: PropTypes.func,
   label1: PropTypes.string,
   disabled1: PropTypes.bool,
   checked1: PropTypes.bool,
@@ -163,6 +151,4 @@ Checkbox.defaultProps = {
   label2: 'Checkbox 2 label',
   label3: 'Checkbox 3 label',
   required: 'none',
-  inline: false,
-  grid: false,
 };

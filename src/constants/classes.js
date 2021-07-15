@@ -104,6 +104,12 @@ export const UTILITY_CLASSES = {
         CENTER: '-justify-content-md--center',
         END: '-justify-content-md--end'
     },
+  ALIGN_ITEMS: {
+    CENTER: '-align-items--center',
+  },
+    DISPLAY: {
+        FLEX: '-d--flex',
+    },
     GRID: 'chi-grid',
     COLUMN: 'chi-col'
 };
@@ -138,6 +144,7 @@ export const LABEL_CLASSES = {
     LABEL: 'chi-label',
     REQUIRED: 'chi-label__required',
     OPTIONAL: 'chi-label__optional',
+    WRAPPER: 'chi-label__wrapper',
 };
 
 /* Picker Group */

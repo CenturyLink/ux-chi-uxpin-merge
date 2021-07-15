@@ -2,7 +2,14 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import Label from '../Label/Label';
 import { uuid4 } from '../../utils/utils';
+import {
+  BUTTON_CLASSES,
+  ICON_CLASS,
+  LABEL_CLASSES,
+  STAT_CLASSES,
+} from '../../constants/classes';
 
+/* eslint-disable */
 /**
  * @uxpincomponent
  */
@@ -33,6 +40,18 @@ export default class TextInput extends React.Component {
   }
 
   render() {
+    const info = this.props.info
+      ? (
+        <div
+          className={`${STAT_CLASSES.TITLE_HELP}`}
+          onClick={this.props.clickInfo}
+          onMouseEnter={this.props.mouseOverInfo}
+          onMouseLeave={this.props.mouseLeaveInfo}>
+          <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
+            <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
+          </button>
+        </div>
+      ) : '';
     const label = this.props.label
       ? (
         <Label
@@ -46,7 +65,10 @@ export default class TextInput extends React.Component {
 
     return (
       <div className="chi-form__item">
-        {label}
+        <div className={`${LABEL_CLASSES.WRAPPER}`}>
+          {label}
+          {info}
+        </div>
         <chi-text-input
           id={this.state.id}
           disabled={this.props.disabled}
@@ -74,6 +96,10 @@ TextInput.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  info: PropTypes.bool,
+  clickInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
+  mouseLeaveInfo: PropTypes.func,
   disabled: PropTypes.bool,
   placeholder: PropTypes.string,
   value: PropTypes.string,
@@ -98,6 +124,7 @@ TextInput.defaultProps = {
   disabled: false,
   label: 'Label',
   required: 'none',
+  info: false,
   size: 'lg',
   state: 'default',
   placeholder: '',

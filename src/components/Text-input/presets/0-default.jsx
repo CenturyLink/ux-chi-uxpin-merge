@@ -8,6 +8,7 @@ export default (
     label="Label"
     required="none"
     disabled={false}
+    info={false}
     placeholder=""
     value=""
     iconLeft=""

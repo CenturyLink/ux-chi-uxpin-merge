@@ -11,6 +11,7 @@ export default (
     min=""
     max=""
     selected=""
+    info={false}
     mo
     tu
     we

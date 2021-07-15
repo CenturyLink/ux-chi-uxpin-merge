@@ -1,5 +1,12 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import { uuid4 } from '../../utils/utils';
+import {
+  BUTTON_CLASSES,
+  ICON_CLASS,
+  LABEL_CLASSES,
+  STAT_CLASSES,
+} from '../../constants/classes';
 
 /* eslint-disable */
 /**
@@ -7,8 +14,9 @@ import * as React from 'react';
  */
 export default class Label extends React.Component {
   render() {
-    const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
-    const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
+    const uuid = uuid4();
+    const required = <abbr className={`${LABEL_CLASSES.REQUIRED}`} title="Required field">*</abbr>;
+    const optional = <abbr className={`${LABEL_CLASSES.OPTIONAL}`} title="Optional field">(optional)</abbr>;
     let message = '';
 
     if (!(this.props.required && this.props.optional)) {
@@ -18,6 +26,19 @@ export default class Label extends React.Component {
         message = optional;
       }
     }
+
+    const info = this.props.info
+      ? (
+        <div className={`${STAT_CLASSES.TITLE_HELP}`}
+        onClick={this.props.clickInfo}
+        onMouseEnter={this.props.mouseOverInfo}
+        onMouseLeave={this.props.mouseLeaveInfo}>
+          <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
+            <i className={`${ICON_CLASS} icon-circle-info-outline -icon--primary`}></i>
+          </button>
+        </div>
+      )
+      : null;
 
     return (
       <label
@@ -34,6 +55,7 @@ export default class Label extends React.Component {
       >
         {this.props.label}
         {message}
+        {info}
       </label>
     );
   }
@@ -48,6 +70,10 @@ Label.propTypes = {
   mouseLeave: PropTypes.func,
   mouseOver: PropTypes.func,
   mouseUp: PropTypes.func,
+  info: PropTypes.bool,
+  clickInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
+  mouseLeaveInfo: PropTypes.func,
 };
 /* eslint-enable */
 
@@ -55,4 +81,5 @@ Label.defaultProps = {
   label: 'Label',
   size: 'md',
   required: 'none',
+  info: false,
 };
