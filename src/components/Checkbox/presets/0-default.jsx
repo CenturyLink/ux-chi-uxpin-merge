@@ -6,8 +6,8 @@ export default (
     uxpId="checkbox"
     fieldLabel="Field Label"
     required="none"
+    info={false}
     layout="vertical"
-    grid={false}
     label1="Checkbox 1 label"
     disabled1={false}
     checked1={false}
