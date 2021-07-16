@@ -50,7 +50,7 @@ export default class PickerGroup extends React.Component {
               <input
                 className="chi-picker__input"
                 type="radio"
-                name="radio-base"
+                name={`picker-${uuid}`}
                 id={`picker-${uuid}-${i}`}
                 checked={this.props.selected === i}
                 disabled={this.props[`disabled${i}`]}
