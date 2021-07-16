@@ -7,7 +7,7 @@ import {
   STAT_CLASSES,
 } from '../../constants/classes';
 
-/* eslint-disable*/
+/* eslint-disable */
 /**
  * @uxpincomponent
  */
