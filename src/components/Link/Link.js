@@ -40,7 +40,7 @@ Link.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   icon: PropTypes.string,
   disabled: PropTypes.bool,
-  position: PropTypes.oneOf(['left', 'right']),
+  iconPosition: PropTypes.oneOf(['left', 'right']),
   /**
    * Icon that goes after the children
    * @uxpinpropname  CTA
