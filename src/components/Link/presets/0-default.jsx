@@ -10,5 +10,7 @@ export default (
     helpIcon={false}
     title="Link"
     size="md"
+    icon="circle-question-outline"
+    position="left"
   />
 );
