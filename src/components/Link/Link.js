@@ -8,7 +8,7 @@ export default class Link extends React.Component {
     const help = this.props.helpIcon
       ? (
         <i
-          className={`${ICON_CLASS} icon-circle-question-outline`}
+          className={`${ICON_CLASS} icon-${this.props.icon}`}
           onClick={this.props.clickHelp}
           onMouseEnter={this.props.mouseoverHelp}
           onMouseLeave={this.props.mouseleaveHelp}>
@@ -26,8 +26,9 @@ export default class Link extends React.Component {
         onMouseEnter={this.props.mouseoverLink}
         onMouseLeave={this.props.mouseleaveLink}>
         <div className="chi-link__content">
-          {help}
+          {this.props.position === 'left' ? help : null}
           <span>{this.props.title ? this.props.title : ''}</span>
+          {this.props.position === 'right' ? help : null}
         </div>
       </chi-link>
     );
@@ -37,7 +38,9 @@ export default class Link extends React.Component {
 Link.propTypes = {
   title: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  icon: PropTypes.string,
   disabled: PropTypes.bool,
+  iconPosition: PropTypes.oneOf(['left', 'right']),
   /**
    * Icon that goes after the children
    * @uxpinpropname  CTA
@@ -58,4 +61,6 @@ Link.defaultProps = {
   helpIcon: false,
   title: 'Link',
   size: 'md',
+  icon:'circle-question-outline',
+  iconPosition:'left',
 };
