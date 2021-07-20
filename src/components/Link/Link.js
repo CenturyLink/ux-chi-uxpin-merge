@@ -36,7 +36,7 @@ export default class Link extends React.Component {
 }
 
 Link.propTypes = {
-  title: PropTypes.string,
+  titleIn: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   icon: PropTypes.string,
   disabled: PropTypes.bool,
