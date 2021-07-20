@@ -28,7 +28,7 @@ export default class Link extends React.Component {
         <div className="chi-link__content">
           {this.props.position === 'left' ? help : null}
           <span>{this.props.title ? this.props.title : ''}</span>
-          {this.props.position === 'right' ? help : ''}
+          {this.props.position === 'right' ? help : null}
         </div>
       </chi-link>
     );
@@ -62,5 +62,5 @@ Link.defaultProps = {
   title: 'Link',
   size: 'md',
   icon:'circle-question-outline',
-  position:'left',
+  iconPosition:'left',
 };
