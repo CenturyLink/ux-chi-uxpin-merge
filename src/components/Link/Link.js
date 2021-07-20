@@ -26,7 +26,7 @@ export default class Link extends React.Component {
         onMouseEnter={this.props.mouseoverLink}
         onMouseLeave={this.props.mouseleaveLink}>
         <div className="chi-link__content">
-          {this.props.position === 'left' ? help : ''}
+          {this.props.position === 'left' ? help : null}
           <span>{this.props.title ? this.props.title : ''}</span>
           {this.props.position === 'right' ? help : ''}
         </div>
