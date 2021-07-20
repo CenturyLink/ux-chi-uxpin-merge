@@ -2,6 +2,12 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import Label from '../Label/Label';
 import { uuid4 } from '../../utils/utils';
+import {
+  BUTTON_CLASSES,
+  ICON_CLASS,
+  LABEL_CLASSES,
+  STAT_CLASSES,
+} from '../../constants/classes';
 
 /* eslint-disable */
 const selected = function() {
@@ -47,11 +53,23 @@ export default class DatePicker extends React.Component {
 
   render() {
     const dpId = `dp-${uuid4()}`;
+    const info = this.props.info
+      ? (
+        <div
+          className={`${STAT_CLASSES.TITLE_HELP}`}
+          onClick={this.props.clickInfo}
+          onMouseEnter={this.props.mouseOverInfo}
+          onMouseLeave={this.props.mouseLeaveInfo}>
+          <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
+            <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
+          </button>
+        </div>
+      ) : '';
     const label = this.props.label
       ? (
         <Label
           htmlFor={`${dpId}-control`}
-          className="chi-label"
+          className={`${LABEL_CLASSES.LABEL}`}
           required={this.props.required}
           label={this.props.label}>
         </Label>
@@ -69,7 +87,10 @@ export default class DatePicker extends React.Component {
 
     return (
       <div ref={this.props.uxpinRef} className="chi-form__item" style={{ width: '14rem' }}>
-        {label}
+        <div className={`${LABEL_CLASSES.WRAPPER}`}>
+          {label}
+          {info}
+        </div>
         <chi-date-picker
           id={dpId}
           disabled={this.props.disabled}
@@ -94,6 +115,10 @@ DatePicker.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  info: PropTypes.bool,
+  clickInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
+  mouseLeaveInfo: PropTypes.func,
   mode: PropTypes.oneOf(['date', 'datetime']),
   min: PropTypes.string,
   max: PropTypes.string,
@@ -124,6 +149,7 @@ DatePicker.defaultProps = {
   required: 'none',
   mode: 'date',
   selected: selected(),
+  info: false,
   mo: true,
   tu: true,
   we: true,

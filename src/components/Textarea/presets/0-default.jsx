@@ -9,6 +9,7 @@ export default (
     label="Label"
     required="none"
     disabled={false}
+    info={false}
     value=""
     placeholder=""
     state="default"

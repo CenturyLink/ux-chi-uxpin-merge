@@ -1,6 +1,12 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { uuid4 } from '../../utils/utils';
+import {
+  BUTTON_CLASSES,
+  ICON_CLASS,
+  LABEL_CLASSES,
+  STAT_CLASSES,
+} from '../../constants/classes';
 
 /* eslint-disable */
 /**
@@ -10,8 +16,8 @@ export default class PickerGroup extends React.Component {
   render() {
     const uuid = uuid4();
     const pickersToRender = [];
-    const required = <abbr class="chi-label__required" title="Required field">*</abbr>;
-    const optional = <abbr class="chi-label__optional" title="Optional field">(optional)</abbr>;
+    const required = <abbr className={`${LABEL_CLASSES.REQUIRED}`} title="Required field">*</abbr>;
+    const optional = <abbr className={`${LABEL_CLASSES.OPTIONAL}`} title="Optional field">(optional)</abbr>;
     let message = '';
 
     if (this.props.required && this.props.required === 'required') {
@@ -19,10 +25,22 @@ export default class PickerGroup extends React.Component {
     } else if (this.props.required && this.props.required === 'optional')  {
       message = optional;
     }
+
+    const info = this.props.info ?
+      <div className={`${STAT_CLASSES.TITLE_HELP}`}
+      onClick={this.props.clickInfo}
+      onMouseEnter={this.props.mouseOverInfo}
+      onMouseLeave={this.props.mouseLeaveInfo}>
+        <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
+          <i className={`${ICON_CLASS} icon-circle-info-outline -icon--primary`}></i>
+        </button>
+      </div> : '';
+    
     const fieldLabel = this.props.fieldLabel ?
-      <legend className="chi-label">
+      <legend className={`${LABEL_CLASSES.LABEL}`}>
         {this.props.fieldLabel}
         {message}
+        {info}
       </legend> : '';
 
     Array(11).fill()
@@ -30,9 +48,9 @@ export default class PickerGroup extends React.Component {
           if (this.props[`picker${i}`]) {
             pickersToRender.push(
               <input
-                class="chi-picker__input"
+                className="chi-picker__input"
                 type="radio"
-                name="radio-base"
+                name={`picker-${uuid}`}
                 id={`picker-${uuid}-${i}`}
                 checked={this.props.selected === i}
                 disabled={this.props[`disabled${i}`]}
@@ -46,7 +64,6 @@ export default class PickerGroup extends React.Component {
                   const clickedLabelId = e.target.getAttribute('for');
                   const currentlyActivePicker = e.target.parentNode.querySelector('input[checked]');
                   const inputToCheck = document.getElementById(clickedLabelId);
-
                   this.props[`select${i}`]();
                   currentlyActivePicker.checked = false;
                   inputToCheck.checked = true;
@@ -59,7 +76,7 @@ export default class PickerGroup extends React.Component {
     return (
       <fieldset>
         {fieldLabel}
-        <div class="chi-picker-group">
+        <div className="chi-picker-group">
           {pickersToRender}
         </div>
       </fieldset>
@@ -71,6 +88,10 @@ PickerGroup.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   selected: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  info: PropTypes.bool,
+  clickInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
+  mouseLeaveInfo: PropTypes.func,
   picker1: PropTypes.string,
   disabled1: PropTypes.bool,
   picker2: PropTypes.string,
@@ -110,4 +131,5 @@ PickerGroup.defaultProps = {
   picker2: 'Picker 2',
   picker3: 'Picker 3',
   required: 'none',
+  info: false,
 };

@@ -144,6 +144,7 @@ export const LABEL_CLASSES = {
     LABEL: 'chi-label',
     REQUIRED: 'chi-label__required',
     OPTIONAL: 'chi-label__optional',
+    WRAPPER: 'chi-label__wrapper',
 };
 
 /* Picker Group */

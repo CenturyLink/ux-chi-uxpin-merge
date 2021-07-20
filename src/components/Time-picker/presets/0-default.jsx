@@ -8,6 +8,7 @@ export default (
     label="Label"
     required="none"
     active={false}
+    info={false}
     displaySeconds={false}
     format="12hr"
     value=""

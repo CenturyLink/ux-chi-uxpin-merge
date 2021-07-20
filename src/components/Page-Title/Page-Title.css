@@ -108,3 +108,7 @@ a {
   position: absolute;
   left: 0;
 }
+
+.-backlink-blank {
+    height: 24px;
+}

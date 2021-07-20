@@ -9,5 +9,6 @@ export default (
     transform="no-transform"
     color="body"
     weight="regular"
+    lineHeight="24 (default)"
   />
 );
