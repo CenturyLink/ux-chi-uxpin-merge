@@ -17,6 +17,7 @@ collection of components based on our own design system (CHI).
 | Icon | [Icon](https://assets.ctl.io/chi/4.3.0/components/icon/) | ✅ Full Support |
 | Icon Button | [Icon Button](https://assets.ctl.io/chi/4.3.0/templates/portal/#icons) | ✅ Full Support |
 | Label | [Label](https://assets.ctl.io/chi/4.3.0/components/label/) | ✅ Full Support |
+| Link | [Alert](https://assets.ctl.io/chi/4.3.0/components/link/) | ✅ Full Support |
 | Marketing Icon | [Marketing Icon](https://assets.ctl.io/chi/4.3.0/components/marketing-icon/) | ✅ Full Support |
 | Number Input | [Number Input](https://assets.ctl.io/chi/4.3.0/components/forms/number-input/) | ✅ Full Support |
 | Page Title | [Page Title](https://assets.ctl.io/chi/4.3.0/templates/portal/#page-title) | ✅ Full Support |

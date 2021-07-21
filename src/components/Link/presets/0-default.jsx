@@ -7,8 +7,9 @@ export default (
     uxpId="link"
     disabled={false}
     cta={false}
-    helpIcon={false}
     title="Link"
     size="md"
+    icon="circle-question-outline"
+    iconPosition="left"
   />
 );
