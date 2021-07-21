@@ -207,6 +207,8 @@ Checkbox.propTypes = {
   deselect9: PropTypes.func,
   select10: PropTypes.func,
   deselect10: PropTypes.func,
+  /** @uxpinignoreprop */
+  inline: PropTypes.bool,
 };
 /* eslint-enable */
 

@@ -7,6 +7,7 @@ export default (
     fieldLabel="Field Label"
     required="none"
     info={false}
+    inline={false}
     layout="vertical"
     label1="Checkbox 1 label"
     disabled1={false}
