@@ -5,7 +5,7 @@ import { ICON_CLASS } from '../../constants/classes';
 
 export default class Link extends React.Component {
   render() {
-    const help = this.props.showIcon
+    const help = this.props.icon
       ? (
         <i
           className={`${ICON_CLASS} icon-${this.props.icon}`}
@@ -43,13 +43,12 @@ Link.propTypes = {
    * @uxpinpropname  CTA
    * */
   cta: PropTypes.bool,
+  disabled: PropTypes.bool,
   clickLink: PropTypes.func,
   mouseoverLink: PropTypes.func,
   mouseleaveLink: PropTypes.func,
-  showIcon: PropTypes.bool,
   icon: PropTypes.string,
   iconPosition: PropTypes.oneOf(['left', 'right']),
-  disabled: PropTypes.bool,
   clickIcon: PropTypes.func,
   mouseoverIcon: PropTypes.func,
   mouseleaveIcon: PropTypes.func,
@@ -58,7 +57,6 @@ Link.propTypes = {
 Link.defaultProps = {
   disabled: false,
   cta: false,
-  showIcon: false,
   title: 'Link',
   size: 'md',
   icon:'circle-question-outline',
