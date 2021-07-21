@@ -5,13 +5,13 @@ import { ICON_CLASS } from '../../constants/classes';
 
 export default class Link extends React.Component {
   render() {
-    const help = this.props.helpIcon
+    const help = this.props.showIcon
       ? (
         <i
           className={`${ICON_CLASS} icon-${this.props.icon}`}
-          onClick={this.props.clickHelp}
-          onMouseEnter={this.props.mouseoverHelp}
-          onMouseLeave={this.props.mouseleaveHelp}>
+          onClick={this.props.clickIcon}
+          onMouseEnter={this.props.mouseoverIcon}
+          onMouseLeave={this.props.mouseleaveIcon}>
         </i>
       )
       : '';
@@ -38,9 +38,6 @@ export default class Link extends React.Component {
 Link.propTypes = {
   title: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-  icon: PropTypes.string,
-  disabled: PropTypes.bool,
-  iconPosition: PropTypes.oneOf(['left', 'right']),
   /**
    * Icon that goes after the children
    * @uxpinpropname  CTA
@@ -49,16 +46,19 @@ Link.propTypes = {
   clickLink: PropTypes.func,
   mouseoverLink: PropTypes.func,
   mouseleaveLink: PropTypes.func,
-  helpIcon: PropTypes.bool,
-  clickHelp: PropTypes.func,
-  mouseoverHelp: PropTypes.func,
-  mouseleaveHelp: PropTypes.func,
+  showIcon: PropTypes.bool,
+  icon: PropTypes.string,
+  iconPosition: PropTypes.oneOf(['left', 'right']),
+  disabled: PropTypes.bool,
+  clickIcon: PropTypes.func,
+  mouseoverIcon: PropTypes.func,
+  mouseleaveIcon: PropTypes.func,
 };
 
 Link.defaultProps = {
   disabled: false,
   cta: false,
-  helpIcon: false,
+  showIcon: false,
   title: 'Link',
   size: 'md',
   icon:'circle-question-outline',
