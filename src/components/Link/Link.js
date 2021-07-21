@@ -8,10 +8,7 @@ export default class Link extends React.Component {
     const help = this.props.icon
       ? (
         <i
-          className={`${ICON_CLASS} icon-${this.props.icon}`}
-          onClick={this.props.clickIcon}
-          onMouseEnter={this.props.mouseoverIcon}
-          onMouseLeave={this.props.mouseleaveIcon}>
+          className={`${ICON_CLASS} icon-${this.props.icon}`}>
         </i>
       )
       : '';
@@ -49,9 +46,6 @@ Link.propTypes = {
   mouseleaveLink: PropTypes.func,
   icon: PropTypes.string,
   iconPosition: PropTypes.oneOf(['left', 'right']),
-  clickIcon: PropTypes.func,
-  mouseoverIcon: PropTypes.func,
-  mouseleaveIcon: PropTypes.func,
 };
 
 Link.defaultProps = {
