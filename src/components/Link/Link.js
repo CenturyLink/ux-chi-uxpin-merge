@@ -15,7 +15,6 @@ export default class Link extends React.Component {
     return (
       <chi-link
         className="chi-link"
-        href="#"
         disabled={this.props.disabled}
         cta={this.props.cta}
         size={this.props.size}
