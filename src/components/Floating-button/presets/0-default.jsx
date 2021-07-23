@@ -5,6 +5,6 @@ export default (
   <FloatingButton
     uxpId="floating-button"
     icon="atom"
-    background="primary"
+    color="primary"
   />
 );
