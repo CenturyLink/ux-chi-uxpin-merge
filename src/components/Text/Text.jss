@@ -5,7 +5,7 @@ import * as React from 'react';
 export default class Text extends React.Component {
   render() {
     let fontWeight;
-    const textRender = () => ({ __html: this.props.text.replaceAll('<br />', '\n') });
+    const textRender = () => ({ __html: this.props.text[0].text.replaceAll('\n', '<br />') });
 
     switch (this.props.weight) {
       case 'regular':
@@ -40,7 +40,7 @@ export default class Text extends React.Component {
 }
 
 Text.propTypes = {
-  text: PropTypes.string,
+  text: PropTypes.array,
   color: PropTypes.oneOf(['body', 'primary', 'secondary', 'light', 'success', 'info', 'warning', 'danger', 'muted', 'navy', 'orange']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   weight: PropTypes.oneOf(['regular', 'semi-bold', 'bold', 'black']),
@@ -50,7 +50,9 @@ Text.propTypes = {
 };
 
 Text.defaultProps = {
-  text: 'Sample text 1 \nSample text 2 \nSample text 3',
+  text: [{
+    text: 'Sample text 1 \nSample text 2 \nSample text 3',
+  }],
   color: 'body',
   size: 'md',
   transform: 'no-transform',
