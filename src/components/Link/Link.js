@@ -4,6 +4,19 @@ import * as React from 'react';
 import { ICON_CLASS } from '../../constants/classes';
 
 export default class Link extends React.Component {
+  constructor(props) {
+    super(props);
+    this.linkElement = React.createRef();
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      const anchorElement = this.linkElement.current.querySelector('a');
+
+      anchorElement.removeAttribute('href');
+    }, 1000);
+  }
+
   render() {
     const help = this.props.icon
       ? (
@@ -20,7 +33,8 @@ export default class Link extends React.Component {
         size={this.props.size}
         onClick={this.props.clickLink}
         onMouseEnter={this.props.mouseoverLink}
-        onMouseLeave={this.props.mouseleaveLink}>
+        onMouseLeave={this.props.mouseleaveLink}
+        ref={this.linkElement}>
         <div className="chi-link__content">
           {this.props.iconPosition === 'left' ? help : null}
           <span>{this.props.title ? this.props.title : ''}</span>
