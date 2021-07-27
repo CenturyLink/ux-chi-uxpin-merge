@@ -4,8 +4,7 @@ import Text from '../Text';
 export default (
   <Text
     uxpId="text"
-    // text={[{ text: 'Sample text 1 \nSample text 2 \nSample text 3' }]}
-    text="Sample text 1 \nSample text 2 \nSample text 3"
+    text="Sample text"
     size="md"
     transform="no-transform"
     color="body"

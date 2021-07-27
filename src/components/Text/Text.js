@@ -5,7 +5,7 @@ import * as React from 'react';
 export default class Text extends React.Component {
   render() {
     let fontWeight;
-    const textRender = () => ({ __html: this.props.text.replaceAll('<br />', '\n') });
+    const textRender = () => ({ __html: this.props.text.replaceAll('<br />') });
 
     switch (this.props.weight) {
       case 'regular':
@@ -40,6 +40,11 @@ export default class Text extends React.Component {
 }
 
 Text.propTypes = {
+  /**
+   * A textArea widget for text input
+   * @uxpinpropname text
+   * @uxpincontroltype textfield(4)
+   * */
   text: PropTypes.string,
   color: PropTypes.oneOf(['body', 'primary', 'secondary', 'light', 'success', 'info', 'warning', 'danger', 'muted', 'navy', 'orange']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
@@ -50,7 +55,7 @@ Text.propTypes = {
 };
 
 Text.defaultProps = {
-  text: 'Sample text 1 \nSample text 2 \nSample text 3',
+  text: 'Sample text',
   color: 'body',
   size: 'md',
   transform: 'no-transform',
