@@ -35,7 +35,6 @@ module.exports = {
         name: 'General',
         include: [
           'src/components/Alert/Alert.js',
-          'src/components/Page-Title/Page-Title.js',
           'src/components/Badge/Badge.js',
           'src/components/Brand/Brand.js',
           // 'src/components/Button/Button.js',
@@ -43,7 +42,9 @@ module.exports = {
           // 'src/components/Drawer/Drawer.js',
           // 'src/components/Dropdown/Dropdown.js',
           'src/components/Icon/Icon.js',
+          'src/components/Link/Link.js',
           'src/components/Marketing-icon/Marketing-icon.js',
+          'src/components/Page-Title/Page-Title.js',
           'src/components/Pagination/Pagination.js',
           'src/components/Popover/Popover.js',
           'src/components/Progress/Progress.js',
