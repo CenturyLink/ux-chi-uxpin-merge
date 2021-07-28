@@ -41,7 +41,7 @@ export default class Text extends React.Component {
 
 Text.propTypes = {
   /**
-   * A textArea widget for text input
+   * A textArea controller for Text
    * @uxpinpropname text
    * @uxpincontroltype textfield(4)
    * */
