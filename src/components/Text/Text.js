@@ -5,7 +5,7 @@ import * as React from 'react';
 export default class Text extends React.Component {
   render() {
     let fontWeight;
-    const textRender = () => ({ __html: this.props.text.replaceAll('<br />') });
+    const textRender = () => ({ __html: this.props.text.replaceAll('\n', '<br />') });
 
     switch (this.props.weight) {
       case 'regular':
