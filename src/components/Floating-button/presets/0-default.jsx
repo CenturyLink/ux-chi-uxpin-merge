@@ -3,7 +3,7 @@ import FloatingButton from '../Floating-button';
 
 export default (
   <FloatingButton
-    uxpId="floating-button"
+    uxpId="floatingButton"
     icon="atom"
     color="primary"
   />
