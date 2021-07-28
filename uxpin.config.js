@@ -8,6 +8,7 @@ module.exports = {
           'src/components/Primary-button/Primary-button.js',
           'src/components/Secondary-button/Secondary-button.js',
           'src/components/Tertiary-button/Tertiary-button.js',
+          'src/components/Floating-button/Floating-button.js',
           'src/components/Icon-button/Icon-button.js',
           // 'src/components/Card/Card.js',
           // 'src/components/Modal/Modal.js',
