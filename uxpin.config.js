@@ -40,7 +40,7 @@ module.exports = {
           // 'src/components/Button/Button.js',
           // 'src/components/Divider/Divider.js',
           // 'src/components/Drawer/Drawer.js',
-          // 'src/components/Dropdown/Dropdown.js',
+          'src/components/Dropdown/Dropdown.js',
           'src/components/Icon/Icon.js',
           'src/components/Link/Link.js',
           'src/components/Marketing-icon/Marketing-icon.js',
