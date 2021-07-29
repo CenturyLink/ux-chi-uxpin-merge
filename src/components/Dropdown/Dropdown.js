@@ -17,7 +17,8 @@ export default class Dropdown extends React.Component {
             ${this.props.animate ? '-animate' : ''}
             ${this.props.disabled ? '-disabled' : ''}
             ${this.props.size ? `-${this.props.size}` : '-md'}
-            ${this.props.buttonType ? `-${this.props.buttonType}` : '-primary'}
+            ${this.props.buttonColor === 'base' ? '' : `-${this.props.buttonColor}`}
+            ${this.props.buttonType === 'solid' ? '' : `-${this.props.buttonType}`}
 
           `}>
           Dropdown component
@@ -42,7 +43,8 @@ Dropdown.propTypes = {
   animate: PropTypes.bool,
   height: PropTypes.number,
   disabled: PropTypes.bool,
-  buttonType: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
+  buttonColor: PropTypes.oneOf(['base', 'primary', 'dark', 'secondary', 'light']),
+  buttonType: PropTypes.oneOf(['solid', 'outline', 'flat']),
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
 };
 /* eslint-enable sort-keys */
@@ -50,5 +52,6 @@ Dropdown.propTypes = {
 Dropdown.defaultProps = {
   animate: true,
   size: 'md',
-  buttonType: 'primary',
+  buttonColor: 'primary',
+  buttonType: 'solid',
 };
