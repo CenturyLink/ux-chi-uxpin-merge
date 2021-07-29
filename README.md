@@ -14,6 +14,7 @@ collection of components based on our own design system (CHI).
 | Checkbox | [Checkbox](https://assets.ctl.io/chi/4.3.0/components/forms/checkbox/) | ✅ Full Support |
 | Date Picker | [Date Picker](https://assets.ctl.io/chi/4.3.0/components/date-picker/) | ✅ Full Support |
 | File Input | [File Input](https://assets.ctl.io/chi/4.3.0/components/forms/file-input/) | ✅ Full Support |
+| Floating Button | [Floating Button](https://assets.ctl.io/chi/4.3.0/components/button/#floating-icon-buttons) | ✅ Full Support 
 | Icon | [Icon](https://assets.ctl.io/chi/4.3.0/components/icon/) | ✅ Full Support |
 | Icon Button | [Icon Button](https://assets.ctl.io/chi/4.3.0/templates/portal/#icons) | ✅ Full Support |
 | Label | [Label](https://assets.ctl.io/chi/4.3.0/components/label/) | ✅ Full Support |
