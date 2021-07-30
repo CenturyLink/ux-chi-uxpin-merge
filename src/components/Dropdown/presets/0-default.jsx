@@ -7,6 +7,6 @@ export default (
     animate="true"
     size="md"
     buttonColor="primary"
-    buttonType=""
+    buttonType="solid"
   />
 );

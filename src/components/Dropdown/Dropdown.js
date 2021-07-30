@@ -20,7 +20,14 @@ export default class Dropdown extends React.Component {
             ${this.props.buttonColor === 'base' ? '' : `-${this.props.buttonColor}`}
             ${this.props.buttonType === 'solid' ? '' : `-${this.props.buttonType}`}
 
-          `}>
+          `}
+          onClick={() => {
+            if (this.props.active) {
+              this.props.active = false;
+            } else {
+              this.props.active = true;
+            }
+          }}>
           Dropdown component
         </button>
         <div
