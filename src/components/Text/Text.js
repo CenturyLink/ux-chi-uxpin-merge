@@ -43,7 +43,7 @@ Text.propTypes = {
   /**
    * A textArea controller for Text
    * @uxpinpropname text
-   * @uxpincontroltype textfield(8)
+   * @uxpincontroltype textfield(10)
    * */
   text: PropTypes.string,
   color: PropTypes.oneOf(['body', 'primary', 'secondary', 'light', 'success', 'info', 'warning', 'danger', 'muted', 'navy', 'orange']),
