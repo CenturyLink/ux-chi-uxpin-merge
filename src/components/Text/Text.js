@@ -1,9 +1,11 @@
+/* eslint-disable react/no-danger */
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
 export default class Text extends React.Component {
   render() {
     let fontWeight;
+    const textRender = () => ({ __html: this.props.text.replaceAll('\n', '<br />') });
 
     switch (this.props.weight) {
       case 'regular':
@@ -24,19 +26,25 @@ export default class Text extends React.Component {
     }
 
     return (
-      <p className={`${this.props.size ? `-text--${this.props.size}` : ''}
+      <p
+        className={`${this.props.size ? `-text--${this.props.size}` : ''}
        ${this.props.lineHeight ? `-text -lh--${this.props.lineHeight === '24 (default)' ? 3 : this.props.lineHeight / 8}` : ''}
        ${this.props.transform !== 'no-transform' ? `-text--${this.props.transform}` : ''}
        ${this.props.color ? `-text--${this.props.color}` : ''}
        ${this.props.truncate ? '-text--truncate' : ''}
-       ${this.props.weight ? `-text--${fontWeight}` : ''}`}>
-        {this.props.text || ''}
+       ${this.props.weight ? `-text--${fontWeight}` : ''}`}
+        dangerouslySetInnerHTML={textRender()}>
       </p>
     );
   }
 }
 
 Text.propTypes = {
+  /**
+   * A textArea controller for Text
+   * @uxpinpropname text
+   * @uxpincontroltype textfield(10)
+   * */
   text: PropTypes.string,
   color: PropTypes.oneOf(['body', 'primary', 'secondary', 'light', 'success', 'info', 'warning', 'danger', 'muted', 'navy', 'orange']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),

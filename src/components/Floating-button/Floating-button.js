@@ -4,7 +4,7 @@ import * as React from 'react';
 export default class FloatingButton extends React.Component {
   render() {
     return (
-      <chi-button type="float" color={this.props.color} alternative-text="Button action">
+      <chi-button type="float" color={this.props.color === 'base' ? null : this.props.color} alternative-text="Button action">
         <chi-icon icon={this.props.icon}></chi-icon>
       </chi-button>
     );
@@ -12,7 +12,7 @@ export default class FloatingButton extends React.Component {
 }
 
 FloatingButton.propTypes = {
-  color: PropTypes.oneOf(['primary', 'dark', 'secondary', 'light']),
+  color: PropTypes.oneOf(['base', 'primary', 'dark', 'secondary', 'light']),
   icon: PropTypes.string,
 };
 
