@@ -38,7 +38,7 @@ export default class Checkbox extends React.Component {
     let layoutOptions;
     switch (this.props.layout) {
       case 'inline':
-        layoutOptions = '-inline';
+        layoutOptions = `${INLINE_CLASS}`;
         break;
       case 'vertical':
         layoutOptions = 'chi-col -w--12 -mb--1';
@@ -73,20 +73,11 @@ export default class Checkbox extends React.Component {
         </div>
       ) : '';
 
-
     Array(11).fill()
       .forEach((_, i) => {
         if (this.props[`label${i}`]) {
-          let inlineDiv;
-          if (layoutOptions !== '-inline') {
-            inlineDiv = <div className="chi-form__item"></div>;
-          } else {
-            inlineDiv = null;
-          }
-
           checkboxesToRender.push(
             <div className={this.props.layout === 'inline' || this.props.inline ? `${FORM_CLASSES.ITEM} ${INLINE_CLASS}`  : layoutOptions} key={`checkbox-${i}`}>
-              {inlineDiv}
               <div className={`${CHECKBOX_CLASSES.checkbox}`}>
                 <input
                   type="checkbox"
@@ -128,7 +119,7 @@ export default class Checkbox extends React.Component {
         </div>
       ) : '';
 
-    const content = layoutOptions === '-inline'
+    const content = layoutOptions === `${INLINE_CLASS}`
       ? (
         <div>
           {fieldLabel}
@@ -155,6 +146,8 @@ export default class Checkbox extends React.Component {
 Checkbox.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  /** @uxpinignoreprop */
+  inline: PropTypes.bool,
   layout: PropTypes.oneOf(['inline', 'vertical', '2', '3', '4', '6']),
   info: PropTypes.bool,
   clickInfo: PropTypes.func,
@@ -210,8 +203,6 @@ Checkbox.propTypes = {
   deselect9: PropTypes.func,
   select10: PropTypes.func,
   deselect10: PropTypes.func,
-  /** @uxpinignoreprop */
-  inline: PropTypes.bool,
 };
 /* eslint-enable */
 
