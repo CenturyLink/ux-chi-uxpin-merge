@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
@@ -7,6 +8,7 @@ export default class Alert extends React.Component {
     let textToRender;
     let alertTitle = '';
     let closeButton = '';
+    const textArea = () => ({ __html: this.props.text.replaceAll('\n', '<br />') });
 
     if (this.props.icon) {
       iconToRender = this.props.icon;
@@ -27,8 +29,8 @@ export default class Alert extends React.Component {
       }
     }
 
-    if (this.props.text) {
-      textToRender = this.props.text;
+    if (textArea) {
+      textToRender = textArea;
     } else {
       switch (this.props.state) {
         case 'success':
@@ -92,7 +94,7 @@ export default class Alert extends React.Component {
         }
         <div className="chi-alert__content">
           {alertTitle}
-          <p className="chi-alert__text">{textToRender}</p>
+          <p className="chi-alert__text" dangerouslySetInnerHTML={textToRender()}></p>
         </div>
         {closeButton}
       </div>
@@ -104,6 +106,11 @@ Alert.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   state: PropTypes.oneOf(['base', 'success', 'warning', 'danger', 'info', 'muted']),
   inProgress: PropTypes.bool,
+  /**
+   * A textArea controller for Text
+   * @uxpinpropname text
+   * @uxpincontroltype textfield(10)
+   * */
   text: PropTypes.string,
   title: PropTypes.string,
   icon: PropTypes.string,
