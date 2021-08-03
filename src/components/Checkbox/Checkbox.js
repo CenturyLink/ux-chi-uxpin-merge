@@ -2,7 +2,10 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import {
   BUTTON_CLASSES,
+  CHECKBOX_CLASSES,
+  FORM_CLASSES,
   ICON_CLASS,
+  INLINE_CLASS,
   LABEL_CLASSES,
   STAT_CLASSES,
 } from '../../constants/classes';
@@ -82,12 +85,12 @@ export default class Checkbox extends React.Component {
           }
 
           checkboxesToRender.push(
-            <div className={`${layoutOptions === '-inline' ? 'chi-form__item -inline' : layoutOptions}`} key={`checkbox-${i}`}>
+            <div className={this.props.layout === 'inline' || this.props.inline ? `${FORM_CLASSES.ITEM} ${INLINE_CLASS}`  : layoutOptions} key={`checkbox-${i}`}>
               {inlineDiv}
-              <div className="chi-checkbox">
+              <div className={`${CHECKBOX_CLASSES.checkbox}`}>
                 <input
                   type="checkbox"
-                  className="chi-checkbox__input"
+                  className={`${CHECKBOX_CLASSES.INPUT}`}
                   disabled={this.props[`disabled${i}`]}
                   checked={this.props[`checked${i}`]}
                   onChange={(e) => {}}
@@ -96,7 +99,7 @@ export default class Checkbox extends React.Component {
                   onClick={(e) => {
                     toggleCheckbox(e.target, i);
                   }}
-                  className="chi-checkbox__label"
+                  className={`${CHECKBOX_CLASSES.LABEL}`}
                   htmlFor="checkbox1">
                   {this.props[`label${i}`]}
                 </label>
