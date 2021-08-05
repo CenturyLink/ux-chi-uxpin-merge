@@ -54,6 +54,9 @@ export const DRAWER_CLASSES = {
 /* Icon */
 export const ICON_CLASS = 'chi-icon';
 
+/* Checkbox inline */
+export const INLINE_CLASS = '-inline';
+
 /* Pagination */
 export const PAGINATION_CLASSES = {
     PAGINATION: 'chi-pagination',

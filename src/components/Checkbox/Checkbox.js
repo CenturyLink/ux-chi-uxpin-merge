@@ -1,8 +1,12 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import { uuid4 } from '../../utils/utils';
 import {
   BUTTON_CLASSES,
+  CHECKBOX_CLASSES,
+  FORM_CLASSES,
   ICON_CLASS,
+  INLINE_CLASS,
   LABEL_CLASSES,
   STAT_CLASSES,
 } from '../../constants/classes';
@@ -13,6 +17,7 @@ import {
  */
 export default class Checkbox extends React.Component {
   render() {
+    const uuid = uuid4();
     const checkboxesToRender = [];
     const toggleCheckbox = (checkboxLabel, i) => {
       const input = checkboxLabel.parentNode.querySelector('input');
@@ -32,32 +37,70 @@ export default class Checkbox extends React.Component {
       }
     };
 
-    const info = this.props.info ?
-      <div className={`${STAT_CLASSES.TITLE_HELP}`}
-      onClick={this.props.clickInfo}
-      onMouseEnter={this.props.mouseOverInfo}
-      onMouseLeave={this.props.mouseLeaveInfo}>
-        <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
-          <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
-        </button>
-      </div> : '';
+    let layoutOptions;
+    switch (this.props.layout) {
+      case 'inline':
+        layoutOptions = `${INLINE_CLASS}`;
+        break;
+      case 'vertical':
+        layoutOptions = 'chi-col -w--12 -mb--1';
+        break;
+      case '2':
+        layoutOptions = 'chi-col -w--6 -mb--1';
+        break;
+      case '3':
+        layoutOptions = 'chi-col -w--4 -mb--1';
+        break;
+      case '4':
+        layoutOptions = 'chi-col -w--3 -mb--1';
+        break;
+      case '6':
+        layoutOptions = 'chi-col -w--2 -mb--1';
+        break;
+      default:
+        layoutOptions = 'chi-col -w--12 -mb--1';
+        break;
+    }
+
+    const info = this.props.info
+      ? (
+        <div
+          className={`${STAT_CLASSES.TITLE_HELP}`}
+          onClick={this.props.clickInfo}
+          onMouseEnter={this.props.mouseOverInfo}
+          onMouseLeave={this.props.mouseLeaveInfo}>
+          <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
+            <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
+          </button>
+        </div>
+      ) : '';
 
     Array(11).fill()
-        .forEach((_, i) => {
-          if (this.props[`label${i}`]) {
-            checkboxesToRender.push(
-                <div className={`chi-form__item ${this.props.inline ? '-inline' : ''}`} key={`checkbox-${i}`}>
-                  <div className="chi-checkbox">
-                    <input type="checkbox" className="chi-checkbox__input" disabled={this.props[`disabled${i}`]}
-                     checked={this.props[`checked${i}`]} onChange={(e) => {}} />
-                    <label onClick={(e) => {
-                      toggleCheckbox(e.target, i);
-                    }} className="chi-checkbox__label" htmlFor="checkbox1">{this.props[`label${i}`]}</label>
-                  </div>
-                </div>
-            );
-          }
-        });
+      .forEach((_, i) => {
+        if (this.props[`label${i}`]) {
+          checkboxesToRender.push(
+            <div className={this.props.layout === 'inline' || this.props.inline ? `${FORM_CLASSES.ITEM} ${INLINE_CLASS}`  : layoutOptions} key={`checkbox-${i}`}>
+              <div className={`${CHECKBOX_CLASSES.checkbox}`}>
+                <input
+                  type="checkbox"
+                  className={`${CHECKBOX_CLASSES.INPUT}`}
+                  disabled={this.props[`disabled${i}`]}
+                  checked={this.props[`checked${i}`]}
+                  onChange={(e) => {}}
+                />
+                <label
+                  onClick={(e) => {
+                    toggleCheckbox(e.target, i);
+                  }}
+                  className={`${CHECKBOX_CLASSES.LABEL}`}
+                  htmlFor={`checkbox-${uuid}-${i}`}>
+                  {this.props[`label${i}`]}
+                </label>
+              </div>
+            </div>
+          );
+        }
+      });
 
     const required = <abbr className={`${LABEL_CLASSES.REQUIRED}`} title="Required field">*</abbr>;
     const optional = <abbr className={`${LABEL_CLASSES.OPTIONAL}`} title="Optional field">(optional)</abbr>;
@@ -65,21 +108,39 @@ export default class Checkbox extends React.Component {
 
     if (this.props.required && this.props.required === 'required') {
       message = required;
-    } else if (this.props.required && this.props.required === 'optional')  {
+    } else if (this.props.required && this.props.required === 'optional') {
       message = optional;
     }
 
-    const fieldLabel = this.props.fieldLabel ?
-      <div className={`${LABEL_CLASSES.LABEL}`}>
-        {this.props.fieldLabel}
-        {message}
-        {info}
-      </div> : '';
-    return (
-        <fieldset>
+    const fieldLabel = this.props.fieldLabel
+      ? (
+        <div className={`${LABEL_CLASSES.LABEL}`}>
+          {this.props.fieldLabel}
+          {message}
+          {info}
+        </div>
+      ) : '';
+
+    const content = layoutOptions === `${INLINE_CLASS}`
+      ? (
+        <div>
           {fieldLabel}
           {checkboxesToRender}
-        </fieldset>
+        </div>
+      )
+      : (
+        <div className="chi-grid">
+          <div className="chi-col -w--12 -mb--1">
+            {fieldLabel}
+          </div>
+          {checkboxesToRender}
+        </div>
+      );
+
+    return (
+      <fieldset>
+        {content}
+      </fieldset>
     );
   }
 }
@@ -87,7 +148,9 @@ export default class Checkbox extends React.Component {
 Checkbox.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  /** @uxpinignoreprop */
   inline: PropTypes.bool,
+  layout: PropTypes.oneOf(['inline', 'vertical', '2', '3', '4', '6']),
   info: PropTypes.bool,
   clickInfo: PropTypes.func,
   mouseOverInfo: PropTypes.func,
@@ -151,4 +214,5 @@ Checkbox.defaultProps = {
   label2: 'Checkbox 2 label',
   label3: 'Checkbox 3 label',
   required: 'none',
+  layout: 'vertical',
 };
