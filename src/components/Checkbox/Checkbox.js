@@ -1,5 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import { uuid4 } from '../../utils/utils';
 import {
   BUTTON_CLASSES,
   CHECKBOX_CLASSES,
@@ -16,6 +17,7 @@ import {
  */
 export default class Checkbox extends React.Component {
   render() {
+    const uuid = uuid4();
     const checkboxesToRender = [];
     const toggleCheckbox = (checkboxLabel, i) => {
       const input = checkboxLabel.parentNode.querySelector('input');
@@ -91,7 +93,7 @@ export default class Checkbox extends React.Component {
                     toggleCheckbox(e.target, i);
                   }}
                   className={`${CHECKBOX_CLASSES.LABEL}`}
-                  htmlFor="checkbox1">
+                  htmlFor={`checkbox-${uuid}-${i}`}>
                   {this.props[`label${i}`]}
                 </label>
               </div>
