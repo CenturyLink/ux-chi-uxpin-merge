@@ -122,4 +122,5 @@ Alert.defaultProps = {
   size: 'md',
   state: 'base',
   type: 'bubble',
+  text: 'This is an alert message',
 };
