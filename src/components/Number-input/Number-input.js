@@ -121,10 +121,6 @@ NumberInput.propTypes = {
   mouseOver: PropTypes.func,
   mouseUp: PropTypes.func,
   valueChange: PropTypes.func,
-  info: PropTypes.bool,
-  clickInfo: PropTypes.func,
-  mouseOverInfo: PropTypes.func,
-  mouseLeaveInfo: PropTypes.func,
 };
 /* eslint-enable */
 
