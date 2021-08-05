@@ -6,7 +6,7 @@ export default (
     uxpId="alert"
     size="md"
     state="base"
-    text="This is an alert message"
+    text=""
     title=""
     icon=""
     type="bubble"
