@@ -6,7 +6,8 @@ export default (
     uxpId="dropdown"
     animate="true"
     size="md"
-    buttonColor="primary"
-    buttonType="solid"
+    height="200"
+    buttonColor="base"
+    buttonType="flat"
   />
 );

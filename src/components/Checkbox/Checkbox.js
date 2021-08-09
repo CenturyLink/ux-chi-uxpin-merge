@@ -45,16 +45,16 @@ export default class Checkbox extends React.Component {
       case 'vertical':
         layoutOptions = 'chi-col -w--12 -mb--1';
         break;
-      case '2':
+      case '2 columns':
         layoutOptions = 'chi-col -w--6 -mb--1';
         break;
-      case '3':
+      case '3 columns':
         layoutOptions = 'chi-col -w--4 -mb--1';
         break;
-      case '4':
+      case '4 columns':
         layoutOptions = 'chi-col -w--3 -mb--1';
         break;
-      case '6':
+      case '6 columns':
         layoutOptions = 'chi-col -w--2 -mb--1';
         break;
       default:
@@ -150,7 +150,7 @@ Checkbox.propTypes = {
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   /** @uxpinignoreprop */
   inline: PropTypes.bool,
-  layout: PropTypes.oneOf(['inline', 'vertical', '2', '3', '4', '6']),
+  layout: PropTypes.oneOf(['inline', 'vertical', '2 columns', '3 columns', '4 columns', '6 columns']),
   info: PropTypes.bool,
   clickInfo: PropTypes.func,
   mouseOverInfo: PropTypes.func,

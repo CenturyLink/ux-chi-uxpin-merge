@@ -1,13 +1,16 @@
+/* eslint-disable react/prop-types */
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
 /**
  * @uxpincomponent
+ * @uxpinwrappers
+ * SkipContainerWrapper
  */
 export default class Dropdown extends React.Component {
   render() {
     return (
-      <div className="chi-dropdown">
+      <div className="chi-dropdown" ref={this.props.uxpinRef}>
         <button
           type="button"
           className={`
@@ -59,6 +62,7 @@ Dropdown.propTypes = {
 Dropdown.defaultProps = {
   animate: true,
   size: 'md',
-  buttonColor: 'primary',
-  buttonType: 'solid',
+  height: '200',
+  buttonColor: 'base',
+  buttonType: 'flat',
 };
