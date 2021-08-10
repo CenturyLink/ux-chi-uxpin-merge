@@ -8,7 +8,6 @@ import { uuid4 } from '../../utils/utils';
 function Popover(props) {
   const popoverId = `popover-${uuid4()}`;
   const referenceId = `button-${uuid4()}`;
-  // const textRender = () => ({ __html: props.popover[0].text.replaceAll('\n', '<br />') });
   const textRender = () => ({ __html: props.text.replaceAll('\n', '<br />') });
   // eslint-disable-next-line react/no-danger
   const text = <p dangerouslySetInnerHTML={textRender()} />;
@@ -25,7 +24,6 @@ function Popover(props) {
         arrow={props.arrow}
         id={popoverId}
         position={props.position}
-        // title={props.popover[0].title || null}
         title={props.title || null}
         variant="text"
         reference={`#${referenceId}`}
