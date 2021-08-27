@@ -37,7 +37,7 @@ export default function StatCompact(props) {
         ? (
           <button
             type="button"
-            className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat ${LIGHT_CLASS}`}
+            className={`${BUTTON_CLASSES.BUTTON} -icon -xs -flat`}
             id={`stat-help-${uuid}-${statProp}-info-button`}
             aria-label="Help"
             data-target={`#stat-help-${uuid}-${statProp}-info-popover`}
@@ -67,38 +67,36 @@ export default function StatCompact(props) {
       }
 
       statsToRender.push(
-        <div className={`${UTILITY_CLASSES.COLUMN}`}>
-          <div
-            key={`stat-${uuid}${statIndex}`}
-            className={`
-              ${STAT_CLASSES.STAT} ${PORTAL_CLASS} ${STAT_CLASSES.COMPACT}
-              ${props.activeStat === statIndex ? ACTIVE_CLASS : ''}
-              `}>
-            <div className={STAT_CLASSES.CONTENT}>
-              <div className={STAT_CLASSES.METRIC}>
-                <div className={STAT_CLASSES.TITLE}>
-                  {props[`stat${statIndex}`]}
-                </div>
-                <div className={STAT_CLASSES.TITLE_HELP}>
-                  {helpButton}
-                  {helpPopover}
-                </div>
+        <div
+          key={`stat-${uuid}${statIndex}`}
+          className={`
+            ${STAT_CLASSES.ITEM}
+            ${props.activeStat === statIndex ? ACTIVE_CLASS : ''}
+            `}>
+          <div className={STAT_CLASSES.CONTENT}>
+            <div className={STAT_CLASSES.METRIC}>
+              <div className={STAT_CLASSES.TITLE}>
+                {props[`stat${statIndex}`]}
               </div>
-              <div className={STAT_CLASSES.SUBMETRIC}>
-                <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
-                  {props[`stat${statIndex}Metric1`] || ''}
-                </div>
-                <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
-                  {props[`stat${statIndex}Title1`] || ''}
-                </div>
+              <div className={STAT_CLASSES.TITLE_HELP}>
+                {helpButton}
+                {helpPopover}
               </div>
-              <div className={STAT_CLASSES.SUBMETRIC}>
-                <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
-                  {props[`stat${statIndex}Metric2`] || ''}
-                </div>
-                <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
-                  {props[`stat${statIndex}Title2`] || ''}
-                </div>
+            </div>
+            <div className={STAT_CLASSES.SUBMETRIC}>
+              <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
+                {props[`stat${statIndex}Metric1`] || ''}
+              </div>
+              <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
+                {props[`stat${statIndex}Title1`] || ''}
+              </div>
+            </div>
+            <div className={STAT_CLASSES.SUBMETRIC}>
+              <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
+                {props[`stat${statIndex}Metric2`] || ''}
+              </div>
+              <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
+                {props[`stat${statIndex}Title2`] || ''}
               </div>
             </div>
           </div>
@@ -119,17 +117,8 @@ export default function StatCompact(props) {
   });
 
   return (
-    <div style={{
-      overflowX: 'auto',
-      height: '8rem',
-    }}>
-      <div style={{
-        width: `${statsToRender.length * (props.statWidth || 208)}px`,
-      }}>
-        <div className={UTILITY_CLASSES.GRID}>
-          {statsToRender}
-        </div>
-      </div>
+    <div className="chi-stat -compact">
+      {statsToRender}
     </div>
   );
 }
