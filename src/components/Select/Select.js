@@ -127,7 +127,7 @@ Select.propTypes = {
 
 Select.defaultProps = {
   label: 'Label',
-  size: 'lg',
+  size: 'md',
   option1: 'Option 1',
   option2: 'Option 2',
   option3: 'Option 3',

@@ -125,7 +125,7 @@ TextInput.defaultProps = {
   label: 'Label',
   required: 'none',
   info: false,
-  size: 'lg',
+  size: 'md',
   state: 'default',
   placeholder: '',
 };

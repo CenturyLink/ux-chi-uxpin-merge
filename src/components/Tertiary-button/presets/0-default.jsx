@@ -7,7 +7,7 @@ export default (
     disabled={false}
     leftIcon=""
     rightIcon=""
-    size="sm"
+    size="xs"
     value="Tertiary"
     fluid={false}
     click={() => {}}

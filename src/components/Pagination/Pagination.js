@@ -60,7 +60,7 @@ Pagination.propTypes = {
   startEnd: PropTypes.bool,
   currentPage: PropTypes.number,
   pageSize: PropTypes.bool,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   pageJumper: PropTypes.bool,
   results: PropTypes.number,
   toGo1: PropTypes.func,
@@ -80,5 +80,5 @@ Pagination.defaultProps = {
   compact: true,
   currentPage: 3,
   pages: 5,
-  size: 'sm',
+  size: 'xs',
 };

@@ -47,8 +47,7 @@ export default function PrimaryButton({
         chi-button
         -primary
         ${size ? `-${size}` : ''}
-        ${fluid ? '-fluid -justify-content--center' : '-px--4'}
-        -text--uppercase
+        ${fluid ? '-fluid -justify-content--center' : ''}
         `}
       disabled={disabled}
       onClick={click}
@@ -80,6 +79,6 @@ PrimaryButton.propTypes = {
 
 PrimaryButton.defaultProps = {
   disabled: false,
-  size: 'lg',
+  size: 'md',
   value: 'Primary',
 };

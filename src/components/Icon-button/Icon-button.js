@@ -27,7 +27,7 @@ export default function IconButton({
       type="button"
       id={uuid}
       className={`
-        chi-button -portal -icon -primary -flat -bg--none -opacity-hover--80`}
+        chi-button -icon -flat`}
       data-tooltip={tooltipMessage}
       data-position={tooltipPosition}
       data-tooltip-color={tooltipColor}
