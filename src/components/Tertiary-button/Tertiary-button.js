@@ -21,11 +21,8 @@ export default class TertiaryButton extends React.Component {
         type="button"
         className={`
           chi-button
-          -primary
-          -outline
           ${this.props.size ? `-${this.props.size}` : ''}
-          ${this.props.fluid ? '-fluid -justify-content--center' : '-px--2'}
-          -bg--white
+          ${this.props.fluid ? '-fluid -justify-content--center' : ''}
           `}
         disabled={this.props.disabled}
         onClick={this.props.click}
@@ -58,6 +55,6 @@ TertiaryButton.propTypes = {
 
 TertiaryButton.defaultProps = {
   disabled: false,
-  size: 'sm',
+  size: 'xs',
   value: 'Tertiary',
 };

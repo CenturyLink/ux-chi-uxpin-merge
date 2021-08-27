@@ -4,7 +4,7 @@ import Select from '../Select';
 export default (
   <Select
     uxpId="select"
-    size="lg"
+    size="md"
     label="Label"
     required="none"
     info={false}

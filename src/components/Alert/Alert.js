@@ -75,12 +75,11 @@ export default class Alert extends React.Component {
       <div
         className={`
         chi-alert
-        ${this.props.state && this.props.state !== 'base' ? `-${this.props.state} -b--${this.props.state}-light -bg--${this.props.state}-lighter` : ''}
+        ${this.props.state && this.props.state !== 'base' ? `-${this.props.state}` : ''}
         ${this.props.size ? `-${this.props.size}` : ''}
         ${this.props.type ? `-${this.props.type}` : ''}
         `}
         role="alert">
-
         {this.props.inProgress
           ? (
             <div className="chi-alert__icon">
