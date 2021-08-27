@@ -5,11 +5,8 @@ import {
   ACTIVE_CLASS,
   BUTTON_CLASSES,
   ICON_CLASS,
-  LIGHT_CLASS,
   POPOVER_CLASSES,
-  PORTAL_CLASS,
   STAT_CLASSES,
-  UTILITY_CLASSES,
 } from '../../constants/classes';
 
 let uuid;
