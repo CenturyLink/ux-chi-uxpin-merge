@@ -120,6 +120,7 @@ export const UTILITY_CLASSES = {
 /* Tooltip */
 export const STAT_CLASSES = {
     STAT: 'chi-stat',
+    ITEM: 'chi-stat__item',
     COMPACT: '-compact',
     CONTENT: 'chi-stat__content',
     METRIC: 'chi-stat-metric',

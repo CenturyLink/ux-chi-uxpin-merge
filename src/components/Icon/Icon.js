@@ -1,5 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import './Icon.css';
 
 /* eslint-disable */
 /**
@@ -8,24 +9,19 @@ import * as React from 'react';
  * SkipContainerWrapper
  */
 const Icon = ({click, mouseDown, mouseUp, mouseLeave, mouseOver, icon, color, size, uxpinRef}) => (
-  <div
+  <chi-icon
+    icon={icon}
+    color={color}
+    size={size}
     onClick={click}
     onMouseEnter={mouseOver}
     onMouseLeave={mouseLeave}
     onMouseDown={mouseDown}
     onMouseUp={mouseUp}>
-    <span className="-sr--only">
-      i
-    </span>
-    <i className={`
-      chi-icon
-      icon-${icon}
-      ${color ? `-icon--${color}` : ''}
-      ${size ? `-${size}` : ''}
-    `}
-      ref={uxpinRef}>
-    </i>
-  </div>
+      <span className="-sr--only">
+        i
+      </span>
+    </chi-icon>
 );
 
 Icon.propTypes = {
