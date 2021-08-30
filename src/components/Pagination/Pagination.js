@@ -6,6 +6,8 @@ import { uuid4 } from '../../utils/utils';
 /* eslint-disable */
 /**
  * @uxpincomponent
+ * @uxpinwrappers
+ * SkipContainerWrapper
  */
 export default class Pagination extends React.Component {
   constructor(props) {
@@ -34,21 +36,23 @@ export default class Pagination extends React.Component {
   }
   render() {
     return (
-      <chi-pagination
-        id={this.state.id}
-        inverse={this.props.inverse}
-        pages={this.props.pages}
-        first-last={this.props.startEnd}
-        current-page={this.props.currentPage}
-        compact={this.props.compact}
-        page-size={this.props.pageSize}
-        page-jumper={this.props.pageJumper}
-        size={this.props.size}
-        results={this.props.results || 0}>
-          <span class="-sr--only">
-            i
-          </span>
-      </chi-pagination>
+      <div style={{minWidth: 300, minHeight: 24}}>
+        <chi-pagination
+          id={this.state.id}
+          inverse={this.props.inverse}
+          pages={this.props.pages}
+          first-last={this.props.startEnd}
+          current-page={this.props.currentPage}
+          compact={this.props.compact}
+          page-size={this.props.pageSize}
+          page-jumper={this.props.pageJumper}
+          size={this.props.size}
+          results={this.props.results || 0}>
+            <span class="-sr--only">
+              i
+            </span>
+        </chi-pagination>
+      </div>
     );
   }
 }

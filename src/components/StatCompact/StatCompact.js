@@ -123,6 +123,7 @@ export default function StatCompact(props) {
 /* eslint-disable */
 StatCompact.propTypes = {
   activeStat: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  /** @uxpinignoreprop */
   statWidth: PropTypes.number,
   stat1: PropTypes.string,
   stat1Metric1: PropTypes.number,
