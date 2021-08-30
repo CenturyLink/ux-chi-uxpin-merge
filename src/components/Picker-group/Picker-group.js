@@ -11,6 +11,8 @@ import {
 /* eslint-disable */
 /**
  * @uxpincomponent
+ * @uxpinwrappers
+ * SkipContainerWrapper
  */
 export default class PickerGroup extends React.Component {
   render() {
@@ -74,12 +76,14 @@ export default class PickerGroup extends React.Component {
         });
 
     return (
-      <fieldset>
-        {fieldLabel}
-        <div className="chi-picker-group">
-          {pickersToRender}
-        </div>
-      </fieldset>
+      <div ref={this.props.uxpinRef} style={{minWidth: 308}}>
+        <fieldset>
+          {fieldLabel}
+          <div className="chi-picker-group">
+            {pickersToRender}
+          </div>
+        </fieldset>
+      </div>
     );
   }
 }
