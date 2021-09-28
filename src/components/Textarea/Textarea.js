@@ -38,7 +38,7 @@ export default class Textarea extends React.Component {
           onClick={this.props.clickInfo}
           onMouseEnter={this.props.mouseOverInfo}
           onMouseLeave={this.props.mouseLeaveInfo}>
-          <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
+          <button className={`${BUTTON_CLASSES.BUTTON} -icon -xs -flat`} aria-label="Help">
             <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
           </button>
         </div>
