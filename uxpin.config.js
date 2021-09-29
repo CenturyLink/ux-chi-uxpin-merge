@@ -50,12 +50,18 @@ module.exports = {
           'src/components/Popover/Popover.js',
           'src/components/Progress/Progress.js',
           'src/components/Search-input/Search-input.js',
-          'src/components/StatCompact/StatCompact.js',
           'src/components/Steps/Steps.js',
           'src/components/Spinner/Spinner.js',
           // 'src/components/Tooltip/Tooltip.js',
           'src/components/Tabs/Tabs.js',
           'src/components/Text/Text.js',
+        ],
+      },
+      {
+        name: 'Stat / KPI',
+        include: [
+          'src/components/StatCompact/StatCompact.js',
+          'src/components/Stat/Stat.js',
         ],
       },
       {

@@ -124,6 +124,8 @@ export const STAT_CLASSES = {
     COMPACT: '-compact',
     CONTENT: 'chi-stat__content',
     METRIC: 'chi-stat-metric',
+    METRIC_VALUE: 'chi-stat-metric__value',
+    METRIC_TITLE: 'chi-stat-metric__title',
     TITLE: 'chi-stat-metric__title',
     TITLE_HELP: 'chi-label__help',
     SUBMETRIC: 'chi-stat-submetric',

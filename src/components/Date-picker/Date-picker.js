@@ -60,7 +60,7 @@ export default class DatePicker extends React.Component {
           onClick={this.props.clickInfo}
           onMouseEnter={this.props.mouseOverInfo}
           onMouseLeave={this.props.mouseLeaveInfo}>
-          <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
+          <button className={`${BUTTON_CLASSES.BUTTON} -icon -xs -flat`} aria-label="Help">
             <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
           </button>
         </div>
@@ -86,26 +86,28 @@ export default class DatePicker extends React.Component {
     `;
 
     return (
-      <div ref={this.props.uxpinRef} className="chi-form__item" style={{ width: '14rem' }}>
+      <div className="chi-form__item">
         <div className={`${LABEL_CLASSES.WRAPPER}`}>
           {label}
           {info}
         </div>
-        <chi-date-picker
-          id={dpId}
-          disabled={this.props.disabled}
-          excluded-weekdays={excludedDays}
-          excluded-dates={this.props.dates}
-          min={this.props.min}
-          max={this.props.max}
-          value={this.props.selected}
-          onClick={this.props.click}
-          mode={this.props.mode}
-          onMouseEnter={this.props.mouseOver}
-          onMouseLeave={this.props.mouseLeave}
-          onMouseDown={this.props.mouseDown}
-          onMouseUp={this.props.mouseUp}>
-        </chi-date-picker>
+        <div style={{ width: '14rem' }}>
+          <chi-date-picker
+            id={dpId}
+            disabled={this.props.disabled}
+            excluded-weekdays={excludedDays}
+            excluded-dates={this.props.dates}
+            min={this.props.min}
+            max={this.props.max}
+            value={this.props.selected}
+            onClick={this.props.click}
+            mode={this.props.mode}
+            onMouseEnter={this.props.mouseOver}
+            onMouseLeave={this.props.mouseLeave}
+            onMouseDown={this.props.mouseDown}
+            onMouseUp={this.props.mouseUp}>
+          </chi-date-picker>
+        </div>
       </div>
     );
   }

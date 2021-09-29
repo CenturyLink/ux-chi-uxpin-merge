@@ -36,17 +36,17 @@ export default function TimePicker({
 }) {
   const uuid = `time-picker-${uuid4()}`;
   const infoElement = info
-      ? (
-        <div
-          className={`${STAT_CLASSES.TITLE_HELP}`}
-          onClick={clickInfo}
-          onMouseEnter={mouseOverInfo}
-          onMouseLeave={mouseLeaveInfo}>
-          <button className={`${BUTTON_CLASSES.BUTTON} -icon -sm -flat`} aria-label="Help">
-            <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
-          </button>
-        </div>
-      ) : '';
+    ? (
+      <div
+        className={`${STAT_CLASSES.TITLE_HELP}`}
+        onClick={clickInfo}
+        onMouseEnter={mouseOverInfo}
+        onMouseLeave={mouseLeaveInfo}>
+        <button className={`${BUTTON_CLASSES.BUTTON} -icon -xs -flat`} aria-label="Help">
+          <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
+        </button>
+      </div>
+    ) : '';
   const labelElement = label
     ? (
       <Label

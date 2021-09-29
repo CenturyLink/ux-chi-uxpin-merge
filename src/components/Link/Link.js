@@ -34,6 +34,7 @@ export default class Link extends React.Component {
         onClick={this.props.clickLink}
         onMouseEnter={this.props.mouseoverLink}
         onMouseLeave={this.props.mouseleaveLink}
+        no-hover-underline={this.props.noHoverUnderline}
         ref={this.linkElement}>
         <div className="chi-link__content">
           {this.props.iconPosition === 'left' ? help : null}
@@ -59,6 +60,7 @@ Link.propTypes = {
   mouseleaveLink: PropTypes.func,
   icon: PropTypes.string,
   iconPosition: PropTypes.oneOf(['left', 'right']),
+  noHoverUnderline: PropTypes.bool,
 };
 
 Link.defaultProps = {
