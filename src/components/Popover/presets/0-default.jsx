@@ -7,6 +7,8 @@ export default (
     active
     arrow
     position="bottom"
+    title="Popover Title"
+    text="Line 1 <br> Line 2 <br> Line 3"
     popover={[{ title: 'Popover Title', text: 'Line 1 \nLine 2 \nLine 3' }]}
     closeButton={false}
     preventAutoHide
