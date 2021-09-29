@@ -34,14 +34,6 @@ export default class FloatingButton extends React.Component {
           alternative-text={this.props.tooltipMessage || null}>
           <chi-icon icon={this.props.icon}></chi-icon>
         </chi-button>
-        {/* <button
-          type="button"
-          className="chi-button -primary -lg -float"
-          aria-label="Chat with Support">
-          <div className="chi-button__content">
-            <i className="chi-icon icon-chat" aria-hidden="true"></i>
-          </div>
-        </button> */}
       </div>
     );
   }
