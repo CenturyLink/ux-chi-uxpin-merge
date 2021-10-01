@@ -20,7 +20,7 @@ export default class FloatingButton extends React.Component {
           window.chi.tooltip(document.getElementById(this.state.id));
           clearInterval(initialize);
         }
-      }, 300);
+      }, 1000);
     }
   }
 
@@ -46,7 +46,7 @@ FloatingButton.propTypes = {
 };
 
 FloatingButton.defaultProps = {
-  icon: 'atom',
+  icon: 'chat',
   color: 'primary',
   tooltipMessage: 'Tooltip Message',
 };

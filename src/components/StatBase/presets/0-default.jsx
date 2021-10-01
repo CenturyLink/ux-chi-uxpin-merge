@@ -1,8 +1,8 @@
 import React from 'react';
-import Stat from '../Stat';
+import StatBase from '../StatBase';
 
 export default (
-  <Stat
+  <StatBase
     uxpId="stat"
     activeStat={1}
     stat1="metric 1"

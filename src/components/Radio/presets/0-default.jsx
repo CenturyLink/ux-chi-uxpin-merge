@@ -8,7 +8,7 @@ export default (
     required="none"
     inline={false}
     info={false}
-    selectedOption={1}
+    selectedOption="None"
     option1="Option 1"
     disabled1={false}
     option2="Option 2"
