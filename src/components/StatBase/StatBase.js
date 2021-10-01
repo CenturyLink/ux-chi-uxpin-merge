@@ -9,7 +9,7 @@ import {
 let uuid;
 const statsToRender = [];
 
-export default function Stat(props) {
+export default function StatBase(props) {
   const statProps = [];
 
   uuid = `stat-${uuid4()}`;
@@ -63,11 +63,11 @@ export default function Stat(props) {
     }
   });
 
-  return <div className="chi-stat -primary">{statsToRender}</div>;
+  return <div className="chi-stat -sm">{statsToRender}</div>;
 }
 
 /* eslint-disable */
-Stat.propTypes = {
+StatBase.propTypes = {
   activeStat: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   stat1: PropTypes.string,
   stat1Metric1: PropTypes.number,
@@ -131,7 +131,7 @@ Stat.propTypes = {
   stat10Icon: PropTypes.string,
 };
 
-Stat.defaultProps = {
+StatBase.defaultProps = {
   stat1: 'metric 1',
   stat1Metric1: 1,
   stat1Title1: 'High',

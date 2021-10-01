@@ -98,7 +98,7 @@ Radio.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   inline: PropTypes.bool,
-  selectedOption: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  selectedOption: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   info: PropTypes.bool,
   clickInfo: PropTypes.func,
   mouseOverInfo: PropTypes.func,
@@ -141,6 +141,7 @@ Radio.defaultProps = {
   option1: 'Option 1',
   option2: 'Option 2',
   option3: 'Option 3',
+  selectedOption: 'None',
   required: 'none',
   info: false,
 };

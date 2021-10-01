@@ -53,20 +53,10 @@ module.exports = {
           'src/components/Steps/Steps.js',
           'src/components/Spinner/Spinner.js',
           // 'src/components/Tooltip/Tooltip.js',
+          'src/components/StatBase/StatBase.js',
+          'src/components/StatCompact/StatCompact.js',
           'src/components/Tabs/Tabs.js',
           'src/components/Text/Text.js',
-        ],
-      },
-      {
-        name: 'Stat / KPI',
-        include: [
-          'src/components/StatCompact/StatCompact.js',
-          'src/components/Stat/Stat.js',
-        ],
-      },
-      {
-        name: 'Utilities',
-        include: [
         ],
       },
     ],
