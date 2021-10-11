@@ -4,7 +4,7 @@ import FloatingButton from '../Floating-button';
 export default (
   <FloatingButton
     uxpId="floatingButton"
-    icon="atom"
+    icon="chat"
     color="primary"
   />
 );
