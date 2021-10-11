@@ -9,7 +9,6 @@ export default (
     cta={false}
     title="Link"
     size="md"
-    icon="circle-question-outline"
     iconPosition="left"
   />
 );
