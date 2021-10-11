@@ -31,6 +31,7 @@ export default class FloatingButton extends React.Component {
           ref={this.props.uxpinRef}
           type="float"
           color={this.props.color === 'base' ? null : this.props.color}
+          size={this.props.size}
           alternative-text={this.props.tooltipMessage || null}>
           <chi-icon icon={this.props.icon}></chi-icon>
         </chi-button>
@@ -43,10 +44,12 @@ FloatingButton.propTypes = {
   color: PropTypes.oneOf(['base', 'primary', 'dark', 'secondary', 'light']),
   icon: PropTypes.string,
   tooltipMessage: PropTypes.string,
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
 };
 
 FloatingButton.defaultProps = {
   icon: 'chat',
   color: 'primary',
   tooltipMessage: 'Tooltip Message',
+  size: 'md'
 };
