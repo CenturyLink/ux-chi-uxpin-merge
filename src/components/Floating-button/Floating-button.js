@@ -51,5 +51,5 @@ FloatingButton.defaultProps = {
   icon: 'chat',
   color: 'primary',
   tooltipMessage: 'Tooltip Message',
-  size: 'md'
+  size: 'md',
 };
