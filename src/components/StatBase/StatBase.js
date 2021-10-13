@@ -24,10 +24,10 @@ export default function StatBase(props) {
 
   statProps.forEach((statProp, i) => {
     const statIndex = i + 1;
-    const backgroundIcon = props[`stat${statIndex}Icon`]
+    const backgroundIcon = props[`s${statIndex}Icon`]
       ? (
         <div className="chi-stat-background-icon">
-          <i className={`chi-icon icon-${props[`stat${statIndex}Icon`]}`} aria-hidden="true" />
+          <i className={`chi-icon icon-${props[`s${statIndex}Icon`]}`} aria-hidden="true" />
         </div>
       ) : null;
 
@@ -41,20 +41,24 @@ export default function StatBase(props) {
           <div className={STAT_CLASSES.CONTENT}>
             <div className={STAT_CLASSES.METRIC}>
               <div className={STAT_CLASSES.METRIC_VALUE}>
-                {String(props[`stat${statIndex}Metric`]) || ''}
+                {String(props[`s${statIndex}Metric`]) || ''}
               </div>
               <div className={STAT_CLASSES.METRIC_TITLE}>
                 {String(props[`stat${statIndex}Title`]) || ''}
               </div>
             </div>
-            <div className={STAT_CLASSES.SUBMETRIC}>
-              <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
-                {String(props[`stat${statIndex}AuxMetric`]) || ''}
-              </div>
-              <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
-                {String(props[`stat${statIndex}AuxTitle`]) || ''}
-              </div>
-            </div>
+            {
+              props[`s${statIndex}AuxMetric`] ? (
+                <div className={STAT_CLASSES.SUBMETRIC}>
+                  <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
+                    {String(props[`s${statIndex}AuxMetric`]) || ''}
+                  </div>
+                  <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
+                    {String(props[`s${statIndex}AuxTitle`]) || ''}
+                  </div>
+                </div>
+              ) : <div style={{ height: 20 }}></div>
+            }
             {backgroundIcon}
           </div>
         </div>
@@ -69,73 +73,73 @@ export default function StatBase(props) {
 StatBase.propTypes = {
   activeStat: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   stat1Title: PropTypes.string,
-  stat1Metric: PropTypes.string,
-  stat1AuxTitle: PropTypes.string,
-  stat1AuxMetric: PropTypes.string,
-  stat1Icon: PropTypes.string,
+  s1Metric: PropTypes.string,
+  s1AuxTitle: PropTypes.string,
+  s1AuxMetric: PropTypes.string,
+  s1Icon: PropTypes.string,
   stat2Title: PropTypes.string,
-  stat2Metric: PropTypes.string,
-  stat2AuxTitle: PropTypes.string,
-  stat2AuxMetric: PropTypes.string,
-  stat2Icon: PropTypes.string,
+  s2Metric: PropTypes.string,
+  s2AuxTitle: PropTypes.string,
+  s2AuxMetric: PropTypes.string,
+  s2Icon: PropTypes.string,
   stat3Title: PropTypes.string,
-  stat3Metric: PropTypes.string,
-  stat3AuxTitle: PropTypes.string,
-  stat3AuxMetric: PropTypes.string,
-  stat3Icon: PropTypes.string,
+  s3Metric: PropTypes.string,
+  s3AuxTitle: PropTypes.string,
+  s3AuxMetric: PropTypes.string,
+  s3Icon: PropTypes.string,
   stat4Title: PropTypes.string,
-  stat4Metric: PropTypes.string,
-  stat4AuxTitle: PropTypes.string,
-  stat4AuxMetric: PropTypes.string,
-  stat4Icon: PropTypes.string,
+  s4Metric: PropTypes.string,
+  s4AuxTitle: PropTypes.string,
+  s4AuxMetric: PropTypes.string,
+  s4Icon: PropTypes.string,
   stat5Title: PropTypes.string,
-  stat5Metric: PropTypes.string,
-  stat5AuxTitle: PropTypes.string,
-  stat5AuxMetric: PropTypes.string,
-  stat5Icon: PropTypes.string,
+  s5Metric: PropTypes.string,
+  s5AuxTitle: PropTypes.string,
+  s5AuxMetric: PropTypes.string,
+  s5Icon: PropTypes.string,
   stat6Title: PropTypes.string,
-  stat6Metric: PropTypes.string,
-  stat6AuxTitle: PropTypes.string,
-  stat6AuxMetric: PropTypes.string,
-  stat6Icon: PropTypes.string,
+  s6Metric: PropTypes.string,
+  s6AuxTitle: PropTypes.string,
+  s6AuxMetric: PropTypes.string,
+  s6Icon: PropTypes.string,
   stat7Title: PropTypes.string,
-  stat7Metric: PropTypes.string,
-  stat7AuxTitle: PropTypes.string,
-  stat7AuxMetric: PropTypes.string,
-  stat7Icon: PropTypes.string,
+  s7Metric: PropTypes.string,
+  s7AuxTitle: PropTypes.string,
+  s7AuxMetric: PropTypes.string,
+  s7Icon: PropTypes.string,
   stat8Title: PropTypes.string,
-  stat8Metric: PropTypes.string,
-  stat8AuxTitle: PropTypes.string,
-  stat8AuxMetric: PropTypes.string,
-  stat8Icon: PropTypes.string,
+  s8Metric: PropTypes.string,
+  s8AuxTitle: PropTypes.string,
+  s8AuxMetric: PropTypes.string,
+  s8Icon: PropTypes.string,
   stat9Title: PropTypes.string,
-  stat9Metric: PropTypes.string,
-  stat9AuxTitle: PropTypes.string,
-  stat9AuxMetric: PropTypes.string,
-  stat9Icon: PropTypes.string,
+  s9Metric: PropTypes.string,
+  s9AuxTitle: PropTypes.string,
+  s9AuxMetric: PropTypes.string,
+  s9Icon: PropTypes.string,
   stat10Title: PropTypes.string,
-  stat10Metric: PropTypes.string,
-  stat10AuxTitle: PropTypes.string,
-  stat10AuxMetric: PropTypes.string,
-  stat10Icon: PropTypes.string,
+  s10Metric: PropTypes.string,
+  s10AuxTitle: PropTypes.string,
+  s10AuxMetric: PropTypes.string,
+  s10Icon: PropTypes.string,
 };
 
 StatBase.defaultProps = {
   stat1Title: 'metric 1',
-  stat1Metric: 1,
-  stat1AuxMetric: 2,
-  stat1AuxTitle: 'Elevated',
-  stat1Icon: 'bell-outline',
+  s1Metric: 1,
+  s1AuxMetric: 2,
+  s1AuxTitle: 'Elevated',
+  s1Icon: 'bell-outline',
   stat2Title: 'metric 2',
-  stat2Metric: 1,
-  stat2AuxTitle: 'High',
-  stat2AuxMetric: 2,
-  stat2Icon: 'chart-line',
+  s2Metric: 1,
+  s2AuxTitle: 'High',
+  s2AuxMetric: 2,
+  s2Icon: 'chart-line',
   stat3Title: 'metric 3',
-  stat3AuxMetric: 1,
-  stat3AuxTitle: 'High',
-  stat3AuxMetric: 2,
-  stat3Icon: 'cost',
+  s3AuxMetric: 1,
+  s3AuxTitle: 'High',
+  s3AuxMetric: 2,
+  s3Icon: 'cost',
   activeStat: 1,
 };
 /* eslint-enable */
