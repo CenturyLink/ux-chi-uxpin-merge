@@ -6,7 +6,7 @@ export default (
     uxpId="badge"
     color="primary"
     size="md"
-    variant="outline"
+    variant="default"
     text="Badge"
   />
 );

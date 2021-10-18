@@ -20,5 +20,19 @@ export default (
     s3AuxTitle="High"
     s3AuxMetric="2"
     s3Icon="cost"
+    s4Metric={0}
+    s5Metric={0}
+    s6Metric={0}
+    s7Metric={0}
+    s8Metric={0}
+    s9Metric={0}
+    s10Metric={0}
+    s4AuxMetric={0}
+    s5AuxMetric={0}
+    s6AuxMetric={0}
+    s7AuxMetric={0}
+    s8AuxMetric={0}
+    s9AuxMetric={0}
+    s10AuxMetric={0}
   />
 );

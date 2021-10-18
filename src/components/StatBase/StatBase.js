@@ -48,7 +48,7 @@ export default function StatBase(props) {
               </div>
             </div>
             {
-              props[`s${statIndex}AuxMetric`] ? (
+              props[`s${statIndex}AuxTitle`] ? (
                 <div className={STAT_CLASSES.SUBMETRIC}>
                   <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
                     {String(props[`s${statIndex}AuxMetric`]) || ''}
@@ -137,9 +137,24 @@ StatBase.defaultProps = {
   s2Icon: 'chart-line',
   stat3Title: 'metric 3',
   s3AuxMetric: 1,
+  s3Metric: 0,
   s3AuxTitle: 'High',
   s3AuxMetric: 2,
   s3Icon: 'cost',
   activeStat: 1,
+  s4Metric: 0,
+  s5Metric: 0,
+  s6Metric: 0,
+  s7Metric: 0,
+  s8Metric: 0,
+  s9Metric: 0,
+  s10Metric: 0,
+  s4AuxMetric: 0,
+  s5AuxMetric: 0,
+  s6AuxMetric: 0,
+  s7AuxMetric: 0,
+  s8AuxMetric: 0,
+  s9AuxMetric: 0,
+  s10AuxMetric: 0,
 };
 /* eslint-enable */
