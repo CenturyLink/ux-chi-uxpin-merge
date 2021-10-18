@@ -48,6 +48,7 @@ IconButton.propTypes = {
   click: PropTypes.func,
   tooltipMessage: PropTypes.string,
   tooltipPosition: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+  /** @uxpinignoreprop */
   tooltipColor: PropTypes.oneOf(['base', 'light']),
 };
 /* eslint-enable */
@@ -57,5 +58,4 @@ IconButton.defaultProps = {
   icon: 'atom',
   tooltipMessage: 'Tooltip message',
   tooltipPosition: 'top',
-  tooltipColor: 'light',
 };

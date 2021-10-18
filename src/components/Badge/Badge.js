@@ -24,7 +24,7 @@ const Badge = ({
 Badge.propTypes = {
   color: PropTypes.oneOf(['primary', 'success', 'warning', 'danger', 'dark', 'muted', 'secondary', 'light']),
   size: PropTypes.oneOf(['xs', 'sm', 'md']),
-  variant: PropTypes.oneOf(['outline', 'flat']),
+  variant: PropTypes.oneOf(['default', 'outline', 'flat']),
   text: PropTypes.string,
 };
 /* eslint-enable sort-keys */
@@ -32,6 +32,7 @@ Badge.propTypes = {
 Badge.defaultProps = {
   size: 'md',
   text: 'Badge',
+  variant: 'default',
 };
 
 export { Badge as default };
