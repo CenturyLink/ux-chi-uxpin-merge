@@ -19,7 +19,7 @@ export default function IconButton({
         window.chi.tooltip(document.getElementById(uuid));
         clearInterval(initialize);
       }
-    }, 100);
+    }, 1000);
   }
 
   return (
