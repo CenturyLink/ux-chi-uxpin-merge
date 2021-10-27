@@ -166,4 +166,9 @@ export const RADIO_CLASSES = {
     LABEL: 'chi-radio__label'
 };
 
+/* Price */
+export const PRICE_CLASSES = {
+    PRICE: 'chi-price'
+}
+
 /* eslint-enable */
