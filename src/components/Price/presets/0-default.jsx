@@ -5,8 +5,8 @@ export default (
   <Price
     uxpId="price"
     size="md"
-    currency="$"
+    supA="$"
     value="100"
-    decimal="00"
+    supB="00"
   />
 );

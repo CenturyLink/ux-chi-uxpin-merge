@@ -8,25 +8,25 @@ import { PRICE_CLASSES } from '../../constants/classes';
 const Price = (props) => {
   return (
     <div className={`${PRICE_CLASSES.PRICE} ${props.size ? `-${props.size}` : ''}`}>
-      <sup>{props.currency}</sup>
+      <sup>{props.supA}</sup>
       {props.value}
-      <sup>{props.decimal}</sup>
+      <sup>{props.supB}</sup>
     </div>
   );
 }
 
 Price.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  currency: PropTypes.string,
-  value: PropTypes.number,
-  decimal: PropTypes.string
+  supA: PropTypes.string,
+  value: PropTypes.string,
+  supB: PropTypes.string
 };
 
 Price.defaultProps = {
   size: 'md',
-  currency: '$',
-  value: 100,
-  decimal: '00',
+  suptA: '$',
+  value: '100',
+  supB: '00',
 };
 
 export default Price;
