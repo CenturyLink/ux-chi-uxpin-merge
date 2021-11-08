@@ -1,11 +1,6 @@
-import React from 'react';
-import DropdownIconButton from '../DropdownIconButton';
+import React from "react";
+import DropdownIconButton from "../DropdownIconButton";
 
 export default (
-  <DropdownIconButton
-    icon="atom"
-    size="md"
-    height="200"
-    width="200"
-  />
+  <DropdownIconButton icon="atom" size="md" width="200" height="200" />
 );

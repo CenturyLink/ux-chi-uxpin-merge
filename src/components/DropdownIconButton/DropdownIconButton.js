@@ -59,8 +59,8 @@ DropdownIconButton.propTypes = {
 };
 
 DropdownIconButton.defaultProps = {
-  height: 200,
   icon: 'atom',
   size: 'md',
-  width: 200
+  width: 200,
+  height: 200,
 };

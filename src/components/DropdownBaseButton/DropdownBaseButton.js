@@ -64,7 +64,7 @@ DropdownBaseButton.defaultProps = {
   animate: true,
   buttonColor: 'base',
   buttonType: 'flat',
-  height: 200,
   size: 'md',
-  width: 200
+  width: 200,
+  height: 200
 };
