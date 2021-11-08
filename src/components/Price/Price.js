@@ -6,11 +6,14 @@ import { PRICE_CLASSES } from '../../constants/classes';
  * @uxpincomponent
  */
 const Price = (props) => {
+  const supA = props.supA ? <sup>{props.supA}</sup> : null;
+  const supB = props.supB ? <sup>{props.supB}</sup> : null;
+
   return (
     <div className={`${PRICE_CLASSES.PRICE} ${props.size ? `-${props.size}` : ''}`}>
-      <sup>{props.supA}</sup>
+      {supA}
       {props.value}
-      <sup>{props.supB}</sup>
+      {supB}
     </div>
   );
 }
