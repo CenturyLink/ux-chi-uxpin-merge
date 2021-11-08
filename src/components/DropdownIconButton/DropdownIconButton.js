@@ -14,7 +14,6 @@ export default class DropdownIconButton extends React.Component {
     this.state = { id: uuid4() };
   }
 
-
   render() {
     return (
       <div className={`${DROPDOWN_CLASSES.DROPDOWN}`} ref={this.props.uxpinRef}>
@@ -22,7 +21,6 @@ export default class DropdownIconButton extends React.Component {
           id={this.state.id}
           className={`
             ${BUTTON_CLASSES.BUTTON}  ${BUTTON_CLASSES.ICON_BUTTON}  ${BUTTON_CLASSES.FLAT}
-            ${this.props.active ? '-active' : ''}
             ${this.props.disabled ? '-disabled' : ''}
           `}
           onClick={() => chi.dropdown(document.getElementById(this.state.id))}>
@@ -54,10 +52,10 @@ DropdownIconButton.propTypes = {
   active: PropTypes.bool,
   disabled: PropTypes.bool,
   color: PropTypes.oneOf(['primary', 'dark', 'grey', 'secondary', 'light', 'success', 'info', 'warning', 'danger', 'muted', 'navy', 'orange']),
-  height: PropTypes.number,
   icon: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', 'sm--2', 'sm--3', 'md', 'lg', 'xl', 'xxl']),
-  width: PropTypes.number
+  width: PropTypes.number,
+  height: PropTypes.number
 };
 
 DropdownIconButton.defaultProps = {

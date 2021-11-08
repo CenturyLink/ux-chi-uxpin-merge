@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { DROPDOWN_CLASSES, BUTTON_CLASSES } from '../../constants/classes';
@@ -56,9 +55,9 @@ DropdownBaseButton.propTypes = {
   buttonColor: PropTypes.oneOf(['base', 'primary', 'dark', 'secondary', 'light']),
   buttonType: PropTypes.oneOf(['solid', 'outline', 'flat']),
   disabled: PropTypes.bool,
-  height: PropTypes.number,
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
-  width: PropTypes.number
+  width: PropTypes.number,
+  height: PropTypes.number
 };
 
 DropdownBaseButton.defaultProps = {
