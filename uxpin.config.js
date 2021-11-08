@@ -48,6 +48,7 @@ module.exports = {
           'src/components/Page-Title/Page-Title.js',
           'src/components/Pagination/Pagination.js',
           'src/components/Popover/Popover.js',
+          'src/components/Price/Price.js',
           'src/components/Progress/Progress.js',
           'src/components/Search-input/Search-input.js',
           'src/components/Steps/Steps.js',
