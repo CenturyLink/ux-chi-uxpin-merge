@@ -174,7 +174,8 @@ export const PRICE_CLASSES = {
 export const DROPDOWN_CLASSES = {
     DROPDOWN: 'chi-dropdown',
     TRIGGER: 'chi-dropdown__trigger',
-    MENU: 'chi-dropdown__menu'
+    MENU: 'chi-dropdown__menu',
+    ITEM: 'chi-dropdown__menu-item'
 };
 
 /* eslint-enable */
