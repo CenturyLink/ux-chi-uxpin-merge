@@ -62,7 +62,8 @@ export default class DropdownBase extends React.Component {
             ${this.props.active ? '-active' : ''}
           `}
           style={{
-            height: `${this.props.height}px`,
+            minHeight : `${this.props.minHeight}px`,
+            maxHeight : `${this.props.maxHeight}px`,
             width: `${this.props.width}px`,
           }}>
           {itemsToRender}
@@ -82,7 +83,8 @@ DropdownBase.propTypes = {
   position: PropTypes.oneOf(['initial', 'top-start', 'top', 'top-end', 'left-start', 'left', 'left-end', 'right-start', 'right', 'right-end', 'bottom-start', 'bottom', 'bottom-end']),
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   width: PropTypes.number,
-  height: PropTypes.number,
+  minHeight: PropTypes.number,
+  maxHeight: PropTypes.number,
   item1: PropTypes.string,
   item2: PropTypes.string,
   item3: PropTypes.string,
