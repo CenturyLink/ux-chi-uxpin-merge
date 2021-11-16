@@ -3,6 +3,7 @@ import DropdownIcon from "../DropdownIcon";
 
 export default (
   <DropdownIcon
+    uxpId="dropdown-icon"
     icon="more-vert"
     size="md"
     item1="Item 1"

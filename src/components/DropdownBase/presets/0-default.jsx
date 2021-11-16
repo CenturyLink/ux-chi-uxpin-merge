@@ -3,6 +3,7 @@ import DropdownBase from "../DropdownBase";
 
 export default (
   <DropdownBase
+    uxpId="dropdown-base"
     animate="true"
     text="Dropdown component"
     buttonColor="base"

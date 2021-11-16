@@ -1,6 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import { DROPDOWN_CLASSES, BUTTON_CLASSES } from '../../constants/classes';
+import { DROPDOWN_CLASSES, BUTTON_CLASSES, ACTIVE_CLASS } from '../../constants/classes';
 import { uuid4 } from '../../utils/utils';
 
 /**
@@ -27,9 +27,9 @@ export default class DropdownBase extends React.Component {
               onClick={(e) => {
                 const currentItemActive = e.target.parentNode.querySelector('a.-active');
 
-                if (currentItemActive) currentItemActive.classList.remove('-active');
+                if (currentItemActive) currentItemActive.classList.remove(ACTIVE_CLASS);
                 this.props[`select${i}`]();
-                e.target.classList.add('-active')
+                e.target.classList.add(ACTIVE_CLASS)
               }
               }>{this.props[`item${i}`]}</a >
           );
@@ -44,7 +44,7 @@ export default class DropdownBase extends React.Component {
           className={`
             ${BUTTON_CLASSES.BUTTON}
             ${DROPDOWN_CLASSES.TRIGGER}
-            ${this.props.active ? '-active' : ''}
+            ${this.props.active ? ACTIVE_CLASS : ''}
             ${this.props.animate ? '-animate' : ''}
             ${this.props.disabled ? '-disabled' : ''}
             ${this.props.size ? `-${this.props.size}` : '-md'}
@@ -59,11 +59,11 @@ export default class DropdownBase extends React.Component {
         <div
           className={`
             ${DROPDOWN_CLASSES.MENU}
-            ${this.props.active ? '-active' : ''}
+            ${this.props.active ? ACTIVE_CLASS : ''}
           `}
           style={{
-            minHeight : `${this.props.minHeight}px`,
-            maxHeight : `${this.props.maxHeight}px`,
+            minHeight: `${this.props.minHeight}px`,
+            maxHeight: `${this.props.maxHeight}px`,
             width: `${this.props.width}px`,
           }}>
           {itemsToRender}
