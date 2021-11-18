@@ -1,6 +1,10 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import { DROPDOWN_CLASSES, BUTTON_CLASSES, ACTIVE_CLASS } from '../../constants/classes';
+import {
+  DROPDOWN_CLASSES, BUTTON_CLASSES,
+  ACTIVE_CLASS, ANIMATE_CHEVRON_CLASS,
+  DISABLED_CLASS
+} from '../../constants/classes';
 import { uuid4 } from '../../utils/utils';
 
 /**
@@ -9,9 +13,19 @@ import { uuid4 } from '../../utils/utils';
  */
 
 export default class DropdownBase extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = { id: uuid4() };
+  }
+
+  componentDidMount() {
+    const initialize = setInterval(() => {
+      if (window.chi && document.getElementById(this.state.id)) {
+        window.chi.dropdown(document.getElementById(this.state.id));
+        clearInterval(initialize);
+      }
+    }, 1000);
   }
 
   render() {
@@ -45,15 +59,14 @@ export default class DropdownBase extends React.Component {
             ${BUTTON_CLASSES.BUTTON}
             ${DROPDOWN_CLASSES.TRIGGER}
             ${this.props.active ? ACTIVE_CLASS : ''}
-            ${this.props.animate ? '-animate' : ''}
-            ${this.props.disabled ? '-disabled' : ''}
+            ${this.props.animate ? ANIMATE_CHEVRON_CLASS : ''}
+            ${this.props.disabled ? DISABLED_CLASS : ''}
             ${this.props.size ? `-${this.props.size}` : '-md'}
             ${this.props.buttonColor === 'base' ? '' : `-${this.props.buttonColor}`}
             ${this.props.buttonType === 'solid' ? '' : `-${this.props.buttonType}`}
-
           `}
           data-position={this.props.position}
-          onClick={() => chi.dropdown(document.getElementById(this.state.id))}>
+          onClick={() => this.props.buttonClick()}>
           {this.props.text}
         </button>
         <div
@@ -62,7 +75,8 @@ export default class DropdownBase extends React.Component {
             ${this.props.active ? ACTIVE_CLASS : ''}
           `}
           style={{
-            height: `${this.props.height && this.props.scrollItems ? `${this.props.height}px` : ''}`,
+            minHeight: `${this.props.height ? `${this.props.height}px` : ''}`,
+            maxHeight: `${this.props.height && this.props.scrollItems ? `${this.props.height}px` : ''}`,
             width: `${this.props.width ? `${this.props.width}px` : ''}`,
           }}>
           {itemsToRender}
@@ -94,6 +108,7 @@ DropdownBase.propTypes = {
   item9: PropTypes.string,
   item10: PropTypes.string,
   scrollItems: PropTypes.bool,
+  buttonClick: PropTypes.func,
   select1: PropTypes.func,
   select2: PropTypes.func,
   select3: PropTypes.func,
@@ -114,5 +129,4 @@ DropdownBase.defaultProps = {
   size: 'md',
   width: '200',
   height: '200',
-  scrollItems: true,
 };

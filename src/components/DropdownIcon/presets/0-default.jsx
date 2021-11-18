@@ -16,6 +16,7 @@ export default (
     item8=""
     item9=""
     item10=""
+    buttonClick={() => {}}
     select1={() => {}}
     select2={() => {}}
     select3={() => {}}

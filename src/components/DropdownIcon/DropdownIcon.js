@@ -1,6 +1,9 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import { DROPDOWN_CLASSES, BUTTON_CLASSES, ICON_CLASS, ACTIVE_CLASS } from '../../constants/classes';
+import {
+  DROPDOWN_CLASSES, BUTTON_CLASSES, ICON_CLASS,
+  DISABLED_CLASS, ACTIVE_CLASS
+} from '../../constants/classes';
 import { uuid4 } from '../../utils/utils';
 
 /**
@@ -12,6 +15,15 @@ export default class DropdownIcon extends React.Component {
   constructor(props) {
     super(props);
     this.state = { id: uuid4() };
+  }
+
+  componentDidMount() {
+    const initialize = setInterval(() => {
+      if (window.chi && document.getElementById(this.state.id)) {
+        window.chi.dropdown(document.getElementById(this.state.id));
+        clearInterval(initialize);
+      }
+    }, 1000);
   }
 
   render() {
@@ -42,16 +54,16 @@ export default class DropdownIcon extends React.Component {
           id={this.state.id}
           className={`
             ${BUTTON_CLASSES.BUTTON}  ${BUTTON_CLASSES.ICON_BUTTON}  ${BUTTON_CLASSES.FLAT}
-            ${this.props.disabled ? '-disabled' : ''} ${this.props.size ? `-${this.props.size}` : '-md'}
+            ${this.props.disabled ? DISABLED_CLASS : ''} ${this.props.size ? `-${this.props.size}` : '-md'}
           `}
           data-position={this.props.position}
-          onClick={() => chi.dropdown(document.getElementById(this.state.id))}>
+          onClick={() => this.props.buttonClick()}>
           <div className={BUTTON_CLASSES.CONTENT}>
             <i className={`
                 ${ICON_CLASS} 
                 icon-${this.props.icon}
                 ${this.props.size ? `-${this.props.size}` : '-md'}
-                ${this.props.color === 'base' ? '' : `-icon--${this.props.color}`}
+                ${this.props.color === 'base' ? '' : `${BUTTON_CLASSES.ICON_BUTTON}--${this.props.color}`}
              `} aria-hidden="true"></i>
           </div>
         </button>
@@ -62,7 +74,8 @@ export default class DropdownIcon extends React.Component {
             ${this.props.active ? ACTIVE_CLASS : ''}
           `}
           style={{
-            height: `${this.props.height && this.props.scrollItems ? `${this.props.height}px` : ''}`,
+            minHeight: `${this.props.height ? `${this.props.height}px` : ''}`,
+            maxHeight: `${this.props.height && this.props.scrollItems ? `${this.props.height}px` : ''}`,
             width: `${this.props.width ? `${this.props.width}px` : ''}`,
           }}>
           {itemsToRender}
@@ -92,6 +105,7 @@ DropdownIcon.propTypes = {
   item9: PropTypes.string,
   item10: PropTypes.string,
   scrollItems: PropTypes.bool,
+  buttonClick: PropTypes.func,
   select1: PropTypes.func,
   select2: PropTypes.func,
   select3: PropTypes.func,
