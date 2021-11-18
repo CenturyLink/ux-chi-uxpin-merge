@@ -62,9 +62,8 @@ export default class DropdownBase extends React.Component {
             ${this.props.active ? ACTIVE_CLASS : ''}
           `}
           style={{
-            minHeight: `${this.props.minHeight}px`,
-            maxHeight: `${this.props.maxHeight}px`,
-            width: `${this.props.width}px`,
+            height: `${this.props.height && this.props.scrollItems ? `${this.props.height}px` : ''}`,
+            width: `${this.props.width ? `${this.props.width}px` : ''}`,
           }}>
           {itemsToRender}
         </div>
@@ -82,9 +81,8 @@ DropdownBase.propTypes = {
   disabled: PropTypes.bool,
   position: PropTypes.oneOf(['initial', 'top-start', 'top', 'top-end', 'left-start', 'left', 'left-end', 'right-start', 'right', 'right-end', 'bottom-start', 'bottom', 'bottom-end']),
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
-  width: PropTypes.number,
-  minHeight: PropTypes.number,
-  maxHeight: PropTypes.number,
+  width: PropTypes.string,
+  height: PropTypes.string,
   item1: PropTypes.string,
   item2: PropTypes.string,
   item3: PropTypes.string,
@@ -95,6 +93,7 @@ DropdownBase.propTypes = {
   item8: PropTypes.string,
   item9: PropTypes.string,
   item10: PropTypes.string,
+  scrollItems: PropTypes.bool,
   select1: PropTypes.func,
   select2: PropTypes.func,
   select3: PropTypes.func,
@@ -108,9 +107,12 @@ DropdownBase.propTypes = {
 };
 
 DropdownBase.defaultProps = {
-  animate: true,
+  animateChevron: true,
   text: 'Dropdown component',
   buttonColor: 'base',
   buttonType: 'flat',
-  size: 'md'
+  size: 'md',
+  width: '200',
+  height: '200',
+  scrollItems: true,
 };

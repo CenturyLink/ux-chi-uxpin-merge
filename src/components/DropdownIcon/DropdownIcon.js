@@ -62,9 +62,8 @@ export default class DropdownIcon extends React.Component {
             ${this.props.active ? ACTIVE_CLASS : ''}
           `}
           style={{
-            minHeight: `${this.props.minHeight}px`,
-            maxHeight: `${this.props.maxHeight}px`,
-            width: `${this.props.width}px`,
+            height: `${this.props.height && this.props.scrollItems ? `${this.props.height}px` : ''}`,
+            width: `${this.props.width ? `${this.props.width}px` : ''}`,
           }}>
           {itemsToRender}
         </div>
@@ -80,9 +79,8 @@ DropdownIcon.propTypes = {
   color: PropTypes.oneOf(['primary', 'dark', 'grey', 'secondary', 'light', 'success', 'info', 'warning', 'danger', 'muted', 'navy', 'orange']),
   icon: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-  width: PropTypes.number,
-  minHeight: PropTypes.number,
-  maxHeight: PropTypes.number,
+  width: PropTypes.string,
+  height: PropTypes.string,
   item1: PropTypes.string,
   item2: PropTypes.string,
   item3: PropTypes.string,
@@ -93,6 +91,7 @@ DropdownIcon.propTypes = {
   item8: PropTypes.string,
   item9: PropTypes.string,
   item10: PropTypes.string,
+  scrollItems: PropTypes.bool,
   select1: PropTypes.func,
   select2: PropTypes.func,
   select3: PropTypes.func,

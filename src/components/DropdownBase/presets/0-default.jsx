@@ -4,11 +4,13 @@ import DropdownBase from "../DropdownBase";
 export default (
   <DropdownBase
     uxpId="dropdown-base"
-    animate="true"
+    animateChevron="true"
     text="Dropdown component"
     buttonColor="base"
     buttonType="flat"
     size="md"
+    width="200"
+    height="200"
     item1=""
     item2=""
     item3=""
@@ -19,6 +21,7 @@ export default (
     item8=""
     item9=""
     item10=""
+    scrollItems="true"
     select1={() => {}}
     select2={() => {}}
     select3={() => {}}
