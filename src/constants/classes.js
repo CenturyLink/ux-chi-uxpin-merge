@@ -6,6 +6,7 @@ export const LIGHT_CLASS = '-light';
 export const DISABLED_CLASS = '-disabled';
 export const INVERSE_CLASS = '-inverse';
 export const ANIMATED_CLASS = '-animated';
+export const ANIMATE_CHEVRON_CLASS = '-animate';
 export const PORTAL_CLASS = '-portal';
 export const TRANSITIONING_CLASS = '-transitioning';
 export const SR_ONLY_CLASS = '-sr--only';
@@ -107,9 +108,9 @@ export const UTILITY_CLASSES = {
         CENTER: '-justify-content-md--center',
         END: '-justify-content-md--end'
     },
-  ALIGN_ITEMS: {
-    CENTER: '-align-items--center',
-  },
+    ALIGN_ITEMS: {
+        CENTER: '-align-items--center',
+    },
     DISPLAY: {
         FLEX: '-d--flex',
     },
@@ -170,5 +171,12 @@ export const RADIO_CLASSES = {
 export const PRICE_CLASSES = {
     PRICE: 'chi-price'
 }
+/* Dropdown */
+export const DROPDOWN_CLASSES = {
+    DROPDOWN: 'chi-dropdown',
+    TRIGGER: 'chi-dropdown__trigger',
+    MENU: 'chi-dropdown__menu',
+    ITEM: 'chi-dropdown__menu-item'
+};
 
 /* eslint-enable */
