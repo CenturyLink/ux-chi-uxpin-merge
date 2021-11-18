@@ -74,8 +74,8 @@ export default class DropdownIcon extends React.Component {
             ${this.props.active ? ACTIVE_CLASS : ''}
           `}
           style={{
-            minHeight: `${this.props.height ? `${this.props.height}px` : ''}`,
-            maxHeight: `${this.props.height && this.props.scrollItems ? `${this.props.height}px` : ''}`,
+            height: `${this.props.height && this.props.scrollItems ? `${this.props.height}px` : ''}`,
+            minHeight: `${this.props.height && !this.props.scrollItems ? `${this.props.height}px` : ''}`,
             width: `${this.props.width ? `${this.props.width}px` : ''}`,
           }}>
           {itemsToRender}
