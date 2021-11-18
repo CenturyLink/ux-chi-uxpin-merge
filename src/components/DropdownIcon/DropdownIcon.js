@@ -54,7 +54,7 @@ export default class DropdownIcon extends React.Component {
           id={this.state.id}
           className={`
             ${BUTTON_CLASSES.BUTTON}  ${BUTTON_CLASSES.ICON_BUTTON}  ${BUTTON_CLASSES.FLAT}
-            ${this.props.disabled ? DISABLED_CLASS : ''} ${this.props.size ? `-${this.props.size}` : '-md'}
+            ${this.props.disabled ? DISABLED_CLASS : ''} ${this.props.size ? `-${this.props.size}` : ''}
           `}
           data-position={this.props.position}
           onClick={() => this.props.buttonClick()}>
@@ -62,7 +62,6 @@ export default class DropdownIcon extends React.Component {
             <i className={`
                 ${ICON_CLASS} 
                 icon-${this.props.icon}
-                ${this.props.size ? `-${this.props.size}` : '-md'}
                 ${this.props.color === 'base' ? '' : `${BUTTON_CLASSES.ICON_BUTTON}--${this.props.color}`}
              `} aria-hidden="true"></i>
           </div>
@@ -120,7 +119,6 @@ DropdownIcon.propTypes = {
 
 DropdownIcon.defaultProps = {
   icon: 'more-vert',
-  size: 'md',
   item1: 'Item 1',
   item2: 'Item 2',
   item3: 'Item 3',

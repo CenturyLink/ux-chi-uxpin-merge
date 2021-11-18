@@ -5,7 +5,6 @@ export default (
   <DropdownIcon
     uxpId="dropdown-icon"
     icon="more-vert"
-    size="md"
     item1="Item 1"
     item2="Item 2"
     item3="Item 3"
