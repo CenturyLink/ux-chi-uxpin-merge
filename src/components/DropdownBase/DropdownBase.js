@@ -1,9 +1,12 @@
+/* eslint-disable react/no-unused-prop-types */
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import {
-  DROPDOWN_CLASSES, BUTTON_CLASSES,
-  ACTIVE_CLASS, ANIMATE_CHEVRON_CLASS,
-  DISABLED_CLASS
+  ACTIVE_CLASS,
+  ANIMATE_CHEVRON_CLASS,
+  BUTTON_CLASSES,
+  DISABLED_CLASS,
+  DROPDOWN_CLASSES,
 } from '../../constants/classes';
 import { uuid4 } from '../../utils/utils';
 
@@ -13,7 +16,6 @@ import { uuid4 } from '../../utils/utils';
  */
 
 export default class DropdownBase extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = { id: uuid4() };
@@ -35,6 +37,7 @@ export default class DropdownBase extends React.Component {
       .forEach((_, i) => {
         if (this.props[`item${i}`]) {
           itemsToRender.push(
+            // eslint-disable-next-line jsx-a11y/anchor-is-valid
             <a
               className={`${DROPDOWN_CLASSES.ITEM}`}
               href="#"
@@ -43,14 +46,17 @@ export default class DropdownBase extends React.Component {
 
                 if (currentItemActive) currentItemActive.classList.remove(ACTIVE_CLASS);
                 this.props[`select${i}`]();
-                e.target.classList.add(ACTIVE_CLASS)
+                e.target.classList.add(ACTIVE_CLASS);
               }
-              }>{this.props[`item${i}`]}</a >
+              }>
+              {this.props[`item${i}`]}
+            </a>
           );
         }
-      })
+      });
 
     return (
+      // eslint-disable-next-line react/prop-types
       <div className={`${DROPDOWN_CLASSES.DROPDOWN}`} ref={this.props.uxpinRef}>
         <button
           type="button"
@@ -86,6 +92,7 @@ export default class DropdownBase extends React.Component {
   }
 }
 
+/* eslint-disable sort-keys */
 DropdownBase.propTypes = {
   active: PropTypes.bool,
   animateChevron: PropTypes.bool,
@@ -118,7 +125,7 @@ DropdownBase.propTypes = {
   select7: PropTypes.func,
   select8: PropTypes.func,
   select9: PropTypes.func,
-  select10: PropTypes.func
+  select10: PropTypes.func,
 };
 
 DropdownBase.defaultProps = {

@@ -1,8 +1,12 @@
+/* eslint-disable react/no-unused-prop-types */
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import {
-  DROPDOWN_CLASSES, BUTTON_CLASSES, ICON_CLASS,
-  DISABLED_CLASS, ACTIVE_CLASS
+  ACTIVE_CLASS,
+  BUTTON_CLASSES,
+  DISABLED_CLASS,
+  DROPDOWN_CLASSES,
+  ICON_CLASS,
 } from '../../constants/classes';
 import { uuid4 } from '../../utils/utils';
 
@@ -33,6 +37,7 @@ export default class DropdownIcon extends React.Component {
       .forEach((_, i) => {
         if (this.props[`item${i}`]) {
           itemsToRender.push(
+            // eslint-disable-next-line jsx-a11y/anchor-is-valid
             <a
               className={`${DROPDOWN_CLASSES.ITEM}`}
               href="#"
@@ -41,17 +46,21 @@ export default class DropdownIcon extends React.Component {
 
                 if (currentItemActive) currentItemActive.classList.remove(ACTIVE_CLASS);
                 this.props[`select${i}`]();
-                e.target.classList.add(ACTIVE_CLASS)
+                e.target.classList.add(ACTIVE_CLASS);
               }
-              }>{this.props[`item${i}`]}</a >
+              }>
+              {this.props[`item${i}`]}
+            </a>
           );
         }
-      })
+      });
 
     return (
+      // eslint-disable-next-line react/prop-types
       <div className={`${DROPDOWN_CLASSES.DROPDOWN}`} ref={this.props.uxpinRef}>
         <button
           id={this.state.id}
+          type="button"
           className={`
             ${BUTTON_CLASSES.BUTTON}  ${BUTTON_CLASSES.ICON_BUTTON}  ${BUTTON_CLASSES.FLAT}
             ${this.props.disabled ? DISABLED_CLASS : ''} ${this.props.size ? `-${this.props.size}` : ''}
@@ -59,11 +68,13 @@ export default class DropdownIcon extends React.Component {
           data-position={this.props.position}
           onClick={() => this.props.buttonClick()}>
           <div className={BUTTON_CLASSES.CONTENT}>
-            <i className={`
-                ${ICON_CLASS} 
-                icon-${this.props.icon}
+            <i
+              className={` ${ICON_CLASS} 
+                icon-${this.props.icon} 
                 ${this.props.color === 'base' ? '' : `${BUTTON_CLASSES.ICON_BUTTON}--${this.props.color}`}
-             `} aria-hidden="true"></i>
+              `}
+              aria-hidden="true">
+            </i>
           </div>
         </button>
 
@@ -114,7 +125,7 @@ DropdownIcon.propTypes = {
   select7: PropTypes.func,
   select8: PropTypes.func,
   select9: PropTypes.func,
-  select10: PropTypes.func
+  select10: PropTypes.func,
 };
 
 DropdownIcon.defaultProps = {
