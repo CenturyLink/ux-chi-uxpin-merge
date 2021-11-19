@@ -16,13 +16,13 @@ const Price = (props) => {
       {supB}
     </div>
   );
-}
+};
 
 Price.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   supA: PropTypes.string,
   value: PropTypes.string,
-  supB: PropTypes.string
+  supB: PropTypes.string,
 };
 
 Price.defaultProps = {
