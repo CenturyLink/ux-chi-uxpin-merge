@@ -1,5 +1,5 @@
-import React from "react";
-import DropdownIcon from "../DropdownIcon";
+import React from 'react';
+import DropdownIcon from '../DropdownIcon';
 
 export default (
   <DropdownIcon

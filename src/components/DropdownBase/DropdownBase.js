@@ -59,7 +59,7 @@ export default class DropdownBase extends React.Component {
             ${BUTTON_CLASSES.BUTTON}
             ${DROPDOWN_CLASSES.TRIGGER}
             ${this.props.active ? ACTIVE_CLASS : ''}
-            ${this.props.animate ? ANIMATE_CHEVRON_CLASS : ''}
+            ${this.props.animateChevron ? ANIMATE_CHEVRON_CLASS : ''}
             ${this.props.disabled ? DISABLED_CLASS : ''}
             ${this.props.size ? `-${this.props.size}` : '-md'}
             ${this.props.buttonColor === 'base' ? '' : `-${this.props.buttonColor}`}

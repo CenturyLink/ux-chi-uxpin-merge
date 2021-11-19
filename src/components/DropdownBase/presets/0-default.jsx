@@ -1,10 +1,9 @@
-import React from "react";
-import DropdownBase from "../DropdownBase";
+import React from 'react';
+import DropdownBase from '../DropdownBase';
 
 export default (
   <DropdownBase
     uxpId="dropdown-base"
-    animateChevron={true}
     text="Dropdown component"
     buttonColor="base"
     buttonType="flat"
