@@ -40,7 +40,6 @@ export default class DropdownBase extends React.Component {
             // eslint-disable-next-line jsx-a11y/anchor-is-valid
             <a
               className={`${DROPDOWN_CLASSES.ITEM}`}
-              href="#"
               onClick={(e) => {
                 const currentItemActive = e.target.parentNode.querySelector('a.-active');
 
@@ -71,6 +70,7 @@ export default class DropdownBase extends React.Component {
             ${this.props.buttonColor === 'base' ? '' : `-${this.props.buttonColor}`}
             ${this.props.buttonType === 'solid' ? '' : `-${this.props.buttonType}`}
           `}
+          style={{ textTransform: 'none' }}
           data-position={this.props.position}
           onClick={() => this.props.buttonClick()}>
           {this.props.text}

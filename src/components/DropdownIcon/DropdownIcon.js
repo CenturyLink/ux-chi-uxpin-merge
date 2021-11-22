@@ -40,7 +40,6 @@ export default class DropdownIcon extends React.Component {
             // eslint-disable-next-line jsx-a11y/anchor-is-valid
             <a
               className={`${DROPDOWN_CLASSES.ITEM}`}
-              href="#"
               onClick={(e) => {
                 const currentItemActive = e.target.parentNode.querySelector('a.-active');
 
@@ -66,7 +65,8 @@ export default class DropdownIcon extends React.Component {
             ${this.props.disabled ? DISABLED_CLASS : ''} ${this.props.size ? `-${this.props.size}` : ''}
           `}
           data-position={this.props.position}
-          onClick={() => this.props.buttonClick()}>
+          onClick={() => this.props.buttonClick()}
+          style={{ textTransform: 'none' }}>
           <div className={BUTTON_CLASSES.CONTENT}>
             <i
               className={` ${ICON_CLASS} 
