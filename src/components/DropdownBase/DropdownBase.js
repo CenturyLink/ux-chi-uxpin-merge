@@ -37,7 +37,7 @@ export default class DropdownBase extends React.Component {
       .forEach((_, i) => {
         if (this.props[`item${i}`]) {
           itemsToRender.push(
-            // eslint-disable-next-line jsx-a11y/anchor-is-valid
+            // eslint-disable-next-line
             <a
               className={`${DROPDOWN_CLASSES.ITEM}`}
               onClick={(e) => {
