@@ -4,7 +4,7 @@ import PhoneInput from '../PhoneInput';
 export default (
   <PhoneInput
     uxpId="phoneInput"
-    country="US"
+    country="United States"
     label="Phone Number"
     size="md"
     width={300}
