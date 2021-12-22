@@ -48,6 +48,7 @@ module.exports = {
           'src/components/Marketing-icon/Marketing-icon.js',
           'src/components/Page-Title/Page-Title.js',
           'src/components/Pagination/Pagination.js',
+          'src/components/PhoneInput/PhoneInput.js',
           'src/components/Popover/Popover.js',
           'src/components/Price/Price.js',
           'src/components/Progress/Progress.js',
