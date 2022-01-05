@@ -13,6 +13,8 @@ collection of components based on our own design system (CHI).
 | Brand | [Brand](https://assets.ctl.io/chi/5.4.0/components/brand/) | ✅ Full Support |
 | Checkbox | [Checkbox](https://assets.ctl.io/chi/5.4.0/components/forms/checkbox/) | ✅ Full Support |
 | Date Picker | [Date Picker](https://assets.ctl.io/chi/5.4.0/components/date-picker/) | ✅ Full Support |
+| Dropdown Base | [Dropdown Base](https://assets.ctl.io/chi/5.4.0/components/dropdown) | ✅ Full Support |
+| Dropdown Icon | [Dropdown Icon](https://assets.ctl.io/chi/5.4.0/components/dropdown) | ✅ Full Support |
 | File Input | [File Input](https://assets.ctl.io/chi/5.4.0/components/forms/file-input/) | ✅ Full Support |
 | Floating Button | [Floating Button](https://assets.ctl.io/chi/5.4.0/components/button/#floating-icon-buttons) | ✅ Full Support 
 | Icon | [Icon](https://assets.ctl.io/chi/5.4.0/components/icon/) | ✅ Full Support |
@@ -24,6 +26,8 @@ collection of components based on our own design system (CHI).
 | Page Title | [Page Title](https://assets.ctl.io/chi/5.4.0/templates/portal/#page-title) | ✅ Full Support |
 | Pagination | [Pagination](https://assets.ctl.io/chi/5.4.0/components/pagination/) | ✅ Full Support |
 | Picker Group | [Picker Group](https://assets.ctl.io/chi/5.4.0/components/picker-group/) | ✅ Full Support |
+| Phone Input | [Phone Input](https://assets.ctl.io/chi/5.4.0/components/phone-input) | ✅ Full Support |
+| Price | [Price](https://assets.ctl.io/chi/5.4.0/components/price) | ✅ Full Support |
 | Popover | [Popover](https://assets.ctl.io/chi/5.4.0/components/popover/) | ✅ Full Support |
 | Primary Button | [Primary Button](https://assets.ctl.io/chi/5.4.0/templates/portal/#buttons) | ✅ Full Support |
 | Progress | [Progress](https://assets.ctl.io/chi/5.4.0/components/progress/) | ✅ Full Support |
