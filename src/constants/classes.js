@@ -179,4 +179,9 @@ export const DROPDOWN_CLASSES = {
     ITEM: 'chi-dropdown__menu-item'
 };
 
+/* Skeleton */
+export const SKELETON_CLASSES = {
+    SKELETON: 'chi-skeleton',
+};
+
 /* eslint-enable */
