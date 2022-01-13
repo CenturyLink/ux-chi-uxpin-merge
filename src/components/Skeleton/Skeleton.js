@@ -4,29 +4,33 @@ import { SKELETON_CLASSES } from '../../constants/classes';
 
 /**
  * @uxpincomponent
+ * @uxpinwrappers
+ * SkipContainerWrapper
  */
-const Skeleton = (props) => {
-  const skeletonType = () => {
-    if (props.type && props.type === 'rounded squared') {
-      return '-square -rounded';
-    }
 
-    if (props.type) {
-      return `-${props.type}`;
-    }
+const skeletonType = (type) => {
+  if (type && type === 'rounded squared') {
+    return '-square -rounded';
+  }
 
-    return '';
-  };
+  if (type) {
+    return `-${type}`;
+  }
 
-  return (
-    <div className={`
-        ${SKELETON_CLASSES.SKELETON} 
-        ${skeletonType()}
-        ${props.size ? `-${props.size}` : ''}
-      `}>
-    </div>
-  );
+  return '';
 };
+
+const Skeleton = ({ size, type, uxpinRef }) => (
+  <div ref={uxpinRef}>
+    <div
+      className={`
+    ${SKELETON_CLASSES.SKELETON} 
+    ${skeletonType(type)}
+    ${size ? `-${size}` : ''}
+  `}>
+    </div>
+  </div>
+);
 
 
 Skeleton.propTypes = {
@@ -34,6 +38,9 @@ Skeleton.propTypes = {
   type: PropTypes.oneOf(['circle', 'rounded', 'rounded squared', 'square']),
 };
 
-Skeleton.defaultProps = {};
+Skeleton.defaultProps = {
+  size: 'md',
+  type: 'default',
+};
 
-export default Skeleton;
+export { Skeleton as default };
