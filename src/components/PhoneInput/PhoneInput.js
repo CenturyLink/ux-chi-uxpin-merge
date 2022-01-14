@@ -1,10 +1,17 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { uuid4 } from '../../utils/utils';
-import { LABEL_CLASSES } from '../../constants/classes';
+import Label from '../Label/Label';
+import {
+  BUTTON_CLASSES, ICON_CLASS,
+  LABEL_CLASSES, STAT_CLASSES,
+} from '../../constants/classes';
 
+/* eslint-disable */
 /**
  * @uxpincomponent
+ * @uxpinwrappers
+ * SkipContainerWrapper
  */
 
 export default class PhoneInput extends React.Component {
@@ -43,15 +50,39 @@ export default class PhoneInput extends React.Component {
   }
 
   render() {
+    const label = this.props.label
+      ? (
+        <Label
+          className={`${LABEL_CLASSES.LABEL}`}
+          htmlFor={this.state.id}
+          required={this.props.required}
+          label={this.props.label}>
+        </Label>
+      )
+      : null;
+    const info = this.props.info
+      ? (
+        <div
+          className={`${STAT_CLASSES.TITLE_HELP}`}
+          onClick={this.props.clickInfo}
+          onMouseEnter={this.props.mouseOverInfo}
+          onMouseLeave={this.props.mouseLeaveInfo}>
+          <button type="button" className={`${BUTTON_CLASSES.BUTTON} -icon -xs -flat`} aria-label="Help">
+            <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
+          </button>
+        </div>
+      ) : '';
+
     this.key += 1;
 
     return (
       <div
         key={this.key}
-        style={{
-          width: `${this.props.width ? `${this.props.width}px` : ''}`,
-        }}>
-        <chi-label for={`phone-input-${this.state.id}`}>{this.props.label}</chi-label>
+        ref={this.props.uxpinRef}>
+        <div className={`${LABEL_CLASSES.WRAPPER}`}>
+          {label}
+          {info}
+        </div>
         <chi-phone-input
           default-country={this.mapCountry(this.props.country)}
           disabled={this.props.disabled}
@@ -61,31 +92,32 @@ export default class PhoneInput extends React.Component {
           state={this.props.state}
           value={this.props.value}>
         </chi-phone-input>
-        {this.props.state && (
-          <div className={`${LABEL_CLASSES.LABEL} -status -${this.props.state}`}>
-            {this.props.stateLabel}
-          </div>
-        )}
       </div>
     );
   }
 }
 
 PhoneInput.propTypes = {
-  disabled: PropTypes.bool,
   country: PropTypes.oneOf(['United States', 'Brazil', 'China', 'France', 'Germany', 'India', 'Italy', 'Russia', 'Spain', 'United Kingdom']),
+  disabled: PropTypes.bool,
+  required: PropTypes.oneOf(['none', 'required', 'optional']),
+  info: PropTypes.bool,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   state: PropTypes.oneOf(['danger', 'success', 'warning']),
-  stateLabel: PropTypes.string,
   value: PropTypes.string,
-  width: PropTypes.number,
+  input: PropTypes.func,
+  valueChange: PropTypes.func,
+  clickInfo: PropTypes.func,
+  mouseLeaveInfo: PropTypes.func,
+  mouseOverInfo: PropTypes.func,
 };
+/* eslint-enable */
 
 PhoneInput.defaultProps = {
   country: 'United States',
   label: 'Phone Number',
+  required: 'none',
   size: 'md',
-  width: 300,
 };
