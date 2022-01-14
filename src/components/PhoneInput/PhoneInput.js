@@ -53,7 +53,6 @@ export default class PhoneInput extends React.Component {
     const label = this.props.label
       ? (
         <Label
-          className={`${LABEL_CLASSES.LABEL}`}
           htmlFor={this.state.id}
           required={this.props.required}
           label={this.props.label}>

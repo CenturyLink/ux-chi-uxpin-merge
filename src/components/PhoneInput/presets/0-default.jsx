@@ -14,6 +14,5 @@ export default (
     required="none"
     size="md"
     valueChange={() => {}}
-    width={300}
   />
 );
