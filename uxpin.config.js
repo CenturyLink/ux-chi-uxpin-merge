@@ -23,6 +23,7 @@ module.exports = {
           'src/components/File-input/File-input.js',
           'src/components/Label/Label.js',
           'src/components/Number-input/Number-input.js',
+          'src/components/PhoneInput/PhoneInput.js',
           'src/components/Picker-group/Picker-group.js',
           'src/components/Radio/Radio.js',
           'src/components/Select/Select.js',
