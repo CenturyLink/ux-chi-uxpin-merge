@@ -53,6 +53,7 @@ module.exports = {
           'src/components/Price/Price.js',
           'src/components/Progress/Progress.js',
           'src/components/Search-input/Search-input.js',
+          'src/components/Skeleton/Skeleton.js',
           'src/components/Steps/Steps.js',
           'src/components/Spinner/Spinner.js',
           // 'src/components/Tooltip/Tooltip.js',

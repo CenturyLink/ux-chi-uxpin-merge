@@ -91,7 +91,7 @@ export default class PickerGroup extends React.Component {
 PickerGroup.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
-  selected: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  selected: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   info: PropTypes.bool,
   clickInfo: PropTypes.func,
   mouseOverInfo: PropTypes.func,
@@ -135,5 +135,6 @@ PickerGroup.defaultProps = {
   picker2: 'Picker 2',
   picker3: 'Picker 3',
   required: 'none',
+  selected: 1,
   info: false,
 };

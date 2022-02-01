@@ -2,7 +2,6 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import Label from '../Label/Label';
 import { uuid4 } from '../../utils/utils';
-import './select.css';
 import {
   BUTTON_CLASSES,
   ICON_CLASS,
@@ -59,7 +58,7 @@ export default class Select extends React.Component {
     };
 
     return (
-      <div className="chi-form__item css-chi">
+      <div className="chi-form__item">
         <div className={`${LABEL_CLASSES.WRAPPER}`}>
           {label}
           {info}
