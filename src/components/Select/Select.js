@@ -8,6 +8,7 @@ import {
   LABEL_CLASSES,
   STAT_CLASSES,
 } from '../../constants/classes';
+import './select.css';
 
 /* eslint-disable */
 /**

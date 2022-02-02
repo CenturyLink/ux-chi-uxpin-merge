@@ -7,29 +7,44 @@ import * as React from 'react';
  * @uxpinwrappers
  * SkipContainerWrapper
  */
-const MarketingIcon = ({ click, mouseDown, mouseUp, mouseLeave, mouseOver, icon, size, uxpinRef }) => (
-  <div
-    style={{
-      width: size === 'xs' ? 72 :
-        size === 'sm' ? 80 :
-        size === 'md' ? 90 :
-        size === 'lg' ? 128 : '100%'
-    }}
-    onClick={click}
-    onMouseEnter={mouseOver}
-    onMouseLeave={mouseLeave}
-    onMouseDown={mouseDown}
-    onMouseUp={mouseUp}
-    ref={uxpinRef}>
-      <chi-marketing-icon icon={icon} size={size}>
+export default class MarketingIcon extends React.Component {
+  key = 0;
+
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    this.key += 1;
+
+    return (<div
+      key={this.key}
+      style={{
+        width: this.props.size === 'xs' ? 72 :
+          this.props.size === 'sm' ? 80 :
+            this.props.size === 'md' ? 90 :
+              this.props.size === 'lg' ? 128 : '100%'
+      }}
+      onClick={this.props.click}
+      onMouseEnter={this.props.mouseOver}
+      onMouseLeave={this.props.mouseLeave}
+      onMouseDown={this.props.mouseDown}
+      onMouseUp={this.props.mouseUp}
+      ref={this.props.uxpinRef}>
+      <chi-marketing-icon
+        icon={this.props.icon}
+        size={this.props.size}
+        variant={`${this.props.style === 'base' ? 'filled' : 'outline'}`}>
         <span className="-sr--only">
           i
         </span>
       </chi-marketing-icon>
-  </div>
-);
+    </div>);
+  }
+}
 
 MarketingIcon.propTypes = {
+  style: PropTypes.oneOf(['base', 'outline']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   icon: PropTypes.string,
   click: PropTypes.func,
@@ -42,7 +57,6 @@ MarketingIcon.propTypes = {
 
 MarketingIcon.defaultProps = {
   size: 'sm',
+  style: 'base',
   icon: 'business-big-data',
 };
-
-export { MarketingIcon as default };
