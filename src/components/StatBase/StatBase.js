@@ -1,10 +1,14 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import * as PropTypes from 'prop-types';
 import React from 'react';
 import { uuid4 } from '../../utils/utils';
 import {
   ACTIVE_CLASS,
+  CAROUSEL_CLASSES,
   STAT_CLASSES,
 } from '../../constants/classes';
+import { marketingIcons } from '../../constants/icons';
 
 let uuid;
 const statsToRender = [];
@@ -27,17 +31,26 @@ export default function StatBase(props) {
     const backgroundIcon = props[`s${statIndex}Icon`]
       ? (
         <div className="chi-stat-background-icon">
-          <i className={`chi-icon icon-${props[`s${statIndex}Icon`]}`} aria-hidden="true" />
+          {marketingIcons.includes(props[`s${statIndex}Icon`]) ? <chi-marketing-icon icon={props[`s${statIndex}Icon`]} variant="outline"></chi-marketing-icon> : (
+            <i
+              className={
+                `chi-icon icon-${props[`s${statIndex}Icon`]}`}
+              aria-hidden="true"
+            />
+          )}
         </div>
       ) : null;
 
     if (props[statProp]) {
       statsToRender.push(
         <div
+          onClick={props[`s${statIndex}Click`]}
           key={`stat-${uuid}${statIndex}`}
-          className={`${STAT_CLASSES.ITEM} ${
-            props.activeStat === statIndex ? ACTIVE_CLASS : ''
-          }`}>
+          className={`
+            ${STAT_CLASSES.ITEM} 
+            ${props.activeStat === statIndex ? ACTIVE_CLASS : ''}
+            ${props.carousel ? CAROUSEL_CLASSES.CAROUSEL : ''}
+          `}>
           <div className={STAT_CLASSES.CONTENT}>
             <div className={STAT_CLASSES.METRIC}>
               <div className={STAT_CLASSES.METRIC_VALUE}>
@@ -66,11 +79,14 @@ export default function StatBase(props) {
     }
   });
 
-  return <div className="chi-stat -sm">{statsToRender}</div>;
+  const stats = <div className="chi-stat -sm">{statsToRender}</div>;
+
+  return props.carousel ? <chi-carousel><div className="-d--flex" slot="items">{stats}</div></chi-carousel> : stats;
 }
 
 /* eslint-disable */
 StatBase.propTypes = {
+  carousel: PropTypes.bool,
   activeStat: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   stat1Title: PropTypes.string,
   s1Metric: PropTypes.string,
@@ -122,9 +138,20 @@ StatBase.propTypes = {
   s10AuxTitle: PropTypes.string,
   s10AuxMetric: PropTypes.string,
   s10Icon: PropTypes.string,
+  s1Click: PropTypes.func,
+  s2Click: PropTypes.func,
+  s3Click: PropTypes.func,
+  s4Click: PropTypes.func,
+  s5Click: PropTypes.func,
+  s6Click: PropTypes.func,
+  s7Click: PropTypes.func,
+  s8Click: PropTypes.func,
+  s9Click: PropTypes.func,
+  s10Click: PropTypes.func,
 };
 
 StatBase.defaultProps = {
+  carousel: true,
   stat1Title: 'metric 1',
   s1Metric: 1,
   s1AuxMetric: 2,

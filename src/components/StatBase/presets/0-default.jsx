@@ -34,5 +34,15 @@ export default (
     s8AuxMetric={0}
     s9AuxMetric={0}
     s10AuxMetric={0}
+    s1click={() => {}}
+    s2click={() => {}}
+    s3click={() => {}}
+    s4click={() => {}}
+    s5click={() => {}}
+    s6click={() => {}}
+    s7click={() => {}}
+    s8click={() => {}}
+    s9click={() => {}}
+    s10click={() => {}}
   />
 );

@@ -131,10 +131,15 @@ export const STAT_CLASSES = {
     TITLE_HELP: 'chi-label__help',
     SUBMETRIC: 'chi-stat-submetric',
     SUBMETRIC_VALUE: 'chi-stat-submetric__value',
-    SUBMETRIC_TITLE: 'chi-stat-submetric__title'
+    SUBMETRIC_TITLE: 'chi-stat-submetric__title',
 };
 
-/* Tooltip */
+/* Carousel */
+export const CAROUSEL_CLASSES = {
+    CAROUSEL: 'chi-carousel__item',
+}
+
+/* Popover */
 export const POPOVER_CLASSES = {
     POPOVER: 'chi-popover',
     CONTENT: 'chi-popover__content',
