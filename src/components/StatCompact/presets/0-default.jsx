@@ -66,5 +66,15 @@ export default (
     stat10Metric2={1}
     stat10Title2=""
     stat10InfoMessage=""
+    stat1click={() => {}}
+    stat2click={() => {}}
+    stat3click={() => {}}
+    stat4click={() => {}}
+    stat5click={() => {}}
+    stat6click={() => {}}
+    stat7click={() => {}}
+    stat8click={() => {}}
+    stat9click={() => {}}
+    stat10click={() => {}}
   />
 );

@@ -1,9 +1,12 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import * as PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { uuid4 } from '../../utils/utils';
 import {
   ACTIVE_CLASS,
   BUTTON_CLASSES,
+  CAROUSEL_CLASSES,
   ICON_CLASS,
   POPOVER_CLASSES,
   STAT_CLASSES,
@@ -38,7 +41,8 @@ export default function StatCompact(props) {
             id={`stat-help-${uuid}-${statProp}-info-button`}
             aria-label="Help"
             data-target={`#stat-help-${uuid}-${statProp}-info-popover`}
-            data-position="bottom">
+            data-position="bottom"
+            onClick={(e) => e.stopPropagation()}>
             <i className={`${ICON_CLASS} icon-circle-info-outline`}>
               <span className="-sr--only">
                 i
@@ -69,7 +73,9 @@ export default function StatCompact(props) {
           className={`
             ${STAT_CLASSES.ITEM}
             ${props.activeStat === statIndex ? ACTIVE_CLASS : ''}
-            `}>
+            ${props.carousel ? CAROUSEL_CLASSES.CAROUSEL : ''}
+          `}
+          onClick={props[`stat${statIndex}Click`]}>
           <div className={STAT_CLASSES.CONTENT}>
             <div className={STAT_CLASSES.METRIC}>
               <div className={STAT_CLASSES.TITLE}>
@@ -113,15 +119,14 @@ export default function StatCompact(props) {
     });
   });
 
-  return (
-    <div className="chi-stat -compact">
-      {statsToRender}
-    </div>
-  );
+  const stats = <div className="chi-stat -compact">{statsToRender}</div>;
+
+  return props.carousel ? <chi-carousel><div className="-d--flex" slot="items">{stats}</div></chi-carousel> : stats;
 }
 
 /* eslint-disable */
 StatCompact.propTypes = {
+  carousel: PropTypes.bool,
   activeStat: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   /** @uxpinignoreprop */
   statWidth: PropTypes.number,
@@ -185,9 +190,20 @@ StatCompact.propTypes = {
   stat10Metric2: PropTypes.number,
   stat10Title2: PropTypes.string,
   stat10InfoMessage: PropTypes.string,
+  stat1Click: PropTypes.func,
+  stat2Click: PropTypes.func,
+  stat3Click: PropTypes.func,
+  stat4Click: PropTypes.func,
+  stat5Click: PropTypes.func,
+  stat6Click: PropTypes.func,
+  stat7Click: PropTypes.func,
+  stat8Click: PropTypes.func,
+  stat9Click: PropTypes.func,
+  stat10Click: PropTypes.func,
 };
 
 StatCompact.defaultProps = {
+  carousel: true,
   stat1: 'metric 1',
   stat1Metric1: 1,
   stat1Title1: 'High',
