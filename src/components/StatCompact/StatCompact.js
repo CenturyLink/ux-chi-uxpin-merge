@@ -7,11 +7,13 @@ import {
   ACTIVE_CLASS,
   BUTTON_CLASSES,
   CAROUSEL_CLASSES,
+  DISABLED_CLASS,
   ICON_CLASS,
   POPOVER_CLASSES,
   STAT_CLASSES,
 } from '../../constants/classes';
 
+let key;
 let uuid;
 const statsToRender = [];
 
@@ -19,6 +21,7 @@ export default function StatCompact(props) {
   const statProps = [];
 
   uuid = `stat-${uuid4()}`;
+  key = 0;
   statsToRender.length = 0;
   const helpInfoMessages = [];
 
@@ -68,42 +71,85 @@ export default function StatCompact(props) {
       }
 
       statsToRender.push(
-        <div
-          key={`stat-${uuid}${statIndex}`}
-          className={`
+        !(props[`s${statIndex}Click`])
+          ? (
+            <div
+              key={`stat-${uuid}${statIndex}`}
+              className={`
             ${STAT_CLASSES.ITEM}
             ${props.activeStat === statIndex ? ACTIVE_CLASS : ''}
             ${props.carousel ? CAROUSEL_CLASSES.CAROUSEL : ''}
+            ${props[`stat${statIndex}Disabled`] ? DISABLED_CLASS : ''}
           `}
-          onClick={props[`stat${statIndex}Click`]}>
-          <div className={STAT_CLASSES.CONTENT}>
-            <div className={STAT_CLASSES.METRIC}>
-              <div className={STAT_CLASSES.TITLE}>
-                {String(props[`stat${statIndex}`])}
-              </div>
-              <div className={STAT_CLASSES.TITLE_HELP}>
-                {helpButton}
-                {helpPopover}
+              onClick={props[`stat${statIndex}Click`]}>
+              <div className={STAT_CLASSES.CONTENT}>
+                <div className={STAT_CLASSES.METRIC}>
+                  <div className={STAT_CLASSES.TITLE}>
+                    {String(props[`stat${statIndex}`])}
+                  </div>
+                  <div className={STAT_CLASSES.TITLE_HELP}>
+                    {helpButton}
+                    {helpPopover}
+                  </div>
+                </div>
+                <div className={STAT_CLASSES.SUBMETRIC}>
+                  <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
+                    {String(props[`stat${statIndex}Metric1`]) || ''}
+                  </div>
+                  <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
+                    {String(props[`stat${statIndex}Title1`]) || ''}
+                  </div>
+                </div>
+                <div className={STAT_CLASSES.SUBMETRIC}>
+                  <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
+                    {String(props[`stat${statIndex}Metric2`]) || ''}
+                  </div>
+                  <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
+                    {String(props[`stat${statIndex}Title2`]) || ''}
+                  </div>
+                </div>
               </div>
             </div>
-            <div className={STAT_CLASSES.SUBMETRIC}>
-              <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
-                {String(props[`stat${statIndex}Metric1`]) || ''}
+          ) : (
+            // eslint-disable-next-line jsx-a11y/anchor-is-valid
+            <a
+              key={`stat-${uuid}${statIndex}`}
+              className={`
+          ${STAT_CLASSES.ITEM}
+          ${props.activeStat === statIndex ? ACTIVE_CLASS : ''}
+          ${props.carousel ? CAROUSEL_CLASSES.CAROUSEL : ''}
+          ${props[`stat${statIndex}Disabled`] ? DISABLED_CLASS : ''}
+        `}
+              onClick={props[`stat${statIndex}Click`]}>
+              <div className={STAT_CLASSES.CONTENT}>
+                <div className={STAT_CLASSES.METRIC}>
+                  <div className={STAT_CLASSES.TITLE}>
+                    {String(props[`stat${statIndex}`])}
+                  </div>
+                  <div className={STAT_CLASSES.TITLE_HELP}>
+                    {helpButton}
+                    {helpPopover}
+                  </div>
+                </div>
+                <div className={STAT_CLASSES.SUBMETRIC}>
+                  <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
+                    {String(props[`stat${statIndex}Metric1`]) || ''}
+                  </div>
+                  <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
+                    {String(props[`stat${statIndex}Title1`]) || ''}
+                  </div>
+                </div>
+                <div className={STAT_CLASSES.SUBMETRIC}>
+                  <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
+                    {String(props[`stat${statIndex}Metric2`]) || ''}
+                  </div>
+                  <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
+                    {String(props[`stat${statIndex}Title2`]) || ''}
+                  </div>
+                </div>
               </div>
-              <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
-                {String(props[`stat${statIndex}Title1`]) || ''}
-              </div>
-            </div>
-            <div className={STAT_CLASSES.SUBMETRIC}>
-              <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
-                {String(props[`stat${statIndex}Metric2`]) || ''}
-              </div>
-              <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
-                {String(props[`stat${statIndex}Title2`]) || ''}
-              </div>
-            </div>
-          </div>
-        </div>
+            </a>
+          )
       );
     }
   });
@@ -119,9 +165,19 @@ export default function StatCompact(props) {
     });
   });
 
-  const stats = <div className="chi-stat -compact">{statsToRender}</div>;
+  key += 1;
 
-  return props.carousel ? <chi-carousel><div className="-d--flex" slot="items">{stats}</div></chi-carousel> : stats;
+  const stats = <div className="chi-stat -compact" style={{ flexGrow: 1 }}>{statsToRender}</div>;
+
+  return props.carousel ? (
+    <div ref={props.uxpinRef}>
+      <chi-carousel key={`carousel-${uuid}-${key}`} style={{ maxWidth: 'fit-content' }}>
+        <div className="-d--flex" slot="items">
+          {stats}
+        </div>
+      </chi-carousel>
+    </div>
+  ) : stats;
 }
 
 /* eslint-disable */
@@ -131,60 +187,70 @@ StatCompact.propTypes = {
   /** @uxpinignoreprop */
   statWidth: PropTypes.number,
   stat1: PropTypes.string,
+  stat1Disabled: PropTypes.bool,
   stat1Metric1: PropTypes.number,
   stat1Title1: PropTypes.string,
   stat1Metric2: PropTypes.number,
   stat1Title2: PropTypes.string,
   stat1InfoMessage: PropTypes.string,
   stat2: PropTypes.string,
+  stat2Disabled: PropTypes.bool,
   stat2Metric1: PropTypes.number,
   stat2Title1: PropTypes.string,
   stat2Metric2: PropTypes.number,
   stat2Title2: PropTypes.string,
   stat2InfoMessage: PropTypes.string,
   stat3: PropTypes.string,
+  stat3Disabled: PropTypes.bool,
   stat3Metric1: PropTypes.number,
   stat3Title1: PropTypes.string,
   stat3Metric2: PropTypes.number,
   stat3Title2: PropTypes.string,
   stat3InfoMessage: PropTypes.string,
   stat4: PropTypes.string,
+  stat4Disabled: PropTypes.bool,
   stat4Metric1: PropTypes.number,
   stat4Title1: PropTypes.string,
   stat4Metric2: PropTypes.number,
   stat4Title2: PropTypes.string,
   stat4InfoMessage: PropTypes.string,
   stat5: PropTypes.string,
+  stat5Disabled: PropTypes.bool,
   stat5Metric1: PropTypes.number,
   stat5Title1: PropTypes.string,
   stat5Metric2: PropTypes.number,
   stat5Title2: PropTypes.string,
   stat5InfoMessage: PropTypes.string,
   stat6: PropTypes.string,
+  stat6Disabled: PropTypes.bool,
   stat6Metric1: PropTypes.number,
   stat6Title1: PropTypes.string,
   stat6Metric2: PropTypes.number,
   stat6Title2: PropTypes.string,
   stat6InfoMessage: PropTypes.string,
   stat7: PropTypes.string,
+  stat7Disabled: PropTypes.bool,
   stat7Metric1: PropTypes.number,
   stat7Title1: PropTypes.string,
   stat7Metric2: PropTypes.number,
   stat7Title2: PropTypes.string,
   stat7InfoMessage: PropTypes.string,
   stat8: PropTypes.string,
+  stat8Disabled: PropTypes.bool,
   stat8Metric1: PropTypes.number,
   stat8Title1: PropTypes.string,
   stat8Metric2: PropTypes.number,
   stat8Title2: PropTypes.string,
   stat8InfoMessage: PropTypes.string,
   stat9: PropTypes.string,
+  stat9Disabled: PropTypes.bool,
   stat9Metric1: PropTypes.number,
   stat9Title1: PropTypes.string,
   stat9Metric2: PropTypes.number,
   stat9Title2: PropTypes.string,
   stat9InfoMessage: PropTypes.string,
   stat10: PropTypes.string,
+  stat10Disabled: PropTypes.bool,
   stat10Metric1: PropTypes.number,
   stat10Title1: PropTypes.string,
   stat10Metric2: PropTypes.number,
@@ -203,7 +269,7 @@ StatCompact.propTypes = {
 };
 
 StatCompact.defaultProps = {
-  carousel: true,
+  carousel: false,
   stat1: 'metric 1',
   stat1Metric1: 1,
   stat1Title1: 'High',
