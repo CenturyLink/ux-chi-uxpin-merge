@@ -46,76 +46,40 @@ export default function StatBase(props) {
 
     if (props[statProp]) {
       statsToRender.push(
-        !(props[`s${statIndex}Click`])
-          ? (
-            <div
-              key={`stat-${uuid}${statIndex}`}
-              className={`
+        // eslint-disable-next-line jsx-a11y/anchor-is-valid
+        <a
+          onClick={props[`s${statIndex}Click`]}
+          key={`stat-${uuid}${statIndex}`}
+          className={`
             ${STAT_CLASSES.ITEM} 
             ${props.activeStat === statIndex ? ACTIVE_CLASS : ''}
             ${props.carousel ? CAROUSEL_CLASSES.CAROUSEL : ''}
             ${props[`s${statIndex}Disabled`] ? DISABLED_CLASS : ''}
           `}>
-              <div className={STAT_CLASSES.CONTENT}>
-                <div className={STAT_CLASSES.METRIC}>
-                  <div className={STAT_CLASSES.METRIC_VALUE}>
-                    {String(props[`s${statIndex}Metric`]) || ''}
-                  </div>
-                  <div className={STAT_CLASSES.METRIC_TITLE}>
-                    {String(props[`stat${statIndex}Title`]) || ''}
-                  </div>
-                </div>
-                {
-                  props[`s${statIndex}AuxTitle`] ? (
-                    <div className={STAT_CLASSES.SUBMETRIC}>
-                      <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
-                        {String(props[`s${statIndex}AuxMetric`]) || ''}
-                      </div>
-                      <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
-                        {String(props[`s${statIndex}AuxTitle`]) || ''}
-                      </div>
-                    </div>
-                  ) : <div style={{ height: 20 }}></div>
-                }
-                {backgroundIcon}
+          <div className={STAT_CLASSES.CONTENT}>
+            <div className={STAT_CLASSES.METRIC}>
+              <div className={STAT_CLASSES.METRIC_VALUE}>
+                {String(props[`s${statIndex}Metric`]) || ''}
+              </div>
+              <div className={STAT_CLASSES.METRIC_TITLE}>
+                {String(props[`stat${statIndex}Title`]) || ''}
               </div>
             </div>
-          ) : (
-            // eslint-disable-next-line jsx-a11y/anchor-is-valid
-            <a
-              onClick={props[`s${statIndex}Click`]}
-              key={`stat-${uuid}${statIndex}`}
-              className={`
-            ${STAT_CLASSES.ITEM} 
-            ${props.activeStat === statIndex ? ACTIVE_CLASS : ''}
-            ${props.carousel ? CAROUSEL_CLASSES.CAROUSEL : ''}
-            ${props[`s${statIndex}Disabled`] ? DISABLED_CLASS : ''}
-          `}>
-              <div className={STAT_CLASSES.CONTENT}>
-                <div className={STAT_CLASSES.METRIC}>
-                  <div className={STAT_CLASSES.METRIC_VALUE}>
-                    {String(props[`s${statIndex}Metric`]) || ''}
+            {
+              props[`s${statIndex}AuxTitle`] ? (
+                <div className={STAT_CLASSES.SUBMETRIC}>
+                  <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
+                    {String(props[`s${statIndex}AuxMetric`]) || ''}
                   </div>
-                  <div className={STAT_CLASSES.METRIC_TITLE}>
-                    {String(props[`stat${statIndex}Title`]) || ''}
+                  <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
+                    {String(props[`s${statIndex}AuxTitle`]) || ''}
                   </div>
                 </div>
-                {
-                  props[`s${statIndex}AuxTitle`] ? (
-                    <div className={STAT_CLASSES.SUBMETRIC}>
-                      <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
-                        {String(props[`s${statIndex}AuxMetric`]) || ''}
-                      </div>
-                      <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
-                        {String(props[`s${statIndex}AuxTitle`]) || ''}
-                      </div>
-                    </div>
-                  ) : <div style={{ height: 20 }}></div>
-                }
-                {backgroundIcon}
-              </div>
-            </a>
-          )
+              ) : <div style={{ height: 20 }}></div>
+            }
+            {backgroundIcon}
+          </div>
+        </a>
       );
     }
   });

@@ -71,85 +71,44 @@ export default function StatCompact(props) {
       }
 
       statsToRender.push(
-        !(props[`s${statIndex}Click`])
-          ? (
-            <div
-              key={`stat-${uuid}${statIndex}`}
-              className={`
-            ${STAT_CLASSES.ITEM}
-            ${props.activeStat === statIndex ? ACTIVE_CLASS : ''}
-            ${props.carousel ? CAROUSEL_CLASSES.CAROUSEL : ''}
-            ${props[`stat${statIndex}Disabled`] ? DISABLED_CLASS : ''}
-          `}
-              onClick={props[`stat${statIndex}Click`]}>
-              <div className={STAT_CLASSES.CONTENT}>
-                <div className={STAT_CLASSES.METRIC}>
-                  <div className={STAT_CLASSES.TITLE}>
-                    {String(props[`stat${statIndex}`])}
-                  </div>
-                  <div className={STAT_CLASSES.TITLE_HELP}>
-                    {helpButton}
-                    {helpPopover}
-                  </div>
-                </div>
-                <div className={STAT_CLASSES.SUBMETRIC}>
-                  <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
-                    {String(props[`stat${statIndex}Metric1`]) || ''}
-                  </div>
-                  <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
-                    {String(props[`stat${statIndex}Title1`]) || ''}
-                  </div>
-                </div>
-                <div className={STAT_CLASSES.SUBMETRIC}>
-                  <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
-                    {String(props[`stat${statIndex}Metric2`]) || ''}
-                  </div>
-                  <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
-                    {String(props[`stat${statIndex}Title2`]) || ''}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ) : (
-            // eslint-disable-next-line jsx-a11y/anchor-is-valid
-            <a
-              key={`stat-${uuid}${statIndex}`}
-              className={`
+        // eslint-disable-next-line jsx-a11y/anchor-is-valid
+        <a
+          key={`stat-${uuid}${statIndex}`}
+          className={`
           ${STAT_CLASSES.ITEM}
           ${props.activeStat === statIndex ? ACTIVE_CLASS : ''}
           ${props.carousel ? CAROUSEL_CLASSES.CAROUSEL : ''}
           ${props[`stat${statIndex}Disabled`] ? DISABLED_CLASS : ''}
         `}
-              onClick={props[`stat${statIndex}Click`]}>
-              <div className={STAT_CLASSES.CONTENT}>
-                <div className={STAT_CLASSES.METRIC}>
-                  <div className={STAT_CLASSES.TITLE}>
-                    {String(props[`stat${statIndex}`])}
-                  </div>
-                  <div className={STAT_CLASSES.TITLE_HELP}>
-                    {helpButton}
-                    {helpPopover}
-                  </div>
-                </div>
-                <div className={STAT_CLASSES.SUBMETRIC}>
-                  <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
-                    {String(props[`stat${statIndex}Metric1`]) || ''}
-                  </div>
-                  <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
-                    {String(props[`stat${statIndex}Title1`]) || ''}
-                  </div>
-                </div>
-                <div className={STAT_CLASSES.SUBMETRIC}>
-                  <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
-                    {String(props[`stat${statIndex}Metric2`]) || ''}
-                  </div>
-                  <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
-                    {String(props[`stat${statIndex}Title2`]) || ''}
-                  </div>
-                </div>
+          onClick={props[`stat${statIndex}Click`]}>
+          <div className={STAT_CLASSES.CONTENT}>
+            <div className={STAT_CLASSES.METRIC}>
+              <div className={STAT_CLASSES.TITLE}>
+                {String(props[`stat${statIndex}`])}
               </div>
-            </a>
-          )
+              <div className={STAT_CLASSES.TITLE_HELP}>
+                {helpButton}
+                {helpPopover}
+              </div>
+            </div>
+            <div className={STAT_CLASSES.SUBMETRIC}>
+              <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
+                {String(props[`stat${statIndex}Metric1`]) || ''}
+              </div>
+              <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
+                {String(props[`stat${statIndex}Title1`]) || ''}
+              </div>
+            </div>
+            <div className={STAT_CLASSES.SUBMETRIC}>
+              <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
+                {String(props[`stat${statIndex}Metric2`]) || ''}
+              </div>
+              <div className={STAT_CLASSES.SUBMETRIC_TITLE}>
+                {String(props[`stat${statIndex}Title2`]) || ''}
+              </div>
+            </div>
+          </div>
+        </a>
       );
     }
   });
