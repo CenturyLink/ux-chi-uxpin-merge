@@ -1,6 +1,7 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { uuid4 } from '../../utils/utils';
+import '../../utils/utils.css';
 
 let uuid;
 const stepsToRender = [];
@@ -17,15 +18,15 @@ export default function Steps(props) {
         let icon,
           label;
 
-          if (props.horizontalLabel) {
-            icon = <div class="chi-steps__icon"></div>;
-            label = <a href="#">{props[`step${i}`]}</a>;
-          } else {
-            icon = <div className="chi-steps__icon">
-              <a href="#">{props[`step${i}`]}</a>
-            </div>;
-            label = null;
-          }
+        if (props.horizontalLabel) {
+          icon = <div class="chi-steps__icon"></div>;
+          label = <a href="#">{props[`step${i}`]}</a>;
+        } else {
+          icon = <div className="chi-steps__icon">
+            <a href="#">{props[`step${i}`]}</a>
+          </div>;
+          label = null;
+        }
 
         stepsToRender.push(
           <li className={`
@@ -34,14 +35,15 @@ export default function Steps(props) {
             `}>
             {icon}
             {label}
-            {props[`step${i+1}`] ? stepsLine : null}
+            {props[`step${i + 1}`] ? stepsLine : null}
           </li>
         );
       }
     });
 
   return (
-    <div style={{height: 64}}>
+    /* This class is used to solve problems with keys in canvas */
+    <div className='uxPin__wrapper' style={{ height: 64 }}>
       <ul className={`
         chi-steps
         ${props.horizontalLabel ? '-horizontal-label' : ''}

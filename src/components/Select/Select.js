@@ -49,7 +49,7 @@ export default class Select extends React.Component {
       .forEach((_, i) => {
         if (this.props[`option${i}`]) {
           optionsToRender.push(
-            <option value={i}>{this.props[`option${i}`]}</option>
+            <option value={i} selected={i === this.props.selectedOption}>{this.props[`option${i}`]}</option>
           );
         }
       });
@@ -88,6 +88,7 @@ Select.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  selectedOption: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   info: PropTypes.bool,
   clickInfo: PropTypes.func,
   mouseOverInfo: PropTypes.func,
@@ -132,5 +133,6 @@ Select.defaultProps = {
   option2: 'Option 2',
   option3: 'Option 3',
   required: 'none',
+  selectedOption: 1,
   info: false,
 };

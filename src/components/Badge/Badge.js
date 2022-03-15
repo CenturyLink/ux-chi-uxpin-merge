@@ -1,5 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import '../../utils/utils.css';
 
 /**
  * @uxpinwrappers
@@ -8,15 +9,19 @@ import * as React from 'react';
 const Badge = ({
   color, size, variant, text, uxpinRef,
 }) => (
-  <div
-    className={
-    `chi-badge
+  /* This class is used to solve problems with keys in canvas */
+  <div className="uxPin__wrapper">
+    <div
+      style={{ width: 'fit-content' }}
+      className={
+        `chi-badge
     ${color ? `-${color}` : ''}
     ${size ? `-${size}` : ''}
     ${variant ? `-${variant}` : ''}
     `}
-    ref={uxpinRef}>
-    <span>{text}</span>
+      ref={uxpinRef}>
+      <span>{text}</span>
+    </div>
   </div>
 );
 

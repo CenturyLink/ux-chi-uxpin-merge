@@ -6,17 +6,20 @@ import { uuid4 } from '../../utils/utils';
 import {
   ACTIVE_CLASS,
   CAROUSEL_CLASSES,
+  DISABLED_CLASS,
   STAT_CLASSES,
 } from '../../constants/classes';
 import { marketingIcons } from '../../constants/icons';
 
 let uuid;
+let key;
 const statsToRender = [];
 
 export default function StatBase(props) {
   const statProps = [];
 
   uuid = `stat-${uuid4()}`;
+  key = 0;
   statsToRender.length = 0;
   Array(11)
     .fill()
@@ -43,13 +46,15 @@ export default function StatBase(props) {
 
     if (props[statProp]) {
       statsToRender.push(
-        <div
+        // eslint-disable-next-line jsx-a11y/anchor-is-valid
+        <a
           onClick={props[`s${statIndex}Click`]}
           key={`stat-${uuid}${statIndex}`}
           className={`
             ${STAT_CLASSES.ITEM} 
             ${props.activeStat === statIndex ? ACTIVE_CLASS : ''}
             ${props.carousel ? CAROUSEL_CLASSES.CAROUSEL : ''}
+            ${props[`s${statIndex}Disabled`] ? DISABLED_CLASS : ''}
           `}>
           <div className={STAT_CLASSES.CONTENT}>
             <div className={STAT_CLASSES.METRIC}>
@@ -74,14 +79,24 @@ export default function StatBase(props) {
             }
             {backgroundIcon}
           </div>
-        </div>
+        </a>
       );
     }
   });
 
+  key += 1;
+
   const stats = <div className="chi-stat -sm">{statsToRender}</div>;
 
-  return props.carousel ? <chi-carousel><div className="-d--flex" slot="items">{stats}</div></chi-carousel> : stats;
+  return props.carousel ? (
+    <div ref={props.uxpinRef}>
+      <chi-carousel key={`carousel-${uuid}-${key}`} style={{ maxWidth: 'fit-content' }}>
+        <div className="-d--flex" slot="items">
+          {stats}
+        </div>
+      </chi-carousel>
+    </div>
+  ) : stats;
 }
 
 /* eslint-disable */
@@ -89,51 +104,61 @@ StatBase.propTypes = {
   carousel: PropTypes.bool,
   activeStat: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   stat1Title: PropTypes.string,
+  s1Disabled: PropTypes.bool,
   s1Metric: PropTypes.string,
   s1AuxTitle: PropTypes.string,
   s1AuxMetric: PropTypes.string,
   s1Icon: PropTypes.string,
   stat2Title: PropTypes.string,
+  s2Disabled: PropTypes.bool,
   s2Metric: PropTypes.string,
   s2AuxTitle: PropTypes.string,
   s2AuxMetric: PropTypes.string,
   s2Icon: PropTypes.string,
   stat3Title: PropTypes.string,
+  s3Disabled: PropTypes.bool,
   s3Metric: PropTypes.string,
   s3AuxTitle: PropTypes.string,
   s3AuxMetric: PropTypes.string,
   s3Icon: PropTypes.string,
   stat4Title: PropTypes.string,
+  s4Disabled: PropTypes.bool,
   s4Metric: PropTypes.string,
   s4AuxTitle: PropTypes.string,
   s4AuxMetric: PropTypes.string,
   s4Icon: PropTypes.string,
   stat5Title: PropTypes.string,
+  s5Disabled: PropTypes.bool,
   s5Metric: PropTypes.string,
   s5AuxTitle: PropTypes.string,
   s5AuxMetric: PropTypes.string,
   s5Icon: PropTypes.string,
   stat6Title: PropTypes.string,
+  s6Disabled: PropTypes.bool,
   s6Metric: PropTypes.string,
   s6AuxTitle: PropTypes.string,
   s6AuxMetric: PropTypes.string,
   s6Icon: PropTypes.string,
   stat7Title: PropTypes.string,
+  s7Disabled: PropTypes.bool,
   s7Metric: PropTypes.string,
   s7AuxTitle: PropTypes.string,
   s7AuxMetric: PropTypes.string,
   s7Icon: PropTypes.string,
   stat8Title: PropTypes.string,
+  s8Disabled: PropTypes.bool,
   s8Metric: PropTypes.string,
   s8AuxTitle: PropTypes.string,
   s8AuxMetric: PropTypes.string,
   s8Icon: PropTypes.string,
   stat9Title: PropTypes.string,
+  s9Disabled: PropTypes.bool,
   s9Metric: PropTypes.string,
   s9AuxTitle: PropTypes.string,
   s9AuxMetric: PropTypes.string,
   s9Icon: PropTypes.string,
   stat10Title: PropTypes.string,
+  s10Disabled: PropTypes.bool,
   s10Metric: PropTypes.string,
   s10AuxTitle: PropTypes.string,
   s10AuxMetric: PropTypes.string,
@@ -151,7 +176,7 @@ StatBase.propTypes = {
 };
 
 StatBase.defaultProps = {
-  carousel: true,
+  carousel: false,
   stat1Title: 'metric 1',
   s1Metric: 1,
   s1AuxMetric: 2,

@@ -7,6 +7,7 @@ export default (
     size="md"
     label="Label"
     required="none"
+    selectedOption={1}
     info={false}
     disabled={false}
     option1="Option 1"
