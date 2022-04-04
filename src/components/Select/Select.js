@@ -88,7 +88,7 @@ Select.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
-  selectedOption: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  selectedOption: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]),
   info: PropTypes.bool,
   clickInfo: PropTypes.func,
   mouseOverInfo: PropTypes.func,
@@ -104,6 +104,11 @@ Select.propTypes = {
   option8: PropTypes.string,
   option9: PropTypes.string,
   option10: PropTypes.string,
+  option11: PropTypes.string,
+  option12: PropTypes.string,
+  option13: PropTypes.string,
+  option14: PropTypes.string,
+  option15: PropTypes.string,
   click: PropTypes.func,
   focus: PropTypes.func,
   focusLost: PropTypes.func,
@@ -123,6 +128,11 @@ Select.propTypes = {
   selected8: PropTypes.func,
   selected9: PropTypes.func,
   selected10: PropTypes.func,
+  selected11: PropTypes.func,
+  selected12: PropTypes.func,
+  selected13: PropTypes.func,
+  selected14: PropTypes.func,
+  selected15: PropTypes.func,
 };
 /* eslint-enable */
 

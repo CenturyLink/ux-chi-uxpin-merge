@@ -41,13 +41,14 @@ export default class DropdownBase extends React.Component {
             <a
               className={`${DROPDOWN_CLASSES.ITEM}`}
               onClick={(e) => {
-                const currentItemActive = e.target.parentNode.querySelector('a.-active');
+                if (this.props.retainSelection) {
+                  const currentItemActive = e.target.parentNode.querySelector('a.-active');
 
-                if (currentItemActive) currentItemActive.classList.remove(ACTIVE_CLASS);
+                  if (currentItemActive) currentItemActive.classList.remove(ACTIVE_CLASS);
+                  e.target.classList.add(ACTIVE_CLASS);
+                }
                 this.props[`select${i}`]();
-                e.target.classList.add(ACTIVE_CLASS);
-              }
-              }>
+              }}>
               {this.props[`item${i}`]}
             </a>
           );
@@ -96,6 +97,7 @@ export default class DropdownBase extends React.Component {
 DropdownBase.propTypes = {
   active: PropTypes.bool,
   animateChevron: PropTypes.bool,
+  retainSelection: PropTypes.bool,
   text: PropTypes.string,
   buttonColor: PropTypes.oneOf(['base', 'primary', 'dark', 'secondary', 'light']),
   buttonType: PropTypes.oneOf(['solid', 'outline', 'flat']),
@@ -130,6 +132,7 @@ DropdownBase.propTypes = {
 
 DropdownBase.defaultProps = {
   animateChevron: true,
+  retainSelection: false,
   text: 'Dropdown component',
   buttonColor: 'base',
   buttonType: 'flat',

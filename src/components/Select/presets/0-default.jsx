@@ -20,6 +20,11 @@ export default (
     option8=""
     option9=""
     option10=""
+    option11=""
+    option12=""
+    option13=""
+    option14=""
+    option15=""
     click={() => {}}
     focus={() => {}}
     focusLost={() => {}}
@@ -39,5 +44,10 @@ export default (
     selected8={() => {}}
     selected9={() => {}}
     selected10={() => {}}
+    selected11={() => {}}
+    selected12={() => {}}
+    selected13={() => {}}
+    selected14={() => {}}
+    selected15={() => {}}
   />
 );

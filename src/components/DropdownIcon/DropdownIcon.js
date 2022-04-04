@@ -41,13 +41,14 @@ export default class DropdownIcon extends React.Component {
             <a
               className={`${DROPDOWN_CLASSES.ITEM}`}
               onClick={(e) => {
-                const currentItemActive = e.target.parentNode.querySelector('a.-active');
+                if (this.props.retainSelection) {
+                  const currentItemActive = e.target.parentNode.querySelector('a.-active');
 
-                if (currentItemActive) currentItemActive.classList.remove(ACTIVE_CLASS);
+                  if (currentItemActive) currentItemActive.classList.remove(ACTIVE_CLASS);
+                  e.target.classList.add(ACTIVE_CLASS);
+                }
                 this.props[`select${i}`]();
-                e.target.classList.add(ACTIVE_CLASS);
-              }
-              }>
+              }}>
               {this.props[`item${i}`]}
             </a>
           );
@@ -98,6 +99,7 @@ export default class DropdownIcon extends React.Component {
 DropdownIcon.propTypes = {
   active: PropTypes.bool,
   disabled: PropTypes.bool,
+  retainSelection: PropTypes.bool,
   position: PropTypes.oneOf(['initial', 'top-start', 'top', 'top-end', 'left-start', 'left', 'left-end', 'right-start', 'right', 'right-end', 'bottom-start', 'bottom', 'bottom-end']),
   color: PropTypes.oneOf(['primary', 'dark', 'grey', 'secondary', 'light', 'success', 'info', 'warning', 'danger', 'muted', 'navy', 'orange']),
   icon: PropTypes.string,
@@ -129,6 +131,7 @@ DropdownIcon.propTypes = {
 };
 
 DropdownIcon.defaultProps = {
+  retainSelection: false,
   icon: 'more-vert',
   item1: 'Item 1',
   item2: 'Item 2',

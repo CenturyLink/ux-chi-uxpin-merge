@@ -53,18 +53,6 @@ export default function StatCompact(props) {
             </i>
           </button>
         ) : null;
-      const helpPopover = props[`${statProp}InfoMessage`]
-        ? (
-          <section
-            className={`${POPOVER_CLASSES.POPOVER} chi-popover--bottom`}
-            id={`stat-help-${uuid}-${statProp}-info-popover`}
-            aria-modal="true"
-            role="dialog">
-            <div className={POPOVER_CLASSES.CONTENT}>
-              <p className={POPOVER_CLASSES.TEXT}>{props[`${statProp}InfoMessage`]}</p>
-            </div>
-          </section>
-        ) : null;
 
       if (props[`${statProp}InfoMessage`]) {
         helpInfoMessages.push(`stat-help-${uuid}-${statProp}-info-button`);
@@ -74,13 +62,24 @@ export default function StatCompact(props) {
         // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a
           key={`stat-${uuid}${statIndex}`}
+          id={`stat-compact-${statIndex}`}
           className={`
           ${STAT_CLASSES.ITEM}
           ${props.activeStat === statIndex ? ACTIVE_CLASS : ''}
           ${props.carousel ? CAROUSEL_CLASSES.CAROUSEL : ''}
           ${props[`stat${statIndex}Disabled`] ? DISABLED_CLASS : ''}
         `}
-          onClick={props[`stat${statIndex}Click`]}>
+          onClick={() => {
+            const currentStat = document.getElementById(`stat-compact-${statIndex}`);
+
+            statsToRender.forEach((stat) => {
+              const statActive = document.getElementById(stat.props.id);
+
+              if (statActive.classList.contains(ACTIVE_CLASS)) statActive.classList.remove(ACTIVE_CLASS);
+            });
+            currentStat.classList.add(ACTIVE_CLASS);
+            props[`stat${statIndex}Click`]();
+          }}>
           <div className={STAT_CLASSES.CONTENT}>
             <div className={STAT_CLASSES.METRIC}>
               <div className={STAT_CLASSES.TITLE}>
@@ -88,7 +87,6 @@ export default function StatCompact(props) {
               </div>
               <div className={STAT_CLASSES.TITLE_HELP}>
                 {helpButton}
-                {helpPopover}
               </div>
             </div>
             <div className={STAT_CLASSES.SUBMETRIC}>
@@ -126,13 +124,36 @@ export default function StatCompact(props) {
 
   key += 1;
 
-  const stats = <div className="chi-stat -compact" style={{ flexGrow: 1 }}>{statsToRender}</div>;
+  const helpPopovers = [];
+
+  statProps.forEach((statProp) => {
+    helpPopovers.push(props[`${statProp}InfoMessage`]
+      ? (
+        <section
+          className={`${POPOVER_CLASSES.POPOVER} chi-popover--bottom`}
+          id={`stat-help-${uuid}-${statProp}-info-popover`}
+          aria-modal="true"
+          role="dialog">
+          <div className={POPOVER_CLASSES.CONTENT}>
+            <p className={POPOVER_CLASSES.TEXT}>{props[`${statProp}InfoMessage`]}</p>
+          </div>
+        </section>
+      ) : null);
+  });
+
+  const stats = (
+    <div className="chi-stat -compact" style={{ flexGrow: 1 }}>
+      {statsToRender}
+      {helpPopovers}
+    </div>
+  );
 
   return props.carousel ? (
     <div ref={props.uxpinRef}>
       <chi-carousel key={`carousel-${uuid}-${key}`} style={{ maxWidth: 'fit-content' }}>
         <div className="-d--flex" slot="items">
           {stats}
+          {helpPopovers}
         </div>
       </chi-carousel>
     </div>

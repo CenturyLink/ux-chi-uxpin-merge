@@ -48,8 +48,19 @@ export default function StatBase(props) {
       statsToRender.push(
         // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a
-          onClick={props[`s${statIndex}Click`]}
+          onClick={() => {
+            const currentStat = document.getElementById(`stat-base-${statIndex}`);
+
+            statsToRender.forEach((stat) => {
+              const statActive = document.getElementById(stat.props.id);
+
+              if (statActive.classList.contains(ACTIVE_CLASS)) statActive.classList.remove(ACTIVE_CLASS);
+            });
+            currentStat.classList.add(ACTIVE_CLASS);
+            props[`s${statIndex}Click`]();
+          }}
           key={`stat-${uuid}${statIndex}`}
+          id={`stat-base-${statIndex}`}
           className={`
             ${STAT_CLASSES.ITEM} 
             ${props.activeStat === statIndex ? ACTIVE_CLASS : ''}
