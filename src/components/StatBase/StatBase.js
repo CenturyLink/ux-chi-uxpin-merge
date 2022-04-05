@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import * as PropTypes from 'prop-types';
-import React from 'react';
-import { uuid4 } from '../../utils/utils';
+import React, { useEffect } from 'react';
+import { hasClass, uuid4 } from '../../utils/utils';
 import {
   ACTIVE_CLASS,
   CAROUSEL_CLASSES,
@@ -13,11 +13,11 @@ import { marketingIcons } from '../../constants/icons';
 
 let uuid;
 let key;
+let activeItem;
 const statsToRender = [];
 
 export default function StatBase(props) {
   const statProps = [];
-
   uuid = `stat-${uuid4()}`;
   key = 0;
   statsToRender.length = 0;
@@ -48,15 +48,18 @@ export default function StatBase(props) {
       statsToRender.push(
         // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a
-          onClick={() => {
-            const currentStat = document.getElementById(`stat-base-${statIndex}`);
-
-            statsToRender.forEach((stat) => {
-              const statActive = document.getElementById(stat.props.id);
-
-              if (statActive.classList.contains(ACTIVE_CLASS)) statActive.classList.remove(ACTIVE_CLASS);
-            });
-            currentStat.classList.add(ACTIVE_CLASS);
+          onClick={(e) => {
+            for (
+              let stat = e.target;
+              stat && !hasClass(stat, 'chi-stat');
+              stat = stat.parentNode
+            ) {
+              if (hasClass(stat, 'chi-stat__item')) {
+                if (activeItem) activeItem.classList.remove(ACTIVE_CLASS);
+                stat.classList.add(ACTIVE_CLASS);
+                activeItem = stat;
+              }
+            }
             props[`s${statIndex}Click`]();
           }}
           key={`stat-${uuid}${statIndex}`}
@@ -98,6 +101,12 @@ export default function StatBase(props) {
   key += 1;
 
   const stats = <div className="chi-stat -sm">{statsToRender}</div>;
+
+  useEffect(() => {
+    statProps.forEach((statProp, i) => {
+      if (props.activeStat === i + 1) activeItem = document.getElementById(`stat-base-${i + 1}`);
+    });
+  });
 
   return props.carousel ? (
     <div ref={props.uxpinRef}>

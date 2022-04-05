@@ -10,4 +10,8 @@ export function uuid4() {
   }
   return uuid;
 }
+
+export function hasClass (elem, className) {
+  return new RegExp('(\\s|^)' + className + '(\\s|$)').test(elem.className);
+}
 /* eslint-enable */

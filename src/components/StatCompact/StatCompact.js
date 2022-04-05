@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import * as PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import { uuid4 } from '../../utils/utils';
+import { hasClass, uuid4 } from '../../utils/utils';
 import {
   ACTIVE_CLASS,
   BUTTON_CLASSES,
@@ -15,6 +15,7 @@ import {
 
 let key;
 let uuid;
+let activeItem;
 const statsToRender = [];
 
 export default function StatCompact(props) {
@@ -69,15 +70,18 @@ export default function StatCompact(props) {
           ${props.carousel ? CAROUSEL_CLASSES.CAROUSEL : ''}
           ${props[`stat${statIndex}Disabled`] ? DISABLED_CLASS : ''}
         `}
-          onClick={() => {
-            const currentStat = document.getElementById(`stat-compact-${statIndex}`);
-
-            statsToRender.forEach((stat) => {
-              const statActive = document.getElementById(stat.props.id);
-
-              if (statActive.classList.contains(ACTIVE_CLASS)) statActive.classList.remove(ACTIVE_CLASS);
-            });
-            currentStat.classList.add(ACTIVE_CLASS);
+          onClick={(e) => {
+            for (
+              let stat = e.target;
+              stat && !hasClass(stat, 'chi-stat');
+              stat = stat.parentNode
+            ) {
+              if (hasClass(stat, 'chi-stat__item')) {
+                if (activeItem) activeItem.classList.remove(ACTIVE_CLASS);
+                stat.classList.add(ACTIVE_CLASS);
+                activeItem = stat;
+              }
+            }
             props[`stat${statIndex}Click`]();
           }}>
           <div className={STAT_CLASSES.CONTENT}>
@@ -112,6 +116,10 @@ export default function StatCompact(props) {
   });
 
   useEffect(() => {
+    statProps.forEach((statProp, i) => {
+      if (props.activeStat === i + 1) activeItem = document.getElementById(`stat-compact-${i + 1}`);
+    });
+
     helpInfoMessages.forEach((helpMessage) => {
       const initialize = setInterval(() => {
         if (window.chi && document.getElementById(helpMessage)) {

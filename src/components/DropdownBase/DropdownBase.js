@@ -16,6 +16,8 @@ import { uuid4 } from '../../utils/utils';
  */
 
 export default class DropdownBase extends React.Component {
+  activeItem;
+
   constructor(props) {
     super(props);
     this.state = { id: uuid4() };
@@ -42,10 +44,9 @@ export default class DropdownBase extends React.Component {
               className={`${DROPDOWN_CLASSES.ITEM}`}
               onClick={(e) => {
                 if (this.props.retainSelection) {
-                  const currentItemActive = e.target.parentNode.querySelector('a.-active');
-
-                  if (currentItemActive) currentItemActive.classList.remove(ACTIVE_CLASS);
+                  if (this.activeItem) this.activeItem.classList.remove(ACTIVE_CLASS);
                   e.target.classList.add(ACTIVE_CLASS);
+                  this.activeItem = e.target;
                 }
                 this.props[`select${i}`]();
               }}>
