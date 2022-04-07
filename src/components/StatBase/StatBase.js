@@ -33,7 +33,7 @@ export default function StatBase(props) {
     const statIndex = i + 1;
     const backgroundIcon = props[`s${statIndex}Icon`]
       ? (
-        <div className="chi-stat-background-icon">
+        <div className={STAT_CLASSES.BACKGROUND_ICON}>
           {marketingIcons.includes(props[`s${statIndex}Icon`]) ? <chi-marketing-icon icon={props[`s${statIndex}Icon`]} variant="outline"></chi-marketing-icon> : (
             <i
               className={
@@ -51,10 +51,10 @@ export default function StatBase(props) {
           onClick={(e) => {
             for (
               let stat = e.target;
-              stat && !hasClass(stat, 'chi-stat');
+              stat && !hasClass(stat, STAT_CLASSES.STAT);
               stat = stat.parentNode
             ) {
-              if (hasClass(stat, 'chi-stat__item')) {
+              if (hasClass(stat, STAT_CLASSES.ITEM)) {
                 if (activeItem) activeItem.classList.remove(ACTIVE_CLASS);
                 stat.classList.add(ACTIVE_CLASS);
                 activeItem = stat;
@@ -63,7 +63,7 @@ export default function StatBase(props) {
             props[`s${statIndex}Click`]();
           }}
           key={`stat-${uuid}${statIndex}`}
-          id={`stat-base-${statIndex}`}
+          id={`stat-base-${uuid}-${statIndex}`}
           className={`
             ${STAT_CLASSES.ITEM} 
             ${props.activeStat === statIndex ? ACTIVE_CLASS : ''}
@@ -100,12 +100,10 @@ export default function StatBase(props) {
 
   key += 1;
 
-  const stats = <div className="chi-stat -sm">{statsToRender}</div>;
+  const stats = <div className={`${STAT_CLASSES.STAT} -sm`}>{statsToRender}</div>;
 
   useEffect(() => {
-    statProps.forEach((statProp, i) => {
-      if (props.activeStat === i + 1) activeItem = document.getElementById(`stat-base-${i + 1}`);
-    });
+    if (props.activeStat) activeItem = document.getElementById(`stat-base-${uuid}-${props.activeStat}`);
   });
 
   return props.carousel ? (

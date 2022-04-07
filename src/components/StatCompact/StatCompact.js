@@ -63,7 +63,7 @@ export default function StatCompact(props) {
         // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a
           key={`stat-${uuid}${statIndex}`}
-          id={`stat-compact-${statIndex}`}
+          id={`stat-compact-${uuid}-${statIndex}`}
           className={`
           ${STAT_CLASSES.ITEM}
           ${props.activeStat === statIndex ? ACTIVE_CLASS : ''}
@@ -73,10 +73,10 @@ export default function StatCompact(props) {
           onClick={(e) => {
             for (
               let stat = e.target;
-              stat && !hasClass(stat, 'chi-stat');
+              stat && !hasClass(stat, STAT_CLASSES.STAT);
               stat = stat.parentNode
             ) {
-              if (hasClass(stat, 'chi-stat__item')) {
+              if (hasClass(stat, STAT_CLASSES.ITEM)) {
                 if (activeItem) activeItem.classList.remove(ACTIVE_CLASS);
                 stat.classList.add(ACTIVE_CLASS);
                 activeItem = stat;
@@ -116,9 +116,7 @@ export default function StatCompact(props) {
   });
 
   useEffect(() => {
-    statProps.forEach((statProp, i) => {
-      if (props.activeStat === i + 1) activeItem = document.getElementById(`stat-compact-${i + 1}`);
-    });
+    if (props.activeStat) activeItem = document.getElementById(`stat-compact-${uuid}-${props.activeStat}`);
 
     helpInfoMessages.forEach((helpMessage) => {
       const initialize = setInterval(() => {
@@ -150,7 +148,7 @@ export default function StatCompact(props) {
   });
 
   const stats = (
-    <div className="chi-stat -compact" style={{ flexGrow: 1 }}>
+    <div className={`${STAT_CLASSES.STAT} -compact`} style={{ flexGrow: 1 }}>
       {statsToRender}
       {helpPopovers}
     </div>

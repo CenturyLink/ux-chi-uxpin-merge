@@ -122,6 +122,7 @@ export const UTILITY_CLASSES = {
 export const STAT_CLASSES = {
     STAT: 'chi-stat',
     ITEM: 'chi-stat__item',
+    BACKGROUND_ICON: 'chi-stat-background-icon',
     COMPACT: '-compact',
     CONTENT: 'chi-stat__content',
     METRIC: 'chi-stat-metric',
