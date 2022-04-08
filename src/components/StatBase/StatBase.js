@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import * as PropTypes from 'prop-types';
-import React from 'react';
-import { uuid4 } from '../../utils/utils';
+import React, { useEffect } from 'react';
+import { hasClass, uuid4 } from '../../utils/utils';
 import {
   ACTIVE_CLASS,
   CAROUSEL_CLASSES,
@@ -13,11 +13,11 @@ import { marketingIcons } from '../../constants/icons';
 
 let uuid;
 let key;
+let activeItem;
 const statsToRender = [];
 
 export default function StatBase(props) {
   const statProps = [];
-
   uuid = `stat-${uuid4()}`;
   key = 0;
   statsToRender.length = 0;
@@ -33,7 +33,7 @@ export default function StatBase(props) {
     const statIndex = i + 1;
     const backgroundIcon = props[`s${statIndex}Icon`]
       ? (
-        <div className="chi-stat-background-icon">
+        <div className={STAT_CLASSES.BACKGROUND_ICON}>
           {marketingIcons.includes(props[`s${statIndex}Icon`]) ? <chi-marketing-icon icon={props[`s${statIndex}Icon`]} variant="outline"></chi-marketing-icon> : (
             <i
               className={
@@ -48,8 +48,22 @@ export default function StatBase(props) {
       statsToRender.push(
         // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a
-          onClick={props[`s${statIndex}Click`]}
+          onClick={(e) => {
+            for (
+              let stat = e.target;
+              stat && !hasClass(stat, STAT_CLASSES.STAT);
+              stat = stat.parentNode
+            ) {
+              if (hasClass(stat, STAT_CLASSES.ITEM)) {
+                if (activeItem) activeItem.classList.remove(ACTIVE_CLASS);
+                stat.classList.add(ACTIVE_CLASS);
+                activeItem = stat;
+              }
+            }
+            props[`s${statIndex}Click`]();
+          }}
           key={`stat-${uuid}${statIndex}`}
+          id={`stat-base-${uuid}-${statIndex}`}
           className={`
             ${STAT_CLASSES.ITEM} 
             ${props.activeStat === statIndex ? ACTIVE_CLASS : ''}
@@ -86,7 +100,11 @@ export default function StatBase(props) {
 
   key += 1;
 
-  const stats = <div className="chi-stat -sm">{statsToRender}</div>;
+  const stats = <div className={`${STAT_CLASSES.STAT} -sm`}>{statsToRender}</div>;
+
+  useEffect(() => {
+    if (props.activeStat) activeItem = document.getElementById(`stat-base-${uuid}-${props.activeStat}`);
+  });
 
   return props.carousel ? (
     <div ref={props.uxpinRef}>
