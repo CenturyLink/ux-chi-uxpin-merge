@@ -45,7 +45,7 @@ export default class Select extends React.Component {
       )
       : null;
 
-    Array(11).fill()
+    Array(16).fill()
       .forEach((_, i) => {
         if (this.props[`option${i}`]) {
           optionsToRender.push(
