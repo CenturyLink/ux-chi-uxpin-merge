@@ -5,8 +5,11 @@ import React, { useEffect } from 'react';
 import { hasClass, uuid4 } from '../../utils/utils';
 import {
   ACTIVE_CLASS,
+  BUTTON_CLASSES,
   CAROUSEL_CLASSES,
   DISABLED_CLASS,
+  ICON_CLASS,
+  POPOVER_CLASSES,
   STAT_CLASSES,
 } from '../../constants/classes';
 import { marketingIcons } from '../../constants/icons';
@@ -15,11 +18,14 @@ let uuid;
 let key;
 let activeItem;
 const statsToRender = [];
+const helpInfoMessages = [];
+const helpPopovers = [];
 
 export default function StatBase(props) {
   const statProps = [];
   uuid = `stat-${uuid4()}`;
   key = 0;
+
   statsToRender.length = 0;
   Array(11)
     .fill()
@@ -45,6 +51,30 @@ export default function StatBase(props) {
       ) : null;
 
     if (props[statProp]) {
+      const helpButton = props[`s${statIndex}InfoMessage`]
+        ? (
+          <div className={STAT_CLASSES.TITLE_HELP}>
+            <button
+              type="button"
+              className={`${BUTTON_CLASSES.BUTTON} -icon -xs -flat`}
+              id={`stat-help-${uuid}-${statProp}-info-button`}
+              aria-label="Help"
+              data-target={`#stat-help-${uuid}-${statProp}-info-popover`}
+              data-position="bottom"
+              onClick={(e) => e.stopPropagation()}>
+              <i className={`${ICON_CLASS} icon-circle-info-outline`} aria-hidden="true">
+                <span className="-sr--only">
+                  i
+                </span>
+              </i>
+            </button>
+          </div>
+        ) : null;
+
+      if (props[`s${statIndex}InfoMessage`]) {
+        helpInfoMessages.push(`stat-help-${uuid}-${statProp}-info-button`);
+      }
+
       statsToRender.push(
         // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a
@@ -79,6 +109,7 @@ export default function StatBase(props) {
                 {String(props[`stat${statIndex}Title`]) || ''}
               </div>
             </div>
+            {helpButton}
             {
               props[`s${statIndex}AuxTitle`] ? (
                 <div className={STAT_CLASSES.SUBMETRIC}>
@@ -96,14 +127,41 @@ export default function StatBase(props) {
         </a>
       );
     }
+
+    helpPopovers.push(props[`s${statIndex}InfoMessage`]
+      ? (
+        <section
+          className={`${POPOVER_CLASSES.POPOVER} chi-popover--bottom`}
+          id={`stat-help-${uuid}-${statProp}-info-popover`}
+          aria-modal="true"
+          role="dialog">
+          <div className={POPOVER_CLASSES.CONTENT}>
+            <p className={POPOVER_CLASSES.TEXT}>{props[`s${statIndex}InfoMessage`]}</p>
+          </div>
+        </section>
+      ) : null);
   });
 
   key += 1;
 
-  const stats = <div className={`${STAT_CLASSES.STAT} -sm`}>{statsToRender}</div>;
+  const stats = (
+    <div className={`${STAT_CLASSES.STAT} -sm`} key={`stat-base-${uuid}-${key}`}>
+      {statsToRender}
+      {helpPopovers}
+    </div>
+  );
 
   useEffect(() => {
     if (props.activeStat) activeItem = document.getElementById(`stat-base-${uuid}-${props.activeStat}`);
+
+    helpInfoMessages.forEach((helpMessage) => {
+      const initialize = setInterval(() => {
+        if (window.chi && document.getElementById(helpMessage)) {
+          window.chi.popover(document.getElementById(helpMessage));
+          clearInterval(initialize);
+        }
+      }, 100);
+    });
   });
 
   return props.carousel ? (
@@ -111,6 +169,7 @@ export default function StatBase(props) {
       <chi-carousel key={`carousel-${uuid}-${key}`} style={{ maxWidth: 'fit-content' }}>
         <div className="-d--flex" slot="items">
           {stats}
+          {helpPopovers}
         </div>
       </chi-carousel>
     </div>
@@ -127,60 +186,70 @@ StatBase.propTypes = {
   s1AuxTitle: PropTypes.string,
   s1AuxMetric: PropTypes.string,
   s1Icon: PropTypes.string,
+  s1InfoMessage: PropTypes.string,
   stat2Title: PropTypes.string,
   s2Disabled: PropTypes.bool,
   s2Metric: PropTypes.string,
   s2AuxTitle: PropTypes.string,
   s2AuxMetric: PropTypes.string,
   s2Icon: PropTypes.string,
+  s2InfoMessage: PropTypes.string,
   stat3Title: PropTypes.string,
   s3Disabled: PropTypes.bool,
   s3Metric: PropTypes.string,
   s3AuxTitle: PropTypes.string,
   s3AuxMetric: PropTypes.string,
   s3Icon: PropTypes.string,
+  s3InfoMessage: PropTypes.string,
   stat4Title: PropTypes.string,
   s4Disabled: PropTypes.bool,
   s4Metric: PropTypes.string,
   s4AuxTitle: PropTypes.string,
   s4AuxMetric: PropTypes.string,
   s4Icon: PropTypes.string,
+  s4InfoMessage: PropTypes.string,
   stat5Title: PropTypes.string,
   s5Disabled: PropTypes.bool,
   s5Metric: PropTypes.string,
   s5AuxTitle: PropTypes.string,
   s5AuxMetric: PropTypes.string,
   s5Icon: PropTypes.string,
+  s5InfoMessage: PropTypes.string,
   stat6Title: PropTypes.string,
   s6Disabled: PropTypes.bool,
   s6Metric: PropTypes.string,
   s6AuxTitle: PropTypes.string,
   s6AuxMetric: PropTypes.string,
   s6Icon: PropTypes.string,
+  s6InfoMessage: PropTypes.string,
   stat7Title: PropTypes.string,
   s7Disabled: PropTypes.bool,
   s7Metric: PropTypes.string,
   s7AuxTitle: PropTypes.string,
   s7AuxMetric: PropTypes.string,
   s7Icon: PropTypes.string,
+  s7InfoMessage: PropTypes.string,
   stat8Title: PropTypes.string,
   s8Disabled: PropTypes.bool,
   s8Metric: PropTypes.string,
   s8AuxTitle: PropTypes.string,
   s8AuxMetric: PropTypes.string,
   s8Icon: PropTypes.string,
+  s8InfoMessage: PropTypes.string,
   stat9Title: PropTypes.string,
   s9Disabled: PropTypes.bool,
   s9Metric: PropTypes.string,
   s9AuxTitle: PropTypes.string,
   s9AuxMetric: PropTypes.string,
   s9Icon: PropTypes.string,
+  s9InfoMessage: PropTypes.string,
   stat10Title: PropTypes.string,
   s10Disabled: PropTypes.bool,
   s10Metric: PropTypes.string,
   s10AuxTitle: PropTypes.string,
   s10AuxMetric: PropTypes.string,
   s10Icon: PropTypes.string,
+  s10InfoMessage: PropTypes.string,
   s1Click: PropTypes.func,
   s2Click: PropTypes.func,
   s3Click: PropTypes.func,

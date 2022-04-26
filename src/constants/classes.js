@@ -182,7 +182,9 @@ export const DROPDOWN_CLASSES = {
     DROPDOWN: 'chi-dropdown',
     TRIGGER: 'chi-dropdown__trigger',
     MENU: 'chi-dropdown__menu',
-    ITEM: 'chi-dropdown__menu-item'
+    ITEM: 'chi-dropdown__menu-item',
+    ITEM_TITLE: 'chi-dropdown__menu-item_title',
+    ITEM_DESCRIPTION: 'chi-dropdown__menu-item_text'
 };
 
 /* Skeleton */
