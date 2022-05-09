@@ -20,13 +20,14 @@ const statsToRender = [];
 
 export default function StatCompact(props) {
   const statProps = [];
+  const ITEMS_TO_RENDER = 11;
 
   uuid = `stat-${uuid4()}`;
   key = 0;
   statsToRender.length = 0;
   const helpInfoMessages = [];
 
-  Array(11).fill()
+  Array(ITEMS_TO_RENDER).fill()
     .forEach((_, i) => {
       if (props[`stat${i}`]) {
         statProps.push(`stat${i}`);
@@ -39,20 +40,22 @@ export default function StatCompact(props) {
     if (props[statProp]) {
       const helpButton = props[`${statProp}InfoMessage`]
         ? (
-          <button
-            type="button"
-            className={`${BUTTON_CLASSES.BUTTON} -icon -xs -flat`}
-            id={`stat-help-${uuid}-${statProp}-info-button`}
-            aria-label="Help"
-            data-target={`#stat-help-${uuid}-${statProp}-info-popover`}
-            data-position="bottom"
-            onClick={(e) => e.stopPropagation()}>
-            <i className={`${ICON_CLASS} icon-circle-info-outline`}>
-              <span className="-sr--only">
-                i
-              </span>
-            </i>
-          </button>
+          <div className={STAT_CLASSES.TITLE_HELP}>
+            <button
+              type="button"
+              className={`${BUTTON_CLASSES.BUTTON} -icon -xs -flat`}
+              id={`stat-help-${uuid}-${statProp}-info-button`}
+              aria-label="Help"
+              data-target={`#stat-help-${uuid}-${statProp}-info-popover`}
+              data-position="bottom"
+              onClick={(e) => e.stopPropagation()}>
+              <i className={`${ICON_CLASS} icon-circle-info-outline`}>
+                <span className="-sr--only">
+                  i
+                </span>
+              </i>
+            </button>
+          </div>
         ) : null;
 
       if (props[`${statProp}InfoMessage`]) {
@@ -89,9 +92,7 @@ export default function StatCompact(props) {
               <div className={STAT_CLASSES.TITLE}>
                 {String(props[`stat${statIndex}`])}
               </div>
-              <div className={STAT_CLASSES.TITLE_HELP}>
-                {helpButton}
-              </div>
+              {helpButton}
             </div>
             <div className={STAT_CLASSES.SUBMETRIC}>
               <div className={STAT_CLASSES.SUBMETRIC_VALUE}>
@@ -148,7 +149,7 @@ export default function StatCompact(props) {
   });
 
   const stats = (
-    <div className={`${STAT_CLASSES.STAT} -compact`} style={{ flexGrow: 1 }}>
+    <div className={`${STAT_CLASSES.STAT} -compact`} key={`stat-compact-${uuid}-${key}`} style={{ flexGrow: 1 }}>
       {statsToRender}
       {helpPopovers}
     </div>
