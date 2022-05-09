@@ -13,8 +13,9 @@ export default class DropdownMenu extends React.Component {
 
   render() {
     const itemsToRender = [];
+    const ITEMS_TO_RENDER = 11;
 
-    Array(11).fill()
+    Array(ITEMS_TO_RENDER).fill()
       .forEach((_, i) => {
         if (this.props[`item${i}`]) {
           const itemContent = this.props[`item${i}Description`] ? (

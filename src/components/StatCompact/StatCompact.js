@@ -20,13 +20,14 @@ const statsToRender = [];
 
 export default function StatCompact(props) {
   const statProps = [];
+  const ITEMS_TO_RENDER = 11;
 
   uuid = `stat-${uuid4()}`;
   key = 0;
   statsToRender.length = 0;
   const helpInfoMessages = [];
 
-  Array(11).fill()
+  Array(ITEMS_TO_RENDER).fill()
     .forEach((_, i) => {
       if (props[`stat${i}`]) {
         statProps.push(`stat${i}`);

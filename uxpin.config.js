@@ -13,24 +13,6 @@ module.exports = {
         ],
       },
       {
-        name: 'Dropdowns',
-        include: [
-          'src/components/DropdownBase/DropdownBase.js',
-          'src/components/DropdownIcon/DropdownIcon.js',
-          'src/components/DropdownMenu/DropdownMenu.js',
-        ],
-      },
-      {
-        name: 'Flow & control',
-        include: [
-          'src/components/Pagination/Pagination.js',
-          'src/components/StatBase/StatBase.js',
-          'src/components/StatCompact/StatCompact.js',
-          'src/components/Steps/Steps.js',
-          'src/components/Tabs/Tabs.js',
-        ],
-      },
-      {
         name: 'Form elements',
         include: [
           'src/components/Checkbox/Checkbox.js',
@@ -50,7 +32,25 @@ module.exports = {
         ],
       },
       {
-        name: 'Icons & images',
+        name: 'Dropdowns',
+        include: [
+          'src/components/DropdownBase/DropdownBase.js',
+          'src/components/DropdownIcon/DropdownIcon.js',
+          'src/components/DropdownMenu/DropdownMenu.js',
+        ],
+      },
+      {
+        name: 'Flow & control',
+        include: [
+          'src/components/Pagination/Pagination.js',
+          'src/components/StatBase/StatBase.js',
+          'src/components/StatCompact/StatCompact.js',
+          'src/components/Steps/Steps.js',
+          'src/components/Tabs/Tabs.js',
+        ],
+      },
+      {
+        name: 'Iconic elements',
         include: [
           'src/components/Badge/Badge.js',
           'src/components/Brand/Brand.js',
@@ -79,5 +79,5 @@ module.exports = {
       },
     ],
   },
-  name: 'Chi design system',
+  name: 'Chi',
 };
