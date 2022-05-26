@@ -268,13 +268,11 @@ StatCompact.defaultProps = {
   stat2Title1: 'High',
   stat2Metric2: 2,
   stat2Title2: 'Elevated',
-  stat2InfoMessage: 'Stat 2 info message',
   stat3: 'metric 3',
   stat3Metric1: 1,
   stat3Title1: 'High',
   stat3Metric2: 2,
   stat3Title2: 'Elevated',
-  stat3InfoMessage: 'Stat 3 info message',
   activeStat: 1,
   statWidth: 208,
 };

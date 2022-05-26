@@ -9,6 +9,7 @@ export default (
     retainSelection={false}
     selectedItem={1}
     text="Dropdown component"
+    syncTextWithSelectedItem={false}
     buttonColor="base"
     buttonType="flat"
     size="md"

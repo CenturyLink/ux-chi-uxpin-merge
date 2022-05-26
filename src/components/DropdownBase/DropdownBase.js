@@ -21,7 +21,14 @@ export default class DropdownBase extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { id: uuid4() };
+    this.state = {
+      id: uuid4(),
+      text: this.props.text,
+    };
+  }
+
+  _syncTextWithSelectedItem = (selectedItem) => {
+    if (this.props.syncTextWithSelectedItem) this.setState({ text: selectedItem });
   }
 
   componentDidMount() {
@@ -54,14 +61,16 @@ export default class DropdownBase extends React.Component {
           style={{ textTransform: 'none' }}
           data-position={this.props.position}
           onClick={() => this.props.buttonClick()}>
-          {this.props.text}
+          {this.state.text}
         </button>
         <DropdownMenu
+          showMenu
           active={this.props.active}
           retainSelection={this.props.retainSelection}
           selectedItem={this.props.selectedItem}
           width={this.props.width ? this.props.width : ''}
           height={this.props.height ? this.props.height : ''}
+          syncText={this._syncTextWithSelectedItem}
           item1={this.props.item1 || ''}
           item2={this.props.item2 || ''}
           item3={this.props.item3 || ''}
@@ -105,6 +114,7 @@ DropdownBase.propTypes = {
   retainSelection: PropTypes.bool,
   scrollItems: PropTypes.bool,
   text: PropTypes.string,
+  syncTextWithSelectedItem: PropTypes.bool,
   buttonColor: PropTypes.oneOf(['base', 'primary', 'dark', 'secondary', 'light']),
   buttonType: PropTypes.oneOf(['solid', 'outline', 'flat']),
   disabled: PropTypes.bool,
@@ -152,6 +162,7 @@ DropdownBase.defaultProps = {
   animateChevron: true,
   retainSelection: false,
   text: 'Dropdown component',
+  syncTextWithSelectedItem: false,
   buttonColor: 'base',
   buttonType: 'flat',
   size: 'md',

@@ -57,6 +57,7 @@ export default class DropdownIcon extends React.Component {
           </div>
         </button>
         <DropdownMenu
+          showMenu
           active={this.props.active}
           retainSelection={this.props.retainSelection}
           selectedItem={this.props.selectedItem}
