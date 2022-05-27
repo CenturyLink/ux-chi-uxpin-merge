@@ -16,6 +16,7 @@ export default (
     tab10=""
     activeTab={1}
     size="md"
+    border
     click1={() => {}}
     click2={() => {}}
     click3={() => {}}
