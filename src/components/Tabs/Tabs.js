@@ -21,7 +21,7 @@ export default class Tabs extends React.Component {
         window.chi.tab(document.getElementById(this.state.id));
         clearInterval(initialize);
       }
-    }, 1000);
+    }, 100);
   }
 
   render() {
