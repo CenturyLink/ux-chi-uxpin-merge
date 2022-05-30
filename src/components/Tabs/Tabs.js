@@ -60,7 +60,7 @@ export default class Tabs extends React.Component {
       });
 
 
-    const tabList = <ul className={`chi-tabs ${this.props.border ? '-border' : ''} ${this.props.size ? `-${this.props.size}` : ''}`} id={this.state.id} role="tablist">
+    const tabList = <ul className={`chi-tabs ${this.props.solid ? '-solid' : ''} ${this.props.border ? '-border' : ''} ${this.props.size ? `-${this.props.size}` : ''}`} id={this.state.id} role="tablist">
       {tabsToRender}
     </ul>
 
@@ -85,6 +85,7 @@ Tabs.propTypes = {
   activeTab: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   border: PropTypes.bool,
+  solid: PropTypes.bool,
   click1: PropTypes.func,
   click2: PropTypes.func,
   click3: PropTypes.func,
