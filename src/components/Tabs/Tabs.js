@@ -84,7 +84,7 @@ Tabs.propTypes = {
   tab10: PropTypes.string,
   activeTab: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
-  border: PropTypes.bool,
+  // border: PropTypes.bool,
   solid: PropTypes.bool,
   click1: PropTypes.func,
   click2: PropTypes.func,
@@ -104,6 +104,6 @@ Tabs.defaultProps = {
   tab2: 'Tab 2',
   tab3: 'Tab 3',
   activeTab: 1,
-  border: true,
+  // border: true,
   size: 'md',
 };
