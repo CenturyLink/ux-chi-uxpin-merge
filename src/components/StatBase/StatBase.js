@@ -266,6 +266,7 @@ StatBase.propTypes = {
 StatBase.defaultProps = {
   carousel: false,
   stat1Title: 'metric 1',
+  s1InfoMessage: 'Stat 1 info message',
   s1Metric: 1,
   s1AuxMetric: 2,
   s1AuxTitle: 'Elevated',

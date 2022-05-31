@@ -41,6 +41,7 @@ export default class DropdownMenu extends React.Component {
                   this.activeItem = (e.target.classList.contains(DROPDOWN_CLASSES.ITEM_TITLE) || e.target.classList.contains(DROPDOWN_CLASSES.ITEM_DESCRIPTION)) ? e.target.parentElement : e.target;
                   this.activeItem.classList.add(ACTIVE_CLASS);
                 }
+                this.props.syncText(this.props[`item${i}`]);
                 this.props[`select${i}`]();
               }}>
               {itemContent}
@@ -53,14 +54,14 @@ export default class DropdownMenu extends React.Component {
         }
       });
 
-    return (
+    const dropdownMenu = (
       <div
         ref={this.props.uxpinRef}
         className={`
-            ${DROPDOWN_CLASSES.MENU}
-            ${this.props.active ? ACTIVE_CLASS : ''}
-            ${this.someDescription ? '-list' : ''} 
-          `}
+                ${DROPDOWN_CLASSES.MENU}
+                ${this.props.active ? ACTIVE_CLASS : ''}
+                ${this.someDescription ? '-list' : ''} 
+              `}
         style={{
           height: `${this.props.height && this.props.scrollItems ? `${this.props.height}px` : ''}`,
           minHeight: `${this.props.height && !this.props.scrollItems ? `${this.props.height}px` : ''}`,
@@ -70,12 +71,19 @@ export default class DropdownMenu extends React.Component {
         {itemsToRender}
       </div>
     );
+
+    return (
+      <div>
+        {this.props.showMenu || this.props.active ? dropdownMenu : null}
+      </div>
+    );
   }
 }
 
 /* eslint-disable sort-keys */
 DropdownMenu.propTypes = {
   /** @uxpinignoreprop */
+  showMenu: PropTypes.bool,
   active: PropTypes.bool,
   retainSelection: PropTypes.bool,
   scrollItems: PropTypes.bool,

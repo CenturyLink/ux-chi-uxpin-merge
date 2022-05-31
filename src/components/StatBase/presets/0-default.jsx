@@ -6,6 +6,7 @@ export default (
     uxpId="stat"
     activeStat={1}
     stat1Title="metric 1"
+    s1InfoMessage="Stat 1 info message"
     s1Metric="1"
     s1AuxTitle="High"
     s1AuxMetric="2"

@@ -1,11 +1,7 @@
-import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import { uuid4 } from '../../utils/utils';
 import './Tabs.css';
-
-let uuid;
-const tabsToRender = [];
-const tabsContentToRender = [];
 
 /* eslint-disable */
 /**
@@ -13,55 +9,66 @@ const tabsContentToRender = [];
  * @uxpinwrappers
  * SkipContainerWrapper
  */
-export default function Tabs(props) {
-  uuid = uuid4();
-  tabsToRender.length = 0;
-  tabsContentToRender.length = 0;
+export default class Tabs extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { id: uuid4() };
+  }
 
-  Array(11).fill()
-    .forEach((_, i) => {
-      if (props[`tab${i}`]) {
-        tabsToRender.push(
-          <li
-            key={`key${uuid}${i}`}
-            className={`${props.activeTab === i ? '-active' : ''} -d--flex`}
-            onClick={() => {
-              if (props[`click${i}`]) {
-                props[`click${i}`]();
-              }
-            }}>
-            <a
-              href={`#tab${uuid}${i}`}>
-              {props[`tab${i}`]}
-            </a>
-          </li>
-        );
-        tabsContentToRender.push(
-          <div key={`content${uuid}${i}`} className={`chi-tabs-panel ${props.activeTab === i ? '-active' : ''}`} id={`tab${uuid}${i}`}></div>
-        );
-      }
-    });
-
+  componentDidMount() {
     const initialize = setInterval(() => {
-      if (window.chi && document.getElementById(uuid)) {
-        window.chi.tab(document.getElementById(uuid));
+      if (window.chi && document.getElementById(this.state.id)) {
+        window.chi.tab(document.getElementById(this.state.id));
         clearInterval(initialize);
       }
     }, 100);
+  }
 
-  return (
-    <div>
-      <ul className={`
-        chi-tabs -portal -border
-        ${props.size ? `-${props.size}` : ''}
-        `} id={uuid}>
-        {tabsToRender}
-      </ul>
-      <div>
-        {tabsContentToRender}
-      </div>
-    </div>
-  );
+  render() {
+    const tabsToRender = [];
+    const tabsContentToRender = [];
+    const ITEMS_TO_RENDER = 11;
+
+    Array(ITEMS_TO_RENDER).fill()
+      .forEach((_, i) => {
+        if (this.props[`tab${i}`]) {
+          tabsToRender.push(
+            <li
+              className={`${this.props.activeTab === i ? '-active' : ''}`}
+              key={`tab-${this.state.id}-${i}`}
+              onClick={() => {
+                if (this.props[`click${i}`]) {
+                  this.props[`click${i}`]();
+                }
+              }}>
+              <a
+                role="tab"
+                href={`#tab-${this.state.id}-${i}`}>
+                {this.props[`tab${i}`]}
+              </a>
+            </li>
+          );
+        }
+        tabsContentToRender.push(
+          <div
+            key={`content-${this.state.id}-${i}`}
+            role="tabpanel"
+            className={`chi-tabs-panel ${this.props.activeTab === i ? '-active' : ''}`}
+            id={`tab-${this.state.id}-${i}`}>
+          </div>
+        );
+      });
+
+
+    const tabList = <ul className={`chi-tabs ${this.props.solid ? '-solid' : ''} ${this.props.border ? '-border' : ''} ${this.props.size ? `-${this.props.size}` : ''}`} id={this.state.id} role="tablist">
+      {tabsToRender}
+    </ul>
+
+    return <div ref={this.props.uxpinRef}>
+      {tabList}
+      {tabsContentToRender}
+    </div>;
+  }
 }
 
 Tabs.propTypes = {
@@ -77,6 +84,8 @@ Tabs.propTypes = {
   tab10: PropTypes.string,
   activeTab: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
+  // border: PropTypes.bool,
+  solid: PropTypes.bool,
   click1: PropTypes.func,
   click2: PropTypes.func,
   click3: PropTypes.func,
@@ -95,5 +104,6 @@ Tabs.defaultProps = {
   tab2: 'Tab 2',
   tab3: 'Tab 3',
   activeTab: 1,
-  size: 'xs',
+  // border: true,
+  size: 'md',
 };
