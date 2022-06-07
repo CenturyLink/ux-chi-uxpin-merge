@@ -5,11 +5,45 @@ import {
   ACTIVE_CLASS,
   DROPDOWN_CLASSES,
 } from '../../constants/classes';
+import { contains, uuid4 } from '../../utils/utils';
 
 export default class DropdownMenu extends React.Component {
   activeItem;
 
   someDescription;
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: uuid4(),
+      active: this.props.active,
+    };
+  }
+
+  _onClick = (e) => {
+    const dropdownMenu = this.refs[`dropdown-menu-ref-${this.state.id}`];
+
+    if (e.target !== document.body && e.target !== null && (contains(e.target, dropdownMenu) || e.target !== dropdownMenu)) {
+      const simulationMode = document.getElementsByClassName('canvas-main-container');
+
+      if (simulationMode.length > 0) this.setState({ active: false });
+    }
+  }
+
+  componentDidMount() {
+    document.body.addEventListener('click', this._onClick);
+  }
+
+  componentDidUpdate(previousProps) {
+    if (previousProps.active !== this.props.active) {
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({ active: this.props.active });
+    }
+  }
+
+  componentWillUnmount() {
+    document.body.removeEventListener('click', this._onClick);
+  }
 
   render() {
     const itemsToRender = [];
@@ -41,7 +75,8 @@ export default class DropdownMenu extends React.Component {
                   this.activeItem = (e.target.classList.contains(DROPDOWN_CLASSES.ITEM_TITLE) || e.target.classList.contains(DROPDOWN_CLASSES.ITEM_DESCRIPTION)) ? e.target.parentElement : e.target;
                   this.activeItem.classList.add(ACTIVE_CLASS);
                 }
-                this.props.syncText(this.props[`item${i}`]);
+                if (this.props.syncText) this.props.syncText(this.props[`item${i}`]);
+                this.setState({ active: false });
                 this.props[`select${i}`]();
               }}>
               {itemContent}
@@ -56,10 +91,10 @@ export default class DropdownMenu extends React.Component {
 
     const dropdownMenu = (
       <div
-        ref={this.props.uxpinRef}
+        ref={`dropdown-menu-ref-${this.state.id}`}
         className={`
                 ${DROPDOWN_CLASSES.MENU}
-                ${this.props.active ? ACTIVE_CLASS : ''}
+                ${this.state.active ? ACTIVE_CLASS : ''}
                 ${this.someDescription ? '-list' : ''} 
               `}
         style={{
@@ -73,8 +108,8 @@ export default class DropdownMenu extends React.Component {
     );
 
     return (
-      <div>
-        {this.props.showMenu || this.props.active ? dropdownMenu : null}
+      <div ref={this.props.uxpinRef}>
+        {this.props.showMenu || this.state.active ? dropdownMenu : null}
       </div>
     );
   }
