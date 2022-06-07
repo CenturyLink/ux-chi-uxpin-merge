@@ -5,7 +5,7 @@ import {
   ACTIVE_CLASS,
   DROPDOWN_CLASSES,
 } from '../../constants/classes';
-import { contains } from '../../utils/utils';
+import { contains, uuid4 } from '../../utils/utils';
 
 export default class DropdownMenu extends React.Component {
   activeItem;
@@ -14,16 +14,16 @@ export default class DropdownMenu extends React.Component {
 
   constructor(props) {
     super(props);
-    this.dropdownMenuRef = React.createRef();
     this.state = {
+      id: uuid4(),
       active: this.props.active,
     };
   }
 
   _onClick = (e) => {
-    const dropdownMenu = this.dropdownMenuRef.current;
+    const dropdownMenu = this.refs[`dropdown-menu-ref-${this.state.id}`];
 
-    if (e.target !== document.body && e.target !== null && contains(e.target, dropdownMenu)) {
+    if (e.target !== document.body && e.target !== null && (contains(e.target, dropdownMenu) || e.target !== dropdownMenu)) {
       const simulationMode = document.getElementsByClassName('canvas-main-container');
 
       if (simulationMode.length > 0) this.setState({ active: false });
@@ -32,6 +32,13 @@ export default class DropdownMenu extends React.Component {
 
   componentDidMount() {
     document.body.addEventListener('click', this._onClick);
+  }
+
+  componentDidUpdate(previousProps) {
+    if (previousProps.active !== this.props.active) {
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({ active: this.props.active });
+    }
   }
 
   componentWillUnmount() {
@@ -84,7 +91,7 @@ export default class DropdownMenu extends React.Component {
 
     const dropdownMenu = (
       <div
-        ref={this.dropdownMenuRef}
+        ref={`dropdown-menu-ref-${this.state.id}`}
         className={`
                 ${DROPDOWN_CLASSES.MENU}
                 ${this.state.active ? ACTIVE_CLASS : ''}
@@ -102,7 +109,7 @@ export default class DropdownMenu extends React.Component {
 
     return (
       <div ref={this.props.uxpinRef}>
-        {this.props.showMenu || this.props.active ? dropdownMenu : null}
+        {this.props.showMenu || this.state.active ? dropdownMenu : null}
       </div>
     );
   }
