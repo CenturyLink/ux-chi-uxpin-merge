@@ -16,7 +16,6 @@ export function hasClass(elem, className) {
 }
 
 export function contains(ancestorElement, descendantElement) {
-  debugger;
   if (descendantElement.parentElement === ancestorElement) {
     return true;
   } else if (!descendantElement.parentElement) {

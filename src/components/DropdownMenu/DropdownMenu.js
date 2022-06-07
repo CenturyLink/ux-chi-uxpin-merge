@@ -14,13 +14,14 @@ export default class DropdownMenu extends React.Component {
 
   constructor(props) {
     super(props);
+    this.dropdownMenuRef = React.createRef();
     this.state = {
       active: this.props.active,
     };
   }
 
   _onClick = (e) => {
-    const dropdownMenu = document.getElementsByClassName('chi-dropdown__menu')[0];
+    const dropdownMenu = this.dropdownMenuRef.current;
 
     if (e.target !== document.body && e.target !== null && contains(e.target, dropdownMenu)) {
       const simulationMode = document.getElementsByClassName('canvas-main-container');
@@ -83,7 +84,7 @@ export default class DropdownMenu extends React.Component {
 
     const dropdownMenu = (
       <div
-        ref={this.props.uxpinRef}
+        ref={this.dropdownMenuRef}
         className={`
                 ${DROPDOWN_CLASSES.MENU}
                 ${this.state.active ? ACTIVE_CLASS : ''}
@@ -100,7 +101,7 @@ export default class DropdownMenu extends React.Component {
     );
 
     return (
-      <div>
+      <div ref={this.props.uxpinRef}>
         {this.props.showMenu || this.props.active ? dropdownMenu : null}
       </div>
     );
