@@ -11,6 +11,29 @@ export default class DropdownMenu extends React.Component {
 
   someDescription;
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: this.props.active,
+    };
+  }
+
+  _onClickOutside = (e) => {
+    if (e.target !== document.body && e.target !== null) {
+      const simulationMode = document.getElementsByClassName('canvas-main-container');
+
+      if (simulationMode.length > 0) this.setState({ active: false });
+    }
+  }
+
+  componentDidMount() {
+    document.body.addEventListener('click', this._onClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.body.removeEventListener('click', this._onClickOutside);
+  }
+
   render() {
     const itemsToRender = [];
     const ITEMS_TO_RENDER = 11;
@@ -41,7 +64,8 @@ export default class DropdownMenu extends React.Component {
                   this.activeItem = (e.target.classList.contains(DROPDOWN_CLASSES.ITEM_TITLE) || e.target.classList.contains(DROPDOWN_CLASSES.ITEM_DESCRIPTION)) ? e.target.parentElement : e.target;
                   this.activeItem.classList.add(ACTIVE_CLASS);
                 }
-                this.props.syncText(this.props[`item${i}`]);
+                if (this.props.syncText) this.props.syncText(this.props[`item${i}`]);
+                this.setState({ active: false });
                 this.props[`select${i}`]();
               }}>
               {itemContent}
@@ -59,7 +83,7 @@ export default class DropdownMenu extends React.Component {
         ref={this.props.uxpinRef}
         className={`
                 ${DROPDOWN_CLASSES.MENU}
-                ${this.props.active ? ACTIVE_CLASS : ''}
+                ${this.state.active ? ACTIVE_CLASS : ''}
                 ${this.someDescription ? '-list' : ''} 
               `}
         style={{
