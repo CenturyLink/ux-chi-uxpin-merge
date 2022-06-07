@@ -5,6 +5,7 @@ import {
   ACTIVE_CLASS,
   DROPDOWN_CLASSES,
 } from '../../constants/classes';
+import { contains } from '../../utils/utils';
 
 export default class DropdownMenu extends React.Component {
   activeItem;
@@ -18,8 +19,10 @@ export default class DropdownMenu extends React.Component {
     };
   }
 
-  _onClickOutside = (e) => {
-    if (e.target !== document.body && e.target !== null) {
+  _onClick = (e) => {
+    const dropdownMenu = document.getElementsByClassName('chi-dropdown__menu')[0];
+
+    if (e.target !== document.body && e.target !== null && contains(e.target, dropdownMenu)) {
       const simulationMode = document.getElementsByClassName('canvas-main-container');
 
       if (simulationMode.length > 0) this.setState({ active: false });
@@ -27,11 +30,11 @@ export default class DropdownMenu extends React.Component {
   }
 
   componentDidMount() {
-    document.body.addEventListener('click', this._onClickOutside);
+    document.body.addEventListener('click', this._onClick);
   }
 
   componentWillUnmount() {
-    document.body.removeEventListener('click', this._onClickOutside);
+    document.body.removeEventListener('click', this._onClick);
   }
 
   render() {

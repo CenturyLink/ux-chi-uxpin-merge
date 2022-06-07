@@ -11,7 +11,18 @@ export function uuid4() {
   return uuid;
 }
 
-export function hasClass (elem, className) {
+export function hasClass(elem, className) {
   return new RegExp('(\\s|^)' + className + '(\\s|$)').test(elem.className);
+}
+
+export function contains(ancestorElement, descendantElement) {
+  debugger;
+  if (descendantElement.parentElement === ancestorElement) {
+    return true;
+  } else if (!descendantElement.parentElement) {
+    return false;
+  } else {
+    return contains(ancestorElement, descendantElement.parentElement);
+  }
 }
 /* eslint-enable */
