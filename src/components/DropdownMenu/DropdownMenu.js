@@ -23,7 +23,7 @@ export default class DropdownMenu extends React.Component {
   _onClick = (e) => {
     const dropdownMenu = this.refs[`dropdown-menu-ref-${this.state.id}`];
 
-    if (e.target !== document.body && e.target !== null && (contains(e.target, dropdownMenu) || e.target !== dropdownMenu)) {
+    if (e.target !== document.body && e.target !== null && dropdownMenu && (contains(e.target, dropdownMenu) || e.target !== dropdownMenu)) {
       const simulationMode = document.getElementsByClassName('canvas-main-container');
 
       if (simulationMode.length > 0) this.setState({ active: false });
@@ -34,10 +34,10 @@ export default class DropdownMenu extends React.Component {
     document.body.addEventListener('click', this._onClick);
   }
 
-  componentDidUpdate(previousProps) {
-    if (previousProps.active !== this.props.active) {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.active !== this.state.active) {
       // eslint-disable-next-line react/no-did-update-set-state
-      this.setState({ active: this.props.active });
+      this.setState({ active: nextProps.active });
     }
   }
 
