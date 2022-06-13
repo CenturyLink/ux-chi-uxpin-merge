@@ -8,8 +8,6 @@ import {
 import { contains, uuid4 } from '../../utils/utils';
 
 export default class DropdownMenu extends React.Component {
-  activeItem;
-
   someDescription;
 
   constructor(props) {
@@ -17,13 +15,14 @@ export default class DropdownMenu extends React.Component {
     this.state = {
       id: uuid4(),
       active: this.props.active,
+      selectedItem: this.props.selectedItem,
     };
   }
 
-  _onClick = (e) => {
+  _onClick(e) {
     const dropdownMenu = this.refs[`dropdown-menu-ref-${this.state.id}`];
 
-    if (e.target !== document.body && e.target !== null && dropdownMenu && (contains(e.target, dropdownMenu) || e.target !== dropdownMenu)) {
+    if (e.target !== document.body && e.target !== null && dropdownMenu && (contains(e.target, dropdownMenu) || e.target !== dropdownMenu) && !e.target.classList.contains(DROPDOWN_CLASSES.ITEM)) {
       const simulationMode = document.getElementsByClassName('canvas-main-container');
 
       if (simulationMode.length > 0) this.setState({ active: false });
@@ -31,7 +30,7 @@ export default class DropdownMenu extends React.Component {
   }
 
   componentDidMount() {
-    document.body.addEventListener('click', this._onClick);
+    document.body.addEventListener('click', this._onClick.bind(this));
   }
 
   componentWillReceiveProps(nextProps) {
@@ -43,6 +42,12 @@ export default class DropdownMenu extends React.Component {
 
   componentWillUnmount() {
     document.body.removeEventListener('click', this._onClick);
+  }
+
+  _handlerClickMenuItem(menuItemIndex) {
+    if (this.props.syncText) this.props.syncText(this.props[`item${menuItemIndex}`]);
+    this.setState({ active: false, selectedItem: menuItemIndex });
+    this.props[`select${menuItemIndex}`]();
   }
 
   render() {
@@ -64,21 +69,9 @@ export default class DropdownMenu extends React.Component {
             <a
               className={`
                   ${DROPDOWN_CLASSES.ITEM} 
-                  ${i === this.props.selectedItem && this.props.retainSelection ? ACTIVE_CLASS : ''}
+                  ${i === this.state.selectedItem && this.props.retainSelection ? ACTIVE_CLASS : ''}
                 `}
-              ref={`dropdown-menu-ref-item-${i}`}
-              onClick={(e) => {
-                if (this.props.retainSelection) {
-                  // eslint-disable-next-line react/no-string-refs
-                  if (this.props.selectedItem && !this.activeItem) this.activeItem = this.refs[`dropdown-menu-ref-item-${this.props.selectedItem}`];
-                  if (this.activeItem) this.activeItem.classList.remove(ACTIVE_CLASS);
-                  this.activeItem = (e.target.classList.contains(DROPDOWN_CLASSES.ITEM_TITLE) || e.target.classList.contains(DROPDOWN_CLASSES.ITEM_DESCRIPTION)) ? e.target.parentElement : e.target;
-                  this.activeItem.classList.add(ACTIVE_CLASS);
-                }
-                if (this.props.syncText) this.props.syncText(this.props[`item${i}`]);
-                this.setState({ active: false });
-                this.props[`select${i}`]();
-              }}>
+              onClick={() => this._handlerClickMenuItem(i)}>
               {itemContent}
             </a>
           );
