@@ -31,6 +31,13 @@ export default class DropdownBase extends React.Component {
     if (this.props.syncTextWithSelectedItem) this.setState({ text: selectedItem });
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.text !== this.props.text) {
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({ text: this.props.text });
+    }
+  }
+
   componentDidMount() {
     const initialize = setInterval(() => {
       if (window.chi && document.getElementById(this.state.id)) {
