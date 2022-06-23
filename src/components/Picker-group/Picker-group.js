@@ -81,7 +81,7 @@ export default class PickerGroup extends React.Component {
       <div ref={this.props.uxpinRef} style={{minWidth: 308}}>
         <fieldset>
           {fieldLabel}
-          <div className="chi-picker-group">
+          <div className={`chi-picker-group ${this.props.fluid ? '-fluid' : ''}`}>
             {pickersToRender}
           </div>
         </fieldset>
@@ -98,6 +98,7 @@ PickerGroup.propTypes = {
   clickInfo: PropTypes.func,
   mouseOverInfo: PropTypes.func,
   mouseLeaveInfo: PropTypes.func,
+  fluid: PropTypes.bool,
   picker1: PropTypes.string,
   disabled1: PropTypes.bool,
   picker2: PropTypes.string,
