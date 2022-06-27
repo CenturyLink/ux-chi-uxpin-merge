@@ -66,7 +66,8 @@ export default class Tabs extends React.Component {
       ${TABS_CLASSES.TABS}
       ${this.props.vertical ? '-vertical' : '-border'}
       ${this.props.style === 'solid' ? '-solid' : ''}
-      ${this.props.size ? `-${this.props.size}` : ''}`}
+      ${this.props.size ? `-${this.props.size}` : ''}
+    `}
       id={this.state.id}
       role="tablist">
       {tabsToRender}
