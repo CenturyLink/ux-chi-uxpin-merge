@@ -5,6 +5,7 @@ import {
   BUTTON_CLASSES,
   ICON_CLASS,
   LABEL_CLASSES,
+  PICKER_GROUP_CLASSES,
   STAT_CLASSES,
 } from '../../constants/classes';
 
@@ -78,10 +79,10 @@ export default class PickerGroup extends React.Component {
         });
 
     return (
-      <div ref={this.props.uxpinRef} style={{minWidth: 308}}>
+      <div ref={this.props.uxpinRef} style={{ minWidth: this.props.fluid ? 310 : 308 }}>
         <fieldset>
           {fieldLabel}
-          <div className={`chi-picker-group ${this.props.fluid ? '-fluid' : ''}`}>
+          <div className={`${PICKER_GROUP_CLASSES.PICKER} ${this.props.fluid ? '-fluid' : ''}`}>
             {pickersToRender}
           </div>
         </fieldset>

@@ -192,4 +192,9 @@ export const SKELETON_CLASSES = {
     SKELETON: 'chi-skeleton',
 };
 
+/* Tabs  */
+export const TABS_CLASSES = {
+    TABS: 'chi-tabs',
+};
+
 /* eslint-enable */
