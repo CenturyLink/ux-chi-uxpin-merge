@@ -82,7 +82,7 @@ export default class PickerGroup extends React.Component {
       <div ref={this.props.uxpinRef} style={{ minWidth: this.props.fluid ? 310 : 308 }}>
         <fieldset>
           {fieldLabel}
-          <div className={`${PICKER_GROUP_CLASSES.PICKER} ${this.props.fluid ? '-fluid' : ''}`}>
+          <div className={`${PICKER_GROUP_CLASSES.PICKER} ${this.props.fluid ? PICKER_GROUP_CLASSES.FLUID : ''}`}>
             {pickersToRender}
           </div>
         </fieldset>

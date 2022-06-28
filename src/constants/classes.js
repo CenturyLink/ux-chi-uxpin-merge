@@ -162,6 +162,7 @@ export const LABEL_CLASSES = {
 
 /* Picker Group */
 export const PICKER_GROUP_CLASSES = {
+    FLUID: '-fluid',
     PICKER: 'chi-picker-group',
     INPUT: 'chi-picker__input',
 };
@@ -194,6 +195,9 @@ export const SKELETON_CLASSES = {
 
 /* Tabs  */
 export const TABS_CLASSES = {
+    BORDER: '-border',
+    SOLID: '-solid',
+    VERTICAL: '-vertical',
     TABS: 'chi-tabs',
 };
 
