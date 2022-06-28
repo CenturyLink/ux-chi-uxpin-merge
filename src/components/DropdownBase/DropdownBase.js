@@ -34,7 +34,7 @@ export default class DropdownBase extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.text !== this.props.text) {
       // eslint-disable-next-line react/no-did-update-set-state
-      this.setState({ text: this.props.text });
+      this.setState(() => ({ text: this.props.text }));
     }
   }
 
