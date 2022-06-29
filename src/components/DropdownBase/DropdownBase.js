@@ -17,18 +17,17 @@ import DropdownMenu from '../DropdownMenu/DropdownMenu';
  */
 
 export default class DropdownBase extends React.Component {
-  activeItem;
-
   constructor(props) {
     super(props);
     this.state = {
       id: uuid4(),
-      text: this.props.text,
     };
+    this.dropdownBaseRef = React.createRef();
+    this._syncTextWithSelectedItem = this._syncTextWithSelectedItem.bind(this);
   }
 
-  _syncTextWithSelectedItem = (selectedItem) => {
-    if (this.props.syncTextWithSelectedItem) this.setState({ text: selectedItem });
+  _syncTextWithSelectedItem(item) {
+    this.dropdownBaseRef.current.innerText = item;
   }
 
   componentDidMount() {
@@ -46,6 +45,7 @@ export default class DropdownBase extends React.Component {
       <div className={`${DROPDOWN_CLASSES.DROPDOWN}`} ref={this.props.uxpinRef}>
         <button
           type="button"
+          ref={this.dropdownBaseRef}
           id={this.state.id}
           className={`
             ${BUTTON_CLASSES.BUTTON}
@@ -61,7 +61,7 @@ export default class DropdownBase extends React.Component {
           style={{ textTransform: 'none' }}
           data-position={this.props.position}
           onClick={() => this.props.buttonClick()}>
-          {this.state.text}
+          {this.props.text}
         </button>
         <DropdownMenu
           showMenu
@@ -70,7 +70,7 @@ export default class DropdownBase extends React.Component {
           selectedItem={this.props.selectedItem}
           width={this.props.width ? this.props.width : ''}
           height={this.props.height ? this.props.height : ''}
-          syncText={this._syncTextWithSelectedItem}
+          syncText={this.props.syncTextWithSelectedItem ? this._syncTextWithSelectedItem : null}
           item1={this.props.item1 || ''}
           item2={this.props.item2 || ''}
           item3={this.props.item3 || ''}

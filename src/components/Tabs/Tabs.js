@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { uuid4 } from '../../utils/utils';
+import { TABS_CLASSES } from '../../constants/classes';
 import './Tabs.css';
 
 /* eslint-disable */
@@ -60,7 +61,15 @@ export default class Tabs extends React.Component {
       });
 
 
-    const tabList = <ul className={`chi-tabs ${this.props.style === 'solid' ? '-solid -border' : '-border'} ${this.props.size ? `-${this.props.size}` : ''}`} id={this.state.id} role="tablist">
+    const tabList = <ul className=
+    {`
+      ${TABS_CLASSES.TABS}
+      ${this.props.vertical ? TABS_CLASSES.VERTICAL : TABS_CLASSES.BORDER}
+      ${this.props.style === 'solid' ? TABS_CLASSES.SOLID : ''}
+      ${this.props.size ? `-${this.props.size}` : ''}
+    `}
+      id={this.state.id}
+      role="tablist">
       {tabsToRender}
     </ul>
 
@@ -82,6 +91,7 @@ Tabs.propTypes = {
   tab8: PropTypes.string,
   tab9: PropTypes.string,
   tab10: PropTypes.string,
+  vertical: PropTypes.bool,
   activeTab: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   // border: PropTypes.bool,
