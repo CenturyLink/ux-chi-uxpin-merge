@@ -155,6 +155,8 @@ DropdownMenu.propTypes = {
   select8: PropTypes.func,
   select9: PropTypes.func,
   select10: PropTypes.func,
+  /** @uxpinignoreprop */
+  syncText: PropTypes.func,
 };
 
 DropdownMenu.defaultProps = {
