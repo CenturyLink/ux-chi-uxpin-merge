@@ -20,10 +20,10 @@ export default function Steps(props) {
 
         if (props.horizontalLabel) {
           icon = <div class="chi-steps__icon"></div>;
-          label = <a href="#">{props[`step${i}`]}</a>;
+          label = <div class="chi-steps__content"><a href="#">{props[`step${i}`]}</a></div>;
         } else {
           icon = <div className="chi-steps__icon">
-            <a href="#">{props[`step${i}`]}</a>
+            <div class="chi-steps__content"><a href="#">{props[`step${i}`]}</a></div>
           </div>;
           label = null;
         }
