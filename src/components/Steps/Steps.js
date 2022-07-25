@@ -2,6 +2,11 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { uuid4 } from '../../utils/utils';
 import '../../utils/utils.css';
+import {
+  ACTIVE_CLASS,
+  COMPLETED_CLASS,
+  STEPS_CLASSES,
+} from '../../constants/classes';
 
 let uuid;
 const stepsToRender = [];
@@ -10,7 +15,7 @@ const stepsToRender = [];
 export default function Steps(props) {
   uuid = `steps${uuid4()}`;
   stepsToRender.length = 0;
-  const stepsLine = <div className="chi-steps__line"></div>;
+  const stepsLine = <div className={STEPS_CLASSES.LINE}></div>;
 
   Array(11).fill()
     .forEach((_, i) => {
@@ -19,19 +24,19 @@ export default function Steps(props) {
           label;
 
         if (props.horizontalLabel) {
-          icon = <div class="chi-steps__icon"></div>;
-          label = <div class="chi-steps__content"><a href="#">{props[`step${i}`]}</a></div>;
+          icon = <div class=""></div>;
+          label = <div class={STEPS_CLASSES.CONTENT}><a href="#">{props[`step${i}`]}</a></div>;
         } else {
-          icon = <div className="chi-steps__icon">
-            <div class="chi-steps__content"><a href="#">{props[`step${i}`]}</a></div>
+          icon = <div className={STEPS_CLASSES.ICON}>
+            <div class={STEPS_CLASSES.CONTENT}><a href="#">{props[`step${i}`]}</a></div>
           </div>;
           label = null;
         }
 
         stepsToRender.push(
           <li className={`
-            ${i < props.activeSteps ? '-completed' : ''}
-            ${i === props.activeSteps ? '-active' : ''}
+            ${i < props.activeSteps ? COMPLETED_CLASS : ''}
+            ${i === props.activeSteps ? ACTIVE_CLASS : ''}
             `}>
             {icon}
             {label}
@@ -43,10 +48,10 @@ export default function Steps(props) {
 
   return (
     /* This class is used to solve problems with keys in canvas */
-    <div className='uxPin__wrapper' style={{ height: 64 }}>
+    <div className={STEPS_CLASSES.UX_PIN_WRAPPER} style={{ height: 64 }}>
       <ul className={`
-        chi-steps
-        ${props.horizontalLabel ? '-horizontal-label' : ''}
+        ${STEPS_CLASSES.STEPS}
+        ${props.horizontalLabel ? STEPS_CLASSES.HORIZONTAL_LABEL : ''}
         `} id={uuid}>
         {stepsToRender}
       </ul>

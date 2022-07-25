@@ -1,6 +1,7 @@
 /* eslint-disable */
 /* Common */
 export const ACTIVE_CLASS = '-active';
+export const COMPLETED_CLASS = '-completed';
 export const CLOSED_CLASS = '-closed';
 export const LIGHT_CLASS = '-light';
 export const DISABLED_CLASS = '-disabled';
@@ -185,7 +186,9 @@ export const DROPDOWN_CLASSES = {
     MENU: 'chi-dropdown__menu',
     ITEM: 'chi-dropdown__menu-item',
     ITEM_TITLE: 'chi-dropdown__menu-item_title',
-    ITEM_DESCRIPTION: 'chi-dropdown__menu-item_text'
+    ITEM_DESCRIPTION: 'chi-dropdown__menu-item_text',
+    ICON: 'chi-icon icon-',
+    ICON_CHEVRON_RIGHT: 'chevron-right'
 };
 
 /* Skeleton */
@@ -193,12 +196,24 @@ export const SKELETON_CLASSES = {
     SKELETON: 'chi-skeleton',
 };
 
+<<<<<<< HEAD
 /* Tabs  */
 export const TABS_CLASSES = {
     BORDER: '-border',
     SOLID: '-solid',
     VERTICAL: '-vertical',
     TABS: 'chi-tabs',
+=======
+/* Steps */
+export const STEPS_CLASSES = {
+    SKELETON: 'chi-skeleton',
+    LINE: 'chi-steps__line',
+    ICON: 'chi-steps__icon',
+    CONTENT: 'chi-steps__content',
+    UX_PIN_WRAPPER: 'uxPin__wrapper',
+    STEPS: 'chi-steps',
+    HORIZONTAL_LABEL: '-horizontal-label'
+>>>>>>> 2c4a0b1... FSDE-24574-Enhancements for steps and dropdown menu icons
 };
 
 /* eslint-enable */
