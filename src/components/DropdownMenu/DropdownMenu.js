@@ -4,6 +4,8 @@ import * as React from 'react';
 import {
   ACTIVE_CLASS,
   DROPDOWN_CLASSES,
+  ICON_CLASS,
+  UTILITY_CLASSES,
 } from '../../constants/classes';
 import { contains, uuid4 } from '../../utils/utils';
 
@@ -63,6 +65,28 @@ export default class DropdownMenu extends React.Component {
               <span className={`${DROPDOWN_CLASSES.ITEM_DESCRIPTION}`}>{this.props[`item${i}Description`]}</span>
             </>
           ) : this.props[`item${i}`];
+          const iconRight = this.props[`iconRight${i}`] ? (
+            <i
+              className={`
+                ${ICON_CLASS}
+                icon-${this.props[`iconRight${i}`]} 
+                ${this.props[`iconRight${i}`] === DROPDOWN_CLASSES.ICON_CHEVRON_RIGHT ? UTILITY_CLASSES.MARGIN.LEFT.AUTO : UTILITY_CLASSES.MARGIN.LEFT[2]} 
+                ${UTILITY_CLASSES.MARGIN.RIGHT[0]}
+              `}
+              aria-hidden="true">
+            </i>
+          ) : null;
+          const iconLeft = this.props[`iconLeft${i}`] ? (
+            <i
+              className={`
+              ${ICON_CLASS} 
+              icon-${this.props[`iconLeft${i}`]} 
+              ${UTILITY_CLASSES.MARGIN.LEFT[0]}
+              ${UTILITY_CLASSES.MARGIN.RIGHT[1]}
+            `}
+              aria-hidden="true">
+            </i>
+          ) : null;
 
           itemsToRender.push(
             // eslint-disable-next-line
@@ -72,7 +96,9 @@ export default class DropdownMenu extends React.Component {
                   ${i === this.state.selectedItem && this.props.retainSelection ? ACTIVE_CLASS : ''}
                 `}
               onClick={() => this._handlerClickMenuItem(i)}>
+              {iconLeft}
               {itemContent}
+              {iconRight}
             </a>
           );
         }
@@ -86,10 +112,10 @@ export default class DropdownMenu extends React.Component {
       <div
         ref={`dropdown-menu-ref-${this.state.id}`}
         className={`
-                ${DROPDOWN_CLASSES.MENU}
-                ${this.state.active ? ACTIVE_CLASS : ''}
-                ${this.someDescription ? '-list' : ''} 
-              `}
+          ${DROPDOWN_CLASSES.MENU}
+          ${this.state.active ? ACTIVE_CLASS : ''}
+          ${this.someDescription ? '-list' : ''} 
+        `}
         style={{
           height: `${this.props.height && this.props.scrollItems ? `${this.props.height}px` : ''}`,
           minHeight: `${this.props.height && !this.props.scrollItems ? `${this.props.height}px` : ''}`,
@@ -128,6 +154,26 @@ DropdownMenu.propTypes = {
   item8: PropTypes.string,
   item9: PropTypes.string,
   item10: PropTypes.string,
+  iconLeft1: PropTypes.string,
+  iconRight1: PropTypes.string,
+  iconLeft2: PropTypes.string,
+  iconRight2: PropTypes.string,
+  iconLeft3: PropTypes.string,
+  iconRight3: PropTypes.string,
+  iconLeft4: PropTypes.string,
+  iconRight4: PropTypes.string,
+  iconLeft5: PropTypes.string,
+  iconRight5: PropTypes.string,
+  iconLeft6: PropTypes.string,
+  iconRight6: PropTypes.string,
+  iconLeft7: PropTypes.string,
+  iconRight7: PropTypes.string,
+  iconLeft8: PropTypes.string,
+  iconRight8: PropTypes.string,
+  iconLeft9: PropTypes.string,
+  iconRight9: PropTypes.string,
+  iconLeft10: PropTypes.string,
+  iconRight10: PropTypes.string,
   item1Description: PropTypes.string,
   item2Description: PropTypes.string,
   item3Description: PropTypes.string,

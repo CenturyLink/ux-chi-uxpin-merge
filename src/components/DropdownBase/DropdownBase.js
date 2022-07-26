@@ -100,7 +100,27 @@ export default class DropdownBase extends React.Component {
           select7={this.props.select7}
           select8={this.props.select8}
           select9={this.props.select9}
-          select10={this.props.select10}>
+          select10={this.props.select10}
+          iconRight1={this.props.iconRight1}
+          iconRight2={this.props.iconRight2}
+          iconRight3={this.props.iconRight3}
+          iconRight4={this.props.iconRight4}
+          iconRight5={this.props.iconRight5}
+          iconRight6={this.props.iconRight6}
+          iconRight7={this.props.iconRight7}
+          iconRight8={this.props.iconRight8}
+          iconRight9={this.props.iconRight9}
+          iconRight10={this.props.iconRight10}
+          iconLeft1={this.props.iconLeft1}
+          iconLeft2={this.props.iconLeft2}
+          iconLeft3={this.props.iconLeft3}
+          iconLeft4={this.props.iconLeft4}
+          iconLeft5={this.props.iconLeft5}
+          iconLeft6={this.props.iconLeft6}
+          iconLeft7={this.props.iconLeft7}
+          iconLeft8={this.props.iconLeft8}
+          iconLeft9={this.props.iconLeft9}
+          iconLeft10={this.props.iconLeft10}>
         </DropdownMenu>
       </div>
     );
@@ -134,6 +154,26 @@ DropdownBase.propTypes = {
   item8: PropTypes.string,
   item9: PropTypes.string,
   item10: PropTypes.string,
+  iconLeft1: PropTypes.string,
+  iconRight1: PropTypes.string,
+  iconLeft2: PropTypes.string,
+  iconRight2: PropTypes.string,
+  iconLeft3: PropTypes.string,
+  iconRight3: PropTypes.string,
+  iconLeft4: PropTypes.string,
+  iconRight4: PropTypes.string,
+  iconLeft5: PropTypes.string,
+  iconRight5: PropTypes.string,
+  iconLeft6: PropTypes.string,
+  iconRight6: PropTypes.string,
+  iconLeft7: PropTypes.string,
+  iconRight7: PropTypes.string,
+  iconLeft8: PropTypes.string,
+  iconRight8: PropTypes.string,
+  iconLeft9: PropTypes.string,
+  iconRight9: PropTypes.string,
+  iconLeft10: PropTypes.string,
+  iconRight10: PropTypes.string,
   item1Description: PropTypes.string,
   item2Description: PropTypes.string,
   item3Description: PropTypes.string,

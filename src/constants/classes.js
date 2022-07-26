@@ -1,6 +1,7 @@
 /* eslint-disable */
 /* Common */
 export const ACTIVE_CLASS = '-active';
+export const COMPLETED_CLASS = '-completed';
 export const CLOSED_CLASS = '-closed';
 export const LIGHT_CLASS = '-light';
 export const DISABLED_CLASS = '-disabled';
@@ -10,6 +11,7 @@ export const ANIMATE_CHEVRON_CLASS = '-animate';
 export const PORTAL_CLASS = '-portal';
 export const TRANSITIONING_CLASS = '-transitioning';
 export const SR_ONLY_CLASS = '-sr--only';
+export const UX_PIN_WRAPPER = 'uxPin__wrapper';
 
 /* Alert */
 export const ALERT_CLASSES = {
@@ -115,7 +117,52 @@ export const UTILITY_CLASSES = {
         FLEX: '-d--flex',
     },
     GRID: 'chi-grid',
-    COLUMN: 'chi-col'
+    COLUMN: 'chi-col',
+    MARGIN: {
+        1: '-m--1',
+        2: '-m--2',
+        3: '-m--3',
+        4: '-m--4',
+        X: {
+            1: '-mx--1',
+            2: '-mx--2',
+            3: '-mx--3',
+            4: '-mx--4',
+        },
+        Y: {
+            1: '-my--1',
+            2: '-my--2',
+            3: '-my--3',
+            4: '-my--4',
+        },
+        LEFT: {
+            AUTO: '-ml--auto',
+            0: '-ml--0',
+            1: '-ml--1',
+            2: '-ml--2',
+            3: '-ml--3',
+            4: '-ml--4',
+        },
+        RIGHT: {
+            0: '-mr--0',
+            1: '-mr--1',
+            2: '-mr--2',
+            3: '-mr--3',
+            4: '-mr--4',
+        },
+        TOP: {
+            1: '-mt--1',
+            2: '-mt--2',
+            3: '-mt--3',
+            4: '-mt--4',
+        },
+        BOTTOM: {
+            1: '-mb--1',
+            2: '-mb--2',
+            3: '-mb--3',
+            4: '-mb--4',
+        },
+    },
 };
 
 /* Tooltip */
@@ -185,7 +232,8 @@ export const DROPDOWN_CLASSES = {
     MENU: 'chi-dropdown__menu',
     ITEM: 'chi-dropdown__menu-item',
     ITEM_TITLE: 'chi-dropdown__menu-item_title',
-    ITEM_DESCRIPTION: 'chi-dropdown__menu-item_text'
+    ITEM_DESCRIPTION: 'chi-dropdown__menu-item_text',
+    ICON_CHEVRON_RIGHT: 'chevron-right'
 };
 
 /* Skeleton */
@@ -199,6 +247,17 @@ export const TABS_CLASSES = {
     SOLID: '-solid',
     VERTICAL: '-vertical',
     TABS: 'chi-tabs',
+}
+
+/* Steps */
+export const STEPS_CLASSES = {
+    STEPS: 'chi-steps',
+    ICON: 'chi-steps__icon',
+    ITEM: 'chi-steps__item',
+    ITEM_TITLE: 'chi-steps__item-title',
+    CONTENT: 'chi-steps__content',
+    LINE: 'chi-steps__line',
+    HORIZONTAL_LABEL: '-horizontal-label'
 };
 
 /* eslint-enable */

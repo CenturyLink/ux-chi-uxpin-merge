@@ -2,39 +2,48 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { uuid4 } from '../../utils/utils';
 import '../../utils/utils.css';
-
-let uuid;
-const stepsToRender = [];
+import {
+  ACTIVE_CLASS,
+  COMPLETED_CLASS,
+  STEPS_CLASSES,
+  UX_PIN_WRAPPER,
+} from '../../constants/classes';
 
 /* eslint-disable */
 export default function Steps(props) {
-  uuid = `steps${uuid4()}`;
-  stepsToRender.length = 0;
-  const stepsLine = <div className="chi-steps__line"></div>;
+  const uuid = `steps${uuid4()}`;
+  const stepsToRender = [];
+  const STEPS_TO_RENDER = 5;
+  const stepsLine = <div className={STEPS_CLASSES.LINE}></div>;
 
-  Array(11).fill()
+  Array(STEPS_TO_RENDER).fill()
     .forEach((_, i) => {
       if (props[`step${i}`]) {
-        let icon,
-          label;
-
-        if (props.horizontalLabel) {
-          icon = <div class="chi-steps__icon"></div>;
-          label = <a href="#">{props[`step${i}`]}</a>;
-        } else {
-          icon = <div className="chi-steps__icon">
-            <a href="#">{props[`step${i}`]}</a>
-          </div>;
-          label = null;
-        }
+        const icon = <div className={STEPS_CLASSES.ICON}></div>;
+        const content = (
+          <div className={STEPS_CLASSES.CONTENT}>
+            <a className={STEPS_CLASSES.ITEM_TITLE} href="#">{props[`step${i}`]}</a>
+          </div>
+        );
+        const step = props.horizontalLabel ? (
+          <>
+            {icon}
+            {content}
+          </>
+        ) :
+          <>
+            <div className={STEPS_CLASSES.ICON}>
+              {content}
+            </div>
+          </>;
 
         stepsToRender.push(
           <li className={`
-            ${i < props.activeSteps ? '-completed' : ''}
-            ${i === props.activeSteps ? '-active' : ''}
+              ${STEPS_CLASSES.ITEM}
+              ${i < props.activeSteps ? COMPLETED_CLASS : ''}
+              ${i === props.activeSteps ? ACTIVE_CLASS : ''}
             `}>
-            {icon}
-            {label}
+            {step}
             {props[`step${i + 1}`] ? stepsLine : null}
           </li>
         );
@@ -43,11 +52,13 @@ export default function Steps(props) {
 
   return (
     /* This class is used to solve problems with keys in canvas */
-    <div className='uxPin__wrapper' style={{ height: 64 }}>
-      <ul className={`
-        chi-steps
-        ${props.horizontalLabel ? '-horizontal-label' : ''}
-        `} id={uuid}>
+    <div className={UX_PIN_WRAPPER}>
+      <ul
+        className={`
+          ${STEPS_CLASSES.STEPS}
+          ${props.horizontalLabel ? STEPS_CLASSES.HORIZONTAL_LABEL : ''}
+        `}
+        id={uuid}>
         {stepsToRender}
       </ul>
     </div>
