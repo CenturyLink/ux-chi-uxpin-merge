@@ -5,6 +5,7 @@ import {
   ACTIVE_CLASS,
   DROPDOWN_CLASSES,
   ICON_CLASS,
+  UTILITY_CLASSES,
 } from '../../constants/classes';
 import { contains, uuid4 } from '../../utils/utils';
 
@@ -69,8 +70,8 @@ export default class DropdownMenu extends React.Component {
               className={`
                 ${ICON_CLASS}
                 icon-${this.props[`iconRight${i}`]} 
-                ${this.props[`iconRight${i}`] === DROPDOWN_CLASSES.ICON_CHEVRON_RIGHT ? '-ml--auto' : '-ml--2'} 
-                -mr--0
+                ${this.props[`iconRight${i}`] === DROPDOWN_CLASSES.ICON_CHEVRON_RIGHT ? UTILITY_CLASSES.MARGIN.LEFT.AUTO : UTILITY_CLASSES.MARGIN.LEFT[2]} 
+                ${UTILITY_CLASSES.MARGIN.RIGHT[0]}
               `}
               aria-hidden="true">
             </i>
@@ -80,8 +81,8 @@ export default class DropdownMenu extends React.Component {
               className={`
               ${ICON_CLASS} 
               icon-${this.props[`iconLeft${i}`]} 
-              -ml--0 
-              -mr--1
+              ${UTILITY_CLASSES.MARGIN.LEFT[0]}
+              ${UTILITY_CLASSES.MARGIN.RIGHT[1]}
             `}
               aria-hidden="true">
             </i>

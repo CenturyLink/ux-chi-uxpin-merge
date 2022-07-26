@@ -9,38 +9,41 @@ import {
   UX_PIN_WRAPPER,
 } from '../../constants/classes';
 
-let uuid;
-const stepsToRender = [];
-
 /* eslint-disable */
 export default function Steps(props) {
-  uuid = `steps${uuid4()}`;
-  stepsToRender.length = 0;
+  const uuid = `steps${uuid4()}`;
+  const stepsToRender = [];
+  const STEPS_TO_RENDER = 5;
   const stepsLine = <div className={STEPS_CLASSES.LINE}></div>;
 
-  Array(11).fill()
+  Array(STEPS_TO_RENDER).fill()
     .forEach((_, i) => {
       if (props[`step${i}`]) {
-        let icon,
-          label;
-
-        if (props.horizontalLabel) {
-          icon = <div class=""></div>;
-          label = <div class={STEPS_CLASSES.CONTENT}><a href="#">{props[`step${i}`]}</a></div>;
-        } else {
-          icon = <div className={STEPS_CLASSES.ICON}>
-            <div class={STEPS_CLASSES.CONTENT}><a href="#">{props[`step${i}`]}</a></div>
-          </div>;
-          label = null;
-        }
+        const icon = <div className={STEPS_CLASSES.ICON}></div>;
+        const content = (
+          <div className={STEPS_CLASSES.CONTENT}>
+            <a className={STEPS_CLASSES.ITEM_TITLE} href="#">{props[`step${i}`]}</a>
+          </div>
+        );
+        const step = props.horizontalLabel ? (
+          <>
+            {icon}
+            {content}
+          </>
+        ) :
+          <>
+            <div className={STEPS_CLASSES.ICON}>
+              {content}
+            </div>
+          </>;
 
         stepsToRender.push(
           <li className={`
-            ${i < props.activeSteps ? COMPLETED_CLASS : ''}
-            ${i === props.activeSteps ? ACTIVE_CLASS : ''}
+              ${STEPS_CLASSES.ITEM}
+              ${i < props.activeSteps ? COMPLETED_CLASS : ''}
+              ${i === props.activeSteps ? ACTIVE_CLASS : ''}
             `}>
-            {icon}
-            {label}
+            {step}
             {props[`step${i + 1}`] ? stepsLine : null}
           </li>
         );
@@ -49,11 +52,13 @@ export default function Steps(props) {
 
   return (
     /* This class is used to solve problems with keys in canvas */
-    <div className={UX_PIN_WRAPPER} style={{ height: 64 }}>
-      <ul className={`
-        ${STEPS_CLASSES.STEPS}
-        ${props.horizontalLabel ? STEPS_CLASSES.HORIZONTAL_LABEL : ''}
-        `} id={uuid}>
+    <div className={UX_PIN_WRAPPER}>
+      <ul
+        className={`
+          ${STEPS_CLASSES.STEPS}
+          ${props.horizontalLabel ? STEPS_CLASSES.HORIZONTAL_LABEL : ''}
+        `}
+        id={uuid}>
         {stepsToRender}
       </ul>
     </div>
