@@ -251,13 +251,12 @@ export const TABS_CLASSES = {
 
 /* Steps */
 export const STEPS_CLASSES = {
-    SKELETON: 'chi-skeleton',
-    LINE: 'chi-steps__line',
+    STEPS: 'chi-steps',
     ICON: 'chi-steps__icon',
     ITEM: 'chi-steps__item',
     ITEM_TITLE: 'chi-steps__item-title',
     CONTENT: 'chi-steps__content',
-    STEPS: 'chi-steps',
+    LINE: 'chi-steps__line',
     HORIZONTAL_LABEL: '-horizontal-label'
 };
 
