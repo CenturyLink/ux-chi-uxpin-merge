@@ -6,6 +6,7 @@ import {
   ACTIVE_CLASS,
   COMPLETED_CLASS,
   STEPS_CLASSES,
+  UX_PIN_WRAPPER,
 } from '../../constants/classes';
 
 let uuid;
@@ -48,7 +49,7 @@ export default function Steps(props) {
 
   return (
     /* This class is used to solve problems with keys in canvas */
-    <div className={STEPS_CLASSES.UX_PIN_WRAPPER} style={{ height: 64 }}>
+    <div className={UX_PIN_WRAPPER} style={{ height: 64 }}>
       <ul className={`
         ${STEPS_CLASSES.STEPS}
         ${props.horizontalLabel ? STEPS_CLASSES.HORIZONTAL_LABEL : ''}

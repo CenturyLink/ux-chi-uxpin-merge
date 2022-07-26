@@ -4,6 +4,7 @@ import * as React from 'react';
 import {
   ACTIVE_CLASS,
   DROPDOWN_CLASSES,
+  ICON_CLASS,
 } from '../../constants/classes';
 import { contains, uuid4 } from '../../utils/utils';
 
@@ -63,6 +64,28 @@ export default class DropdownMenu extends React.Component {
               <span className={`${DROPDOWN_CLASSES.ITEM_DESCRIPTION}`}>{this.props[`item${i}Description`]}</span>
             </>
           ) : this.props[`item${i}`];
+          const iconRight = this.props[`iconRight${i}`] ? (
+            <i
+              className={`
+                ${ICON_CLASS}
+                icon-${this.props[`iconRight${i}`]} 
+                ${this.props[`iconRight${i}`] === DROPDOWN_CLASSES.ICON_CHEVRON_RIGHT ? '-ml--auto' : '-ml--2'} 
+                -mr--0
+              `}
+              aria-hidden="true">
+            </i>
+          ) : null;
+          const iconLeft = this.props[`iconLeft${i}`] ? (
+            <i
+              className={`
+              ${ICON_CLASS} 
+              icon-${this.props[`iconLeft${i}`]} 
+              -ml--0 
+              -mr--1
+            `}
+              aria-hidden="true">
+            </i>
+          ) : null;
 
           itemsToRender.push(
             // eslint-disable-next-line
@@ -72,11 +95,9 @@ export default class DropdownMenu extends React.Component {
                   ${i === this.state.selectedItem && this.props.retainSelection ? ACTIVE_CLASS : ''}
                 `}
               onClick={() => this._handlerClickMenuItem(i)}>
+              {iconLeft}
               {itemContent}
-              {this.props[`iconRight${i}`]
-                // eslint-disable-next-line max-len
-                && <i className={`chi-icon icon-${this.props[`iconRight${i}`] === DROPDOWN_CLASSES.ICON_CHEVRON_RIGHT ? `${this.props[`iconRight${i}`]} -ml--auto` : `${this.props[`iconRight${i}`]} -ml--2`} -mr--0`} aria-hidden="true"></i>
-              }
+              {iconRight}
             </a>
           );
         }
@@ -90,10 +111,10 @@ export default class DropdownMenu extends React.Component {
       <div
         ref={`dropdown-menu-ref-${this.state.id}`}
         className={`
-                ${DROPDOWN_CLASSES.MENU}
-                ${this.state.active ? ACTIVE_CLASS : ''}
-                ${this.someDescription ? '-list' : ''} 
-              `}
+          ${DROPDOWN_CLASSES.MENU}
+          ${this.state.active ? ACTIVE_CLASS : ''}
+          ${this.someDescription ? '-list' : ''} 
+        `}
         style={{
           height: `${this.props.height && this.props.scrollItems ? `${this.props.height}px` : ''}`,
           minHeight: `${this.props.height && !this.props.scrollItems ? `${this.props.height}px` : ''}`,
