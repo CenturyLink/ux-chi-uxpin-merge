@@ -3,6 +3,7 @@ import * as React from 'react';
 import { uuid4 } from '../../utils/utils';
 import {
   BUTTON_CLASSES,
+  GENERIC_SIZES,
   ICON_CLASS,
   LABEL_CLASSES,
   PICKER_GROUP_CLASSES,
@@ -16,17 +17,6 @@ import {
  * SkipContainerWrapper
  */
 export default class PickerGroup extends React.Component {
-  setDescription(picker, description) {
-    return <>
-      <div className={PICKER_GROUP_CLASSES.LABEL}>
-        {picker}
-      </div>
-      <div className={PICKER_GROUP_CLASSES.LABEL}>
-        {description}
-      </div>
-    </>
-  }
-
   render() {
     const uuid = uuid4();
     const pickersToRender = [];
@@ -46,7 +36,7 @@ export default class PickerGroup extends React.Component {
         onClick={this.props.clickInfo}
         onMouseEnter={this.props.mouseOverInfo}
         onMouseLeave={this.props.mouseLeaveInfo}>
-        <button className={`${BUTTON_CLASSES.BUTTON} ${BUTTON_CLASSES.ICON_BUTTON} ${BUTTON_CLASSES.FLAT} -xs`} aria-label="Help">
+        <button className={`${BUTTON_CLASSES.BUTTON} ${BUTTON_CLASSES.ICON_BUTTON} ${BUTTON_CLASSES.FLAT} ${GENERIC_SIZES.XS}`} aria-label="Help">
           <i className={`${ICON_CLASS} icon-circle-info-outline -icon--primary`}></i>
         </button>
       </div> : '';
@@ -57,6 +47,17 @@ export default class PickerGroup extends React.Component {
         {message}
         {info}
       </legend> : '';
+
+    const description = (picker, description) => {
+      return <>
+        <div className={PICKER_GROUP_CLASSES.LABEL}>
+          {picker}
+        </div>
+        <div className={PICKER_GROUP_CLASSES.LABEL}>
+          {description}
+        </div>
+      </>
+    }
 
     Array(PICKERS_TO_RENDER).fill()
       .forEach((_, i) => {
@@ -88,7 +89,7 @@ export default class PickerGroup extends React.Component {
                 }
               }}>
               {this.props[`description${i}`] ?
-                this.setDescription(this.props[`picker${i}`], this.props[`description${i}`]) :
+                description(this.props[`picker${i}`], this.props[`description${i}`]) :
                 this.props[`picker${i}`]}
             </label>
           );
@@ -102,7 +103,9 @@ export default class PickerGroup extends React.Component {
         <fieldset>
           {fieldLabel}
           <div className={`${PICKER_GROUP_CLASSES.PICKER} ${this.props.fluid ? PICKER_GROUP_CLASSES.FLUID : ''}`}>
-            {pickersToRender}
+            <div className={PICKER_GROUP_CLASSES.CONTENT}>
+              {pickersToRender}
+            </div>
           </div>
         </fieldset>
       </div>

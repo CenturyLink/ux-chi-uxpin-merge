@@ -12,6 +12,13 @@ export const PORTAL_CLASS = '-portal';
 export const TRANSITIONING_CLASS = '-transitioning';
 export const SR_ONLY_CLASS = '-sr--only';
 export const UX_PIN_WRAPPER = 'uxPin__wrapper';
+export const GENERIC_SIZES = {
+    XS: '-xs',
+    SM: '-sm',
+    MD: '-md',
+    LG: '-lg',
+    XL: '-xl',
+  };
 
 /* Alert */
 export const ALERT_CLASSES = {
@@ -211,6 +218,7 @@ export const LABEL_CLASSES = {
 export const PICKER_GROUP_CLASSES = {
     FLUID: '-fluid',
     PICKER: 'chi-picker-group',
+    CONTENT: 'chi-picker-group__content',
     INPUT: 'chi-picker__input',
     LABEL: 'chi-picker-label',
     LABEL_WRAPPER: 'chi-picker-label__wrapper',
