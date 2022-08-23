@@ -212,6 +212,8 @@ export const PICKER_GROUP_CLASSES = {
     FLUID: '-fluid',
     PICKER: 'chi-picker-group',
     INPUT: 'chi-picker__input',
+    LABEL: 'chi-picker-label',
+    LABEL_WRAPPER: 'chi-picker-label__wrapper',
 };
 
 /* Radio */
