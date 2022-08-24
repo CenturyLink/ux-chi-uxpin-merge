@@ -9,7 +9,7 @@
     "generate-presets": "uxpin-merge generate-presets",
     "server": "uxpin-merge server --webpack-config ./webpack.uxpin.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js",
     "start": "uxpin-merge --disable-tunneling --webpack-config ./webpack.uxpin.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js",
-    "push-dev": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_DEV_TOKEN} --tag 1.0.19",
+    "push-dev": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_DEV_TOKEN} --tag 1.0.20",
     "push-lumen": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_LUMEN_TOKEN}",
     "push-test": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_TEST_LIBRARY_TOKEN}"
   },
