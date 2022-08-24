@@ -17,6 +17,20 @@ import {
  * SkipContainerWrapper
  */
 export default class PickerGroup extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeItem: props.selected,
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selected !== this.state.activeItem) {
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({ activeItem: nextProps.selected });
+    }
+  }
+
   render() {
     const uuid = uuid4();
     const pickersToRender = [];
@@ -59,35 +73,33 @@ export default class PickerGroup extends React.Component {
       </>
     }
 
+    const handlerPickerClick = (i) => {
+      this.setState({ activeItem: i });
+
+      if (this.props[`select${i}`]) {
+        this.props[`select${i}`]();
+      }
+    }
+
     Array(PICKERS_TO_RENDER).fill()
       .forEach((_, i) => {
         if (this.props[`picker${i}`]) {
           pickersToRender.push(
             <input
+              readOnly
               className={PICKER_GROUP_CLASSES.INPUT}
               type="radio"
               name={`picker-${uuid}`}
               id={`picker-${uuid}-${i}`}
-              checked={this.props.selected === i}
+              checked={this.state.activeItem === i}
               disabled={this.props[`disabled${i}`]}
             />
           );
           pickersToRender.push(
             <label
               className={this.props[`description${i}`] ? PICKER_GROUP_CLASSES.LABEL_WRAPPER : ''}
-              for={`picker-${uuid}-${i}`}
-              onClick={(e) => {
-                if (this.props[`select${i}`]) {
-                  const clickedLabelId = e.target.getAttribute('for');
-                  const currentlyActivePicker = e.target.parentNode.querySelector('input[checked]');
-                  const inputToCheck = document.getElementById(clickedLabelId);
-
-                  this.props[`select${i}`]();
-                  if (currentlyActivePicker)
-                    currentlyActivePicker.checked = false;
-                  inputToCheck.checked = true;
-                }
-              }}>
+              htmlFor={`picker-${uuid}-${i}`}
+              onClick={() => handlerPickerClick(i)}>
               {this.props[`description${i}`] ?
                 description(this.props[`picker${i}`], this.props[`description${i}`]) :
                 this.props[`picker${i}`]}
