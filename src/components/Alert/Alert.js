@@ -1,6 +1,14 @@
-/* eslint-disable react/no-danger */
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import {
+  ALERT_CLASSES,
+  BUTTON_CLASSES,
+  CLOSED_CLASS,
+  ICON_CLASS,
+  INFO_CLASS,
+  SPINNER_CLASSES,
+  UTILITY_CLASSES,
+} from '../../constants/classes';
 
 export default class Alert extends React.Component {
   render() {
@@ -8,7 +16,6 @@ export default class Alert extends React.Component {
     let textToRender;
     let alertTitle = '';
     let closeButton = '';
-    const textArea = () => ({ __html: this.props.text.replaceAll('\n', '<br />') });
 
     if (this.props.icon) {
       iconToRender = this.props.icon;
@@ -29,8 +36,8 @@ export default class Alert extends React.Component {
       }
     }
 
-    if (textArea) {
-      textToRender = textArea;
+    if (this.props.text) {
+      textToRender = this.props.text;
     } else {
       switch (this.props.state) {
         case 'success':
@@ -58,14 +65,22 @@ export default class Alert extends React.Component {
     }
 
     if (this.props.title) {
-      alertTitle = <p className="chi-alert__title -text--lg">{this.props.title}</p>;
+      alertTitle = <p className={`${ALERT_CLASSES.TITLE} ${UTILITY_CLASSES.TEXT.LG}`}>{this.props.title}</p>;
     }
 
     if (this.props.closable) {
       closeButton = (
-        <button type="button" className="chi-alert__close-button chi-button -icon -close" aria-label="Close">
-          <div className="chi-button__content">
-            <i className="chi-icon icon-x"></i>
+        <button
+          type="button"
+          className={`
+            ${ALERT_CLASSES.CLOSE_BUTTON} 
+            ${BUTTON_CLASSES.BUTTON} 
+            ${BUTTON_CLASSES.ICON_BUTTON} 
+            ${CLOSED_CLASS}`
+          }
+          aria-label="Close">
+          <div className={BUTTON_CLASSES.CONTENT}>
+            <i className={`${ICON_CLASS} icon-x`}></i>
           </div>
         </button>
       );
@@ -74,7 +89,7 @@ export default class Alert extends React.Component {
     return (
       <div
         className={`
-        chi-alert
+        ${ALERT_CLASSES.ALERT}
         ${this.props.state && this.props.state !== 'base' ? `-${this.props.state}` : ''}
         ${this.props.size ? `-${this.props.size}` : ''}
         ${this.props.type ? `-${this.props.type}` : ''}
@@ -82,18 +97,18 @@ export default class Alert extends React.Component {
         role="alert">
         {this.props.inProgress
           ? (
-            <div className="chi-alert__icon">
-              <svg className="chi-spinner -info -sm--2" viewBox="0 0 66 66">
+            <div className={ALERT_CLASSES.ICON}>
+              <svg className={`${SPINNER_CLASSES.SPINNER} ${INFO_CLASS} -sm--2`} viewBox="0 0 66 66">
                 <title>Loading</title>
                 <circle className="path" cx="33" cy="33" r="30" fill="none" strokeWidth="6"></circle>
               </svg>
             </div>
           )
-          : <i className={`chi-alert__icon chi-icon icon-${iconToRender}`}></i>
+          : <i className={`${ALERT_CLASSES.ICON} ${ICON_CLASS} icon-${iconToRender}`}></i>
         }
-        <div className="chi-alert__content">
+        <div className={ALERT_CLASSES.CONTENT}>
           {alertTitle}
-          <p className="chi-alert__text" dangerouslySetInnerHTML={textToRender()}></p>
+          <p className={ALERT_CLASSES.TEXT} style={{ whiteSpace: 'pre-line' }}>{textToRender}</p>
         </div>
         {closeButton}
       </div>

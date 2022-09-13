@@ -1,6 +1,7 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { uuid4 } from '../../utils/utils';
+import { SR_ONLY_CLASS } from '../../constants/classes';
 
 /**
  * @uxpincomponent
@@ -8,14 +9,12 @@ import { uuid4 } from '../../utils/utils';
 function Popover(props) {
   const popoverId = `popover-${uuid4()}`;
   const referenceId = `button-${uuid4()}`;
-  const textRender = () => ({ __html: props.text.replaceAll('\n', '<br />') });
-  // eslint-disable-next-line react/no-danger
-  const text = <p dangerouslySetInnerHTML={textRender()} />;
+  const text = <p style={{ whiteSpace: 'pre-line' }}>{props.text}</p>;
 
   return (
     <>
       <div style={{ border: '1px solid #e9e9e9', height: '16px', width: '16px' }} id={referenceId}>
-        <span className="-sr--only">
+        <span className={SR_ONLY_CLASS}>
           i
         </span>
       </div>
