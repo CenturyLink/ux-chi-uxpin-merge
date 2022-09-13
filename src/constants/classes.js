@@ -173,6 +173,14 @@ export const UTILITY_CLASSES = {
       4: '-mb--4',
     },
   },
+  TEXT: {
+    TWO_XS: '-text--2xs',
+    XS: '-text--xs',
+    SM: '-text--sm',
+    MD: '-text--md',
+    LG: '-text--lg',
+    XL: '-text--xl',
+  },
 };
 
 /* Tooltip */

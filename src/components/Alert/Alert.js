@@ -7,6 +7,7 @@ import {
   ICON_CLASS,
   INFO_CLASS,
   SPINNER_CLASSES,
+  UTILITY_CLASSES,
 } from '../../constants/classes';
 
 export default class Alert extends React.Component {
@@ -64,7 +65,7 @@ export default class Alert extends React.Component {
     }
 
     if (this.props.title) {
-      alertTitle = <p className={`${ALERT_CLASSES.TITLE} -text--lg`}>{this.props.title}</p>;
+      alertTitle = <p className={`${ALERT_CLASSES.TITLE} ${UTILITY_CLASSES.TEXT.LG}`}>{this.props.title}</p>;
     }
 
     if (this.props.closable) {
