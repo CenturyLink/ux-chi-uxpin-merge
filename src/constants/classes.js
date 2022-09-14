@@ -3,6 +3,7 @@
 export const ACTIVE_CLASS = '-active';
 export const COMPLETED_CLASS = '-completed';
 export const CLOSED_CLASS = '-closed';
+export const CLOSE_CLASS = '-close';
 export const INFO_CLASS = '-info';
 export const LIGHT_CLASS = '-light';
 export const DISABLED_CLASS = '-disabled';
