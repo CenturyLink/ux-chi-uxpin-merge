@@ -3,7 +3,7 @@ import * as React from 'react';
 import {
   ALERT_CLASSES,
   BUTTON_CLASSES,
-  CLOSED_CLASS,
+  CLOSE_CLASS,
   ICON_CLASS,
   INFO_CLASS,
   SPINNER_CLASSES,
@@ -76,7 +76,7 @@ export default class Alert extends React.Component {
             ${ALERT_CLASSES.CLOSE_BUTTON} 
             ${BUTTON_CLASSES.BUTTON} 
             ${BUTTON_CLASSES.ICON_BUTTON} 
-            ${CLOSED_CLASS}`
+            ${CLOSE_CLASS}`
           }
           aria-label="Close">
           <div className={BUTTON_CLASSES.CONTENT}>
