@@ -13,7 +13,7 @@ import {
 export default function Steps(props) {
   const uuid = `steps${uuid4()}`;
   const stepsToRender = [];
-  const STEPS_TO_RENDER = 5;
+  const STEPS_TO_RENDER = 11;
   const stepsLine = <div className={STEPS_CLASSES.LINE}></div>;
 
   Array(STEPS_TO_RENDER).fill()
