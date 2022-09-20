@@ -37,38 +37,13 @@ export default class Radio extends React.Component {
       }
     }
 
-    let layoutOptions;
-    switch (this.props.layout) {
-      case 'inline':
-        layoutOptions = `${INLINE_CLASS}`;
-        break;
-      case 'vertical':
-        layoutOptions = 'chi-col -w--12 -mb--1';
-        break;
-      case '2-col':
-        layoutOptions = 'chi-col -w--6 -mb--1';
-        break;
-      case '3-col':
-        layoutOptions = 'chi-col -w--4 -mb--1';
-        break;
-      case '4-col':
-        layoutOptions = 'chi-col -w--3 -mb--1';
-        break;
-      case '6-col':
-        layoutOptions = 'chi-col -w--2 -mb--1';
-        break;
-      default:
-        layoutOptions = 'chi-col -w--12 -mb--1';
-        break;
-    }
-
     Array(11).fill()
       .forEach((_, i) => {
         if (this.props[`option${i}`]) {
           const uuid = `${this.state.id}-${i}`;
 
           radiosToRender.push(
-            <div className={this.props.layout === 'inline' || this.props.inline ? `${FORM_CLASSES.ITEM} ${INLINE_CLASS}`  : layoutOptions} key={`radio-${i}`}>
+            <div className={this.props.inline ? `${FORM_CLASSES.ITEM} ${INLINE_CLASS}` : 'chi-col -w--12 -mb--1'} key={`radio-${i}`}>
               <div className={`${RADIO_CLASSES.RADIO}`}>
                 <input className={`${RADIO_CLASSES.INPUT}`} type="radio" name={`radios-${uuid}`} id={uuid}
                   checked={i === this.props.selectedOption} disabled={this.props[`disabled${i}`]}
@@ -107,31 +82,21 @@ export default class Radio extends React.Component {
       </div> : '';
 
     const fieldLabel = this.props.fieldLabel ?
-      <div className={`${LABEL_CLASSES.LABEL}`}>
-        {this.props.fieldLabel}
-        {message}
-        {info}
-      </div> : '';
-
-    const content = layoutOptions === `${INLINE_CLASS}`
-    ? (
-      <div>
-        {fieldLabel}
-        {radiosToRender}
-      </div>
-    )
-    : (
-      <div className="chi-grid">
-        <div className="chi-col -w--12 -mb--1">
-          {fieldLabel}
+        <div className={`${LABEL_CLASSES.LABEL}`}>
+          {this.props.fieldLabel}
+          {message}
+          {info}
         </div>
-        {radiosToRender}
-      </div>
-    );
+      : '';
 
     return (
       <fieldset>
-        {content}
+        {this.props.inline
+          ? fieldLabel
+          : <div className="chi-col -w--12 -mb--1">
+              {fieldLabel}
+            </div>}
+        {radiosToRender}
       </fieldset>
     );
   }
@@ -141,7 +106,6 @@ Radio.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   inline: PropTypes.bool,
-  layout: PropTypes.oneOf(['inline', 'vertical', '2-col', '3-col', '4-col', '6-col']),
   selectedOption: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   info: PropTypes.bool,
   clickInfo: PropTypes.func,
