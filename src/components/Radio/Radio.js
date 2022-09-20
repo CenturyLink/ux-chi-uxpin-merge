@@ -3,8 +3,11 @@ import * as React from 'react';
 import { uuid4 } from '../../utils/utils';
 import {
   BUTTON_CLASSES,
+  FORM_CLASSES,
   ICON_CLASS,
+  INLINE_CLASS,
   LABEL_CLASSES,
+  RADIO_CLASSES,
   STAT_CLASSES,
 } from '../../constants/classes';
 
@@ -34,16 +37,40 @@ export default class Radio extends React.Component {
       }
     }
 
+    let layoutOptions;
+    switch (this.props.layout) {
+      case 'inline':
+        layoutOptions = `${INLINE_CLASS}`;
+        break;
+      case 'vertical':
+        layoutOptions = 'chi-col -w--12 -mb--1';
+        break;
+      case '2-col':
+        layoutOptions = 'chi-col -w--6 -mb--1';
+        break;
+      case '3-col':
+        layoutOptions = 'chi-col -w--4 -mb--1';
+        break;
+      case '4-col':
+        layoutOptions = 'chi-col -w--3 -mb--1';
+        break;
+      case '6-col':
+        layoutOptions = 'chi-col -w--2 -mb--1';
+        break;
+      default:
+        layoutOptions = 'chi-col -w--12 -mb--1';
+        break;
+    }
+
     Array(11).fill()
       .forEach((_, i) => {
         if (this.props[`option${i}`]) {
           const uuid = `${this.state.id}-${i}`;
-          const inline = this.props.inline ? '-inline' : '';
 
           radiosToRender.push(
-            <div className={`chi-form__item ${inline}`} key={`radio-${i}`}>
-              <div className="chi-radio">
-                <input className="chi-radio__input" type="radio" name={`radios-${uuid}`} id={uuid}
+            <div className={this.props.layout === 'inline' || this.props.inline ? `${FORM_CLASSES.ITEM} ${INLINE_CLASS}`  : layoutOptions} key={`radio-${i}`}>
+              <div className={`${RADIO_CLASSES.RADIO}`}>
+                <input className={`${RADIO_CLASSES.INPUT}`} type="radio" name={`radios-${uuid}`} id={uuid}
                   checked={i === this.props.selectedOption} disabled={this.props[`disabled${i}`]}
                   onChange={() => {
                   }} />
@@ -52,7 +79,7 @@ export default class Radio extends React.Component {
                   if (this.props[`select${i}`]) {
                     this.props[`select${i}`]();
                   }
-                }} className="chi-radio__label" htmlFor={uuid}>{this.props[`option${i}`]}</label>
+                }} className={`${RADIO_CLASSES.LABEL}`} htmlFor={uuid}>{this.props[`option${i}`]}</label>
               </div>
             </div>
           );
@@ -85,10 +112,26 @@ export default class Radio extends React.Component {
         {message}
         {info}
       </div> : '';
-    return (
-      <fieldset>
+
+    const content = layoutOptions === `${INLINE_CLASS}`
+    ? (
+      <div>
         {fieldLabel}
         {radiosToRender}
+      </div>
+    )
+    : (
+      <div className="chi-grid">
+        <div className="chi-col -w--12 -mb--1">
+          {fieldLabel}
+        </div>
+        {radiosToRender}
+      </div>
+    );
+
+    return (
+      <fieldset>
+        {content}
       </fieldset>
     );
   }
@@ -98,6 +141,7 @@ Radio.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   inline: PropTypes.bool,
+  layout: PropTypes.oneOf(['inline', 'vertical', '2-col', '3-col', '4-col', '6-col']),
   selectedOption: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   info: PropTypes.bool,
   clickInfo: PropTypes.func,
