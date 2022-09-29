@@ -9,6 +9,7 @@ import {
   LABEL_CLASSES,
   RADIO_CLASSES,
   STAT_CLASSES,
+  UTILITY_CLASSES,
 } from '../../constants/classes';
 
 /* eslint-disable */
@@ -37,15 +38,17 @@ export default class Radio extends React.Component {
       }
     }
 
-    Array(11).fill()
+    const arraySize = 11;
+
+    Array(arraySize).fill()
       .forEach((_, i) => {
         if (this.props[`option${i}`]) {
           const uuid = `${this.state.id}-${i}`;
 
           radiosToRender.push(
-            <div className={this.props.inline ? `${FORM_CLASSES.ITEM} ${INLINE_CLASS}` : 'chi-col -w--12 -mb--1'} key={`radio-${i}`}>
-              <div className={`${RADIO_CLASSES.RADIO}`}>
-                <input className={`${RADIO_CLASSES.INPUT}`} type="radio" name={`radios-${uuid}`} id={uuid}
+            <div className={this.props.inline ? `${FORM_CLASSES.ITEM} ${INLINE_CLASS}` : `${UTILITY_CLASSES.COLUMN} ${UTILITY_CLASSES.MARGIN.BOTTOM[1]} -w--12`} key={`radio-${i}`}>
+              <div className={RADIO_CLASSES.RADIO}>
+                <input className={RADIO_CLASSES.INPUT} type="radio" name={`radios-${uuid}`} id={uuid}
                   checked={i === this.props.selectedOption} disabled={this.props[`disabled${i}`]}
                   onChange={() => {
                   }} />
@@ -54,15 +57,15 @@ export default class Radio extends React.Component {
                   if (this.props[`select${i}`]) {
                     this.props[`select${i}`]();
                   }
-                }} className={`${RADIO_CLASSES.LABEL}`} htmlFor={uuid}>{this.props[`option${i}`]}</label>
+                }} className={RADIO_CLASSES.LABEL} htmlFor={uuid}>{this.props[`option${i}`]}</label>
               </div>
             </div>
           );
         }
       });
 
-    const required = <abbr className={`${LABEL_CLASSES.REQUIRED}`} title="Required field">*</abbr>;
-    const optional = <abbr className={`${LABEL_CLASSES.OPTIONAL}`} title="Optional field">(optional)</abbr>;
+    const required = <abbr className={LABEL_CLASSES.REQUIRED} title="Required field">*</abbr>;
+    const optional = <abbr className={LABEL_CLASSES.OPTIONAL} title="Optional field">(optional)</abbr>;
     let message = '';
 
     if (this.props.required && this.props.required === 'required') {
@@ -72,7 +75,7 @@ export default class Radio extends React.Component {
     }
 
     const info = this.props.info ?
-      <div className={`${STAT_CLASSES.TITLE_HELP}`}
+      <div className={STAT_CLASSES.TITLE_HELP}
       onClick={this.props.clickInfo}
       onMouseEnter={this.props.mouseOverInfo}
       onMouseLeave={this.props.mouseLeaveInfo}>
@@ -82,7 +85,7 @@ export default class Radio extends React.Component {
       </div> : '';
 
     const fieldLabel = this.props.fieldLabel ?
-        <div className={`${LABEL_CLASSES.LABEL}`}>
+        <div className={LABEL_CLASSES.LABEL}>
           {this.props.fieldLabel}
           {message}
           {info}
@@ -91,11 +94,13 @@ export default class Radio extends React.Component {
 
     return (
       <fieldset>
-        {this.props.inline
+        {
+          this.props.inline
           ? fieldLabel
-          : <div className="chi-col -w--12 -mb--1">
+          : <div className={`${UTILITY_CLASSES.COLUMN} ${UTILITY_CLASSES.MARGIN.BOTTOM[1]} -w--12`}>
               {fieldLabel}
-            </div>}
+            </div>
+        }
         {radiosToRender}
       </fieldset>
     );
