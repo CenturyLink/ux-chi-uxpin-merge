@@ -32,6 +32,11 @@ export default class FloatingButton extends React.Component {
           type="float"
           color={this.props.color === 'base' ? null : this.props.color}
           size={this.props.size}
+          onClick={this.props.click}
+          onMouseEnter={this.props.mouseOver}
+          onMouseLeave={this.props.mouseLeave}
+          onMouseDown={this.props.mouseDown}
+          onMouseUp={this.props.mouseUp}
           alternative-text={this.props.tooltipMessage || null}>
           <chi-icon icon={this.props.icon}></chi-icon>
         </chi-button>
@@ -45,6 +50,11 @@ FloatingButton.propTypes = {
   icon: PropTypes.string,
   tooltipMessage: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  click: PropTypes.func,
+  mouseDown: PropTypes.func,
+  mouseUp: PropTypes.func,
+  mouseOver: PropTypes.func,
+  mouseLeave: PropTypes.func,
 };
 
 FloatingButton.defaultProps = {
