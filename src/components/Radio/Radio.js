@@ -24,6 +24,7 @@ export default class Radio extends React.Component {
 
   render() {
     const radiosToRender = [];
+    const RADIOS_TO_RENDER = 11;
 
     function selectRadio(radioLabel) {
       const input = radioLabel.parentNode.querySelector('input');
@@ -38,9 +39,7 @@ export default class Radio extends React.Component {
       }
     }
 
-    const arraySize = 11;
-
-    Array(arraySize).fill()
+    Array(RADIOS_TO_RENDER).fill()
       .forEach((_, i) => {
         if (this.props[`option${i}`]) {
           const uuid = `${this.state.id}-${i}`;
@@ -94,14 +93,16 @@ export default class Radio extends React.Component {
 
     return (
       <fieldset>
-        {
-          this.props.inline
-          ? fieldLabel
-          : <div className={`${UTILITY_CLASSES.COLUMN} ${UTILITY_CLASSES.MARGIN.BOTTOM[1]} -w--12`}>
-              {fieldLabel}
-            </div>
-        }
-        {radiosToRender}
+        <div className={UTILITY_CLASSES.GRID}>
+          {
+            this.props.inline
+            ? fieldLabel
+            : <div className={`${UTILITY_CLASSES.COLUMN} ${UTILITY_CLASSES.MARGIN.BOTTOM[1]} -w--12`}>
+                {fieldLabel}
+              </div>
+          }
+          {radiosToRender}
+        </div>
       </fieldset>
     );
   }
