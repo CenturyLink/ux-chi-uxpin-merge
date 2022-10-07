@@ -5,7 +5,7 @@ export default (
   <Brand
     uxpId="brand"
     size="md (20px)"
-    color="black"
+    color="default"
     click={() => {}}
     mouseDown={() => {}}
     mouseLeave={() => {}}

@@ -67,5 +67,5 @@ Brand.propTypes = {
 
 Brand.defaultProps = {
   size: 'md (20px)',
-  color: 'black',
+  color: 'default',
 };
