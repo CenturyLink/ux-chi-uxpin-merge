@@ -55,6 +55,12 @@ export const DRAWER_CLASSES = {
 /* Icon */
 export const ICON_CLASS = 'chi-icon';
 
+/* Icon classes */
+export const ICON_CLASSES = {
+    ICON_CIRCLE_INFO: 'icon-circle-info-outline',
+    ICON_PRIMARY: '-icon--primary'
+};
+
 /* Checkbox inline */
 export const INLINE_CLASS = '-inline';
 
@@ -115,7 +121,8 @@ export const UTILITY_CLASSES = {
         FLEX: '-d--flex',
     },
     GRID: 'chi-grid',
-    COLUMN: 'chi-col'
+    COLUMN: 'chi-col',
+    XS: '-xs'
 };
 
 /* Tooltip */
@@ -158,6 +165,16 @@ export const LABEL_CLASSES = {
     REQUIRED: 'chi-label__required',
     OPTIONAL: 'chi-label__optional',
     WRAPPER: 'chi-label__wrapper',
+};
+
+/* Picker */
+export const PICKER_CLASSES = {
+  CHECKBOX: 'chi-picker__checkbox',
+  CONTENT_START: 'chi-picker__content--start',
+  DESCRIPTION: 'chi-picker__description',
+  INPUT: 'chi-picker__input',
+  LABEL: 'chi-picker__label',
+  RADIO: 'chi-picker__radio',
 };
 
 /* Picker Group */
