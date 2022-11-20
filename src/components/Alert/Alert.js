@@ -4,6 +4,7 @@ import {
   ALERT_CLASSES,
   BUTTON_CLASSES,
   CLOSE_CLASS,
+  DROPDOWN_CLASSES,
   ICON_CLASS,
   INFO_CLASS,
   SPINNER_CLASSES,
@@ -110,6 +111,11 @@ export default class Alert extends React.Component {
           {alertTitle}
           <p className={ALERT_CLASSES.TEXT} style={{ whiteSpace: 'pre-line' }}>{textToRender}</p>
         </div>
+        {this.props.type === 'clickableBubble' && (
+          <div className={`${ALERT_CLASSES.CLICKABLE_ICON}`}>
+            <i className={`${ICON_CLASS} icon-${DROPDOWN_CLASSES.ICON_CHEVRON_RIGHT}`}></i>
+          </div>
+        )}
         {closeButton}
       </div>
     );
@@ -128,7 +134,7 @@ Alert.propTypes = {
   text: PropTypes.string,
   title: PropTypes.string,
   icon: PropTypes.string,
-  type: PropTypes.oneOf(['bubble', 'banner', 'toast']),
+  type: PropTypes.oneOf(['clickableBubble', 'bubble', 'banner', 'toast']),
   closable: PropTypes.bool,
 };
 

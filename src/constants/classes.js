@@ -26,6 +26,7 @@ export const GENERIC_SIZES = {
 export const ALERT_CLASSES = {
   ALERT: 'chi-alert',
   CLOSE_BUTTON: 'chi-alert__close-button',
+  CLICKABLE_ICON: 'chi-alert__clickable-icon',
   CONTENT: 'chi-alert__content',
   ICON: 'chi-alert__icon',
   TEXT: 'chi-alert__text',
