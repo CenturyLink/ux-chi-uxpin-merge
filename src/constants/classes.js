@@ -168,6 +168,7 @@ export const UTILITY_CLASSES = {
       4: '-mr--4',
     },
     TOP: {
+      0: '-mt--0',
       1: '-mt--1',
       2: '-mt--2',
       3: '-mt--3',
@@ -232,6 +233,13 @@ export const LABEL_CLASSES = {
   WRAPPER: 'chi-label__wrapper',
 };
 
+/* Picker Types */
+export const PICKER_TYPES = {
+  BASE: 'base',
+  RADIO: 'radio',
+  CHECKBOX: 'checkbox'
+}
+
 /* Picker */
 export const PICKER_CLASSES = {
   CHECKBOX: 'chi-picker__checkbox',
@@ -239,6 +247,7 @@ export const PICKER_CLASSES = {
   DESCRIPTION: 'chi-picker__description',
   INPUT: 'chi-picker__input',
   LABEL: 'chi-picker__label',
+  PICKER: 'chi-picker',
   RADIO: 'chi-picker__radio',
 };
 

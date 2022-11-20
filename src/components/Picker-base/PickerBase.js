@@ -3,13 +3,15 @@ import * as React from 'react';
 import { uuid4 } from '../../utils/utils';
 import {
   BUTTON_CLASSES,
-  GENERIC_SIZES,
   FORM_CLASSES,
+  GENERIC_SIZES,
   ICON_CLASS,
   ICON_CLASSES,
   LABEL_CLASSES,
   PICKER_CLASSES,
+  PICKER_TYPES,
   STAT_CLASSES,
+  UTILITY_CLASSES,
 } from '../../constants/classes';
 
 /* eslint-disable */
@@ -18,102 +20,179 @@ export default class PickerBase extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeItem: props.selected,
+      checkedItems: this._getCheckedItems(this.props),
     };
+    this._changeActivePicker = this._changeActivePicker.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.selected !== this.state.activeItem) {
-      // eslint-disable-next-line react/no-did-update-set-state
-      this.setState({ activeItem: nextProps.selected });
+    this.setState({ checkedItems: this._getCheckedItems(nextProps) });
+  }
+
+  _getCheckedItems(props) {
+    let updatedItems = []
+    for (let i = 1; i< 11; i++) {
+      if (props[`checked${i}`]) {
+        updatedItems.push(i);
+      }
+    }
+    return updatedItems;
+  }
+
+  _changeActivePicker(pickerIndex) {
+    const updatedItems = this.state.checkedItems.includes(pickerIndex) ?
+      this.state.checkedItems.filter(item => item !== pickerIndex) :
+      [...this.state.checkedItems, pickerIndex];
+    this.setState({
+      checkedItems: updatedItems
+    })
+  }
+
+  _setMessage(requiredProp) {
+    const required = (
+      <abbr className={`${LABEL_CLASSES.REQUIRED}`} title="Required field">
+        *
+      </abbr>
+    );
+    const optional = (
+      <abbr className={`${LABEL_CLASSES.OPTIONAL}`} title="Optional field">
+        (optional)
+      </abbr>
+    );
+  
+    if (requiredProp !== "none") {
+      return requiredProp === "required" ? required : optional;
+    }
+    return "";
+  }
+
+  _handlerPickerClick(pickerIndex, selectPickerFunc) {
+    this.props.changeActivePicker ? this.props.changeActivePicker(pickerIndex) : this._changeActivePicker(pickerIndex);
+    if (selectPickerFunc) {
+      selectPickerFunc();
     }
   }
 
-  render() {
-    const uuid = uuid4();
-    const pickersToRender = [];
-    const PICKERS_TO_RENDER = 11;
-    const required = <abbr className={`${LABEL_CLASSES.REQUIRED}`} title="Required field">*</abbr>;
-    const optional = <abbr className={`${LABEL_CLASSES.OPTIONAL}`} title="Optional field">(optional)</abbr>;
-    let message = '';
-
-    if (this.props.required && this.props.required === 'required') {
-      message = required;
-    } else if (this.props.required && this.props.required === 'optional') {
-      message = optional;
-    }
-
-    const info = this.props.info ?
+  _createInfo(info, clickInfo, mouseOverInfo, mouseLeaveInfo) {
+    return info ?
       <div className={`${STAT_CLASSES.TITLE_HELP}`}
-        onClick={this.props.clickInfo}
-        onMouseEnter={this.props.mouseOverInfo}
-        onMouseLeave={this.props.mouseLeaveInfo}>
+        onClick={clickInfo}
+        onMouseEnter={mouseOverInfo}
+        onMouseLeave={mouseLeaveInfo}>
         <button className={`${BUTTON_CLASSES.BUTTON} ${BUTTON_CLASSES.ICON_BUTTON} ${BUTTON_CLASSES.FLAT} ${GENERIC_SIZES.XS}`} aria-label="Help">
           <i className={`${ICON_CLASS} ${ICON_CLASSES.ICON_CIRCLE_INFO} ${ICON_CLASSES.ICON_PRIMARY}`}></i>
         </button>
       </div> : '';
+  }
 
-    const fieldLabel = this.props.fieldLabel ?
+  _createFieldLabel(
+    fieldLabel,
+    required,
+    info,
+    clickInfo,
+    mouseOverInfo,
+    mouseLeaveInfo
+  ) {
+    return fieldLabel ?
       <legend className={`${LABEL_CLASSES.LABEL}`}>
-        {this.props.fieldLabel}
-        {message}
-        {info}
+        {fieldLabel}
+        {this._setMessage(required)}
+        {this._createInfo(info, clickInfo, mouseOverInfo, mouseLeaveInfo)}
       </legend> : '';
+  }
 
-    const description = (picker, description) => {
-      return <>
-        <div className={PICKER_CLASSES.CONTENT_START}>
-          <div className={`${FORM_CLASSES.ITEM} -row -ml--0`}>
-            {picker}
+  _createDescription (
+    pickerType,
+    description,
+    pickerLabel,
+    contentWidth,
+  ) {
+    return pickerType === PICKER_TYPES.BASE
+      ? <div className={PICKER_CLASSES.CONTENT_START}>
+          <div className={`${FORM_CLASSES.ITEM} -row ${UTILITY_CLASSES.MARGIN.LEFT[0]}`}>
+            {pickerLabel}
           </div>
-          <div className={`${PICKER_CLASSES.DESCRIPTION}${this.props['contentWidth'] ? ` -w--${this.props['contentWidth'].split('%')[0]}` : ''} -ml--0`}>
+          <div className={`${PICKER_CLASSES.DESCRIPTION}${contentWidth ? ` -w--${parseInt(contentWidth.split('%')[0]) - 10}` : ''} ${UTILITY_CLASSES.MARGIN.LEFT[0]}`}>
             {description}
           </div>
         </div>
-      </>
-    }
+      : <div className={PICKER_CLASSES.CONTENT_START}>
+          <div className={`${FORM_CLASSES.ITEM} -row ${description ? '' : `${UTILITY_CLASSES.MARGIN.TOP[0]}`}`}>
+            <span className={pickerType === PICKER_TYPES.RADIO ? PICKER_CLASSES.RADIO : PICKER_CLASSES.CHECKBOX}></span>
+            <span className={PICKER_CLASSES.LABEL}>{pickerLabel}</span>
+          </div>
+          <div className={`${PICKER_CLASSES.DESCRIPTION}${contentWidth ? ` -w--${parseInt(contentWidth.split('%')[0]) - 10}` : ''}`}>
+            {description}
+          </div>
+        </div>
+  }
 
-    const handlerPickerClick = (i) => {
-      this.setState({ activeItem: i });
+  _createPickerLabel(pickerType, pickerLabel) {
+    return pickerType === PICKER_TYPES.BASE ?
+      pickerLabel :
+      <div className={`${FORM_CLASSES.ITEM} -row`}>
+        <span className={`${pickerType === PICKER_TYPES.RADIO ? PICKER_CLASSES.RADIO : PICKER_CLASSES.CHECKBOX} -ml--1`}></span>
+        <span className={`${PICKER_CLASSES.LABEL} -ml--2`}>{pickerLabel}</span>
+      </div>
+  }
 
-      if (this.props[`select${i}`]) {
-        this.props[`select${i}`]();
-      }
-    }
-
+  _createPickersToRender(
+    pickerType,
+    props
+  ){
+    const uuid = uuid4();
+    const pickersToRender = [];
+    const PICKERS_TO_RENDER = 11;
+  
     Array(PICKERS_TO_RENDER).fill()
       .forEach((_, i) => {
-        if (this.props[`picker${i}`]) {
+        if (props[`picker${i}`]) {
           pickersToRender.push(
-            <div class="chi-picker">
+            <div className={`${PICKER_CLASSES.PICKER}`}>
               <input
                 readOnly
                 className={PICKER_CLASSES.INPUT}
-                type="checkbox"
+                type={pickerType === PICKER_TYPES.RADIO ? PICKER_TYPES.RADIO : PICKER_TYPES.CHECKBOX}
                 name={`picker-${uuid}`}
                 id={`picker-${uuid}-${i}`}
-                checked={this.state.activeItem === i}
-                disabled={this.props[`disabled${i}`]}
+                checked={pickerType === PICKER_TYPES.RADIO ? props.selected === i : this.state.checkedItems.includes(i)}
+                disabled={props[`disabled${i}`]}
               />
               <label
                 htmlFor={`picker-${uuid}-${i}`}
-                onClick={() => handlerPickerClick(i)}>
-                {this.props[`description${i}`] ?
-                  description(this.props[`picker${i}`], this.props[`description${i}`]) :
-                  this.props[`picker${i}`]}
+                onClick={() => this._handlerPickerClick(i, props[`select${i}`])}>
+                {props[`description${i}`] ?
+                  this._createDescription(
+                    pickerType,
+                    props[`description${i}`],
+                    props[`picker${i}`],
+                    props['contentWidth']
+                  ) :
+                  this._createPickerLabel(pickerType, props[`picker${i}`])}
               </label>
             </div>
           );
         }
       });
+    return pickersToRender;
+  }
 
-    const minWidth = 310;
-
+  render() {
     return (
-      <div ref={this.props.uxpinRef} style={{ minWidth: minWidth }}>
+      <div ref={this.props.uxpinRef}>
         <fieldset>
-          {fieldLabel}
-          {pickersToRender}
+          {this._createFieldLabel(
+            this.props.fieldLabel,
+            this.props.required,
+            this.props.info,
+            this.props.clickInfo,
+            this.props.mouseOverInfo,
+            this.props.mouseLeaveInfo
+          )}
+          {this._createPickersToRender(
+            this.props.mode ? this.props.mode : PICKER_TYPES.BASE,
+            this.props
+          )}
         </fieldset>
       </div>
     );
@@ -123,8 +202,13 @@ export default class PickerBase extends React.Component {
 PickerBase.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
-  contentWidth: PropTypes.oneOf(['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%']),
+  /** @uxpinignoreprop */
+  mode: PropTypes.oneOf(['radio', 'checkbox']),
+  /** @uxpinignoreprop */
   selected: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  /** @uxpinignoreprop */
+  changeActivePicker: PropTypes.func,
+  contentWidth: PropTypes.oneOf(['20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%']),
   info: PropTypes.bool,
   clickInfo: PropTypes.func,
   mouseOverInfo: PropTypes.func,
@@ -132,33 +216,43 @@ PickerBase.propTypes = {
   picker1: PropTypes.string,
   description1: PropTypes.string,
   disabled1: PropTypes.bool,
+  checked1: PropTypes.bool,
   picker2: PropTypes.string,
   description2: PropTypes.string,
   disabled2: PropTypes.bool,
+  checked2: PropTypes.bool,
   picker3: PropTypes.string,
   description3: PropTypes.string,
   disabled3: PropTypes.bool,
+  checked3: PropTypes.bool,
   picker4: PropTypes.string,
   description4: PropTypes.string,
   disabled4: PropTypes.bool,
+  checked4: PropTypes.bool,
   picker5: PropTypes.string,
   description5: PropTypes.string,
   disabled5: PropTypes.bool,
+  checked5: PropTypes.bool,
   picker6: PropTypes.string,
   description6: PropTypes.string,
   disabled6: PropTypes.bool,
+  checked6: PropTypes.bool,
   picker7: PropTypes.string,
   description7: PropTypes.string,
   disabled7: PropTypes.bool,
+  checked7: PropTypes.bool,
   picker8: PropTypes.string,
   description8: PropTypes.string,
   disabled8: PropTypes.bool,
+  checked8: PropTypes.bool,
   picker9: PropTypes.string,
   description9: PropTypes.string,
   disabled9: PropTypes.bool,
+  checked9: PropTypes.bool,
   picker10: PropTypes.string,
   description10: PropTypes.string,
   disabled10: PropTypes.bool,
+  checked10: PropTypes.bool,
   select1: PropTypes.func,
   select2: PropTypes.func,
   select3: PropTypes.func,
@@ -179,6 +273,5 @@ PickerBase.defaultProps = {
   picker2: 'Picker 2',
   picker3: 'Picker 3',
   required: 'none',
-  selected: 1,
   info: false,
 };

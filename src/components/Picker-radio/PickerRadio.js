@@ -1,16 +1,7 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import { uuid4 } from '../../utils/utils';
-import {
-  BUTTON_CLASSES,
-  GENERIC_SIZES,
-  FORM_CLASSES,
-  ICON_CLASS,
-  ICON_CLASSES,
-  LABEL_CLASSES,
-  PICKER_CLASSES,
-  STAT_CLASSES,
-} from '../../constants/classes';
+import { PICKER_TYPES } from '../../constants/classes';
+import PickerBase from '../Picker-base/PickerBase';
 
 /* eslint-disable */
 
@@ -20,6 +11,7 @@ export default class PickerRadio extends React.Component {
     this.state = {
       activeItem: props.selected,
     };
+    this.changeActivePicker = this.changeActivePicker.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -29,97 +21,64 @@ export default class PickerRadio extends React.Component {
     }
   }
 
+  changeActivePicker(pickerIndex) {
+    this.setState({ activeItem: pickerIndex });
+  }
+
   render() {
-    const uuid = uuid4();
-    const pickersToRender = [];
-    const PICKERS_TO_RENDER = 11;
-    const required = <abbr className={`${LABEL_CLASSES.REQUIRED}`} title="Required field">*</abbr>;
-    const optional = <abbr className={`${LABEL_CLASSES.OPTIONAL}`} title="Optional field">(optional)</abbr>;
-    let message = '';
-
-    if (this.props.required && this.props.required === 'required') {
-      message = required;
-    } else if (this.props.required && this.props.required === 'optional') {
-      message = optional;
-    }
-
-    const info = this.props.info ?
-      <div className={`${STAT_CLASSES.TITLE_HELP}`}
-        onClick={this.props.clickInfo}
-        onMouseEnter={this.props.mouseOverInfo}
-        onMouseLeave={this.props.mouseLeaveInfo}>
-        <button className={`${BUTTON_CLASSES.BUTTON} ${BUTTON_CLASSES.ICON_BUTTON} ${BUTTON_CLASSES.FLAT} ${GENERIC_SIZES.XS}`} aria-label="Help">
-          <i className={`${ICON_CLASS} ${ICON_CLASSES.ICON_CIRCLE_INFO} ${ICON_CLASSES.ICON_PRIMARY}`}></i>
-        </button>
-      </div> : '';
-
-    const fieldLabel = this.props.fieldLabel ?
-      <legend className={`${LABEL_CLASSES.LABEL}`}>
-        {this.props.fieldLabel}
-        {message}
-        {info}
-      </legend> : '';
-
-    const handlerPickerClick = (i) => {
-      this.setState({ activeItem: i });
-
-      if (this.props[`select${i}`]) {
-        this.props[`select${i}`]();
-      }
-    }
-
-    const description = (picker, description) => {
-      return <>
-        <div className={PICKER_CLASSES.CONTENT_START}>
-          <div className={`${FORM_CLASSES.ITEM} -row ${description ? '' : '-mt--0'}`}>
-            <span className={PICKER_CLASSES.RADIO}></span>
-            <span className={PICKER_CLASSES.LABEL}>{picker}</span>
-          </div>
-          <div className={`${PICKER_CLASSES.DESCRIPTION}${this.props['contentWidth'] ? ` -w--${this.props['contentWidth'].split('%')[0]}` : ''}`}>
-            {description}
-          </div>
-        </div>
-      </>
-    }
-
-    Array(PICKERS_TO_RENDER).fill()
-      .forEach((_, i) => {
-        if (this.props[`picker${i}`]) {
-          pickersToRender.push(
-            <div className="chi-picker">
-              <input
-                readOnly
-                className={PICKER_CLASSES.INPUT}
-                type="radio"
-                name={`picker-${uuid}`}
-                id={`picker-${uuid}-${i}`}
-                checked={this.state.activeItem === i}
-                disabled={this.props[`disabled${i}`]}
-              />
-              <label
-                htmlFor={`picker-${uuid}-${i}`}
-                onClick={() => handlerPickerClick(i)}>
-                {this.props[`description${i}`] ?
-                  description(this.props[`picker${i}`], this.props[`description${i}`]) :
-                  <div className={`${FORM_CLASSES.ITEM} -row`}>
-                    <span className={`${PICKER_CLASSES.RADIO} -ml--1`}></span>
-                    <span className={`${PICKER_CLASSES.LABEL} -ml--2`}>{this.props[`picker${i}`]}</span>
-                  </div>}
-              </label>
-            </div>
-          );
-        }
-      });
-
-    const minWidth = 310;
-
     return (
-      <div ref={this.props.uxpinRef} style={{ minWidth: minWidth }}>
-        <fieldset>
-          {fieldLabel}
-          {pickersToRender}
-        </fieldset>
-      </div>
+      <PickerBase
+        mode = {PICKER_TYPES.RADIO}
+        selected = {this.state.activeItem}
+        changeActivePicker = {this.changeActivePicker}
+        fieldLabel = {this.props.fieldLabel}
+        required = {this.props.required}
+        contentWidth = {this.props.contentWidth}
+        info = {this.props.info}
+        clickInfo = {this.props.clickInfo}
+        mouseOverInfo = {this.props.mouseOverInfo}
+        mouseLeaveInfo = {this.props.mouseLeaveInfo}
+        picker1 = {this.props.picker1}
+        description1 = {this.props.description1}
+        disabled1 = {this.props.disabled1}
+        picker2 = {this.props.picker2}
+        description2 = {this.props.description2}
+        disabled2 = {this.props.disabled2}
+        picker3 = {this.props.picker3}
+        description3 = {this.props.description3}
+        disabled3 = {this.props.disabled3}
+        picker4 = {this.props.picker4}
+        description4 = {this.props.description4}
+        disabled4 = {this.props.disabled4}
+        picker5 = {this.props.picker5}
+        description5 = {this.props.description5}
+        disabled5 = {this.props.disabled5}
+        picker6 = {this.props.picker6}
+        description6 = {this.props.description6}
+        disabled6 = {this.props.disabled6}
+        picker7 = {this.props.picker7}
+        description7 = {this.props.description7}
+        disabled7 = {this.props.disabled7}
+        picker8 = {this.props.picker8}
+        description8 = {this.props.description8}
+        disabled8 = {this.props.disabled8}
+        picker9 = {this.props.picker9}
+        description9 = {this.props.description9}
+        disabled9 = {this.props.disabled9}
+        picker10 = {this.props.picker10}
+        description10 = {this.props.description10}
+        disabled10 = {this.props.disabled10}
+        select1={this.props.select1}
+        select2={this.props.select2}
+        select3={this.props.select3}
+        select4={this.props.select4}
+        select5={this.props.select5}
+        select6={this.props.select6}
+        select7={this.props.select7}
+        select8={this.props.select8}
+        select9={this.props.select9}
+        select10={this.props.select10}>
+      </PickerBase>
     );
   }
 }
@@ -127,7 +86,7 @@ export default class PickerRadio extends React.Component {
 PickerRadio.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
-  contentWidth: PropTypes.oneOf(['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%']),
+  contentWidth: PropTypes.oneOf(['20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%']),
   selected: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   info: PropTypes.bool,
   clickInfo: PropTypes.func,
