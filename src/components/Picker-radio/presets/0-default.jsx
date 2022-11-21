@@ -3,11 +3,11 @@ import PickerRadio from '../PickerRadio';
 
 export default (
   <PickerRadio
-    uxpId="picker"
+    uxpId="picker-radio"
     fieldLabel="Field Label"
     required="none"
     info={false}
-    selected={1}
+    selectedOption={1}
     picker1="Picker 1"
     disabled1={false}
     picker2="Picker 2"

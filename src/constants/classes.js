@@ -14,6 +14,7 @@ export const PORTAL_CLASS = '-portal';
 export const TRANSITIONING_CLASS = '-transitioning';
 export const SR_ONLY_CLASS = '-sr--only';
 export const UX_PIN_WRAPPER = 'uxPin__wrapper';
+export const ROW_CLASS = '-row';
 export const GENERIC_SIZES = {
   XS: '-xs',
   SM: '-sm',
@@ -232,13 +233,6 @@ export const LABEL_CLASSES = {
   OPTIONAL: 'chi-label__optional',
   WRAPPER: 'chi-label__wrapper',
 };
-
-/* Picker Types */
-export const PICKER_TYPES = {
-  BASE: 'base',
-  RADIO: 'radio',
-  CHECKBOX: 'checkbox'
-}
 
 /* Picker */
 export const PICKER_CLASSES = {
