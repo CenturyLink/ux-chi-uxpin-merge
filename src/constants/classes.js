@@ -182,6 +182,15 @@ export const UTILITY_CLASSES = {
       4: '-mb--4',
     },
   },
+  PADDING: {
+    LEFT: {
+      0: '-pl--0',
+      1: '-pl--1',
+      2: '-pl--2',
+      3: '-pl--3',
+      4: '-pl--4',
+    },
+  },
   TEXT: {
     TWO_XS: '-text--2xs',
     XS: '-text--xs',

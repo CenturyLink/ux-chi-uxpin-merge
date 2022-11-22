@@ -11,6 +11,7 @@ import {
   PICKER_CLASSES,
   ROW_CLASS,
   STAT_CLASSES,
+  UTILITY_CLASSES,
 } from '../../constants/classes';
 
 /* eslint-disable */
@@ -102,7 +103,9 @@ export default class PickerBase extends React.Component {
           <span className={PICKER_CLASSES.LABEL}>{picker}</span>
         </div>
       ) : (
-        picker
+        <div className={`${FORM_CLASSES.ITEM} ${ROW_CLASS} ${UTILITY_CLASSES.MARGIN.LEFT[0]}`}>
+          <span className={`${PICKER_CLASSES.LABEL} ${UTILITY_CLASSES.MARGIN.LEFT[0]} ${UTILITY_CLASSES.PADDING.LEFT[0]}`}>{picker}</span>
+        </div>
       );
     const contentWidth = this.props["contentWidth"]
       ? `-w--${this.props["contentWidth"].split("%")[0]}`
