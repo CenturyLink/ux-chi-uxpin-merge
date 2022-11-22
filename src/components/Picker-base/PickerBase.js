@@ -30,7 +30,7 @@ export default class PickerBase extends React.Component {
       checked8: this.props.checked8,
       checked9: this.props.checked9,
       checked10: this.props.checked10,
-      selectedOption: this.props.selectedOption
+      selectedOption: this.props.selectedOption,
     };
   }
 
@@ -49,7 +49,7 @@ export default class PickerBase extends React.Component {
   _handlerPickerClick(pickerIndex) {
     this.setState({
       [`checked${pickerIndex}`]: !this.state[`checked${pickerIndex}`],
-      selectedOption: pickerIndex
+      selectedOption: pickerIndex,
     });
     this.props[`select${pickerIndex}`]();
   }
@@ -103,8 +103,14 @@ export default class PickerBase extends React.Component {
           <span className={PICKER_CLASSES.LABEL}>{picker}</span>
         </div>
       ) : (
-        <div className={`${FORM_CLASSES.ITEM} ${ROW_CLASS} ${UTILITY_CLASSES.MARGIN.LEFT[0]}`}>
-          <span className={`${PICKER_CLASSES.LABEL} ${UTILITY_CLASSES.MARGIN.LEFT[0]} ${UTILITY_CLASSES.PADDING.LEFT[0]}`}>{picker}</span>
+        <div
+          className={`${FORM_CLASSES.ITEM} ${ROW_CLASS} ${UTILITY_CLASSES.MARGIN.LEFT[0]}`}
+        >
+          <span
+            className={`${PICKER_CLASSES.LABEL} ${UTILITY_CLASSES.MARGIN.LEFT[0]} ${UTILITY_CLASSES.PADDING.LEFT[0]}`}
+          >
+            {picker}
+          </span>
         </div>
       );
     const contentWidth = this.props["contentWidth"]
@@ -122,7 +128,13 @@ export default class PickerBase extends React.Component {
           <div className={PICKER_CLASSES.CONTENT}>
             <div className={PICKER_CLASSES.CONTENT_START}>
               {content}
-              <div className={`${PICKER_CLASSES.DESCRIPTION} ${contentWidth} ${this.props.mode === "base" ? '-ml--0' : ''}`}>
+              <div
+                className={`${PICKER_CLASSES.DESCRIPTION} ${contentWidth} ${
+                  this.props.mode === "base"
+                    ? UTILITY_CLASSES.MARGIN.LEFT[0]
+                    : ""
+                }`}
+              >
                 {this.props[`description${pickerIndex}`]}
               </div>
             </div>
@@ -190,20 +202,20 @@ export default class PickerBase extends React.Component {
 PickerBase.propTypes = {
   fieldLabel: PropTypes.string,
   /** @uxpinignoreprop */
-  mode: PropTypes.oneOf(["base", "checkbox", "radio"]),
+  mode: PropTypes.oneOf(['base', 'checkbox', 'radio']),
   /** @uxpinignoreprop */
-  selectedOption: PropTypes.oneOf(["None", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
-  required: PropTypes.oneOf(["none", "required", "optional"]),
+  selectedOption: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  required: PropTypes.oneOf(['none', 'required', 'optional']),
   contentWidth: PropTypes.oneOf([
-    "20%",
-    "30%",
-    "40%",
-    "50%",
-    "60%",
-    "70%",
-    "80%",
-    "90%",
-    "100%",
+    '20%',
+    '30%',
+    '40%',
+    '50%',
+    '60%',
+    '70%',
+    '80%',
+    '90%',
+    '100%',
   ]),
   info: PropTypes.bool,
   clickInfo: PropTypes.func,
