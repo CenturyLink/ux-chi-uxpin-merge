@@ -14,6 +14,7 @@ export const PORTAL_CLASS = '-portal';
 export const TRANSITIONING_CLASS = '-transitioning';
 export const SR_ONLY_CLASS = '-sr--only';
 export const UX_PIN_WRAPPER = 'uxPin__wrapper';
+export const ROW_CLASS = '-row';
 export const GENERIC_SIZES = {
   XS: '-xs',
   SM: '-sm',
@@ -67,6 +68,12 @@ export const DRAWER_CLASSES = {
 
 /* Icon */
 export const ICON_CLASS = 'chi-icon';
+
+/* Icon classes */
+export const ICON_CLASSES = {
+    ICON_CIRCLE_INFO: 'icon-circle-info-outline',
+    ICON_PRIMARY: '-icon--primary'
+};
 
 /* Checkbox inline */
 export const INLINE_CLASS = '-inline';
@@ -162,6 +169,7 @@ export const UTILITY_CLASSES = {
       4: '-mr--4',
     },
     TOP: {
+      0: '-mt--0',
       1: '-mt--1',
       2: '-mt--2',
       3: '-mt--3',
@@ -172,6 +180,15 @@ export const UTILITY_CLASSES = {
       2: '-mb--2',
       3: '-mb--3',
       4: '-mb--4',
+    },
+  },
+  PADDING: {
+    LEFT: {
+      0: '-pl--0',
+      1: '-pl--1',
+      2: '-pl--2',
+      3: '-pl--3',
+      4: '-pl--4',
     },
   },
   TEXT: {
@@ -224,6 +241,17 @@ export const LABEL_CLASSES = {
   REQUIRED: 'chi-label__required',
   OPTIONAL: 'chi-label__optional',
   WRAPPER: 'chi-label__wrapper',
+};
+
+/* Picker */
+export const PICKER_CLASSES = {
+  CHECKBOX: 'chi-picker__checkbox',
+  CONTENT_START: 'chi-picker__content--start',
+  DESCRIPTION: 'chi-picker__description',
+  INPUT: 'chi-picker__input',
+  LABEL: 'chi-picker__label',
+  PICKER: 'chi-picker',
+  RADIO: 'chi-picker__radio',
 };
 
 /* Picker Group */
