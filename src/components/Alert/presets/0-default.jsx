@@ -11,5 +11,6 @@ export default (
     icon=""
     type="bubble"
     closable={false}
+    click={() => {}}
   />
 );

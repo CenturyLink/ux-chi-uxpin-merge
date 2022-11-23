@@ -14,6 +14,8 @@ export const PORTAL_CLASS = '-portal';
 export const TRANSITIONING_CLASS = '-transitioning';
 export const SR_ONLY_CLASS = '-sr--only';
 export const UX_PIN_WRAPPER = 'uxPin__wrapper';
+export const NO_HOVER_UNDERLINE = '-no-hover-underline';
+export const ICON_CHEVRON_RIGHT = 'icon-chevron-right';
 export const GENERIC_SIZES = {
   XS: '-xs',
   SM: '-sm',
@@ -127,6 +129,13 @@ export const UTILITY_CLASSES = {
   },
   DISPLAY: {
     FLEX: '-d--flex',
+  },
+  TYPOGRAPHY: {
+    TEXT_PRIMARY: '-text--primary',
+    TEXT_TRUNCATE: '-text--truncate',
+    TEXT_NORMAL: '-text--normal',
+    TEXT_SEMI_BOLD: '-text--semi-bold',
+    TEXT_BOLD: '-text--bold'
   },
   GRID: 'chi-grid',
   COLUMN: 'chi-col',
@@ -286,6 +295,11 @@ export const STEPS_CLASSES = {
 /* Spinner */
 export const SPINNER_CLASSES = {
   SPINNER: 'chi-spinner',
+}
+
+/* Link */
+export const LINK_CLASSES = {
+  LINK: 'chi-link',
 }
 
 /* eslint-enable */
