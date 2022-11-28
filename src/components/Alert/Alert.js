@@ -34,7 +34,7 @@ export default class Alert extends React.Component {
         this.state.defaultText = 'This is a warning alert';
         break;
       case 'danger':
-        this.state.defaultIcon = 'danger';
+        this.state.defaultIcon = 'circle-warning';
         this.state.defaultText = 'This is a danger alert';
         break;
       case 'info':
@@ -163,12 +163,12 @@ export default class Alert extends React.Component {
       </a>
     );
 
-    this._setIconAndText();
     return this.props.type !== 'clickable' ? alert : clickableAlert;
   }
 
   render() {
-    // eslint-disable-next-line react/prop-types
+    this._setIconAndText();
+
     return <div ref={this.props.uxpinRef}>{this._alert()}</div>;
   }
 }
