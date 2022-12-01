@@ -1,13 +1,13 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import PickerBase from '../Picker-base/PickerBase';
+import PickerBaseMulti from '../Picker-base-multi/PickerBaseMulti';
 
 /* eslint-disable */
 
 export default class PickerCheckbox extends React.Component {
   render() {
     return (
-      <PickerBase
+      <PickerBaseMulti
         mode="checkbox"
         fieldLabel={this.props.fieldLabel}
         required={this.props.required}
@@ -66,7 +66,7 @@ export default class PickerCheckbox extends React.Component {
         select8={this.props.select8}
         select9={this.props.select9}
         select10={this.props.select10}
-      ></PickerBase>
+      ></PickerBaseMulti>
     );
   }
 }
