@@ -21,6 +21,8 @@ module.exports = {
           'src/components/Label/Label.js',
           'src/components/Number-input/Number-input.js',
           'src/components/PhoneInput/PhoneInput.js',
+          'src/components/Picker-base-multi/PickerBaseMulti.js',
+          'src/components/Picker-base-single/PickerBaseSingle.js',
           'src/components/Picker-group/Picker-group.js',
           'src/components/Radio/Radio.js',
           'src/components/Search-input/Search-input.js',
@@ -66,15 +68,6 @@ module.exports = {
           'src/components/Progress/Progress.js',
           'src/components/Skeleton/Skeleton.js',
           'src/components/Spinner/Spinner.js',
-        ],
-      },
-      {
-        name: 'Picker',
-        include: [
-          'src/components/Picker-base-multi/PickerBaseMulti.js',
-          'src/components/Picker-base-single/PickerBaseSingle.js',
-          'src/components/Picker-checkbox/PickerCheckbox.js',
-          'src/components/Picker-radio/PickerRadio.js',
         ],
       },
       {

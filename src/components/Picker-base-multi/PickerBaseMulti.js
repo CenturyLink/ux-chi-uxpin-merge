@@ -97,9 +97,9 @@ export default class PickerBaseMulti extends React.Component {
     const radio = <span className={PICKER_CLASSES.RADIO}></span>;
     const checkbox = <span className={PICKER_CLASSES.CHECKBOX}></span>;
     const content =
-      this.props.mode === "radio" || this.props.mode === 'checkbox' ? (
+      this.props.checkbox || this.props.radio ? (
         <div className={`${FORM_CLASSES.ITEM} ${ROW_CLASS}`}>
-          {this.props.mode === "checkbox" ? checkbox : radio}
+          {this.props.checkbox ? checkbox : radio}
           <span className={PICKER_CLASSES.LABEL}>{picker}</span>
         </div>
       ) : (
@@ -129,7 +129,7 @@ export default class PickerBaseMulti extends React.Component {
             <div className={PICKER_CLASSES.CONTENT_START}>
               {content}
               <div
-                className={`${PICKER_CLASSES.DESCRIPTION} ${contentWidth}`}
+                className={`${PICKER_CLASSES.DESCRIPTION} ${contentWidth} ${!(this.props.checkbox || this.props.radio) ? '-ml--0' : ''}`}
               >
                 {this.props[`description${pickerIndex}`]}
               </div>
@@ -151,7 +151,7 @@ export default class PickerBaseMulti extends React.Component {
   }
 
   _setChecked(pickerIndex) {
-    if (this.props.mode === "baseMulti" || this.props.mode === 'checkbox') {
+    if (this.props.mode === "baseMulti") {
       return this.state[`checked${pickerIndex}`];
     } else {
       return pickerIndex === this.state.selectedOption;
@@ -172,7 +172,7 @@ export default class PickerBaseMulti extends React.Component {
             <div className={PICKER_CLASSES.PICKER}>
               <input
                 className={PICKER_CLASSES.INPUT}
-                type={this.props.mode === "baseMulti" || this.props.mode === 'checkbox' ? "checkbox" : "radio"}
+                type={this.props.mode === "baseMulti" ? "checkbox" : "radio"}
                 id={`picker-${this.state.id}-${i}`}
                 disabled={this.props[`disabled${i}`]}
                 checked={this._setChecked(i)}
@@ -198,11 +198,12 @@ export default class PickerBaseMulti extends React.Component {
 PickerBaseMulti.propTypes = {
   fieldLabel: PropTypes.string,
   /** @uxpinignoreprop */
-  mode: PropTypes.oneOf(['baseMulti', 'baseSingle', 'checkbox', 'radio']),
+  mode: PropTypes.oneOf(['baseMulti', 'baseSingle']),
+  /** @uxpinignoreprop */
+  radio: PropTypes.bool,
   /** @uxpinignoreprop */
   selectedOption: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   required: PropTypes.oneOf(['none', 'required', 'optional']),
-  /** @uxpinignoreprop */
   contentWidth: PropTypes.oneOf([
     '20%',
     '30%',
@@ -215,56 +216,47 @@ PickerBaseMulti.propTypes = {
     '100%',
   ]),
   info: PropTypes.bool,
+  checkbox: PropTypes.bool,
   clickInfo: PropTypes.func,
   mouseOverInfo: PropTypes.func,
   mouseLeaveInfo: PropTypes.func,
   picker1: PropTypes.string,
-  /** @uxpinignoreprop */
   description1: PropTypes.string,
   disabled1: PropTypes.bool,
   checked1: PropTypes.bool,
   picker2: PropTypes.string,
-  /** @uxpinignoreprop */
   description2: PropTypes.string,
   disabled2: PropTypes.bool,
   checked2: PropTypes.bool,
   picker3: PropTypes.string,
-  /** @uxpinignoreprop */
   description3: PropTypes.string,
   disabled3: PropTypes.bool,
   checked3: PropTypes.bool,
   picker4: PropTypes.string,
-  /** @uxpinignoreprop */
   description4: PropTypes.string,
   disabled4: PropTypes.bool,
   checked4: PropTypes.bool,
   picker5: PropTypes.string,
-  /** @uxpinignoreprop */
   description5: PropTypes.string,
   disabled5: PropTypes.bool,
   checked5: PropTypes.bool,
   picker6: PropTypes.string,
-  /** @uxpinignoreprop */
   description6: PropTypes.string,
   disabled6: PropTypes.bool,
   checked6: PropTypes.bool,
   picker7: PropTypes.string,
-  /** @uxpinignoreprop */
   description7: PropTypes.string,
   disabled7: PropTypes.bool,
   checked7: PropTypes.bool,
   picker8: PropTypes.string,
-  /** @uxpinignoreprop */
   description8: PropTypes.string,
   disabled8: PropTypes.bool,
   checked8: PropTypes.bool,
   picker9: PropTypes.string,
-  /** @uxpinignoreprop */
   description9: PropTypes.string,
   disabled9: PropTypes.bool,
   checked9: PropTypes.bool,
   picker10: PropTypes.string,
-  /** @uxpinignoreprop */
   description10: PropTypes.string,
   disabled10: PropTypes.bool,
   checked10: PropTypes.bool,
