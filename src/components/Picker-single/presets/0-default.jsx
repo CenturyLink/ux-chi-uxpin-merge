@@ -1,8 +1,8 @@
 import React from 'react';
-import PickerBaseSingle from '../PickerBaseSingle';
+import PickerSingle from '../PickerSingle';
 
 export default (
-  <PickerBaseSingle
+  <PickerSingle
     uxpId="picker-base-single"
     fieldLabel="Field Label"
     required="none"

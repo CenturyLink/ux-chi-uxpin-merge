@@ -1,8 +1,8 @@
 import React from 'react';
-import PickerBaseMulti from '../PickerBaseMulti';
+import PickerMulti from '../PickerMulti';
 
 export default (
-  <PickerBaseMulti
+  <PickerMulti
     uxpId="picker-base-multi"
     fieldLabel="Field Label"
     required="none"

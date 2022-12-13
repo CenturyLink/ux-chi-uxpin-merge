@@ -1,17 +1,17 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import PickerBaseMulti from '../Picker-base-multi/PickerBaseMulti';
+import PickerMulti from '../Picker-multi/PickerMulti';
 /* eslint-disable */
 
-export default class PickerBaseSingle extends React.Component {
+export default class PickerSingle extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <PickerBaseMulti
-        mode={'baseSingle'}
+      <PickerMulti
+        mode={'single'}
         selectedOption={this.props.selectedOption}
         fieldLabel={this.props.fieldLabel}
         required={this.props.required}
@@ -61,12 +61,12 @@ export default class PickerBaseSingle extends React.Component {
         select8={this.props.select8}
         select9={this.props.select9}
         select10={this.props.select10}
-      ></PickerBaseMulti>
+      ></PickerMulti>
     );
   }
 }
 
-PickerBaseSingle.propTypes = {
+PickerSingle.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   selectedOption: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
@@ -129,7 +129,7 @@ PickerBaseSingle.propTypes = {
 };
 
 /* eslint-enable */
-PickerBaseSingle.defaultProps = {
+PickerSingle.defaultProps = {
   fieldLabel: 'Field Label',
   contentWidth: '100%',
   picker1: 'Picker 1',

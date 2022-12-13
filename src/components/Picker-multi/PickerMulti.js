@@ -15,7 +15,7 @@ import {
 } from '../../constants/classes';
 
 /* eslint-disable */
-export default class PickerBaseMulti extends React.Component {
+export default class PickerMulti extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -151,7 +151,7 @@ export default class PickerBaseMulti extends React.Component {
   }
 
   _setChecked(pickerIndex) {
-    if (this.props.mode === "baseMulti") {
+    if (this.props.mode === "multi") {
       return this.state[`checked${pickerIndex}`];
     } else {
       return pickerIndex === this.state.selectedOption;
@@ -172,7 +172,7 @@ export default class PickerBaseMulti extends React.Component {
             <div className={PICKER_CLASSES.PICKER}>
               <input
                 className={PICKER_CLASSES.INPUT}
-                type={this.props.mode === "baseMulti" ? "checkbox" : "radio"}
+                type={this.props.mode === "multi" ? "checkbox" : "radio"}
                 id={`picker-${this.state.id}-${i}`}
                 disabled={this.props[`disabled${i}`]}
                 checked={this._setChecked(i)}
@@ -195,10 +195,10 @@ export default class PickerBaseMulti extends React.Component {
   }
 }
 
-PickerBaseMulti.propTypes = {
+PickerMulti.propTypes = {
   fieldLabel: PropTypes.string,
   /** @uxpinignoreprop */
-  mode: PropTypes.oneOf(['baseMulti', 'baseSingle']),
+  mode: PropTypes.oneOf(['multi', 'single']),
   /** @uxpinignoreprop */
   radio: PropTypes.bool,
   /** @uxpinignoreprop */
@@ -273,9 +273,9 @@ PickerBaseMulti.propTypes = {
 };
 
 /* eslint-enable */
-PickerBaseMulti.defaultProps = {
+PickerMulti.defaultProps = {
   fieldLabel: 'Field Label',
-  mode: 'baseMulti',
+  mode: 'multi',
   contentWidth: '100%',
   picker1: 'Picker 1',
   picker2: 'Picker 2',
