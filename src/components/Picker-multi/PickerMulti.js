@@ -15,7 +15,7 @@ import {
 } from '../../constants/classes';
 
 /* eslint-disable */
-export default class PickerBase extends React.Component {
+export default class PickerMulti extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -97,9 +97,9 @@ export default class PickerBase extends React.Component {
     const radio = <span className={PICKER_CLASSES.RADIO}></span>;
     const checkbox = <span className={PICKER_CLASSES.CHECKBOX}></span>;
     const content =
-      this.props.mode !== "base" ? (
+      this.props.checkbox || this.props.radio ? (
         <div className={`${FORM_CLASSES.ITEM} ${ROW_CLASS}`}>
-          {this.props.mode === "checkbox" ? checkbox : radio}
+          {this.props.checkbox ? checkbox : radio}
           <span className={PICKER_CLASSES.LABEL}>{picker}</span>
         </div>
       ) : (
@@ -129,11 +129,7 @@ export default class PickerBase extends React.Component {
             <div className={PICKER_CLASSES.CONTENT_START}>
               {content}
               <div
-                className={`${PICKER_CLASSES.DESCRIPTION} ${contentWidth} ${
-                  this.props.mode === "base"
-                    ? UTILITY_CLASSES.MARGIN.LEFT[0]
-                    : ""
-                }`}
+                className={`${PICKER_CLASSES.DESCRIPTION} ${contentWidth} ${!(this.props.checkbox || this.props.radio) ? '-ml--0' : ''}`}
               >
                 {this.props[`description${pickerIndex}`]}
               </div>
@@ -155,10 +151,10 @@ export default class PickerBase extends React.Component {
   }
 
   _setChecked(pickerIndex) {
-    if (this.props.mode === "radio") {
-      return pickerIndex === this.state.selectedOption;
-    } else {
+    if (this.props.mode === "multi") {
       return this.state[`checked${pickerIndex}`];
+    } else {
+      return pickerIndex === this.state.selectedOption;
     }
   }
 
@@ -176,7 +172,7 @@ export default class PickerBase extends React.Component {
             <div className={PICKER_CLASSES.PICKER}>
               <input
                 className={PICKER_CLASSES.INPUT}
-                type={this.props.mode !== "radio" ? "checkbox" : "radio"}
+                type={this.props.mode === "multi" ? "checkbox" : "radio"}
                 id={`picker-${this.state.id}-${i}`}
                 disabled={this.props[`disabled${i}`]}
                 checked={this._setChecked(i)}
@@ -199,10 +195,12 @@ export default class PickerBase extends React.Component {
   }
 }
 
-PickerBase.propTypes = {
+PickerMulti.propTypes = {
   fieldLabel: PropTypes.string,
   /** @uxpinignoreprop */
-  mode: PropTypes.oneOf(['base', 'checkbox', 'radio']),
+  mode: PropTypes.oneOf(['multi', 'single']),
+  /** @uxpinignoreprop */
+  radio: PropTypes.bool,
   /** @uxpinignoreprop */
   selectedOption: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   required: PropTypes.oneOf(['none', 'required', 'optional']),
@@ -218,6 +216,7 @@ PickerBase.propTypes = {
     '100%',
   ]),
   info: PropTypes.bool,
+  checkbox: PropTypes.bool,
   clickInfo: PropTypes.func,
   mouseOverInfo: PropTypes.func,
   mouseLeaveInfo: PropTypes.func,
@@ -274,9 +273,9 @@ PickerBase.propTypes = {
 };
 
 /* eslint-enable */
-PickerBase.defaultProps = {
+PickerMulti.defaultProps = {
   fieldLabel: 'Field Label',
-  mode: 'base',
+  mode: 'multi',
   contentWidth: '100%',
   picker1: 'Picker 1',
   picker2: 'Picker 2',
