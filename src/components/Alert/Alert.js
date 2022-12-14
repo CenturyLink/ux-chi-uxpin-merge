@@ -124,15 +124,12 @@ export default class Alert extends React.Component {
       </i>
     );
     const title = this.props.title ? this._alertTitle() : null;
-    const clickableClasses = `${UTILITY_CLASSES.TYPOGRAPHY.TEXT_PRIMARY} ${UTILITY_CLASSES.TYPOGRAPHY.TEXT_SEMI_BOLD}`;
-    const classes = this.props.type === 'clickable' ? clickableClasses : '';
     const alertContent = (
       <>
         {icon}
         <div className={ALERT_CLASSES.CONTENT}>
           {title}
           <p
-            className={`${ALERT_CLASSES.TEXT} ${classes}`}
             style={{ whiteSpace: 'pre-line' }}>
             {this._textToRender()}
           </p>
