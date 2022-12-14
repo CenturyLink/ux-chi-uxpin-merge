@@ -6,6 +6,7 @@ export const CLOSED_CLASS = '-closed';
 export const CLOSE_CLASS = '-close';
 export const INFO_CLASS = '-info';
 export const LIGHT_CLASS = '-light';
+export const LIST_CLASS = '-list';
 export const DISABLED_CLASS = '-disabled';
 export const INVERSE_CLASS = '-inverse';
 export const ANIMATED_CLASS = '-animated';
@@ -15,6 +16,7 @@ export const TRANSITIONING_CLASS = '-transitioning';
 export const SR_ONLY_CLASS = '-sr--only';
 export const UX_PIN_WRAPPER = 'uxPin__wrapper';
 export const NO_HOVER_UNDERLINE = '-no-hover-underline';
+export const OVERFLOW_HIDDEN = '-overflow--hidden';
 export const ICON_CHEVRON_RIGHT = 'icon-chevron-right';
 export const ROW_CLASS = '-row';
 export const GENERIC_SIZES = {
@@ -208,6 +210,10 @@ export const UTILITY_CLASSES = {
     MD: '-text--md',
     LG: '-text--lg',
     XL: '-text--xl',
+    LEFT: '-text--left',
+  },
+  WIDTH : {
+    100: '-w--100'
   },
 };
 

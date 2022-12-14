@@ -61,6 +61,7 @@ export default class DropdownIcon extends React.Component {
           active={this.props.active}
           retainSelection={this.props.retainSelection}
           selectedItem={this.props.selectedItem}
+          mode={this.props.mode}
           width={this.props.width ? this.props.width : ''}
           height={this.props.height ? this.props.height : ''}
           item1={this.props.item1 || ''}
@@ -104,6 +105,7 @@ DropdownIcon.propTypes = {
   disabled: PropTypes.bool,
   retainSelection: PropTypes.bool,
   scrollItems: PropTypes.bool,
+  mode: PropTypes.oneOf(['base', 'checkbox', 'radio']),
   position: PropTypes.oneOf(['initial', 'top-start', 'top', 'top-end', 'left-start', 'left', 'left-end', 'right-start', 'right', 'right-end', 'bottom-start', 'bottom', 'bottom-end']),
   color: PropTypes.oneOf(['primary', 'dark', 'grey', 'secondary', 'light', 'success', 'info', 'warning', 'danger', 'muted', 'navy', 'orange']),
   icon: PropTypes.string,
@@ -146,6 +148,7 @@ DropdownIcon.propTypes = {
 
 DropdownIcon.defaultProps = {
   active: false,
+  mode: 'base',
   retainSelection: false,
   icon: 'more-vert',
   item1: 'Item 1',
