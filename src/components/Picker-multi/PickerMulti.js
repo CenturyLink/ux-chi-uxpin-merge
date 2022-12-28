@@ -129,7 +129,7 @@ export default class PickerMulti extends React.Component {
             <div className={PICKER_CLASSES.CONTENT_START}>
               {content}
               <div
-                className={`${PICKER_CLASSES.DESCRIPTION} ${contentWidth} -ml--3`}
+                className={`${PICKER_CLASSES.DESCRIPTION} ${contentWidth} ${UTILITY_CLASSES.MARGIN.LEFT[3]}`}
               >
                 {this.props[`description${pickerIndex}`]}
               </div>
