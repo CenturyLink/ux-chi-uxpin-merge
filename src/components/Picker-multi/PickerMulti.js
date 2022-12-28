@@ -98,9 +98,9 @@ export default class PickerMulti extends React.Component {
     const checkbox = <span className={PICKER_CLASSES.CHECKBOX}></span>;
     const content =
       this.props.checkbox || this.props.radio ? (
-        <div className={`${FORM_CLASSES.ITEM} ${ROW_CLASS} -ml--0 -mt--0`}>
+        <div className={`${FORM_CLASSES.ITEM} ${ROW_CLASS} ${UTILITY_CLASSES.MARGIN.LEFT[0]} ${UTILITY_CLASSES.MARGIN.TOP[0]}`}>
           {this.props.checkbox ? checkbox : radio}
-          <span className={`${PICKER_CLASSES.LABEL} -pl--0`}>{picker}</span>
+          <span className={`${PICKER_CLASSES.LABEL} ${UTILITY_CLASSES.PADDING.LEFT[0]}`}>{picker}</span>
         </div>
       ) : (
         <div
