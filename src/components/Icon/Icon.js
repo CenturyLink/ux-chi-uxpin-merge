@@ -12,7 +12,7 @@ import './Icon.css';
 const Icon = ({tooltipMessage, tooltipPosition, click, mouseDown, mouseUp, mouseLeave, mouseOver, icon, color, size, uxpinRef}) => {
   const uuid = uuid4();
 
-  if (tooltipMessage && tooltipPosition !== 'default') {
+  if (tooltipMessage) {
     const initialize = setInterval(() => {
       if (window.chi && document.getElementById(uuid)) {
         window.chi.tooltip(document.getElementById(uuid));
@@ -46,7 +46,7 @@ Icon.propTypes = {
   icon: PropTypes.string,
   color: PropTypes.oneOf(['primary', 'secondary', 'dark', 'light', 'info', 'grey', 'muted', 'success', 'warning', 'danger', 'navy', 'orange']),
   tooltipMessage: PropTypes.string,
-  tooltipPosition: PropTypes.oneOf(['default', 'top', 'right', 'bottom', 'left']),
+  tooltipPosition: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
   click: PropTypes.func,
   mouseDown: PropTypes.func,
   mouseLeave: PropTypes.func,
@@ -60,7 +60,7 @@ Icon.defaultProps = {
   color: 'primary',
   icon: 'atom',
   tooltipMessage: 'Tooltip message',
-  tooltipPosition: 'default',
+  tooltipPosition: 'top',
 };
 
 export { Icon as default };
