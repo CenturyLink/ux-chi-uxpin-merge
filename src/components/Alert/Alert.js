@@ -145,7 +145,7 @@ export default class Alert extends React.Component {
     const rightIcon = this.props.type !== 'clickable' ? closeButton : chevronRight;
     const alert = (
       <div
-        className={`${ALERT_CLASSES.ALERT} ${state} ${size} ${type}`}
+        className={`${ALERT_CLASSES.ALERT} ${state} ${size} ${type} ${closeButton ? `${CLOSE_CLASS}` : ''}`}
         role="alert">
         {alertContent}
         {rightIcon}
