@@ -7,6 +7,8 @@ import {
   BUTTON_CLASSES,
   DISABLED_CLASS,
   DROPDOWN_CLASSES,
+  OVERFLOW_HIDDEN,
+  UTILITY_CLASSES,
 } from '../../constants/classes';
 import { uuid4 } from '../../utils/utils';
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
@@ -42,12 +44,13 @@ export default class DropdownBase extends React.Component {
   render() {
     return (
       // eslint-disable-next-line react/prop-types
-      <div className={`${DROPDOWN_CLASSES.DROPDOWN}`} ref={this.props.uxpinRef}>
+      <div className={`${DROPDOWN_CLASSES.DROPDOWN} ${UTILITY_CLASSES.WIDTH[100]}`} ref={this.props.uxpinRef}>
         <button
           type="button"
           ref={this.dropdownBaseRef}
           id={this.state.id}
           className={`
+            ${UTILITY_CLASSES.WIDTH[100]}
             ${BUTTON_CLASSES.BUTTON}
             ${DROPDOWN_CLASSES.TRIGGER}
             ${this.props.active ? ACTIVE_CLASS : ''}
@@ -61,11 +64,14 @@ export default class DropdownBase extends React.Component {
           style={{ textTransform: 'none' }}
           data-position={this.props.position}
           onClick={() => this.props.buttonClick()}>
-          {this.props.text}
+          <span className={`${OVERFLOW_HIDDEN} ${UTILITY_CLASSES.TYPOGRAPHY.TEXT_TRUNCATE} ${UTILITY_CLASSES.WIDTH[100]} ${UTILITY_CLASSES.TEXT.LEFT}`}>
+            {this.props.text}
+          </span>
         </button>
         <DropdownMenu
           showMenu
           active={this.props.active}
+          mode={this.props.mode}
           retainSelection={this.props.retainSelection}
           selectedItem={this.props.selectedItem}
           width={this.props.width ? this.props.width : ''}
@@ -134,6 +140,7 @@ DropdownBase.propTypes = {
   retainSelection: PropTypes.bool,
   scrollItems: PropTypes.bool,
   text: PropTypes.string,
+  mode: PropTypes.oneOf(['base', 'checkbox', 'radio']),
   syncTextWithSelectedItem: PropTypes.bool,
   buttonColor: PropTypes.oneOf(['base', 'primary', 'dark', 'secondary', 'light']),
   buttonType: PropTypes.oneOf(['solid', 'outline', 'flat']),
@@ -199,6 +206,7 @@ DropdownBase.propTypes = {
 
 DropdownBase.defaultProps = {
   active: false,
+  mode: 'base',
   animateChevron: true,
   retainSelection: false,
   text: 'Dropdown component',

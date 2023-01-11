@@ -3,12 +3,19 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import {
   ACTIVE_CLASS,
+  CHECKBOX_CLASSES,
   DROPDOWN_CLASSES,
   ICON_CLASS,
+  LIST_CLASS,
+  RADIO_CLASSES,
   UTILITY_CLASSES,
 } from '../../constants/classes';
 import { contains, uuid4 } from '../../utils/utils';
 
+/* eslint-disable */
+/**
+ * @uxpincomponent
+ */
 export default class DropdownMenu extends React.Component {
   someDescription;
 
@@ -89,6 +96,7 @@ export default class DropdownMenu extends React.Component {
           ) : null;
 
           itemsToRender.push(
+            this.props.mode === 'base' ?
             // eslint-disable-next-line
             <a
               className={`
@@ -99,7 +107,21 @@ export default class DropdownMenu extends React.Component {
               {iconLeft}
               {itemContent}
               {iconRight}
-            </a>
+            </a> : this.props.mode === 'checkbox' ? (
+              <div className={DROPDOWN_CLASSES.ITEM}>
+                <div className={CHECKBOX_CLASSES.checkbox}>
+                  <input className={CHECKBOX_CLASSES.INPUT} type="checkbox" id={`checkbox${i}`} />
+                  <label className={CHECKBOX_CLASSES.LABEL} htmlFor={`checkbox${i}`}>{itemContent}</label>
+                </div>
+              </div>
+            ) : (
+              <div className={DROPDOWN_CLASSES.ITEM}>
+                <div className={RADIO_CLASSES.RADIO}>
+                  <input className={RADIO_CLASSES.INPUT} type="radio" name="radios" id={`radio${i}`} />
+                  <label className={RADIO_CLASSES.LABEL} htmlFor={`radio${i}`}>{itemContent}</label>
+                </div>
+              </div>
+            )
           );
         }
 
@@ -114,7 +136,7 @@ export default class DropdownMenu extends React.Component {
         className={`
           ${DROPDOWN_CLASSES.MENU}
           ${this.state.active ? ACTIVE_CLASS : ''}
-          ${this.someDescription ? '-list' : ''} 
+          ${this.someDescription ? LIST_CLASS : ''} 
         `}
         style={{
           height: `${this.props.height && this.props.scrollItems ? `${this.props.height}px` : ''}`,
@@ -144,6 +166,7 @@ DropdownMenu.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   selectedItem: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  mode: PropTypes.oneOf(['base', 'checkbox', 'radio']),
   item1: PropTypes.string,
   item2: PropTypes.string,
   item3: PropTypes.string,
@@ -199,6 +222,7 @@ DropdownMenu.propTypes = {
 };
 
 DropdownMenu.defaultProps = {
+  mode: 'base',
   active: true,
   retainSelection: false,
   height: '200',
