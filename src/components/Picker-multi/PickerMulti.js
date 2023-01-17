@@ -113,7 +113,7 @@ export default class PickerMulti extends React.Component {
           </span>
         </div>
       );
-    const contentWidth = this.props["contentWidth"]
+    const contentWidth = this.props["contentWidth"] && this.props["contentWidth"] !== UTILITY_CLASSES.CONTENT_WIDTH[100]
       ? `-w--${this.props["contentWidth"].split("%")[0]}`
       : "";
 
