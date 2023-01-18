@@ -136,9 +136,6 @@ export const UTILITY_CLASSES = {
   ALIGN_ITEMS: {
     CENTER: '-align-items--center',
   },
-  CONTENT_WIDTH: {
-    100: '100%',
-  },
   DISPLAY: {
     FLEX: '-d--flex',
   },
