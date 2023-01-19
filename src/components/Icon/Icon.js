@@ -59,7 +59,7 @@ Icon.defaultProps = {
   size: 'sm',
   color: 'primary',
   icon: 'atom',
-  tooltipMessage: 'Tooltip message',
+  tooltipMessage: '',
   tooltipPosition: 'top',
 };
 

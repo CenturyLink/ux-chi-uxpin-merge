@@ -113,7 +113,8 @@ export default class PickerMulti extends React.Component {
           </span>
         </div>
       );
-    const contentWidth = this.props["contentWidth"]
+    const maxContentWidth = "100%";
+    const contentWidth = this.props["contentWidth"] && this.props["contentWidth"] !== maxContentWidth
       ? `-w--${this.props["contentWidth"].split("%")[0]}`
       : "";
 
@@ -205,15 +206,15 @@ PickerMulti.propTypes = {
   selectedOption: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   contentWidth: PropTypes.oneOf([
-    '20%',
-    '30%',
-    '40%',
-    '50%',
-    '60%',
-    '70%',
-    '80%',
-    '90%',
     '100%',
+    '90%',
+    '80%',
+    '70%',
+    '60%',
+    '50%',
+    '40%',
+    '30%',
+    '20%',
   ]),
   info: PropTypes.bool,
   checkbox: PropTypes.bool,
