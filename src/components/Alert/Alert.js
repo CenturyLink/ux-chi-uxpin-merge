@@ -130,6 +130,7 @@ export default class Alert extends React.Component {
         <div className={ALERT_CLASSES.CONTENT}>
           {title}
           <p
+            className={ALERT_CLASSES.TEXT}
             style={{ whiteSpace: 'pre-line' }}>
             {this._textToRender()}
           </p>
@@ -153,9 +154,9 @@ export default class Alert extends React.Component {
     );
     const clickableAlert = (
       <a
-        href="#"
         onClick={this.props.click}
-        className={`${LINK_CLASSES.LINK} ${NO_HOVER_UNDERLINE}`}>
+        className={`${LINK_CLASSES.LINK} ${NO_HOVER_UNDERLINE}`}
+        aria-hidden="true">
         {alert}
       </a>
     );
