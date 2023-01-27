@@ -190,7 +190,7 @@ Alert.propTypes = {
   text: PropTypes.string,
   title: PropTypes.string,
   icon: PropTypes.string,
-  type: PropTypes.oneOf(['bubble', 'banner', 'toast', 'clickable']),
+  type: PropTypes.oneOf(['bubble', 'toast', 'clickable']),
   closable: PropTypes.bool,
   click: PropTypes.func,
 };
