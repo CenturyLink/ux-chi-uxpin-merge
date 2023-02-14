@@ -115,7 +115,7 @@ export default class DropdownMenu extends React.Component {
                 </div>
               </div>
             ) : (
-              <div className={DROPDOWN_CLASSES.ITEM}>
+              <div className={DROPDOWN_CLASSES.ITEM} onClick={() => this._handlerClickMenuItem(i)}>
                 <div className={RADIO_CLASSES.RADIO}>
                   <input className={RADIO_CLASSES.INPUT} type="radio" name="radios" id={`radio${i}`} />
                   <label className={RADIO_CLASSES.LABEL} htmlFor={`radio${i}`}>{itemContent}</label>

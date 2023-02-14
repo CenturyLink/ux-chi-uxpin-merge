@@ -41,13 +41,7 @@ export default function StatBase(props) {
     const backgroundIcon = props[`s${statIndex}Icon`]
       ? (
         <div className={STAT_CLASSES.BACKGROUND_ICON}>
-          {marketingIcons.includes(props[`s${statIndex}Icon`]) ? <chi-marketing-icon icon={props[`s${statIndex}Icon`]} variant="outline"></chi-marketing-icon> : (
-            <i
-              className={
-                `chi-icon icon-${props[`s${statIndex}Icon`]}`}
-              aria-hidden="true"
-            />
-          )}
+          {marketingIcons.includes(props[`s${statIndex}Icon`]) ? <chi-marketing-icon icon={props[`s${statIndex}Icon`]} variant="outline"></chi-marketing-icon> : ''}
         </div>
       ) : null;
 
