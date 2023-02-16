@@ -31,9 +31,8 @@ export default class DropdownMenu extends React.Component {
   _onClick(e) {
     const dropdownMenu = this.refs[`dropdown-menu-ref-${this.state.id}`];
 
-    if (e.target !== document.body && e.target !== null && dropdownMenu && (contains(e.target, dropdownMenu) || e.target !== dropdownMenu) && !e.target.classList.contains(DROPDOWN_CLASSES.ITEM)) {
+    if (!(contains(dropdownMenu, e.target) || e.target === dropdownMenu)) {
       const simulationMode = document.getElementsByClassName('canvas-main-container');
-
       if (simulationMode.length > 0) this.setState({ active: false });
     }
   }
@@ -54,8 +53,11 @@ export default class DropdownMenu extends React.Component {
   }
 
   _handlerClickMenuItem(menuItemIndex) {
-    if (this.props.syncText) this.props.syncText(this.props[`item${menuItemIndex}`]);
-    this.setState({ active: false, selectedItem: menuItemIndex });
+    if (this.props.syncText) {
+      this.props.syncText(this.props[`item${menuItemIndex}`]);
+      this.setState({ active: false });
+    }  
+    this.setState({ selectedItem: menuItemIndex });
     this.props[`select${menuItemIndex}`]();
   }
 

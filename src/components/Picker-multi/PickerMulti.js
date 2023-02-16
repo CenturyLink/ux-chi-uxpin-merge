@@ -169,7 +169,7 @@ export default class PickerMulti extends React.Component {
       .forEach((_, i) => {
         if (this.props[`picker${i}`]) {
           pickersToRender.push(
-            <div className={PICKER_CLASSES.PICKER}>
+            <div className={`${PICKER_CLASSES.PICKER} -${this.props.size}`}>
               <input
                 className={PICKER_CLASSES.INPUT}
                 type={this.props.mode === "multi" ? "checkbox" : "radio"}
@@ -216,6 +216,7 @@ PickerMulti.propTypes = {
     '100%',
   ]),
   info: PropTypes.bool,
+  size: PropTypes.oneOf(['md', 'lg']),
   checkbox: PropTypes.bool,
   clickInfo: PropTypes.func,
   mouseOverInfo: PropTypes.func,
@@ -276,6 +277,7 @@ PickerMulti.propTypes = {
 PickerMulti.defaultProps = {
   fieldLabel: 'Field Label',
   mode: 'multi',
+  size: 'md',
   contentWidth: '100%',
   picker1: 'Picker 1',
   picker2: 'Picker 2',
