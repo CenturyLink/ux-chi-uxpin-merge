@@ -22,6 +22,7 @@ export default class Alert extends React.Component {
     };
   }
 
+  // TODO: Change name to _setIcon()
   _setIconAndText() {
     switch (this.props.state) {
       case 'success':
