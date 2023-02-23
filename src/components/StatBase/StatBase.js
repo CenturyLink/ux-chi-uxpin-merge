@@ -13,6 +13,7 @@ import {
   STAT_CLASSES,
 } from '../../constants/classes';
 import { marketingIcons } from '../../constants/icons';
+import MarketingIcon from '../Marketing-icon/Marketing-icon';
 
 let uuid;
 let key;
@@ -41,7 +42,12 @@ export default function StatBase(props) {
     const backgroundIcon = props[`s${statIndex}Icon`]
       ? (
         <div className={STAT_CLASSES.BACKGROUND_ICON}>
-          {marketingIcons.includes(props[`s${statIndex}Icon`]) ? <chi-marketing-icon icon={props[`s${statIndex}Icon`]} variant="outline"></chi-marketing-icon> : ''}
+          {marketingIcons.includes(props[`s${statIndex}Icon`]) ? (
+          // eslint-disable-next-line react/style-prop-object
+            <MarketingIcon icon={props[`s${statIndex}Icon`]} style="outline" />
+          ) : (
+            ''
+          )}
         </div>
       ) : null;
 
@@ -264,18 +270,18 @@ StatBase.defaultProps = {
   s1Metric: 1,
   s1AuxMetric: 2,
   s1AuxTitle: 'Elevated',
-  s1Icon: 'business-calendar',
+  s1Icon: 'platform-voice-unified-communications',
   stat2Title: 'metric 2',
   s2Metric: 1,
   s2AuxTitle: 'High',
   s2AuxMetric: 2,
-  s2Icon: 'device-router',
+  s2Icon: 'platform-it-agility-hybrid-cloud',
   stat3Title: 'metric 3',
   s3AuxMetric: 1,
   s3Metric: 0,
   s3AuxTitle: 'High',
   s3AuxMetric: 2,
-  s3Icon: 'people-admin',
+  s3Icon: 'platform-adaptive-networking',
   activeStat: 1,
   s4Metric: 0,
   s5Metric: 0,
