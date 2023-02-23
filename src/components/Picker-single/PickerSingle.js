@@ -16,6 +16,7 @@ export default class PickerSingle extends React.Component {
         fieldLabel={this.props.fieldLabel}
         required={this.props.required}
         contentWidth={this.props.contentWidth}
+        size={this.props.size}
         radio={this.props.radio}
         info={this.props.info}
         clickInfo={this.props.clickInfo}
@@ -82,6 +83,7 @@ PickerSingle.propTypes = {
     '20%',
   ]),
   info: PropTypes.bool,
+  size: PropTypes.oneOf(['md', 'lg']),
   radio: PropTypes.bool,
   clickInfo: PropTypes.func,
   mouseOverInfo: PropTypes.func,
@@ -132,6 +134,7 @@ PickerSingle.propTypes = {
 PickerSingle.defaultProps = {
   fieldLabel: 'Field Label',
   contentWidth: '100%',
+  size: 'md',
   picker1: 'Picker 1',
   picker2: 'Picker 2',
   picker3: 'Picker 3',

@@ -6,6 +6,7 @@ export default (
     uxpId="picker-base-multi"
     fieldLabel="Field Label"
     required="none"
+    size="md"
     info={false}
     selected={1}
     picker1="Picker 1"

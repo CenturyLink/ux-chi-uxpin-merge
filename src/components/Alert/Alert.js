@@ -19,48 +19,37 @@ export default class Alert extends React.Component {
     super(props);
     this.state = {
       defaultIcon: 'circle-info',
-      defaultText: 'This is a base alert',
     };
   }
 
+  // TODO: Change name to _setIcon()
   _setIconAndText() {
     switch (this.props.state) {
       case 'success':
         this.state.defaultIcon = 'circle-check';
-        this.state.defaultText = 'This is a success alert';
         break;
       case 'warning':
         this.state.defaultIcon = 'warning';
-        this.state.defaultText = 'This is a warning alert';
         break;
       case 'danger':
         this.state.defaultIcon = 'circle-warning';
-        this.state.defaultText = 'This is a danger alert';
         break;
       case 'info':
         this.state.defaultIcon = 'circle-info';
-        this.state.defaultText = 'This is a info alert';
         break;
       case 'muted':
         this.state.defaultIcon = 'circle-info';
-        this.state.defaultText = 'This is a muted alert';
         break;
       case 'inprogress':
-        this.state.defaultText = 'This is a test in progress alert';
         break;
       default:
         this.state.defaultIcon = 'circle-info';
-        this.state.defaultText = 'This is a base alert';
         break;
     }
   }
 
   _iconToRender() {
     return this.props.icon ? this.props.icon : this.state.defaultIcon;
-  }
-
-  _textToRender() {
-    return this.props.text ? this.props.text : this.state.defaultText;
   }
 
   _alertTitle() {
@@ -132,7 +121,7 @@ export default class Alert extends React.Component {
           <p
             className={ALERT_CLASSES.TEXT}
             style={{ whiteSpace: 'pre-line' }}>
-            {this._textToRender()}
+            {this.props.text}
           </p>
         </div>
       </>

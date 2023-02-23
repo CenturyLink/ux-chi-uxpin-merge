@@ -31,9 +31,8 @@ export default class DropdownMenu extends React.Component {
   _onClick(e) {
     const dropdownMenu = this.refs[`dropdown-menu-ref-${this.state.id}`];
 
-    if (e.target !== document.body && e.target !== null && dropdownMenu && (contains(e.target, dropdownMenu) || e.target !== dropdownMenu) && !e.target.classList.contains(DROPDOWN_CLASSES.ITEM)) {
+    if (!(contains(dropdownMenu, e.target) || e.target === dropdownMenu)) {
       const simulationMode = document.getElementsByClassName('canvas-main-container');
-
       if (simulationMode.length > 0) this.setState({ active: false });
     }
   }
@@ -54,8 +53,11 @@ export default class DropdownMenu extends React.Component {
   }
 
   _handlerClickMenuItem(menuItemIndex) {
-    if (this.props.syncText) this.props.syncText(this.props[`item${menuItemIndex}`]);
-    this.setState({ active: false, selectedItem: menuItemIndex });
+    if (this.props.syncText) {
+      this.props.syncText(this.props[`item${menuItemIndex}`]);
+      this.setState({ active: false });
+    }  
+    this.setState({ selectedItem: menuItemIndex });
     this.props[`select${menuItemIndex}`]();
   }
 
@@ -117,7 +119,7 @@ export default class DropdownMenu extends React.Component {
             ) : (
               <div className={DROPDOWN_CLASSES.ITEM}>
                 <div className={RADIO_CLASSES.RADIO}>
-                  <input className={RADIO_CLASSES.INPUT} type="radio" name="radios" id={`radio${i}`} />
+                  <input className={RADIO_CLASSES.INPUT} type="radio" name="radios" id={`radio${i}`} onClick={() => this._handlerClickMenuItem(i)} />
                   <label className={RADIO_CLASSES.LABEL} htmlFor={`radio${i}`}>{itemContent}</label>
                 </div>
               </div>
