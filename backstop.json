@@ -1,0 +1,177 @@
+{
+  "id": "backstop_default",
+  "viewports": [
+    {
+      "label": "viewport",
+      "width": 2500,
+      "height": 992
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "Button Types",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/160660823/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Button Sizes",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/160720558/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Labeled Icon Buttons",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/160660856/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Floating Buttons",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/159916101/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Bubble Alerts",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/160660794/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Alert Sizes sm/md/lg",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/161275115/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Toast/Clickable/Closable Alerts",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/161377003/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}
