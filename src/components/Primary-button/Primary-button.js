@@ -66,7 +66,7 @@ PrimaryButton.propTypes = {
   disabled: PropTypes.bool,
   leftIcon: PropTypes.string,
   rightIcon: PropTypes.string,
-  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   value: PropTypes.string,
   fluid: PropTypes.bool,
   click: PropTypes.func,
