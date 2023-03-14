@@ -8,21 +8,16 @@ import Icon from '../Icon/Icon';
  * @uxpinwrappers
  * SkipContainerWrapper
  */
-const InfoIcon = ({popoverTitle, popoverDescription, click, mouseDown, mouseUp, mouseLeave, mouseOver}) => {
+const InfoIcon = ({popoverTitle, popoverDescription}) => {
   
   return (
     <Icon
       icon={'circle-info-outline'}
       color={'primary'}
-      size={'sm'}
+      size={'xs'}
       popover={true}
       popoverTitle={popoverTitle}
-      popoverDescription={popoverDescription}
-      onClick={click}
-      onMouseEnter={mouseOver}
-      onMouseLeave={mouseLeave}
-      onMouseDown={mouseDown}
-      onMouseUp={mouseUp}>
+      popoverDescription={popoverDescription}>
     </Icon>
   )
 };
@@ -30,14 +25,13 @@ const InfoIcon = ({popoverTitle, popoverDescription, click, mouseDown, mouseUp, 
 InfoIcon.propTypes = {
   popoverTitle: PropTypes.string,
   popoverDescription: PropTypes.string,
-  click: PropTypes.func,
-  mouseDown: PropTypes.func,
-  mouseLeave: PropTypes.func,
-  mouseOver: PropTypes.func,
-  mouseUp: PropTypes.func,
 };
+
 /* eslint-enable */
 
-InfoIcon.defaultProps = {};
+InfoIcon.defaultProps = {
+  popoverTitle: 'Popover Title',
+  popoverDescription: 'Popover Description',
+};
 
 export { InfoIcon as default };

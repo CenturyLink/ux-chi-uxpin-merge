@@ -7,6 +7,8 @@ export default (
     size="sm"
     icon="atom"
     color="primary"
+    popoverTitle="Popover Title"
+    popoverDescription="Popover Description"
     click={() => {}}
     mouseDown={() => {}}
     mouseLeave={() => {}}

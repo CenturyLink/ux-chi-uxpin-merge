@@ -1,5 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import { UTILITY_CLASSES } from '../../constants/classes';
 import { uuid4 } from '../../utils/utils';
 import './Icon.css';
 
@@ -23,25 +24,18 @@ const Icon = ({tooltipMessage, tooltipPosition, popover, popoverTitle, popoverDe
   }
 
   const handleClick = React.useCallback(() => {
-    console.log('123');
     if (popover) {
-      popOverRef.current.classList.remove('-d--none');
+      popOverRef.current.classList.remove(`${UTILITY_CLASSES.DISPLAY.NONE}`);
       popOverRef.current.toggle();
-    console.log('456');
-  }
+    }
     click();
-    console.log('789');
   }, [uuid, click]);
 
   React.useEffect(() => {
-    console.log('abc');
-    if (popOverRef && popOverRef.current && !popOverRef.current.classList.contains('-d--none')) {
-      console.log('def');
-      popOverRef.current.classList.add('-d--none');
+    if (popOverRef && popOverRef.current && !popOverRef.current.classList.contains(`${UTILITY_CLASSES.DISPLAY.NONE}`)) {
+      popOverRef.current.classList.add(`${UTILITY_CLASSES.DISPLAY.NONE}`);
     }
-    console.log('ghf');
   }, [popoverDescription])
-  
 
   return (
     <>
@@ -102,6 +96,8 @@ Icon.defaultProps = {
   size: 'sm',
   color: 'primary',
   icon: 'atom',
+  popoverTitle: 'Popover Title',
+  popoverDescription: 'Popover Description',
   tooltipMessage: '',
   tooltipPosition: 'top',
 };

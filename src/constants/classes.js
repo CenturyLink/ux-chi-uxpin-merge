@@ -138,6 +138,7 @@ export const UTILITY_CLASSES = {
   },
   DISPLAY: {
     FLEX: '-d--flex',
+    NONE: '-d--none',
   },
   TYPOGRAPHY: {
     TEXT_PRIMARY: '-text--primary',
