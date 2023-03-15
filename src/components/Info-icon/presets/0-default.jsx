@@ -7,6 +7,10 @@ export default (
     size="xs"
     color="primary"
     popoverTitle="Popover Title"
-    popoverDescription="Popover Description"
+    popoverDescription={
+      `Line
+Line 2
+Line 3`
+    }
   />
 );

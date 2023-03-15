@@ -8,7 +8,7 @@ import Icon from '../Icon/Icon';
  * @uxpinwrappers
  * SkipContainerWrapper
  */
-const InfoIcon = ({popoverTitle, popoverDescription}) => {
+const InfoIcon = ({popoverTitle, popoverDescription, popoverPosition}) => {
   
   return (
     <Icon
@@ -17,6 +17,7 @@ const InfoIcon = ({popoverTitle, popoverDescription}) => {
       size={'xs'}
       popover={true}
       popoverTitle={popoverTitle}
+      popoverPosition={popoverPosition}
       popoverDescription={popoverDescription}>
     </Icon>
   )
@@ -24,14 +25,23 @@ const InfoIcon = ({popoverTitle, popoverDescription}) => {
 
 InfoIcon.propTypes = {
   popoverTitle: PropTypes.string,
+  /**
+    * A textArea controller for Text
+    * @uxpinpropname text
+    * @uxpincontroltype textfield(10)
+    * */
   popoverDescription: PropTypes.string,
+  popoverPosition: PropTypes.oneOf(['top', 'right-start']),
 };
 
 /* eslint-enable */
 
 InfoIcon.defaultProps = {
   popoverTitle: 'Popover Title',
-  popoverDescription: 'Popover Description',
+  popoverDescription: `Line 1
+Line 2
+Line 3`,
+  popoverPosition: 'right-start',
 };
 
 export { InfoIcon as default };

@@ -10,7 +10,7 @@ import './Icon.css';
  * @uxpinwrappers
  * SkipContainerWrapper
  */
-const Icon = ({tooltipMessage, tooltipPosition, popover, popoverTitle, popoverDescription, click, mouseDown, mouseUp, mouseLeave, mouseOver, icon, color, size, uxpinRef}) => {
+const Icon = ({tooltipMessage, tooltipPosition, popover, popoverTitle, popoverDescription, popoverPosition, click, mouseDown, mouseUp, mouseLeave, mouseOver, icon, color, size, uxpinRef}) => {
   const uuid = uuid4();
   const popOverRef = React.createRef();
 
@@ -39,35 +39,36 @@ const Icon = ({tooltipMessage, tooltipPosition, popover, popoverTitle, popoverDe
 
   return (
     <>
-      <chi-icon
-        id={uuid}
-        icon={icon}
-        color={color}
-        size={size}
-        onClick={handleClick}
-        data-tooltip={popover ? '' : tooltipMessage}
-        data-position={tooltipPosition}
-        onMouseEnter={mouseOver}
-        onMouseLeave={mouseLeave}
-        onMouseDown={mouseDown}
-        onMouseUp={mouseUp}>
-        <span className="-sr--only">
-          i
-        </span>
-      </chi-icon>
+      <div id={`popover-hook-${uuid}`} className={`chi-icon -${size}`}>
+        <chi-icon
+          id={uuid}
+          icon={icon}
+          color={color}
+          size={size}
+          onClick={handleClick}
+          data-tooltip={popover ? '' : tooltipMessage}
+          data-position={tooltipPosition}
+          onMouseEnter={mouseOver}
+          onMouseLeave={mouseLeave}
+          onMouseDown={mouseDown}
+          onMouseUp={mouseUp}>
+          <span className="-sr--only">
+            i
+          </span>
+        </chi-icon>
+      </div>
       {popover && (
         <>
-          <span id={`popover-hook-${uuid}`}></span>
           <chi-popover
             id={`${uuid}-popover`}
             ref={popOverRef}
-            position="right-start"
+            position={popoverPosition}
             title={popoverTitle}
             variant="text"
             reference={`#popover-hook-${uuid}`}
             arrow
           >
-            {popoverDescription}
+            <p style={{ whiteSpace: 'pre-line' }}>{popoverDescription}</p>
           </chi-popover>
         </>
       )}
@@ -82,7 +83,13 @@ Icon.propTypes = {
   tooltipMessage: PropTypes.string,
   tooltipPosition: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
   popover: PropTypes.bool,
+  popoverPosition: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'top-start', 'top-end', 'right-start', 'right-end', 'bottom-start', 'bottom-end', 'left-start', 'left-end']),
   popoverTitle: PropTypes.string,
+  /**
+   * A textArea controller for Text
+   * @uxpinpropname text
+   * @uxpincontroltype textfield(10)
+   * */
   popoverDescription: PropTypes.string,
   click: PropTypes.func,
   mouseDown: PropTypes.func,
@@ -97,7 +104,10 @@ Icon.defaultProps = {
   color: 'primary',
   icon: 'atom',
   popoverTitle: 'Popover Title',
-  popoverDescription: 'Popover Description',
+  popoverDescription: `Line 1
+Line 2
+Line 3`,
+  popoverPosition: 'right-start',
   tooltipMessage: '',
   tooltipPosition: 'top',
 };
