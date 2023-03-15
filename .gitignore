@@ -30,6 +30,10 @@ coverage
 # Bower dependency directory (https://bower.io/)
 bower_components
 
+# Backstop
+backstop_data/bitmaps_test
+backstop_data/html_report
+
 # node-waf configuration
 .lock-wscript
 
