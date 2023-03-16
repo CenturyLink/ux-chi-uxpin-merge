@@ -161,7 +161,7 @@ export default class Alert extends React.Component {
 }
 
 Alert.propTypes = {
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['sm', 'md']),
   state: PropTypes.oneOf([
     'base',
     'success',
