@@ -32,7 +32,7 @@ export default class Alert extends React.Component {
         this.state.defaultIcon = 'warning';
         break;
       case 'danger':
-        this.state.defaultIcon = 'circle-warning';
+        this.state.defaultIcon = 'circle-x';
         break;
       case 'info':
         this.state.defaultIcon = 'circle-info';
