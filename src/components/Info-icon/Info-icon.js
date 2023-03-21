@@ -31,7 +31,7 @@ InfoIcon.propTypes = {
     * @uxpincontroltype textfield(10)
     * */
   popoverDescription: PropTypes.string,
-  popoverPosition: PropTypes.oneOf(['top', 'right-start']),
+  popoverPosition: PropTypes.oneOf(['right-start', 'top']),
 };
 
 /* eslint-enable */
