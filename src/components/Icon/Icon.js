@@ -1,6 +1,5 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import { UTILITY_CLASSES } from '../../constants/classes';
 import { uuid4 } from '../../utils/utils';
 import './Icon.css';
 
@@ -14,7 +13,7 @@ const Icon = ({tooltipMessage, tooltipPosition, popover, popoverTitle, popoverDe
   const uuid = uuid4();
   const popOverRef = React.createRef();
 
-  if (tooltipMessage) {
+  if (!popover && tooltipMessage) {
     const initialize = setInterval(() => {
       if (window.chi && document.getElementById(uuid)) {
         window.chi.tooltip(document.getElementById(uuid));
@@ -23,19 +22,13 @@ const Icon = ({tooltipMessage, tooltipPosition, popover, popoverTitle, popoverDe
     }, 1000);
   }
 
-  const handleClick = React.useCallback(() => {
+  const handlerClick = () => {
     if (popover) {
-      popOverRef.current.classList.remove(`${UTILITY_CLASSES.DISPLAY.NONE}`);
       popOverRef.current.toggle();
     }
-    click();
-  }, [uuid, click]);
 
-  React.useEffect(() => {
-    if (popOverRef && popOverRef.current && !popOverRef.current.classList.contains(`${UTILITY_CLASSES.DISPLAY.NONE}`)) {
-      popOverRef.current.classList.add(`${UTILITY_CLASSES.DISPLAY.NONE}`);
-    }
-  }, [popoverDescription])
+    click();
+  }
 
   return (
     <>
@@ -45,8 +38,8 @@ const Icon = ({tooltipMessage, tooltipPosition, popover, popoverTitle, popoverDe
           icon={icon}
           color={color}
           size={size}
-          onClick={handleClick}
-          data-tooltip={popover ? '' : tooltipMessage}
+          onClick={handlerClick}
+          data-tooltip={tooltipMessage}
           data-position={tooltipPosition}
           onMouseEnter={mouseOver}
           onMouseLeave={mouseLeave}
