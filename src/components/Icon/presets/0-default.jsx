@@ -7,6 +7,12 @@ export default (
     size="sm"
     icon="atom"
     color="primary"
+    popoverTitle="Popover Title"
+    popoverDescription={
+      `Line
+Line 2
+Line 3`
+    }
     click={() => {}}
     mouseDown={() => {}}
     mouseLeave={() => {}}
