@@ -19,6 +19,9 @@ export default class PickerSingle extends React.Component {
         size={this.props.size}
         radio={this.props.radio}
         info={this.props.info}
+        infoPopoverTitle={this.props.infoPopoverTitle}
+        infoPopoverDescription={this.props.infoPopoverDescription}
+        infoPopoverPosition={this.props.infoPopoverPosition}
         clickInfo={this.props.clickInfo}
         mouseOverInfo={this.props.mouseOverInfo}
         mouseLeaveInfo={this.props.mouseLeaveInfo}
@@ -83,6 +86,14 @@ PickerSingle.propTypes = {
     '20%',
   ]),
   info: PropTypes.bool,
+  infoPopoverTitle: PropTypes.string,
+  /**
+    * A textArea controller for Text
+    * @uxpinpropname text
+    * @uxpincontroltype textfield(10)
+    * */
+  infoPopoverDescription: PropTypes.string,
+  infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
   size: PropTypes.oneOf(['md', 'lg']),
   radio: PropTypes.bool,
   clickInfo: PropTypes.func,
@@ -141,4 +152,9 @@ PickerSingle.defaultProps = {
   required: 'none',
   selectedOption: 1,
   info: false,
+  infoPopoverTitle: 'Popover Title',
+  infoPopoverDescription: `Line 1
+Line 2
+Line 3`,
+  infoPopoverPosition: 'right-start',
 };

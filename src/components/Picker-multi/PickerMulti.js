@@ -1,12 +1,9 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import Icon from '../Icon/Icon';
 import { uuid4 } from '../../utils/utils';
 import {
-  BUTTON_CLASSES,
   FORM_CLASSES,
-  GENERIC_SIZES,
-  ICON_CLASS,
-  ICON_CLASSES,
   LABEL_CLASSES,
   PICKER_CLASSES,
   ROW_CLASS,
@@ -75,20 +72,18 @@ export default class PickerMulti extends React.Component {
 
   _setInfo() {
     return (
-      <div
-        className={`${STAT_CLASSES.TITLE_HELP}`}
-        onClick={this.props.clickInfo}
-        onMouseEnter={this.props.mouseOverInfo}
-        onMouseLeave={this.props.mouseLeaveInfo}
-      >
-        <button
-          className={`${BUTTON_CLASSES.BUTTON} ${BUTTON_CLASSES.ICON_BUTTON} ${BUTTON_CLASSES.FLAT} ${GENERIC_SIZES.XS}`}
-          aria-label="Help"
-        >
-          <i
-            className={`${ICON_CLASS} ${ICON_CLASSES.ICON_CIRCLE_INFO} ${ICON_CLASSES.ICON_PRIMARY}`}
-          ></i>
-        </button>
+      <div className={`${STAT_CLASSES.TITLE_HELP}`}>
+        <Icon
+          uxpId={`infoIcon-${this.state.id}`}
+          icon={'circle-info-outline'}
+          size="xs"
+          color="primary"
+          mode="button"
+          popover={true}
+          popoverTitle={this.props.infoPopoverTitle}
+          popoverDescription={this.props.infoPopoverDescription}
+          popoverPosition={this.props.infoPopoverPosition}
+        />
       </div>
     );
   }
@@ -217,6 +212,14 @@ PickerMulti.propTypes = {
     '20%',
   ]),
   info: PropTypes.bool,
+  infoPopoverTitle: PropTypes.string,
+  /**
+    * A textArea controller for Text
+    * @uxpinpropname text
+    * @uxpincontroltype textfield(10)
+    * */
+  infoPopoverDescription: PropTypes.string,
+  infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
   size: PropTypes.oneOf(['md', 'lg']),
   checkbox: PropTypes.bool,
   clickInfo: PropTypes.func,
@@ -285,4 +288,9 @@ PickerMulti.defaultProps = {
   picker3: 'Picker 3',
   required: 'none',
   info: false,
+  infoPopoverTitle: 'Popover Title',
+  infoPopoverDescription: `Line 1
+Line 2
+Line 3`,
+  infoPopoverPosition: 'right-start',
 };

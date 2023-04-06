@@ -1,5 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import { BUTTON_CLASSES } from '../../constants/classes';
 import { uuid4 } from '../../utils/utils';
 import './Icon.css';
 
@@ -9,7 +10,7 @@ import './Icon.css';
  * @uxpinwrappers
  * SkipContainerWrapper
  */
-const Icon = ({tooltipMessage, tooltipPosition, popover, popoverTitle, popoverDescription, popoverPosition, click, mouseDown, mouseUp, mouseLeave, mouseOver, icon, color, size, uxpinRef}) => {
+const Icon = ({tooltipMessage, tooltipPosition, popover, popoverTitle, popoverDescription, popoverPosition, mode, click, clickInfo, mouseDown, mouseUp, mouseLeave, mouseOver, icon, color, size}) => {
   const uuid = uuid4();
   const popOverRef = React.createRef();
 
@@ -22,17 +23,23 @@ const Icon = ({tooltipMessage, tooltipPosition, popover, popoverTitle, popoverDe
     }, 1000);
   }
 
+  const checkAndCallFunction = (fn) => {
+    if (typeof fn === 'function') {
+      fn(); 
+    }
+  }
+
   const handlerClick = () => {
     if (popover) {
+      checkAndCallFunction(clickInfo);
       popOverRef.current.toggle();
     }
-
-    click();
+    checkAndCallFunction(click); 
   }
 
   return (
     <>
-      <div id={`popover-hook-${uuid}`} className={`chi-icon -${size}`}>
+      <div id={`popover-hook-${uuid}`} className={`chi-${mode} ${BUTTON_CLASSES.FLAT} -${size}`}>
         <chi-icon
           id={uuid}
           icon={icon}
@@ -50,7 +57,7 @@ const Icon = ({tooltipMessage, tooltipPosition, popover, popoverTitle, popoverDe
           </span>
         </chi-icon>
       </div>
-      {popover && (
+      {popover && (popoverTitle || popoverDescription) && (
         <>
           <chi-popover
             id={`${uuid}-popover`}
@@ -84,6 +91,10 @@ Icon.propTypes = {
    * @uxpincontroltype textfield(10)
    * */
   popoverDescription: PropTypes.string,
+  /** @uxpinignoreprop */
+  mode: PropTypes.oneOf(['icon', 'button']),
+  /** @uxpinignoreprop */
+  clickInfo: PropTypes.func,
   click: PropTypes.func,
   mouseDown: PropTypes.func,
   mouseLeave: PropTypes.func,
@@ -97,6 +108,7 @@ Icon.defaultProps = {
   color: 'primary',
   icon: 'atom',
   popoverTitle: 'Popover Title',
+  mode: 'icon',
   popoverDescription: `Line 1
 Line 2
 Line 3`,

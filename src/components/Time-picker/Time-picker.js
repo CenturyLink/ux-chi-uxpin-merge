@@ -1,10 +1,9 @@
 import * as PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import Label from '../Label/Label';
+import Icon from '../Icon/Icon';
 import { uuid4 } from '../../utils/utils';
 import {
-  BUTTON_CLASSES,
-  ICON_CLASS,
   LABEL_CLASSES,
   STAT_CLASSES,
 } from '../../constants/classes';
@@ -29,22 +28,30 @@ export default function TimePicker({
   timeChange,
   required,
   info,
+  infoPopoverTitle,
+  infoPopoverDescription,
+  infoPopoverPosition,
   clickInfo,
   mouseOverInfo,
   mouseLeaveInfo,
   uxpinRef
 }) {
+
   const uuid = `time-picker-${uuid4()}`;
   const infoElement = info
     ? (
-      <div
-        className={`${STAT_CLASSES.TITLE_HELP}`}
-        onClick={clickInfo}
-        onMouseEnter={mouseOverInfo}
-        onMouseLeave={mouseLeaveInfo}>
-        <button className={`${BUTTON_CLASSES.BUTTON} -icon -xs -flat`} aria-label="Help">
-          <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
-        </button>
+      <div className={`${STAT_CLASSES.TITLE_HELP}`}>
+        <Icon
+          uxpId={`infoIcon-${uuid}`}
+          icon={'circle-info-outline'}
+          size="xs"
+          color="primary"
+          mode="button"
+          popover={true}
+          popoverTitle={infoPopoverTitle}
+          popoverDescription={infoPopoverDescription}
+          popoverPosition={infoPopoverPosition}
+        />
       </div>
     ) : '';
   const labelElement = label
@@ -102,6 +109,14 @@ TimePicker.propTypes = {
   displaySeconds: PropTypes.bool,
   format: PropTypes.oneOf(['12hr', '24hr']),
   info: PropTypes.bool,
+  infoPopoverTitle: PropTypes.string,
+  /**
+    * A textArea controller for Text
+    * @uxpinpropname text
+    * @uxpincontroltype textfield(10)
+    * */
+  infoPopoverDescription: PropTypes.string,
+  infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
   clickInfo: PropTypes.func,
   mouseOverInfo: PropTypes.func,
   mouseLeaveInfo: PropTypes.func,
@@ -121,4 +136,9 @@ TimePicker.defaultProps = {
   format: '12hr',
   required: 'none',
   info: false,
+  infoPopoverTitle: 'Popover Title',
+  infoPopoverDescription: `Line 1
+Line 2
+Line 3`,
+  infoPopoverPosition: 'right-start',
 };

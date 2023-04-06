@@ -8,7 +8,7 @@ import Icon from '../Icon/Icon';
  * @uxpinwrappers
  * SkipContainerWrapper
  */
-const InfoIcon = ({popoverTitle, popoverDescription, popoverPosition}) => {
+const InfoIcon = ({popoverTitle, popoverDescription, popoverPosition, clickInfo}) => {
   
   return (
     <Icon
@@ -18,6 +18,7 @@ const InfoIcon = ({popoverTitle, popoverDescription, popoverPosition}) => {
       popover={true}
       popoverTitle={popoverTitle}
       popoverPosition={popoverPosition}
+      clickInfo={clickInfo}
       popoverDescription={popoverDescription}>
     </Icon>
   )
@@ -32,6 +33,7 @@ InfoIcon.propTypes = {
     * */
   popoverDescription: PropTypes.string,
   popoverPosition: PropTypes.oneOf(['right-start', 'top']),
+  clickInfo: PropTypes.func,
 };
 
 /* eslint-enable */
