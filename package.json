@@ -6,6 +6,8 @@
   "scripts": {
     "check": "eslint --ext js,jsx src --ignore-pattern *.tests.js",
     "test": "jest",
+    "backstop": "backstop test",
+    "approve": "backstop reference && backstop test",
     "generate-presets": "uxpin-merge generate-presets",
     "server": "uxpin-merge server --webpack-config ./webpack.uxpin.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js",
     "start": "uxpin-merge --disable-tunneling --webpack-config ./webpack.uxpin.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js",
@@ -86,6 +88,7 @@
     "@emotion/core": "^10.0.14",
     "@emotion/styled": "^10.0.14",
     "@inlet/react-pixi": "^1.2.6",
+    "backstopjs": "5.4.4",
     "css-loader": "^3.4.2",
     "d3-shape": "^1.2.2",
     "emotion": "^10.0.27",
