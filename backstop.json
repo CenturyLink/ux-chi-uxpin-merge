@@ -3,8 +3,8 @@
   "viewports": [
     {
       "label": "viewport",
-      "width": 2500,
-      "height": 992
+      "width": 2560,
+      "height": 1440
     }
   ],
   "onBeforeScript": "puppet/onBefore.js",
@@ -137,7 +137,28 @@
       "requireSameDimensions": true
     },
     {
-      "label": "Toast/Clickable/Closable Alerts",
+      "label": "Closable/Custom icon Alerts",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/161275593/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Toast/Clickable Alerts",
       "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/161377003/simulate/no-panels?mode=i",
       "referenceUrl": "",
       "readyEvent": "",
@@ -165,7 +186,9 @@
     "html_report": "backstop_data/html_report",
     "ci_report": "backstop_data/ci_report"
   },
-  "report": ["browser"],
+  "report": [
+    "browser"
+  ],
   "engine": "puppeteer",
   "engineOptions": {
     "args": ["--no-sandbox"]
