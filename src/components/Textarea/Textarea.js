@@ -111,6 +111,11 @@ Textarea.propTypes = {
   mouseOverInfo: PropTypes.func,
   mouseLeaveInfo: PropTypes.func,
   disabled: PropTypes.bool,
+  /**
+    * A textArea controller for Text
+    * @uxpinpropname text
+    * @uxpincontroltype textfield(10)
+    * */
   value: PropTypes.string,
   placeholder: PropTypes.string,
   state: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
