@@ -3,10 +3,8 @@ import FlatButton from '../Flat-button';
 
 export default (
   <FlatButton
-    uxpId="primary-button"
+    uxpId="flat-button"
     disabled={false}
-    leftIcon=""
-    rightIcon=""
     size="md"
     value="Flat"
     fluid={false}
