@@ -1,10 +1,8 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import Icon from '../Icon/Icon';
 import { uuid4 } from '../../utils/utils';
 import {
-  BUTTON_CLASSES,
-  GENERIC_SIZES,
-  ICON_CLASS,
   LABEL_CLASSES,
   PICKER_GROUP_CLASSES,
   STAT_CLASSES,
@@ -46,14 +44,19 @@ export default class PickerGroup extends React.Component {
     }
 
     const info = this.props.info ?
-      <div className={`${STAT_CLASSES.TITLE_HELP}`}
-        onClick={this.props.clickInfo}
-        onMouseEnter={this.props.mouseOverInfo}
-        onMouseLeave={this.props.mouseLeaveInfo}>
-        <button className={`${BUTTON_CLASSES.BUTTON} ${BUTTON_CLASSES.ICON_BUTTON} ${BUTTON_CLASSES.FLAT} ${GENERIC_SIZES.XS}`} aria-label="Help">
-          <i className={`${ICON_CLASS} icon-circle-info-outline -icon--primary`}></i>
-        </button>
-      </div> : '';
+    <div className={`${STAT_CLASSES.TITLE_HELP}`}>
+      <Icon
+        uxpId={`infoIcon-${uuid}`}
+        icon={'circle-info-outline'}
+        size="xs"
+        color="primary"
+        mode="button"
+        popover={true}
+        popoverTitle={this.props.infoPopoverTitle}
+        popoverDescription={this.props.infoPopoverDescription}
+        popoverPosition={this.props.infoPopoverPosition}
+      />
+    </div> : '';
 
     const fieldLabel = this.props.fieldLabel ?
       <legend className={`${LABEL_CLASSES.LABEL}`}>
@@ -130,6 +133,14 @@ PickerGroup.propTypes = {
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   selected: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   info: PropTypes.bool,
+  infoPopoverTitle: PropTypes.string,
+  /**
+    * A textArea controller for Text
+    * @uxpinpropname text
+    * @uxpincontroltype textfield(10)
+    * */
+  infoPopoverDescription: PropTypes.string,
+  infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
   clickInfo: PropTypes.func,
   mouseOverInfo: PropTypes.func,
   mouseLeaveInfo: PropTypes.func,
@@ -185,4 +196,9 @@ PickerGroup.defaultProps = {
   required: 'none',
   selected: 1,
   info: false,
+  infoPopoverTitle: 'Popover Title',
+  infoPopoverDescription: `Line 1
+Line 2
+Line 3`,
+  infoPopoverPosition: 'right-start',
 };

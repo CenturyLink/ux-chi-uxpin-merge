@@ -13,6 +13,7 @@ export default function PrimaryButton({
   size,
   value,
   fluid,
+  flat,
   click,
   mouseDown,
   mouseUp,
@@ -48,6 +49,7 @@ export default function PrimaryButton({
         -primary
         ${size ? `-${size}` : ''}
         ${fluid ? '-fluid -justify-content--center' : ''}
+        ${flat ? '-flat' : ''}
         `}
       disabled={disabled}
       onClick={click}
@@ -69,6 +71,8 @@ PrimaryButton.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   value: PropTypes.string,
   fluid: PropTypes.bool,
+  /** @uxpinignoreprop */
+  flat: PropTypes.bool,
   click: PropTypes.func,
   mouseDown: PropTypes.func,
   mouseUp: PropTypes.func,

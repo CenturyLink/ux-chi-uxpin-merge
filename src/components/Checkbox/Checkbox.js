@@ -1,11 +1,10 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import Icon from '../Icon/Icon';
 import { uuid4 } from '../../utils/utils';
 import {
-  BUTTON_CLASSES,
   CHECKBOX_CLASSES,
   FORM_CLASSES,
-  ICON_CLASS,
   INLINE_CLASS,
   LABEL_CLASSES,
   STAT_CLASSES,
@@ -64,14 +63,18 @@ export default class Checkbox extends React.Component {
 
     const info = this.props.info
       ? (
-        <div
-          className={`${STAT_CLASSES.TITLE_HELP}`}
-          onClick={this.props.clickInfo}
-          onMouseEnter={this.props.mouseOverInfo}
-          onMouseLeave={this.props.mouseLeaveInfo}>
-          <button className={`${BUTTON_CLASSES.BUTTON} -icon -xs -flat`} aria-label="Help">
-            <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
-          </button>
+        <div className={`${STAT_CLASSES.TITLE_HELP}`}>
+          <Icon
+            uxpId={`infoIcon-${uuid}`}
+            icon={'circle-info-outline'}
+            size="xs"
+            color="primary"
+            mode="button"
+            popover={true}
+            popoverTitle={this.props.infoPopoverTitle}
+            popoverDescription={this.props.infoPopoverDescription}
+            popoverPosition={this.props.infoPopoverPosition}
+          />
         </div>
       ) : '';
 
@@ -152,6 +155,14 @@ Checkbox.propTypes = {
   inline: PropTypes.bool,
   layout: PropTypes.oneOf(['inline', 'vertical', '2-col', '3-col', '4-col', '6-col']),
   info: PropTypes.bool,
+  infoPopoverTitle: PropTypes.string,
+  /**
+    * A textArea controller for Text
+    * @uxpinpropname text
+    * @uxpincontroltype textfield(10)
+    * */
+  infoPopoverDescription: PropTypes.string,
+  infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
   clickInfo: PropTypes.func,
   mouseOverInfo: PropTypes.func,
   mouseLeaveInfo: PropTypes.func,
@@ -215,4 +226,9 @@ Checkbox.defaultProps = {
   label3: 'Checkbox 3 label',
   required: 'none',
   layout: 'vertical',
+  infoPopoverTitle: 'Popover Title',
+  infoPopoverDescription: `Line 1
+Line 2
+Line 3`,
+  infoPopoverPosition: 'right-start',
 };

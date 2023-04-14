@@ -1,10 +1,11 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { uuid4 } from '../../utils/utils';
+import Icon from '../Icon/Icon';
 import Label from '../Label/Label';
 import {
-  BUTTON_CLASSES, ICON_CLASS,
-  LABEL_CLASSES, STAT_CLASSES,
+  LABEL_CLASSES,
+  STAT_CLASSES,
 } from '../../constants/classes';
 
 /* eslint-disable */
@@ -61,14 +62,18 @@ export default class PhoneInput extends React.Component {
       : null;
     const info = this.props.info
       ? (
-        <div
-          className={`${STAT_CLASSES.TITLE_HELP}`}
-          onClick={this.props.clickInfo}
-          onMouseEnter={this.props.mouseOverInfo}
-          onMouseLeave={this.props.mouseLeaveInfo}>
-          <button type="button" className={`${BUTTON_CLASSES.BUTTON} -icon -xs -flat`} aria-label="Help">
-            <i className={`${ICON_CLASS} chi-icon icon-circle-info-outline -icon--primary`}></i>
-          </button>
+        <div className={`${STAT_CLASSES.TITLE_HELP}`}>
+          <Icon
+            uxpId={`infoIcon-${this.state.id}`}
+            icon={'circle-info-outline'}
+            size="xs"
+            color="primary"
+            mode="button"
+            popover={true}
+            popoverTitle={this.props.infoPopoverTitle}
+            popoverDescription={this.props.infoPopoverDescription}
+            popoverPosition={this.props.infoPopoverPosition}
+          />
         </div>
       ) : '';
 
@@ -101,6 +106,14 @@ PhoneInput.propTypes = {
   disabled: PropTypes.bool,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   info: PropTypes.bool,
+  infoPopoverTitle: PropTypes.string,
+  /**
+    * A textArea controller for Text
+    * @uxpinpropname text
+    * @uxpincontroltype textfield(10)
+    * */
+  infoPopoverDescription: PropTypes.string,
+  infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
   label: PropTypes.string,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
@@ -119,4 +132,9 @@ PhoneInput.defaultProps = {
   label: 'Phone Number',
   required: 'none',
   size: 'md',
+  infoPopoverTitle: 'Popover Title',
+  infoPopoverDescription: `Line 1
+Line 2
+Line 3`,
+  infoPopoverPosition: 'right-start',
 };
