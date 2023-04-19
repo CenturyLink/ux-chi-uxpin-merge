@@ -9,6 +9,8 @@ import PrimaryButton from '../Primary-button/Primary-button';
  */
 export default function FlatButton({
   disabled,
+  leftIcon,
+  rightIcon,
   size,
   value,
   click,
@@ -21,6 +23,8 @@ export default function FlatButton({
   return (
     <PrimaryButton
       disabled={disabled}
+      leftIcon={leftIcon}
+      rightIcon={rightIcon}
       size={size}
       value={value}
       flat
@@ -37,7 +41,9 @@ export default function FlatButton({
 /* eslint-disable */
 FlatButton.propTypes = {
   disabled: PropTypes.bool,
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  leftIcon: PropTypes.string,
+  rightIcon: PropTypes.string,
+  size: PropTypes.oneOf(['xs','md']),
   value: PropTypes.string,
   click: PropTypes.func,
   mouseDown: PropTypes.func,
