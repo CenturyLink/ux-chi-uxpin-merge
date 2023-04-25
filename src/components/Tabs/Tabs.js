@@ -19,7 +19,7 @@ export default class Tabs extends React.Component {
   componentDidMount() {
     const initialize = setInterval(() => {
       if (window.chi && document.getElementById(this.state.id)) {
-        window.chi.navigation(document.getElementById(this.state.id));
+        window.chi.tab(document.getElementById(this.state.id));
         clearInterval(initialize);
       }
     }, 100);
