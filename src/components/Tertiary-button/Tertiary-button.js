@@ -42,7 +42,7 @@ TertiaryButton.propTypes = {
   disabled: PropTypes.bool,
   leftIcon: PropTypes.string,
   rightIcon: PropTypes.string,
-  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  size: PropTypes.oneOf(['xs']),
   value: PropTypes.string,
   fluid: PropTypes.bool,
   click: PropTypes.func,

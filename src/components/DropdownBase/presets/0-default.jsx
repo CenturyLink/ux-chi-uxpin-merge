@@ -5,7 +5,7 @@ export default (
   <DropdownBase
     uxpId="dropdown-base"
     active={false}
-    animateChevron
+    animateChevron={false}
     retainSelection={false}
     selectedItem={1}
     text="Dropdown component"

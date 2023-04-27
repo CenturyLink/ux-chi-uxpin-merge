@@ -207,7 +207,7 @@ DropdownBase.propTypes = {
 DropdownBase.defaultProps = {
   active: false,
   mode: 'base',
-  animateChevron: true,
+  animateChevron: false,
   retainSelection: false,
   text: 'Dropdown component',
   syncTextWithSelectedItem: false,
