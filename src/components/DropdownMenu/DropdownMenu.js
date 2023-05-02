@@ -3,7 +3,6 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import {
   ACTIVE_CLASS,
-  CHECKBOX_CLASSES,
   DROPDOWN_CLASSES,
   ICON_CLASS,
   LIST_CLASS,
@@ -89,7 +88,7 @@ export default class DropdownMenu extends React.Component {
             <i
               className={`
               ${ICON_CLASS} 
-              icon-${this.props[`iconLeft${i}`]} 
+              icon-${this.props[`iconLeft${i}`]}
               ${UTILITY_CLASSES.MARGIN.LEFT[0]}
               ${UTILITY_CLASSES.MARGIN.RIGHT[1]}
             `}
@@ -102,7 +101,7 @@ export default class DropdownMenu extends React.Component {
             // eslint-disable-next-line
             <a
               className={`
-                  ${DROPDOWN_CLASSES.ITEM} 
+                  ${DROPDOWN_CLASSES.ITEM}
                   ${i === this.state.selectedItem && this.props.retainSelection ? ACTIVE_CLASS : ''}
                 `}
               onClick={() => this._handlerClickMenuItem(i)}>
@@ -110,11 +109,8 @@ export default class DropdownMenu extends React.Component {
               {itemContent}
               {iconRight}
             </a> : this.props.mode === 'checkbox' ? (
-              <div className={DROPDOWN_CLASSES.ITEM}>
-                <div className={CHECKBOX_CLASSES.checkbox}>
-                  <input className={CHECKBOX_CLASSES.INPUT} type="checkbox" id={`checkbox${i}`} />
-                  <label className={CHECKBOX_CLASSES.LABEL} htmlFor={`checkbox${i}`}>{itemContent}</label>
-                </div>
+              <div className={DROPDOWN_CLASSES.ITEM} slot="menu">
+                <chi-checkbox id={`checkbox${i}`} label={itemContent}></chi-checkbox>
               </div>
             ) : (
               <div className={DROPDOWN_CLASSES.ITEM}>
@@ -133,8 +129,12 @@ export default class DropdownMenu extends React.Component {
       });
 
     const dropdownMenu = (
-      <div
+      <chi-dropdown
+        active={this.state.active}
         ref={`dropdown-menu-ref-${this.state.id}`}
+        fluid
+      >
+        <div
         className={`
           ${DROPDOWN_CLASSES.MENU}
           ${this.state.active ? ACTIVE_CLASS : ''}
@@ -146,12 +146,13 @@ export default class DropdownMenu extends React.Component {
           width: `${this.props.width ? `${this.props.width}px` : ''}`,
           overflow: `${this.props.height && this.props.scrollItems ? 'auto' : ''}`,
         }}>
-        {itemsToRender}
-      </div>
+          {itemsToRender}
+        </div>
+      </chi-dropdown>
     );
 
     return (
-      <div ref={this.props.uxpinRef}>
+      <div >
         {this.props.showMenu || this.state.active ? dropdownMenu : null}
       </div>
     );
