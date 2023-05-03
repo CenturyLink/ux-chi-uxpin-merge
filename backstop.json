@@ -21,14 +21,16 @@
       "removeSelectors": [],
       "hoverSelector": "",
       "clickSelector": "",
-      "clickSelectors": ["#submit-button"],
+      "clickSelectors": [
+        "#submit-button"
+      ],
       "postInteractionWait": 5000,
       "selectors": [
         ".ng-canvas"
       ],
       "selectorExpansion": false,
       "expect": 0,
-      "misMatchThreshold" : 0.1,
+      "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
     {
@@ -42,14 +44,16 @@
       "removeSelectors": [],
       "hoverSelector": "",
       "clickSelector": "",
-      "clickSelectors": ["#submit-button"],
+      "clickSelectors": [
+        "#submit-button"
+      ],
       "postInteractionWait": 5000,
       "selectors": [
         ".ng-canvas"
       ],
       "selectorExpansion": false,
       "expect": 0,
-      "misMatchThreshold" : 0.1,
+      "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
     {
@@ -63,14 +67,16 @@
       "removeSelectors": [],
       "hoverSelector": "",
       "clickSelector": "",
-      "clickSelectors": ["#submit-button"],
+      "clickSelectors": [
+        "#submit-button"
+      ],
       "postInteractionWait": 5000,
       "selectors": [
         ".ng-canvas"
       ],
       "selectorExpansion": false,
       "expect": 0,
-      "misMatchThreshold" : 0.1,
+      "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
     {
@@ -84,14 +90,16 @@
       "removeSelectors": [],
       "hoverSelector": "",
       "clickSelector": "",
-      "clickSelectors": ["#submit-button"],
+      "clickSelectors": [
+        "#submit-button"
+      ],
       "postInteractionWait": 5000,
       "selectors": [
         ".ng-canvas"
       ],
       "selectorExpansion": false,
       "expect": 0,
-      "misMatchThreshold" : 0.1,
+      "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
     {
@@ -105,18 +113,20 @@
       "removeSelectors": [],
       "hoverSelector": "",
       "clickSelector": "",
-      "clickSelectors": ["#submit-button"],
+      "clickSelectors": [
+        "#submit-button"
+      ],
       "postInteractionWait": 5000,
       "selectors": [
         ".ng-canvas"
       ],
       "selectorExpansion": false,
       "expect": 0,
-      "misMatchThreshold" : 0.1,
+      "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
     {
-      "label": "Alert Sizes sm/md/lg",
+      "label": "Alert - Sizes sm / md /lg",
       "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/161275115/simulate/no-panels?mode=i",
       "referenceUrl": "",
       "readyEvent": "",
@@ -126,18 +136,20 @@
       "removeSelectors": [],
       "hoverSelector": "",
       "clickSelector": "",
-      "clickSelectors": ["#submit-button"],
+      "clickSelectors": [
+        "#submit-button"
+      ],
       "postInteractionWait": 5000,
       "selectors": [
         ".ng-canvas"
       ],
       "selectorExpansion": false,
       "expect": 0,
-      "misMatchThreshold" : 0.1,
+      "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
     {
-      "label": "Closable/Custom icon Alerts",
+      "label": "Alerts - Closable / Custom icon",
       "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/161275593/simulate/no-panels?mode=i",
       "referenceUrl": "",
       "readyEvent": "",
@@ -147,18 +159,20 @@
       "removeSelectors": [],
       "hoverSelector": "",
       "clickSelector": "",
-      "clickSelectors": ["#submit-button"],
+      "clickSelectors": [
+        "#submit-button"
+      ],
       "postInteractionWait": 5000,
       "selectors": [
         ".ng-canvas"
       ],
       "selectorExpansion": false,
       "expect": 0,
-      "misMatchThreshold" : 0.1,
+      "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
     {
-      "label": "Toast/Clickable Alerts",
+      "label": "Alerts - Toast / Clickable",
       "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/161377003/simulate/no-panels?mode=i",
       "referenceUrl": "",
       "readyEvent": "",
@@ -168,14 +182,85 @@
       "removeSelectors": [],
       "hoverSelector": "",
       "clickSelector": "",
-      "clickSelectors": ["#submit-button"],
+      "clickSelectors": [
+        "#submit-button"
+      ],
       "postInteractionWait": 5000,
       "selectors": [
         ".ng-canvas"
       ],
       "selectorExpansion": false,
       "expect": 0,
-      "misMatchThreshold" : 0.1,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Select",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*115y7ji*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.#/pages/162342279/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": [
+        "#submit-button"
+      ],
+      "postInteractionWait": 45000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Text Input - Sizes / Types",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*13k7s4q*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.#/pages/162399950/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": [
+        "#submit-button"
+      ],
+      "postInteractionWait": 45000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Text Input - Left / Right Icon / Icon Colors / States",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*14up4fa*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.#/pages/162442963/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": [
+        "#submit-button"
+      ],
+      "postInteractionWait": 45000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     }
   ],
@@ -191,7 +276,9 @@
   ],
   "engine": "puppeteer",
   "engineOptions": {
-    "args": ["--no-sandbox"]
+    "args": [
+      "--no-sandbox"
+    ]
   },
   "asyncCaptureLimit": 5,
   "asyncCompareLimit": 50,
