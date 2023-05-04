@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { uuid4 } from '../../utils/utils';
-import { TABS_CLASSES } from '../../constants/classes';
+// import { TABS_CLASSES } from '../../constants/classes';
 import './Tabs.css';
 
 /* eslint-disable */
@@ -11,6 +11,8 @@ import './Tabs.css';
  * SkipContainerWrapper
  */
 export default class Tabs extends React.Component {
+  key = 0;
+
   constructor(props) {
     super(props);
     this.state = { id: uuid4() };
@@ -18,65 +20,51 @@ export default class Tabs extends React.Component {
 
   componentDidMount() {
     const initialize = setInterval(() => {
-      if (window.chi && document.getElementById(this.state.id)) {
-        window.chi.tab(document.getElementById(this.state.id));
+      if (window.chi && document.getElementById('example__tabbed_navigation_flat')) {
+        const tabbedNavigationFlatElement = document.querySelector('#example__tabbed_navigation_flat');
+        console.log('here', tabbedNavigationFlatElement);
+        tabbedNavigationFlatElement.tabs = [
+          {
+            label: 'Active Tab',
+            id: 'tab-a',
+          },
+          {
+            label: 'Tab Link',
+            id: 'tab-b',
+          },
+          {
+            label: 'Tab Link',
+            id: 'tab-c',
+          },
+          {
+            label: 'Tab Link',
+            id: 'tab-d',
+          },
+          {
+            label: 'Tab Link',
+            id: 'tab-e',
+          },
+        ];
         clearInterval(initialize);
       }
     }, 100);
   }
 
-  render() {
-    const tabsToRender = [];
-    const tabsContentToRender = [];
-    const ITEMS_TO_RENDER = 11;
-
-    Array(ITEMS_TO_RENDER).fill()
-      .forEach((_, i) => {
-        if (this.props[`tab${i}`]) {
-          tabsToRender.push(
-            <li
-              className={`${this.props.activeTab === i ? '-active' : ''}`}
-              key={`tab-${this.state.id}-${i}`}
-              onClick={() => {
-                if (this.props[`click${i}`]) {
-                  this.props[`click${i}`]();
-                }
-              }}>
-              <a
-                role="tab"
-                href={`#tab-${this.state.id}-${i}`}>
-                {this.props[`tab${i}`]}
-              </a>
-            </li>
-          );
-        }
-        tabsContentToRender.push(
-          <div
-            key={`content-${this.state.id}-${i}`}
-            role="tabpanel"
-            className={`chi-tabs-panel ${this.props.activeTab === i ? '-active' : ''}`}
-            id={`tab-${this.state.id}-${i}`}>
-          </div>
-        );
-      });
-
-
-    const tabList = <ul className=
-    {`
-      ${TABS_CLASSES.TABS}
-      ${this.props.vertical ? TABS_CLASSES.VERTICAL : TABS_CLASSES.BORDER}
-      ${this.props.style === 'solid' ? TABS_CLASSES.SOLID : ''}
-      ${this.props.size ? `-${this.props.size}` : ''}
-    `}
-      id={this.state.id}
-      role="tablist">
-      {tabsToRender}
-    </ul>
-
-    return <div ref={this.props.uxpinRef}>
-      {tabList}
-      {tabsContentToRender}
-    </div>;
+  render() {  
+    this.key += 1;
+  
+    return (
+      <div 
+        ref={this.props.uxpinRef}
+        key={this.key}
+      >
+        <chi-tabs
+          active-tab='tab-a'
+          id='example__tabbed_navigation_flat'
+          sliding-border
+        ></chi-tabs>
+      </div>
+    );
   }
 }
 
