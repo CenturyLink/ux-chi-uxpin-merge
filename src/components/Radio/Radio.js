@@ -8,7 +8,6 @@ import {
   LABEL_CLASSES,
   RADIO_CLASSES,
   STAT_CLASSES,
-  UTILITY_CLASSES,
 } from '../../constants/classes';
 
 /* eslint-disable */
@@ -38,24 +37,43 @@ export default class Radio extends React.Component {
       }
     }
 
+    let layoutOptions;
+    switch (this.props.layout) {
+      case 'inline':
+        layoutOptions = `${FORM_CLASSES.ITEM} ${INLINE_CLASS}`;
+        break;
+      case 'vertical':
+        layoutOptions = 'chi-col -w--12 -mb--1';
+        break;
+    }
     Array(RADIOS_TO_RENDER).fill()
       .forEach((_, i) => {
         if (this.props[`option${i}`]) {
           const uuid = `${this.state.id}-${i}`;
 
           radiosToRender.push(
-            <div className={this.props.inline ? `${FORM_CLASSES.ITEM} ${INLINE_CLASS}` : `${UTILITY_CLASSES.COLUMN} ${UTILITY_CLASSES.MARGIN.BOTTOM[1]} -w--12`} key={`radio-${i}`}>
-              <div className={RADIO_CLASSES.RADIO}>
-                <input className={RADIO_CLASSES.INPUT} type="radio" name={`radios-${uuid}`} id={uuid}
-                  checked={i === this.props.selectedOption} disabled={this.props[`disabled${i}`]}
-                  onChange={() => {
-                  }} />
-                <label onClick={(e) => {
-                  selectRadio(e.target, uuid);
-                  if (this.props[`select${i}`]) {
-                    this.props[`select${i}`]();
-                  }
-                }} className={RADIO_CLASSES.LABEL} htmlFor={uuid}>{this.props[`option${i}`]}</label>
+            <div className={layoutOptions} key={`radio-${i}`}>
+              <div className={`${RADIO_CLASSES.RADIO}`}>
+                <input
+                  id={uuid}
+                  type="radio"
+                  className={`${RADIO_CLASSES.INPUT}`}
+                  name={`radios-${uuid}`}
+                  disabled={this.props[`disabled${i}`]}
+                  checked={i === this.props.selectedOption}
+                  onChange={(e) => {}}
+                />
+                <label
+                  onClick={(e) => {
+                    selectRadio(e.target, uuid);
+                    if (this.props[`select${i}`]) {
+                      this.props[`select${i}`]();
+                    }
+                  }}
+                  className={RADIO_CLASSES.LABEL}
+                  htmlFor={uuid}>
+                  {this.props[`option${i}`]}
+                </label>
               </div>
             </div>
           );
@@ -87,26 +105,34 @@ export default class Radio extends React.Component {
       />
     </div> : '';
 
-    const fieldLabel = this.props.fieldLabel ?
-        <div className={LABEL_CLASSES.LABEL}>
+    const fieldLabel = this.props.fieldLabel
+      ? (
+        <div className={`${LABEL_CLASSES.LABEL}`}>
           {this.props.fieldLabel}
           {message}
           {info}
         </div>
-      : '';
+      ) : '';
+
+    const content = this.props.layout === `inline`
+    ? (
+      <div>
+        {fieldLabel}
+        {radiosToRender}
+      </div>
+    )
+    : (
+      <div className="chi-grid">
+        <div className="chi-col -w--12 -mb--1">
+          {fieldLabel}
+        </div>
+        {radiosToRender}
+      </div>
+    );
 
     return (
       <fieldset>
-        <div className={UTILITY_CLASSES.GRID}>
-          {
-            this.props.inline
-            ? fieldLabel
-            : <div className={`${UTILITY_CLASSES.COLUMN} ${UTILITY_CLASSES.MARGIN.BOTTOM[1]} -w--12`}>
-                {fieldLabel}
-              </div>
-          }
-          {radiosToRender}
-        </div>
+        {content}
       </fieldset>
     );
   }
@@ -115,7 +141,7 @@ export default class Radio extends React.Component {
 Radio.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
-  inline: PropTypes.bool,
+  layout: PropTypes.oneOf(['inline', 'vertical']),
   selectedOption: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,
@@ -168,6 +194,7 @@ Radio.defaultProps = {
   option2: 'Option 2',
   option3: 'Option 3',
   selectedOption: 1,
+  layout: 'vertical',
   required: 'none',
   info: false,
   infoPopoverTitle: 'Popover Title',
