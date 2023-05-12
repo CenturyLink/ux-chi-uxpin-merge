@@ -20,6 +20,13 @@ export default class Radio extends React.Component {
     this.state = { id: uuid4() };
   }
 
+  _setLayout() {
+    const inline = `${FORM_CLASSES.ITEM} ${INLINE_CLASS}`;
+    const vertical = "chi-col -w--12 -mb--1";
+
+    return this.props.layout === "inline" ? inline : vertical;
+  }
+
   render() {
     const radiosToRender = [];
     const RADIOS_TO_RENDER = 11;
@@ -37,22 +44,13 @@ export default class Radio extends React.Component {
       }
     }
 
-    let layoutOptions;
-    switch (this.props.layout) {
-      case 'inline':
-        layoutOptions = `${FORM_CLASSES.ITEM} ${INLINE_CLASS}`;
-        break;
-      case 'vertical':
-        layoutOptions = 'chi-col -w--12 -mb--1';
-        break;
-    }
     Array(RADIOS_TO_RENDER).fill()
       .forEach((_, i) => {
         if (this.props[`option${i}`]) {
           const uuid = `${this.state.id}-${i}`;
 
           radiosToRender.push(
-            <div className={layoutOptions} key={`radio-${i}`}>
+            <div className={this._setLayout()} key={`radio-${i}`}>
               <div className={`${RADIO_CLASSES.RADIO}`}>
                 <input
                   id={uuid}
