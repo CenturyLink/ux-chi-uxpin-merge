@@ -8,6 +8,7 @@ import {
   LABEL_CLASSES,
   RADIO_CLASSES,
   STAT_CLASSES,
+  UTILITY_CLASSES,
 } from '../../constants/classes';
 
 /* eslint-disable */
@@ -22,7 +23,7 @@ export default class Radio extends React.Component {
 
   _setLayout() {
     const inline = `${FORM_CLASSES.ITEM} ${INLINE_CLASS}`;
-    const vertical = "chi-col -w--12 -mb--1";
+    const vertical = `${UTILITY_CLASSES.COLUMN} ${UTILITY_CLASSES.MARGIN.BOTTOM[1]} -w--12`;
 
     return this.props.layout === "inline" ? inline : vertical;
   }
@@ -120,8 +121,8 @@ export default class Radio extends React.Component {
       </div>
     )
     : (
-      <div className="chi-grid">
-        <div className="chi-col -w--12 -mb--1">
+      <div className={UTILITY_CLASSES.GRID}>
+        <div className={`${UTILITY_CLASSES.COLUMN} ${UTILITY_CLASSES.MARGIN.BOTTOM[1]} -w--12`}>
           {fieldLabel}
         </div>
         {radiosToRender}
