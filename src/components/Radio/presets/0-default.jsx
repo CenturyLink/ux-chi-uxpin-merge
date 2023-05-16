@@ -6,7 +6,7 @@ export default (
     uxpId="radio"
     fieldLabel="Field Label"
     required="none"
-    inline={false}
+    layout="vertical"
     info={false}
     selectedOption={1}
     option1="Option 1"
