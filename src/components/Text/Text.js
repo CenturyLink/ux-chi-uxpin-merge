@@ -26,7 +26,7 @@ export default class Text extends React.Component {
     }
 
     return (
-      <p
+      <div
         className={`${this.props.size ? `-text--${this.props.size}` : ''}
        ${this.props.lineHeight ? `-text -lh--${this.props.lineHeight === '24 (default)' ? 3 : this.props.lineHeight / 8}` : ''}
        ${this.props.transform !== 'no-transform' ? `-text--${this.props.transform}` : ''}
@@ -34,7 +34,7 @@ export default class Text extends React.Component {
        ${this.props.truncate ? '-text--truncate' : ''}
        ${this.props.weight ? `-text--${fontWeight}` : ''}`}
         dangerouslySetInnerHTML={textRender()}>
-      </p>
+      </div>
     );
   }
 }
