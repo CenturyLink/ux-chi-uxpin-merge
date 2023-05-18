@@ -5,7 +5,6 @@ import {
   ACTIVE_CLASS,
   ANIMATE_CHEVRON_CLASS,
   BUTTON_CLASSES,
-  DISABLED_CLASS,
   DROPDOWN_CLASSES,
   OVERFLOW_HIDDEN,
   UTILITY_CLASSES,
@@ -23,6 +22,7 @@ export default class DropdownBase extends React.Component {
     super(props);
     this.state = {
       id: uuid4(),
+      active: false,
     };
     this.dropdownBaseRef = React.createRef();
     this._syncTextWithSelectedItem = this._syncTextWithSelectedItem.bind(this);
@@ -41,33 +41,38 @@ export default class DropdownBase extends React.Component {
     }, 1000);
   }
 
+  handleButtonClick() {
+    this.setState({ active: !this.state.active });
+    this.props.buttonClick();
+  }
+
   render() {
     return (
       // eslint-disable-next-line react/prop-types
       <div className={`${DROPDOWN_CLASSES.DROPDOWN} ${UTILITY_CLASSES.WIDTH[100]}`} ref={this.props.uxpinRef}>
-        <button
-          type="button"
+        <chi-button
           ref={this.dropdownBaseRef}
           id={this.state.id}
-          className={`
+          class={UTILITY_CLASSES.WIDTH[100]}
+          extra-class={`
             ${UTILITY_CLASSES.WIDTH[100]}
             ${BUTTON_CLASSES.BUTTON}
             ${DROPDOWN_CLASSES.TRIGGER}
-            ${this.props.active ? ACTIVE_CLASS : ''}
+            ${this.state.active ? ACTIVE_CLASS : ''}
             ${this.props.animateChevron ? ANIMATE_CHEVRON_CLASS : ''}
-            ${this.props.disabled ? DISABLED_CLASS : ''}
-            ${this.props.size ? `-${this.props.size}` : '-md'}
-            ${this.props.buttonColor === 'base' ? '' : `-${this.props.buttonColor}`}
-            ${this.props.buttonType === 'solid' ? '' : `-${this.props.buttonType}`}
             ${this.props.appSwitcher ? '-text--xl -px--1' : ''}
+            -text--no-transform
           `}
-          style={{ textTransform: 'none' }}
+          disabled={this.props.disabled}
+          size={this.props.size ? `${this.props.size}` : 'md'}
+          color={this.props.buttonColor === 'base' ? '' : `${this.props.buttonColor}`}
+          variant={this.props.buttonType === 'solid' ? '' : `${this.props.buttonType}`}
           data-position={this.props.position}
-          onClick={() => this.props.buttonClick()}>
+          onClick={() => this.handleButtonClick()}>
           <span className={`${OVERFLOW_HIDDEN} ${UTILITY_CLASSES.TYPOGRAPHY.TEXT_TRUNCATE} ${UTILITY_CLASSES.WIDTH[100]} ${UTILITY_CLASSES.TEXT.LEFT}`}>
             {this.props.text}
           </span>
-        </button>
+        </chi-button>
         <DropdownMenu
           showMenu
           active={this.props.active}
