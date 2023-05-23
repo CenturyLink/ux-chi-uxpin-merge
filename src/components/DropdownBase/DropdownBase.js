@@ -151,7 +151,7 @@ DropdownBase.propTypes = {
   buttonType: PropTypes.oneOf(['solid', 'outline', 'flat']),
   disabled: PropTypes.bool,
   appSwitcher: PropTypes.bool,
-  position: PropTypes.oneOf(['initial', 'top-start', 'top', 'top-end', 'left-start', 'left', 'left-end', 'right-start', 'right', 'right-end', 'bottom-start', 'bottom', 'bottom-end']),
+  position: PropTypes.oneOf(['top-start', 'top', 'top-end', 'left-start', 'left', 'left-end', 'right-start', 'right', 'right-end', 'bottom-start', 'bottom', 'bottom-end']),
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   width: PropTypes.string,
   height: PropTypes.string,
@@ -220,6 +220,5 @@ DropdownBase.defaultProps = {
   buttonType: 'flat',
   size: 'md',
   selectedItem: 1,
-  width: '200',
   height: '200',
 };
