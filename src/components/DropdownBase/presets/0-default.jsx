@@ -13,7 +13,6 @@ export default (
     buttonColor="base"
     buttonType="flat"
     size="md"
-    width="200"
     height="200"
   />
 );
