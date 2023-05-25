@@ -31,6 +31,7 @@ export default class Text extends React.Component {
        ${this.props.lineHeight ? `-text -lh--${this.props.lineHeight === '24 (default)' ? 3 : this.props.lineHeight / 8}` : ''}
        ${this.props.transform !== 'no-transform' ? `-text--${this.props.transform}` : ''}
        ${this.props.color ? `-text--${this.props.color}` : ''}
+       ${this.props.textAlign ? `-text--${this.props.textAlign}` : ''}
        ${this.props.truncate ? '-text--truncate' : ''}
        ${this.props.weight ? `-text--${fontWeight}` : ''}`}
         dangerouslySetInnerHTML={textRender()}>
@@ -47,6 +48,7 @@ Text.propTypes = {
    * */
   text: PropTypes.string,
   color: PropTypes.oneOf(['body', 'primary', 'secondary', 'light', 'success', 'info', 'warning', 'danger', 'muted', 'navy', 'orange']),
+  textAlign: PropTypes.oneOf(['left', 'center', 'right']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   weight: PropTypes.oneOf(['regular', 'semi-bold', 'bold', 'black']),
   truncate: PropTypes.bool,
@@ -57,6 +59,7 @@ Text.propTypes = {
 Text.defaultProps = {
   text: 'Sample text',
   color: 'body',
+  textAlign: 'left',
   size: 'md',
   transform: 'no-transform',
   weight: 'regular',
