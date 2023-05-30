@@ -12,7 +12,8 @@ export default (
     syncTextWithSelectedItem={false}
     buttonColor="base"
     buttonType="flat"
-    size="md"
-    height="200"
+    buttonSize="md"
+    dropdownPosition="bottom-start"
+    dropdownHeight="200"
   />
 );
