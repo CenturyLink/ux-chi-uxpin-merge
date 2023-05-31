@@ -262,6 +262,69 @@
       "expect": 0,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
+    },
+    {
+      "label": "Number Input",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*15wbcf6*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.#/pages/162331632/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Text Area - Sizes / Types",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*17e9usm*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.#/pages/162443044/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Text Area - States",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*4128j9*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.#/pages/162443270/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
     }
   ],
   "paths": {
