@@ -144,7 +144,8 @@ export const UTILITY_CLASSES = {
     TEXT_TRUNCATE: '-text--truncate',
     TEXT_NORMAL: '-text--normal',
     TEXT_SEMI_BOLD: '-text--semi-bold',
-    TEXT_BOLD: '-text--bold'
+    TEXT_BOLD: '-text--bold',
+    TEXT_NO_TRANSFORM: '-text--no-transform',
   },
   GRID: 'chi-grid',
   COLUMN: 'chi-col',

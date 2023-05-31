@@ -61,13 +61,13 @@ export default class DropdownBase extends React.Component {
             ${this.state.active ? ACTIVE_CLASS : ''}
             ${this.props.animateChevron ? ANIMATE_CHEVRON_CLASS : ''}
             ${this.props.appSwitcher ? '-text--xl -px--1' : ''}
-            -text--no-transform
+            ${UTILITY_CLASSES.TYPOGRAPHY.TEXT_NO_TRANSFORM}
           `}
           disabled={this.props.disabled}
-          size={this.props.size ? `${this.props.size}` : 'md'}
+          size={this.props.buttonSize ? `${this.props.buttonSize}` : 'md'}
           color={this.props.buttonColor === 'base' ? '' : `${this.props.buttonColor}`}
           variant={this.props.buttonType === 'solid' ? '' : `${this.props.buttonType}`}
-          data-position={this.props.position}
+          data-position={this.props.dropdownPosition}
           onClick={() => this.handleButtonClick()}>
           <span className={`${OVERFLOW_HIDDEN} ${UTILITY_CLASSES.TYPOGRAPHY.TEXT_TRUNCATE} ${UTILITY_CLASSES.WIDTH[100]} ${UTILITY_CLASSES.TEXT.LEFT}`}>
             {this.props.text}
@@ -79,8 +79,8 @@ export default class DropdownBase extends React.Component {
           mode={this.props.mode}
           retainSelection={this.props.retainSelection}
           selectedItem={this.props.selectedItem}
-          width={this.props.width ? this.props.width : ''}
-          height={this.props.height ? this.props.height : ''}
+          width={this.props.dropdownFixedWidth ? this.props.dropdownFixedWidth : ''}
+          height={this.props.dropdownHeight ? this.props.dropdownHeight : ''}
           syncText={this.props.syncTextWithSelectedItem ? this._syncTextWithSelectedItem : null}
           item1={this.props.item1 || ''}
           item2={this.props.item2 || ''}
@@ -149,12 +149,12 @@ DropdownBase.propTypes = {
   syncTextWithSelectedItem: PropTypes.bool,
   buttonColor: PropTypes.oneOf(['base', 'primary', 'dark', 'secondary', 'light']),
   buttonType: PropTypes.oneOf(['solid', 'outline', 'flat']),
+  buttonSize: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   disabled: PropTypes.bool,
   appSwitcher: PropTypes.bool,
-  position: PropTypes.oneOf(['top-start', 'top', 'top-end', 'left-start', 'left', 'left-end', 'right-start', 'right', 'right-end', 'bottom-start', 'bottom', 'bottom-end']),
-  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
-  width: PropTypes.string,
-  height: PropTypes.string,
+  dropdownPosition: PropTypes.oneOf(['top-start', 'top', 'top-end', 'left-start', 'left', 'left-end', 'right-start', 'right', 'right-end', 'bottom-start', 'bottom', 'bottom-end']),
+  dropdownHeight: PropTypes.string,
+  dropdownFixedWidth: PropTypes.string,
   selectedItem: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   item1: PropTypes.string,
   item2: PropTypes.string,
@@ -218,7 +218,8 @@ DropdownBase.defaultProps = {
   syncTextWithSelectedItem: false,
   buttonColor: 'base',
   buttonType: 'flat',
-  size: 'md',
+  buttonSize: 'md',
+  dropdownPosition: 'bottom-start',
   selectedItem: 1,
-  height: '200',
+  dropdownHeight: '200',
 };
