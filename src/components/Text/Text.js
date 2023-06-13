@@ -53,7 +53,7 @@ Text.propTypes = {
   weight: PropTypes.oneOf(['regular', 'semi-bold', 'bold', 'black']),
   truncate: PropTypes.bool,
   lineHeight: PropTypes.oneOf([8, 16, '24 (default)', 32, 40, 48, 56, 64, 72]),
-  transform: PropTypes.oneOf(['no-transform', 'lowercase', 'uppercase', 'capitalized']),
+  transform: PropTypes.oneOf(['no-transform', 'lowercase', 'uppercase', 'capitalized', 'italic']),
 };
 
 Text.defaultProps = {
