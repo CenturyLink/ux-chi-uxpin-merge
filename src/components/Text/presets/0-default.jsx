@@ -6,7 +6,7 @@ export default (
     uxpId="text"
     text="Sample text"
     size="md"
-    transform="no-transform"
+    textTransform="no-transform"
     textAlign="left"
     color="body"
     weight="regular"
