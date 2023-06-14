@@ -29,7 +29,7 @@ export default class Text extends React.Component {
       <div
         className={`${this.props.size ? `-text--${this.props.size}` : ''}
        ${this.props.lineHeight ? `-text -lh--${this.props.lineHeight === '24 (default)' ? 3 : this.props.lineHeight / 8}` : ''}
-       ${this.props.transform !== 'no-transform' ? `-text--${this.props.transform}` : ''}
+       ${this.props.textTransform !== 'no-transform' ? `-text--${this.props.textTransform}` : ''}
        ${this.props.color ? `-text--${this.props.color}` : ''}
        ${this.props.textAlign ? `-text--${this.props.textAlign}` : ''}
        ${this.props.truncate ? '-text--truncate' : ''}
@@ -53,7 +53,7 @@ Text.propTypes = {
   weight: PropTypes.oneOf(['regular', 'semi-bold', 'bold', 'black']),
   truncate: PropTypes.bool,
   lineHeight: PropTypes.oneOf([8, 16, '24 (default)', 32, 40, 48, 56, 64, 72]),
-  transform: PropTypes.oneOf(['no-transform', 'lowercase', 'uppercase', 'capitalized', 'italic']),
+  textTransform: PropTypes.oneOf(['no-transform', 'lowercase', 'uppercase', 'capitalized', 'italic']),
 };
 
 Text.defaultProps = {
@@ -61,7 +61,7 @@ Text.defaultProps = {
   color: 'body',
   textAlign: 'left',
   size: 'md',
-  transform: 'no-transform',
+  textTransform: 'no-transform',
   weight: 'regular',
   lineHeight: '24 (default)',
 };
