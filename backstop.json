@@ -348,8 +348,71 @@
       "requireSameDimensions": true
     },
     {
+      "label": "Phone Input - Types / Sizes",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*cj3tqy*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162331711/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
       "label": "Date Picker - Types",
       "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*1yo2ahm*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162206512/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Phone Input - States",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*cj3tqy*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162331841/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Search Input - Types / Sizes",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*1ft3xta*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162342264/simulate/no-panels?mode=i",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
