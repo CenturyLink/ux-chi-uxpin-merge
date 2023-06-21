@@ -57,7 +57,9 @@ export default class Select extends React.Component {
         }
       });
     const onChange = (e) => {
-      this.props.valueChange();
+      if (this.props.valueChange) {
+        this.props.valueChange();
+      }
       this.props[`selected${e.target.value}`]();
     };
 
