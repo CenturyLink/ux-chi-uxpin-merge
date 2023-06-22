@@ -23,13 +23,14 @@ export default class DropdownBase extends React.Component {
     this.state = {
       id: uuid4(),
       active: false,
+      text: '',
     };
     this.dropdownBaseRef = React.createRef();
     this._syncTextWithSelectedItem = this._syncTextWithSelectedItem.bind(this);
   }
 
   _syncTextWithSelectedItem(item) {
-    this.dropdownBaseRef.current.innerText = item;
+    this.setState({ text: item });
   }
 
   componentDidMount() {
@@ -43,13 +44,17 @@ export default class DropdownBase extends React.Component {
 
   handleButtonClick() {
     this.setState({ active: !this.state.active });
-    this.props.buttonClick();
+    if (this.props.buttonClick) {
+      this.props.buttonClick();
+    }
   }
 
   render() {
     return (
       // eslint-disable-next-line react/prop-types
-      <div className={`${DROPDOWN_CLASSES.DROPDOWN} ${UTILITY_CLASSES.WIDTH[100]}`} ref={this.props.uxpinRef}>
+      <div
+        className={`${DROPDOWN_CLASSES.DROPDOWN} ${UTILITY_CLASSES.WIDTH[100]}`}
+        ref={this.props.uxpinRef}>
         <chi-button
           ref={this.dropdownBaseRef}
           id={this.state.id}
@@ -70,7 +75,7 @@ export default class DropdownBase extends React.Component {
           data-position={this.props.dropdownPosition}
           onClick={() => this.handleButtonClick()}>
           <span className={`${OVERFLOW_HIDDEN} ${UTILITY_CLASSES.TYPOGRAPHY.TEXT_TRUNCATE} ${UTILITY_CLASSES.WIDTH[100]} ${UTILITY_CLASSES.TEXT.LEFT}`}>
-            {this.props.text}
+            {this.state.text || this.props.text}
           </span>
         </chi-button>
         <DropdownMenu
