@@ -195,6 +195,90 @@
       "requireSameDimensions": true
     },
     {
+      "label": "Checkbox - Types",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*1rdtg9*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162206511/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Checkbox - Grid",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*b3qyv5*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/163426194/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Radio Button - Types",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*12skhbv*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162342233/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Toggle Switch - Types",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*12skhbv*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162443611/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
       "label": "Select - Types / Sizes",
       "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*133x2kl*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162342279/simulate/no-panels?mode=i",
       "referenceUrl": "",
@@ -241,7 +325,7 @@
       "requireSameDimensions": true
     },
     {
-      "label": "Text Input - Left / Right Icon / Icon Colors / States",
+      "label": "Text Input - States",
       "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*14up4fa*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.#/pages/162442963/simulate/no-panels?mode=i",
       "referenceUrl": "",
       "readyEvent": "",
@@ -264,8 +348,71 @@
       "requireSameDimensions": true
     },
     {
+      "label": "File Input - Types / Sizes",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*1s4vuku*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162206513/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
       "label": "Number Input",
       "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*15wbcf6*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.#/pages/162331632/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Phone Input - Types / Sizes",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*cj3tqy*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162331711/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Phone Input - States",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*cj3tqy*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162331841/simulate/no-panels?mode=i",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
@@ -327,27 +474,6 @@
       "requireSameDimensions": true
     },
     {
-      "label": "Phone Input - Types / Sizes",
-      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*cj3tqy*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162331711/simulate/no-panels?mode=i",
-      "referenceUrl": "",
-      "readyEvent": "",
-      "readySelector": "",
-      "delay": 0,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "clickSelectors": ["#submit-button"],
-      "postInteractionWait": 5000,
-      "selectors": [
-        ".ng-canvas"
-      ],
-      "selectorExpansion": false,
-      "expect": 0,
-      "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true
-    },
-    {
       "label": "Label - Types / Sizes",
       "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*whr9tm*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162331624/simulate/no-panels?mode=i",
       "referenceUrl": "",
@@ -369,8 +495,8 @@
       "requireSameDimensions": true
     },
     {
-      "label": "Phone Input - States",
-      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*cj3tqy*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162331841/simulate/no-panels?mode=i",
+      "label": "Search Input - Types / Sizes",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*1ft3xta*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162342264/simulate/no-panels?mode=i",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
@@ -390,8 +516,29 @@
       "requireSameDimensions": true
     },
     {
-      "label": "Search Input - Types / Sizes",
-      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*1ft3xta*_gcl_aw*R0NMLjE2Nzg0NjI4NzkuQ2owS0NRaUF4NnVnQmhDY0FSSXNBR05tTWJqdG1Rdy1MOFZiVUFqMk5ZNVRWTGU3VENmdFlVT19SWXlraWt4Q0hJOUJBa05yVDZFS0RJY2FBcm1sRUFMd193Y0I.*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162342264/simulate/no-panels?mode=i",
+      "label": "Time Picker - Types",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*g2m509*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162443357/simulate/no-panels?mode=i",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Date Picker - Types",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63?_gl=1*1yo2ahm*_gcl_au*NDE1MTE0Mzk2LjE2ODIzNDc1MTE.#/pages/162206512/simulate/no-panels?mode=i",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
