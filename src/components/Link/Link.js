@@ -18,6 +18,8 @@ export default class Link extends React.Component {
   }
 
   render() {
+    const textRender = () => ({ __html: this.props.title.replaceAll('\n', '<br />') });
+
     const help = this.props.icon
       ? (
         <i
@@ -38,7 +40,10 @@ export default class Link extends React.Component {
         ref={this.linkElement}>
         <div className="chi-link__content">
           {this.props.iconPosition === 'left' ? help : null}
-          <span>{this.props.title ? this.props.title : ''}</span>
+          <span
+            className={`${this.props.lineHeight ? `-lh--${this.props.lineHeight === '24 (default)' ? 3 : this.props.lineHeight / 8}` : ''}`}
+            dangerouslySetInnerHTML={textRender()}>
+          </span>
           {this.props.iconPosition === 'right' ? help : null}
         </div>
       </chi-link>
@@ -59,6 +64,7 @@ Link.propTypes = {
   mouseoverLink: PropTypes.func,
   mouseleaveLink: PropTypes.func,
   icon: PropTypes.string,
+  lineHeight: PropTypes.oneOf([8, 16, '24 (default)', 32, 40, 48, 56, 64, 72]),
   iconPosition: PropTypes.oneOf(['left', 'right']),
   noHoverUnderline: PropTypes.bool,
 };
@@ -69,4 +75,5 @@ Link.defaultProps = {
   title: 'Link',
   size: 'md',
   iconPosition:'left',
+  lineHeight: '24 (default)',
 };
