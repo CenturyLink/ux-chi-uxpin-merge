@@ -122,7 +122,9 @@ PhoneInput.propTypes = {
   input: PropTypes.func,
   valueChange: PropTypes.func,
   clickInfo: PropTypes.func,
+  /** @uxpinignoreprop */
   mouseLeaveInfo: PropTypes.func,
+  /** @uxpinignoreprop */
   mouseOverInfo: PropTypes.func,
 };
 /* eslint-enable */
