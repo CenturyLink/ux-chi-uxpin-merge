@@ -4,7 +4,7 @@ import ToggleSwitch from '../Toggle-switch';
 export default (
   <ToggleSwitch
     uxpId="toggle-switch"
-    size="xs"
+    size="sm"
     label="Label"
     toggleLabel="Toggle Label"
     on={false}
