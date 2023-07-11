@@ -117,7 +117,9 @@ NumberInput.propTypes = {
   infoPopoverDescription: PropTypes.string,
   infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
   clickInfo: PropTypes.func,
+  /** @uxpinignoreprop */
   mouseOverInfo: PropTypes.func,
+  /** @uxpinignoreprop */
   mouseLeaveInfo: PropTypes.func,
   disabled: PropTypes.bool,
   startValue: PropTypes.string,
