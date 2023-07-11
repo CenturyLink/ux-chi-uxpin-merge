@@ -10,5 +10,6 @@ export default (
     title="Link"
     size="md"
     iconPosition="left"
+    lineHeight="24 (default)"
   />
 );
