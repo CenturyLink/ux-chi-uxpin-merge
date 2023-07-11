@@ -97,7 +97,9 @@ PickerSingle.propTypes = {
   size: PropTypes.oneOf(['md', 'lg']),
   radio: PropTypes.bool,
   clickInfo: PropTypes.func,
+  /** @uxpinignoreprop */
   mouseOverInfo: PropTypes.func,
+  /** @uxpinignoreprop */
   mouseLeaveInfo: PropTypes.func,
   picker1: PropTypes.string,
   description1: PropTypes.string,
