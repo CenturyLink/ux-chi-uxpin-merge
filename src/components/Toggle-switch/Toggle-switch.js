@@ -81,7 +81,8 @@ ToggleSwitch.propTypes = {
   toggleLabel: PropTypes.string,
   on: PropTypes.bool,
   disabled: PropTypes.bool,
-  size: PropTypes.oneOf(['xs', 'sm']),
+  /** @uxpinignoreprop */
+  size: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,

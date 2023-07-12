@@ -18,7 +18,7 @@ export default class Link extends React.Component {
   }
 
   render() {
-    const textRender = () => ({ __html: this.props.title.replaceAll('\n', '<br />') });
+    const textRender = () => ({ __html: this.props.linkText.replaceAll('\n', '<br />') });
 
     const help = this.props.icon
       ? (
@@ -52,7 +52,7 @@ export default class Link extends React.Component {
 }
 
 Link.propTypes = {
-  title: PropTypes.string,
+  linkText: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   /**
    * Icon that goes after the children
@@ -60,19 +60,19 @@ Link.propTypes = {
    * */
   cta: PropTypes.bool,
   disabled: PropTypes.bool,
+  lineHeight: PropTypes.oneOf([8, 16, '24 (default)', 32, 40, 48, 56, 64, 72]),
+  icon: PropTypes.string,
+  iconPosition: PropTypes.oneOf(['left', 'right']),
   clickLink: PropTypes.func,
   mouseoverLink: PropTypes.func,
   mouseleaveLink: PropTypes.func,
-  icon: PropTypes.string,
-  lineHeight: PropTypes.oneOf([8, 16, '24 (default)', 32, 40, 48, 56, 64, 72]),
-  iconPosition: PropTypes.oneOf(['left', 'right']),
   noHoverUnderline: PropTypes.bool,
 };
 
 Link.defaultProps = {
   disabled: false,
   cta: false,
-  title: 'Link',
+  linkText: 'Link',
   size: 'md',
   iconPosition:'left',
   lineHeight: '24 (default)',
