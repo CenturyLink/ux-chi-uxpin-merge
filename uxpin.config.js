@@ -24,6 +24,8 @@ module.exports = {
           'src/components/PhoneInput/PhoneInput.js',
           'src/components/Picker-multi/PickerMulti.js',
           'src/components/Picker-single/PickerSingle.js',
+          'src/components/Picker-pill-multi/PickerPillMulti.js',
+          'src/components/Picker-pill-single/PickerPillSingle.js',
           'src/components/Picker-group/Picker-group.js',
           'src/components/Radio/Radio.js',
           'src/components/Search-input/Search-input.js',
