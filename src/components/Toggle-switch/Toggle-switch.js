@@ -3,9 +3,8 @@ import * as React from 'react';
 import Label from '../Label/Label';
 import Icon from '../Icon/Icon';
 import { uuid4 } from '../../utils/utils';
-import { LABEL_CLASSES, STAT_CLASSES } from '../../constants/classes';
+import { FORM_CLASSES, LABEL_CLASSES } from '../../constants/classes';
 
-/* eslint-disable */
 /**
  * @uxpincomponent
  */
@@ -14,43 +13,53 @@ export default class ToggleSwitch extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { id: uuid4() };
+    this.state = {
+      checked: this.props.on,
+      id: uuid4(),
+    };
   }
 
+  _handlerToggle = () => {
+    this.setState({ checked: !this.state.checked }, () => {
+      if (this.state.checked && this.props.turnOn) {
+        this.props.turnOn();
+      } else if (!this.state.checked && this.props.turnOff) {
+        this.props.turnOff();
+      }
+    });
+  };
+
   render() {
-    const info = this.props.info
-    ? (
-      <div className={`${STAT_CLASSES.TITLE_HELP}`}>
+    const info = this.props.info ? (
+      <div className={LABEL_CLASSES.HELP}>
         <Icon
           uxpId={`infoIcon-${this.state.id}`}
-          icon={'circle-info-outline'}
+          icon="circle-info-outline"
           size="xs"
           color="primary"
           mode="button"
-          popover={true}
+          popover
           popoverTitle={this.props.infoPopoverTitle}
           popoverDescription={this.props.infoPopoverDescription}
           popoverPosition={this.props.infoPopoverPosition}
         />
       </div>
-    ) : '';
+    ) : null;
 
-    const label = this.props.label
-    ? (
+    const label = this.props.label ? (
       <Label
-        className="chi-label"
         htmlFor={this.state.id}
         required={this.props.required}
         label={this.props.label}>
       </Label>
-    )
-    : null;
+    ) : null;
 
     return (
       <div
+        className={FORM_CLASSES.ITEM}
         key={this.key}
         ref={this.props.uxpinRef}>
-        <div className={`${LABEL_CLASSES.WRAPPER}`}>
+        <div className={LABEL_CLASSES.WRAPPER}>
           {label}
           {info}
         </div>
@@ -60,7 +69,7 @@ export default class ToggleSwitch extends React.Component {
           size={this.props.size}
           checked={this.props.on}
           disabled={this.props.disabled}
-        >
+          onToggle={this._handlerToggle.bind(this)}>
         </chi-switch>
       </div>
     );
@@ -86,7 +95,6 @@ ToggleSwitch.propTypes = {
   turnOn: PropTypes.func,
   turnOff: PropTypes.func,
 };
-/* eslint-enable */
 
 ToggleSwitch.defaultProps = {
   label: 'Label',

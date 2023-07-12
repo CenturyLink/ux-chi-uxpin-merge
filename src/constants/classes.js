@@ -258,6 +258,7 @@ export const LABEL_CLASSES = {
   REQUIRED: 'chi-label__required',
   OPTIONAL: 'chi-label__optional',
   WRAPPER: 'chi-label__wrapper',
+  HELP: 'chi-label__help',
 };
 
 /* Picker */
