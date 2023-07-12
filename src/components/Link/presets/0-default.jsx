@@ -7,7 +7,7 @@ export default (
     uxpId="link"
     disabled={false}
     cta={false}
-    title="Link"
+    linkText="Link"
     size="md"
     iconPosition="left"
     lineHeight="24 (default)"
