@@ -141,6 +141,7 @@ PickerGroup.propTypes = {
     * */
   infoPopoverDescription: PropTypes.string,
   infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
+  /** @uxpinignoreprop */
   clickInfo: PropTypes.func,
   /** @uxpinignoreprop */
   mouseOverInfo: PropTypes.func,
