@@ -228,48 +228,57 @@ PickerPillMulti.propTypes = {
   pillSize: PropTypes.oneOf(['xs', 'sm']),
   pillLayout: PropTypes.oneOf(['inline', 'vertical']),
   checkbox: PropTypes.bool,
-  clickInfo: PropTypes.func,
   /** @uxpinignoreprop */
   mouseOverInfo: PropTypes.func,
   /** @uxpinignoreprop */
   mouseLeaveInfo: PropTypes.func,
   picker1: PropTypes.string,
+  /** @uxpinignoreprop */
   description1: PropTypes.string,
   disabled1: PropTypes.bool,
   checked1: PropTypes.bool,
   picker2: PropTypes.string,
+  /** @uxpinignoreprop */
   description2: PropTypes.string,
   disabled2: PropTypes.bool,
   checked2: PropTypes.bool,
   picker3: PropTypes.string,
+  /** @uxpinignoreprop */
   description3: PropTypes.string,
   disabled3: PropTypes.bool,
   checked3: PropTypes.bool,
   picker4: PropTypes.string,
+  /** @uxpinignoreprop */
   description4: PropTypes.string,
   disabled4: PropTypes.bool,
   checked4: PropTypes.bool,
   picker5: PropTypes.string,
+  /** @uxpinignoreprop */
   description5: PropTypes.string,
   disabled5: PropTypes.bool,
   checked5: PropTypes.bool,
   picker6: PropTypes.string,
+  /** @uxpinignoreprop */
   description6: PropTypes.string,
   disabled6: PropTypes.bool,
   checked6: PropTypes.bool,
   picker7: PropTypes.string,
+  /** @uxpinignoreprop */
   description7: PropTypes.string,
   disabled7: PropTypes.bool,
   checked7: PropTypes.bool,
   picker8: PropTypes.string,
+  /** @uxpinignoreprop */
   description8: PropTypes.string,
   disabled8: PropTypes.bool,
   checked8: PropTypes.bool,
   picker9: PropTypes.string,
+  /** @uxpinignoreprop */
   description9: PropTypes.string,
   disabled9: PropTypes.bool,
   checked9: PropTypes.bool,
   picker10: PropTypes.string,
+  /** @uxpinignoreprop */
   description10: PropTypes.string,
   disabled10: PropTypes.bool,
   checked10: PropTypes.bool,
@@ -290,7 +299,7 @@ PickerPillMulti.defaultProps = {
   fieldLabel: 'Field Label',
   mode: 'multi',
   pill: true,
-  pillSize: 'xs',
+  pillSize: 'sm',
   pillLayout: 'inline',
   contentWidth: '100%',
   picker1: 'Pill 1',

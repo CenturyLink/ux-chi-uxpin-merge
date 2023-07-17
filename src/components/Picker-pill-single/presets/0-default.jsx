@@ -3,10 +3,10 @@ import PickerPillSingle from '../PickerPillSingle';
 
 export default (
   <PickerPillSingle
-    uxpId="picker-pill"
+    uxpId="picker-pill-single"
     fieldLabel="Field Label"
     required="none"
-    pillSize="xs"
+    pillSize="sm"
     pillLayout="inline"
     info={false}
     selectedOption={1}
