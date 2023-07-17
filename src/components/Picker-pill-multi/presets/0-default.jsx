@@ -6,7 +6,7 @@ export default (
     uxpId="picker-pill-multi"
     fieldLabel="Field Label"
     required="none"
-    pillSize="xs"
+    pillSize="sm"
     pillLayout="inline"
     info={false}
     selected={1}
