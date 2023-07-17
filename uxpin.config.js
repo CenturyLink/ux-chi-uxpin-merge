@@ -57,6 +57,7 @@ module.exports = {
         include: [
           'src/components/Badge/Badge.js',
           'src/components/Brand/Brand.js',
+          'src/components/Chat-icon/Chat-icon.js',
           'src/components/Icon/Icon.js',
           'src/components/Info-icon/Info-icon.js',
           'src/components/Marketing-icon/Marketing-icon.js',
