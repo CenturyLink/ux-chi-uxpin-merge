@@ -121,6 +121,7 @@ PhoneInput.propTypes = {
   value: PropTypes.string,
   input: PropTypes.func,
   valueChange: PropTypes.func,
+  /** @uxpinignoreprop */
   clickInfo: PropTypes.func,
   /** @uxpinignoreprop */
   mouseLeaveInfo: PropTypes.func,

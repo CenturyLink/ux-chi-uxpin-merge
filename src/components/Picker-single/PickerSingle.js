@@ -96,6 +96,7 @@ PickerSingle.propTypes = {
   infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
   size: PropTypes.oneOf(['md', 'lg']),
   radio: PropTypes.bool,
+  /** @uxpinignoreprop */
   clickInfo: PropTypes.func,
   /** @uxpinignoreprop */
   mouseOverInfo: PropTypes.func,
