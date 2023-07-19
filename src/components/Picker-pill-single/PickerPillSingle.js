@@ -1,6 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import PickerPillMulti from '../Picker-pill-multi/PickerPillMulti';
+import PickerMulti from '../Picker-multi/PickerMulti';
 /* eslint-disable */
 
 export default class PickerPillSingle extends React.Component {
@@ -10,20 +10,22 @@ export default class PickerPillSingle extends React.Component {
 
   render() {
     return (
-      <PickerPillMulti
-        mode={'single'}
+      <PickerMulti
+        mode={'pillSingle'}
         selectedOption={this.props.selectedOption}
         fieldLabel={this.props.fieldLabel}
         required={this.props.required}
         contentWidth={this.props.contentWidth}
+        size={this.props.size}
+        radio={this.props.radio}
+        info={this.props.info}
         pill={this.props.pill}
         pillSize={this.props.pillSize}
         pillLayout={this.props.pillLayout}
-        radio={this.props.radio}
-        info={this.props.info}
         infoPopoverTitle={this.props.infoPopoverTitle}
         infoPopoverDescription={this.props.infoPopoverDescription}
         infoPopoverPosition={this.props.infoPopoverPosition}
+        clickInfo={this.props.clickInfo}
         mouseOverInfo={this.props.mouseOverInfo}
         mouseLeaveInfo={this.props.mouseLeaveInfo}
         picker1={this.props.picker1}
@@ -66,7 +68,7 @@ export default class PickerPillSingle extends React.Component {
         select8={this.props.select8}
         select9={this.props.select9}
         select10={this.props.select10}
-      ></PickerPillMulti>
+      ></PickerMulti>
     );
   }
 }
@@ -75,6 +77,8 @@ PickerPillSingle.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   selectedOption: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  /** @uxpinignoreprop */
+  mode: PropTypes.oneOf(['multi', 'single', 'pillMulti', 'pillSingle']),
   /** @uxpinignoreprop */
   contentWidth: PropTypes.oneOf([
     '100%',
@@ -161,6 +165,7 @@ PickerPillSingle.propTypes = {
 PickerPillSingle.defaultProps = {
   fieldLabel: 'Field Label',
   contentWidth: '100%',
+  mode: 'pillSingle',
   pillSize: 'sm',
   pillLayout: 'inline',
   pill: true,

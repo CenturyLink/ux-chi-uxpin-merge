@@ -147,7 +147,7 @@ export default class PickerMulti extends React.Component {
   }
 
   _setChecked(pickerIndex) {
-    if (this.props.mode === "multi") {
+    if (this.props.mode === "multi" || this.props.mode === "pillMulti") {
       return this.state[`checked${pickerIndex}`];
     } else {
       return pickerIndex === this.state.selectedOption;
@@ -165,10 +165,15 @@ export default class PickerMulti extends React.Component {
       .forEach((_, i) => {
         if (this.props[`picker${i}`]) {
           pickersToRender.push(
-            <div className={`${PICKER_CLASSES.PICKER} -${this.props.size}`}>
+            <div className={`${PICKER_CLASSES.PICKER} -${this.props.size} 
+              ${(this.props.mode === 'pillMulti' || this.props.mode === 'pillSingle') 
+              ? `${this.props.pill ? '-pill' : ''} -${this.props.pillSize}`
+              : ''
+              }`}
+            >
               <input
                 className={PICKER_CLASSES.INPUT}
-                type={this.props.mode === "multi" ? "checkbox" : "radio"}
+                type={(this.props.mode === "multi" || this.props.mode === "pillMulti") ? "checkbox" : "radio"}
                 id={`picker-${this.state.id}-${i}`}
                 disabled={this.props[`disabled${i}`]}
                 checked={this._setChecked(i)}
@@ -184,7 +189,13 @@ export default class PickerMulti extends React.Component {
       <div ref={this.props.uxpinRef}>
         <fieldset>
           {fieldLabel}
-          {pickersToRender}
+          {this.props.mode === 'pillMulti' || this.props.mode === 'pillSingle' ? 
+            <div className={`${this.props.pillLayout === 'vertical' ? '' : UTILITY_CLASSES.DISPLAY.FLEX}`}>
+              {pickersToRender}
+            </div>
+            :
+            pickersToRender
+          }
         </fieldset>
       </div>
     );
@@ -194,11 +205,17 @@ export default class PickerMulti extends React.Component {
 PickerMulti.propTypes = {
   fieldLabel: PropTypes.string,
   /** @uxpinignoreprop */
-  mode: PropTypes.oneOf(['multi', 'single']),
+  mode: PropTypes.oneOf(['multi', 'single', 'pillMulti', 'pillSingle']),
   /** @uxpinignoreprop */
   radio: PropTypes.bool,
   /** @uxpinignoreprop */
   selectedOption: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  /** @uxpinignoreprop */
+  pill: PropTypes.bool,
+  /** @uxpinignoreprop */
+  pillSize: PropTypes.oneOf(['xs', 'sm']),
+  /** @uxpinignoreprop */
+  pillLayout: PropTypes.oneOf(['inline', 'vertical']),
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   contentWidth: PropTypes.oneOf([
     '100%',
