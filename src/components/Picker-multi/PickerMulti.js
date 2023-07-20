@@ -166,7 +166,7 @@ export default class PickerMulti extends React.Component {
         if (this.props[`picker${i}`]) {
           pickersToRender.push(
             <div className={`${PICKER_CLASSES.PICKER} -${this.props.size} 
-              ${(this.props.mode === 'pillMulti' || this.props.mode === 'pillSingle') 
+              ${(this.props.pill) 
               ? `${this.props.pill ? '-pill' : ''} -${this.props.pillSize}`
               : ''
               }`}
@@ -189,7 +189,7 @@ export default class PickerMulti extends React.Component {
       <div ref={this.props.uxpinRef}>
         <fieldset>
           {fieldLabel}
-          {this.props.mode === 'pillMulti' || this.props.mode === 'pillSingle' ? 
+          {this.props.pill ? 
             <div className={`${this.props.pillLayout === 'vertical' ? '' : UTILITY_CLASSES.DISPLAY.FLEX}`}>
               {pickersToRender}
             </div>
