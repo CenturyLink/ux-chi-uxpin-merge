@@ -18,7 +18,7 @@ export default class Link extends React.Component {
   }
 
   render() {
-    const textRender = () => ({ __html: this.props.linkText.replaceAll('\n', '<br />') });
+    const textRender = () => ({ __html: this.props.title.replaceAll('\n', '<br />') });
 
     const help = this.props.icon
       ? (
@@ -52,7 +52,7 @@ export default class Link extends React.Component {
 }
 
 Link.propTypes = {
-  linkText: PropTypes.string,
+  title: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   /**
    * Icon that goes after the children
@@ -72,7 +72,7 @@ Link.propTypes = {
 Link.defaultProps = {
   disabled: false,
   cta: false,
-  linkText: 'Link',
+  title: 'Link',
   size: 'md',
   iconPosition:'left',
   lineHeight: '24 (default)',
