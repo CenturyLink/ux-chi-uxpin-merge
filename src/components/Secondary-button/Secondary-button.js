@@ -56,5 +56,4 @@ SecondaryButton.propTypes = {
 SecondaryButton.defaultProps = {
   disabled: false,
   size: 'md',
-  value: 'Secondary',
 };

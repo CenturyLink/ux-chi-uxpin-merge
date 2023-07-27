@@ -136,7 +136,6 @@ TextInput.propTypes = {
 
 TextInput.defaultProps = {
   disabled: false,
-  label: 'Label',
   required: 'none',
   info: false,
   infoPopoverTitle: 'Popover Title',

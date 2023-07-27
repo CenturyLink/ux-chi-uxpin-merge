@@ -257,22 +257,6 @@ StatCompact.propTypes = {
 
 StatCompact.defaultProps = {
   carousel: false,
-  stat1: 'metric 1',
-  stat1Metric1: 1,
-  stat1Title1: 'High',
-  stat1Metric2: 2,
-  stat1Title2: 'Elevated',
-  stat1InfoMessage: 'Stat 1 info message',
-  stat2: 'metric 2',
-  stat2Metric1: 1,
-  stat2Title1: 'High',
-  stat2Metric2: 2,
-  stat2Title2: 'Elevated',
-  stat3: 'metric 3',
-  stat3Metric1: 1,
-  stat3Title1: 'High',
-  stat3Metric2: 2,
-  stat3Title2: 'Elevated',
   activeStat: 1,
   statWidth: 208,
 };

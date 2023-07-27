@@ -192,10 +192,6 @@ PickerGroup.propTypes = {
 /* eslint-enable */
 
 PickerGroup.defaultProps = {
-  fieldLabel: 'Field Label',
-  picker1: 'Picker 1',
-  picker2: 'Picker 2',
-  picker3: 'Picker 3',
   required: 'none',
   selected: 1,
   info: false,

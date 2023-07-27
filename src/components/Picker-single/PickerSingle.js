@@ -146,12 +146,8 @@ PickerSingle.propTypes = {
 
 /* eslint-enable */
 PickerSingle.defaultProps = {
-  fieldLabel: 'Field Label',
   contentWidth: '100%',
   size: 'md',
-  picker1: 'Picker 1',
-  picker2: 'Picker 2',
-  picker3: 'Picker 3',
   required: 'none',
   selectedOption: 1,
   info: false,

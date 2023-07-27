@@ -6,6 +6,7 @@ export default (
     uxpId="floatingButton"
     icon="chat"
     color="primary"
+    tooltipMessage="Tooltip Message"
     size="md"
   />
 );

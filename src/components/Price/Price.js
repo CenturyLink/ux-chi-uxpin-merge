@@ -27,9 +27,6 @@ Price.propTypes = {
 
 Price.defaultProps = {
   size: 'md',
-  supA: '$',
-  value: '100',
-  supB: '00',
 };
 
 export default Price;

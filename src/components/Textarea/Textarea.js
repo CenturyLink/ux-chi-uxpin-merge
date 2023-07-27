@@ -136,7 +136,6 @@ Textarea.propTypes = {
 
 Textarea.defaultProps = {
   disabled: false,
-  label: 'Label',
   size: 'md',
   state: 'default',
   required: 'none',

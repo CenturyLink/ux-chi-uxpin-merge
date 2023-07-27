@@ -65,9 +65,3 @@ PageTitle.propTypes = {
   mouseoverHelp: PropTypes.func,
   mouseleaveHelp: PropTypes.func,
 };
-
-PageTitle.defaultProps = {
-  title: 'Page Title',
-  subTitle: 'Sub Title',
-  backLink: 'Back link',
-};

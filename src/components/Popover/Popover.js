@@ -58,14 +58,6 @@ Popover.defaultProps = {
   active: true,
   arrow: true,
   position: 'bottom',
-  title: 'Popover Title',
-  text: `Line 1
-Line 2
-Line 3`,
-  popover: [{
-    title: 'Popover Title',
-    text: 'Line 1 \nLine 2 \nLine 3',
-  }],
   closeButton: false,
   preventAutoHide: true,
 };

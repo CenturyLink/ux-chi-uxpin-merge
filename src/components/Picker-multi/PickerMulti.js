@@ -299,13 +299,9 @@ PickerMulti.propTypes = {
 
 /* eslint-enable */
 PickerMulti.defaultProps = {
-  fieldLabel: 'Field Label',
   mode: 'multi',
   size: 'md',
   contentWidth: '100%',
-  picker1: 'Picker 1',
-  picker2: 'Picker 2',
-  picker3: 'Picker 3',
   required: 'none',
   info: false,
   infoPopoverTitle: 'Popover Title',

@@ -84,5 +84,4 @@ PrimaryButton.propTypes = {
 PrimaryButton.defaultProps = {
   disabled: false,
   size: 'md',
-  value: 'Primary',
 };

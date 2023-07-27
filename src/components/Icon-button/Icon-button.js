@@ -56,6 +56,5 @@ IconButton.propTypes = {
 IconButton.defaultProps = {
   disabled: false,
   icon: 'atom',
-  tooltipMessage: 'Tooltip message',
   tooltipPosition: 'top',
 };

@@ -135,7 +135,6 @@ TimePicker.propTypes = {
 
 TimePicker.defaultProps = {
   disabled: false,
-  label: 'Label',
   format: '12hr',
   required: 'none',
   info: false,

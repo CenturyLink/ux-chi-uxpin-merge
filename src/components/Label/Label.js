@@ -93,7 +93,6 @@ Label.propTypes = {
 /* eslint-enable */
 
 Label.defaultProps = {
-  label: 'Label',
   size: 'md',
   required: 'none',
   info: false,

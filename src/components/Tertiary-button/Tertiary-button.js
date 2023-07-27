@@ -56,5 +56,4 @@ TertiaryButton.propTypes = {
 TertiaryButton.defaultProps = {
   disabled: false,
   size: 'xs',
-  value: 'Tertiary',
 };

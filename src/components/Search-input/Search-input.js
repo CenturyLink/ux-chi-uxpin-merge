@@ -48,6 +48,5 @@ SearchInput.propTypes = {
 
 SearchInput.defaultProps = {
   disabled: false,
-  placeholder: 'Search',
   size: 'md',
 };

@@ -82,10 +82,5 @@ Steps.propTypes = {
 /* eslint-enable */
 
 Steps.defaultProps = {
-  step1: 'step 1',
-  step2: 'step 2',
-  step3: 'step 3',
-  step4: 'step 4',
-  step5: 'step 5',
   activeSteps: 3,
 };
