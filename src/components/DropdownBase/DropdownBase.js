@@ -148,6 +148,7 @@ DropdownBase.propTypes = {
   active: PropTypes.bool,
   animateChevron: PropTypes.bool,
   retainSelection: PropTypes.bool,
+  /** @uxpinignoreprop */
   scrollItems: PropTypes.bool,
   text: PropTypes.string,
   mode: PropTypes.oneOf(['base', 'checkbox', 'radio']),
