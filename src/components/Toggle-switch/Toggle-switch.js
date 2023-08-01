@@ -98,8 +98,6 @@ ToggleSwitch.propTypes = {
 };
 
 ToggleSwitch.defaultProps = {
-  label: 'Label',
-  toggleLabel: 'Toggle Label',
   on: false,
   disabled: false,
   size: 'sm',

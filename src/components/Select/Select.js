@@ -153,11 +153,7 @@ Select.propTypes = {
 /* eslint-enable */
 
 Select.defaultProps = {
-  label: 'Label',
   size: 'md',
-  option1: 'Option 1',
-  option2: 'Option 2',
-  option3: 'Option 3',
   required: 'none',
   selectedOption: 1,
   info: false,

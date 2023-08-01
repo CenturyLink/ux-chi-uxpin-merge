@@ -72,7 +72,6 @@ Link.propTypes = {
 Link.defaultProps = {
   disabled: false,
   cta: false,
-  title: 'Link',
   size: 'md',
   iconPosition:'left',
   lineHeight: '24 (default)',

@@ -142,7 +142,6 @@ NumberInput.defaultProps = {
   disabled: false,
   expanded: false,
   size: 'md',
-  label: 'Label',
   required: 'none',
   info: false,
   infoPopoverTitle: 'Popover Title',

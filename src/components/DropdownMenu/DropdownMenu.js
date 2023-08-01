@@ -228,8 +228,5 @@ DropdownMenu.defaultProps = {
   active: true,
   retainSelection: false,
   height: '200',
-  item1: 'Item 1',
-  item2: 'Item 2',
-  item3: 'Item 3',
   selectedItem: 1,
 };

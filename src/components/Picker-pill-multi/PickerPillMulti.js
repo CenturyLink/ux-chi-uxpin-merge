@@ -187,15 +187,11 @@ PickerPillMulti.propTypes = {
 
 /* eslint-enable */
 PickerPillMulti.defaultProps = {
-  fieldLabel: 'Field Label',
   mode: 'pillMulti',
   pill: true,
   pillSize: 'sm',
   pillLayout: 'inline',
   contentWidth: '100%',
-  picker1: 'Pill 1',
-  picker2: 'Pill 2',
-  picker3: 'Pill 3',
   required: 'none',
   info: false,
   infoPopoverTitle: 'Popover Title',

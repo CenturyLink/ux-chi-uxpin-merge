@@ -223,10 +223,6 @@ Checkbox.propTypes = {
 /* eslint-enable */
 
 Checkbox.defaultProps = {
-  fieldLabel: 'Field Label',
-  label1: 'Checkbox 1 label',
-  label2: 'Checkbox 2 label',
-  label3: 'Checkbox 3 label',
   required: 'none',
   layout: 'vertical',
   infoPopoverTitle: 'Popover Title',

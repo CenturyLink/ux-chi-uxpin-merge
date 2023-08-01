@@ -39,7 +39,6 @@ FileInput.propTypes = {
 /* eslint-enable */
 
 FileInput.defaultProps = {
-  label: 'No file chosen',
   size: 'md',
 };
 

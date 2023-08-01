@@ -110,9 +110,6 @@ Tabs.propTypes = {
 /* eslint-enable */
 
 Tabs.defaultProps = {
-  tab1: 'Tab 1',
-  tab2: 'Tab 2',
-  tab3: 'Tab 3',
   activeTab: 1,
   style: 'flat',
   // border: true,

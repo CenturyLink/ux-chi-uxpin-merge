@@ -54,6 +54,5 @@ ChatIcon.propTypes = {
 };
 
 ChatIcon.defaultProps = {
-  tooltipMessage: 'Chat with us',
   size: '64',
 };

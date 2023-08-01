@@ -56,5 +56,4 @@ FlatButton.propTypes = {
 FlatButton.defaultProps = {
   disabled: false,
   size: 'md',
-  value: 'Flat',
 };

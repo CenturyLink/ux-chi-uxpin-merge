@@ -162,7 +162,6 @@ DatePicker.propTypes = {
 
 DatePicker.defaultProps = {
   disabled: false,
-  label: 'Label',
   required: 'none',
   mode: 'date',
   infoPopoverTitle: 'Popover Title',

@@ -163,15 +163,11 @@ PickerPillSingle.propTypes = {
 
 /* eslint-enable */
 PickerPillSingle.defaultProps = {
-  fieldLabel: 'Field Label',
   contentWidth: '100%',
   mode: 'pillSingle',
   pillSize: 'sm',
   pillLayout: 'inline',
   pill: true,
-  picker1: 'Pill 1',
-  picker2: 'Pill 2',
-  picker3: 'Pill 3',
   required: 'none',
   selectedOption: 1,
   info: false,

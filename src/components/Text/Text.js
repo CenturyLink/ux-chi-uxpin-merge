@@ -57,7 +57,6 @@ Text.propTypes = {
 };
 
 Text.defaultProps = {
-  text: 'Sample text',
   color: 'body',
   textAlign: 'left',
   size: 'md',

@@ -21,8 +21,4 @@ Progress.propTypes = {
 };
 /* eslint-enable */
 
-Progress.defaultProps = {
-  progress: 50,
-};
-
 export default Progress;

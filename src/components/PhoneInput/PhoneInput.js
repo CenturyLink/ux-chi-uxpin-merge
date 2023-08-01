@@ -132,7 +132,6 @@ PhoneInput.propTypes = {
 
 PhoneInput.defaultProps = {
   country: 'United States',
-  label: 'Phone Number',
   required: 'none',
   size: 'md',
   infoPopoverTitle: 'Popover Title',
