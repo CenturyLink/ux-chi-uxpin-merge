@@ -7,6 +7,7 @@ export default (
     size="md"
     label="Label"
     required="none"
+    helperMessageState="default"
     disabled={false}
     info={false}
     placeholder=""

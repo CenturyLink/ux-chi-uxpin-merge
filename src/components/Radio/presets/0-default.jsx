@@ -6,6 +6,7 @@ export default (
     uxpId="radio"
     fieldLabel="Field Label"
     required="none"
+    helperMessageState="default"
     layout="vertical"
     info={false}
     selectedOption={1}

@@ -83,6 +83,12 @@ export default class PickerGroup extends React.Component {
         this.props[`select${i}`]();
       }
     }
+    const helperMessage = this.props.helperMessage
+      ? this.props.helperMessageState === 'danger' ? (
+      <chi-helper-message state={this.props.helperMessageState}>{this.props.helperMessage}</chi-helper-message>
+    ) : (
+      <chi-helper-message>{this.props.helperMessage}</chi-helper-message>
+    ) : '';
 
     Array(PICKERS_TO_RENDER).fill()
       .forEach((_, i) => {
@@ -122,6 +128,7 @@ export default class PickerGroup extends React.Component {
               {pickersToRender}
             </div>
           </div>
+            {helperMessage}
         </fieldset>
       </div>
     );
@@ -131,6 +138,8 @@ export default class PickerGroup extends React.Component {
 PickerGroup.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  helperMessage: PropTypes.string,
+  helperMessageState: PropTypes.oneOf(['default', 'danger']),
   selected: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,
@@ -193,6 +202,7 @@ PickerGroup.propTypes = {
 
 PickerGroup.defaultProps = {
   required: 'none',
+  helperMessageState: 'default',
   selected: 1,
   info: false,
   infoPopoverTitle: 'Popover Title',

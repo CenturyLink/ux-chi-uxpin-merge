@@ -75,6 +75,12 @@ export default class NumberInput extends React.Component {
       : null;
 
     const size = this.props.size ? this.props.size.split(' ')[0] : null;
+    const helperMessage = this.props.helperMessage
+    ? this.props.helperMessageState === 'danger' ? (
+    <chi-helper-message state={this.props.helperMessageState}>{this.props.helperMessage}</chi-helper-message>
+  ) : (
+    <chi-helper-message>{this.props.helperMessage}</chi-helper-message>
+  ) : '';
 
     return (
       <div ref={this.props.uxpinRef} className="chi-form__item" style={{ width: '14rem' }}>
@@ -96,6 +102,7 @@ export default class NumberInput extends React.Component {
           onMouseUp={this.props.mouseUp}
           value={this.props.startValue}>
         </chi-number-input>
+        {helperMessage}
       </div>
     );
   }
@@ -107,6 +114,8 @@ NumberInput.propTypes = {
   expanded: PropTypes.bool,
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  helperMessage: PropTypes.string,
+  helperMessageState: PropTypes.oneOf(['default', 'danger']),
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,
   /**
@@ -143,6 +152,7 @@ NumberInput.defaultProps = {
   expanded: false,
   size: 'md',
   required: 'none',
+  helperMessageState: 'default',
   info: false,
   infoPopoverTitle: 'Popover Title',
   infoPopoverDescription: `Line 1

@@ -15,6 +15,8 @@ export default class PickerSingle extends React.Component {
         selectedOption={this.props.selectedOption}
         fieldLabel={this.props.fieldLabel}
         required={this.props.required}
+        helperMessage={this.props.helperMessage}
+        helperMessageState={this.props.helperMessageState}
         contentWidth={this.props.contentWidth}
         size={this.props.size}
         radio={this.props.radio}
@@ -73,6 +75,8 @@ export default class PickerSingle extends React.Component {
 PickerSingle.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  helperMessage: PropTypes.string,
+  helperMessageState: PropTypes.oneOf(['default', 'danger']),
   selectedOption: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   contentWidth: PropTypes.oneOf([
     '100%',
@@ -148,6 +152,7 @@ PickerSingle.propTypes = {
 PickerSingle.defaultProps = {
   contentWidth: '100%',
   size: 'md',
+  helperMessageState: 'default',
   required: 'none',
   selectedOption: 1,
   info: false,

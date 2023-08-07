@@ -16,6 +16,8 @@ export default class PickerPillSingle extends React.Component {
         fieldLabel={this.props.fieldLabel}
         required={this.props.required}
         contentWidth={this.props.contentWidth}
+        helperMessage={this.props.helperMessage}
+        helperMessageState={this.props.helperMessageState}
         size={this.props.size}
         radio={this.props.radio}
         info={this.props.info}
@@ -104,6 +106,8 @@ PickerPillSingle.propTypes = {
   pill: PropTypes.bool,
   pillSize: PropTypes.oneOf(['xs', 'sm']),
   pillLayout: PropTypes.oneOf(['inline', 'vertical']),
+  helperMessage: PropTypes.string,
+  helperMessageState: PropTypes.oneOf(['default', 'danger']),
   radio: PropTypes.bool,
   /** @uxpinignoreprop */
   mouseOverInfo: PropTypes.func,

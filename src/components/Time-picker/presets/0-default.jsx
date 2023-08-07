@@ -7,6 +7,7 @@ export default (
     disabled={false}
     label="Label"
     required="none"
+    helperMessageState="default"
     active={false}
     info={false}
     displaySeconds={false}

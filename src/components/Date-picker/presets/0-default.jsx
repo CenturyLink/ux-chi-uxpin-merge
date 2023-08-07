@@ -7,6 +7,7 @@ export default (
     disabled={false}
     label="Label"
     required="none"
+    helperMessageState="default"
     mode="date"
     min=""
     max=""

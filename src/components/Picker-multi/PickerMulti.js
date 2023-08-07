@@ -159,7 +159,12 @@ export default class PickerMulti extends React.Component {
     const PICKERS_TO_RENDER = 11;
     const info = this.props.info ? this._setInfo() : "";
     const fieldLabel = this.props.fieldLabel ? this._setFieldLabel(info) : "";
-
+    const helperMessage = this.props.helperMessage
+      ? this.props.helperMessageState === 'danger' ? (
+      <chi-helper-message state={this.props.helperMessageState}>{this.props.helperMessage}</chi-helper-message>
+    ) : (
+      <chi-helper-message>{this.props.helperMessage}</chi-helper-message>
+    ) : '';
     Array(PICKERS_TO_RENDER)
       .fill()
       .forEach((_, i) => {
@@ -197,6 +202,7 @@ export default class PickerMulti extends React.Component {
             pickersToRender
           }
         </fieldset>
+        {helperMessage}
       </div>
     );
   }
@@ -217,6 +223,8 @@ PickerMulti.propTypes = {
   /** @uxpinignoreprop */
   pillLayout: PropTypes.oneOf(['inline', 'vertical']),
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  helperMessage: PropTypes.string,
+  helperMessageState: PropTypes.oneOf(['default', 'danger']),
   contentWidth: PropTypes.oneOf([
     '100%',
     '90%',

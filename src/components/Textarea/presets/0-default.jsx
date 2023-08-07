@@ -8,6 +8,7 @@ export default (
     height={1}
     label="Label"
     required="none"
+    helperMessageState="default"
     disabled={false}
     info={false}
     value=""

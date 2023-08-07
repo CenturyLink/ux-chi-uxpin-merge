@@ -6,6 +6,7 @@ export default (
     uxpId="picker-group"
     fieldLabel="Field Label"
     required="none"
+    helperMessageState="default"
     info={false}
     selected={1}
     picker1="Picker 1"

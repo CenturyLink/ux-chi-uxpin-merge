@@ -8,6 +8,7 @@ export default (
     required="none"
     pillSize="sm"
     pillLayout="inline"
+    helperMessageState="default"
     info={false}
     selectedOption={1}
     picker1="Pill 1"

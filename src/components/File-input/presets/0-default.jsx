@@ -5,6 +5,7 @@ export default (
   <FileInput
     uxpId="file-input"
     size="md"
+    helperMessageState="default"
     label="No file chosen"
     click={() => {}}
     focus={() => {}}
