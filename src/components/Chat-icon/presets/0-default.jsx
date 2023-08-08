@@ -5,6 +5,6 @@ export default (
   <ChatIcon
     uxpId="ChatIcon"
     tooltipMessage="Chat with us"
-    size="64"
+    size="64 - Desktop"
   />
 );
