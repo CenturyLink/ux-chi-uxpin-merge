@@ -78,12 +78,7 @@ export default class PhoneInput extends React.Component {
       ) : '';
 
     this.key += 1;
-    const helperMessage = this.props.helperMessage
-      ? this.props.helperMessageState === 'danger' ? (
-      <chi-helper-message state={this.props.helperMessageState}>{this.props.helperMessage}</chi-helper-message>
-    ) : (
-      <chi-helper-message>{this.props.helperMessage}</chi-helper-message>
-    ) : '';
+
     return (
       <div
         key={this.key}
@@ -101,7 +96,7 @@ export default class PhoneInput extends React.Component {
           state={this.props.state}
           value={this.props.value}>
         </chi-phone-input>
-        {helperMessage}
+        <chi-helper-message>{this.props.helperMessage}</chi-helper-message>
       </div>
     );
   }
@@ -122,6 +117,7 @@ PhoneInput.propTypes = {
   infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
   label: PropTypes.string,
   helperMessage: PropTypes.string,
+  /** @uxpinignoreprop */
   helperMessageState: PropTypes.oneOf(['default', 'danger']),
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
@@ -142,7 +138,6 @@ PhoneInput.defaultProps = {
   country: 'United States',
   required: 'none',
   size: 'md',
-  helperMessageState: 'default',
   infoPopoverTitle: 'Popover Title',
   infoPopoverDescription: `Line 1
 Line 2

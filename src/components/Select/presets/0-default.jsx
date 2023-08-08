@@ -7,7 +7,6 @@ export default (
     size="md"
     label="Label"
     required="none"
-    helperMessageState="default"
     selectedOption={1}
     info={false}
     disabled={false}

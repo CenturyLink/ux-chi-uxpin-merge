@@ -20,7 +20,6 @@ export default function TimePicker({
   active,
   displaySeconds,
   helperMessage,
-  helperMessageState,
   format,
   value,
   click,
@@ -33,9 +32,6 @@ export default function TimePicker({
   infoPopoverTitle,
   infoPopoverDescription,
   infoPopoverPosition,
-  clickInfo,
-  mouseOverInfo,
-  mouseLeaveInfo,
   uxpinRef
 }) {
 
@@ -66,13 +62,6 @@ export default function TimePicker({
       </Label>
     )
     : null;
-
-  const helperMsg = helperMessage
-    ? helperMessageState === 'danger' ? (
-    <chi-helper-message state={helperMessageState}>{helperMessage}</chi-helper-message>
-  ) : (
-    <chi-helper-message>{helperMessage}</chi-helper-message>
-  ) : '';
 
   useEffect(() => {
     const chiTimePicker = document.getElementById(uuid);
@@ -107,7 +96,7 @@ export default function TimePicker({
       >
         <div className="-sr--only">TP</div>
       </chi-time-picker>
-      {helperMsg}
+      <chi-helper-message>{helperMessage}</chi-helper-message>
     </div>
   );
 }
@@ -117,6 +106,7 @@ TimePicker.propTypes = {
   label: PropTypes.string,
   active: PropTypes.bool,
   helperMessage: PropTypes.string,
+  /** @uxpinignoreprop */
   helperMessageState: PropTypes.oneOf(['default', 'danger']),
   displaySeconds: PropTypes.bool,
   format: PropTypes.oneOf(['12hr', '24hr']),
@@ -149,7 +139,6 @@ TimePicker.defaultProps = {
   disabled: false,
   format: '12hr',
   required: 'none',
-  helperMessageState: 'default',
   info: false,
   infoPopoverTitle: 'Popover Title',
   infoPopoverDescription: `Line 1

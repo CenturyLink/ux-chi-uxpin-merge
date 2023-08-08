@@ -55,13 +55,6 @@ export default class ToggleSwitch extends React.Component {
       </Label>
     ) : null;
 
-    const helperMessage = this.props.helperMessage
-      ? this.props.helperMessageState === 'danger' ? (
-        <chi-helper-message state={this.props.helperMessageState}>{this.props.helperMessage}</chi-helper-message>
-      ) : (
-        <chi-helper-message>{this.props.helperMessage}</chi-helper-message>
-      ) : '';
-
     return (
       <div
         className={FORM_CLASSES.ITEM}
@@ -79,16 +72,18 @@ export default class ToggleSwitch extends React.Component {
           disabled={this.props.disabled}
           onToggle={this._handlerToggle.bind(this)}>
         </chi-switch>
-        {helperMessage}
+        <chi-helper-message>{this.props.helperMessage}</chi-helper-message>
       </div>
     );
   }
 }
 
+/* eslint-disable */
 ToggleSwitch.propTypes = {
   label: PropTypes.string,
   toggleLabel: PropTypes.string,
   helperMessage: PropTypes.string,
+  /** @uxpinignoreprop */
   helperMessageState: PropTypes.oneOf(['default', 'danger']),
   on: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -110,7 +105,6 @@ ToggleSwitch.propTypes = {
 
 ToggleSwitch.defaultProps = {
   on: false,
-  helperMessageState: 'default',
   disabled: false,
   size: 'sm',
   required: 'none',

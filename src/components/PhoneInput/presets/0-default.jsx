@@ -8,7 +8,6 @@ export default (
     click={() => {}}
     info={false}
     label="Phone Number"
-    helperMessageState="default"
     mouseLeave={() => {}}
     mouseOver={() => {}}
     input={() => {}}

@@ -7,12 +7,6 @@ import React, { useEffect, useRef } from 'react';
  */
 export default function SearchInput(props) {
   const chiSearchInput = useRef(null);
-  const helperMessage = props.helperMessage
-    ? props.helperMessageState === 'danger' ? (
-    <chi-helper-message state={props.helperMessageState}>{props.helperMessage}</chi-helper-message>
-  ) : (
-    <chi-helper-message>{props.helperMessage}</chi-helper-message>
-  ) : '';
 
   useEffect(() => {
     chiSearchInput.current.addEventListener('chiFocus', () => props.focus());
@@ -35,7 +29,7 @@ export default function SearchInput(props) {
         >
           <div className="-sr--only">SI</div>
         </chi-search-input>
-        {helperMessage}
+        <chi-helper-message>{props.helperMessage}</chi-helper-message>
       </>
   );
 }
@@ -45,6 +39,7 @@ SearchInput.propTypes = {
   value: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   helperMessage: PropTypes.string,
+  /** @uxpinignoreprop */
   helperMessageState: PropTypes.oneOf(['default', 'danger']),
   disabled: PropTypes.bool,
   clear: PropTypes.func,
@@ -60,5 +55,4 @@ SearchInput.propTypes = {
 SearchInput.defaultProps = {
   disabled: false,
   size: 'md',
-  helperMessageState: 'default',
 };

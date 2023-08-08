@@ -6,7 +6,6 @@ export default (
     uxpId="picker-base-multi"
     fieldLabel="Field Label"
     required="none"
-    helperMessageState="default"
     size="md"
     info={false}
     selected={1}

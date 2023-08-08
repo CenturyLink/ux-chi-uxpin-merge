@@ -17,7 +17,6 @@ export default class PickerPillMulti extends React.Component {
         required={this.props.required}
         contentWidth={this.props.contentWidth}
         helperMessage={this.props.helperMessage}
-        helperMessageState={this.props.helperMessageState}
         size={this.props.size}
         radio={this.props.radio}
         checkbox={this.props.checkbox}
@@ -121,6 +120,7 @@ PickerPillMulti.propTypes = {
   pillSize: PropTypes.oneOf(['xs', 'sm']),
   pillLayout: PropTypes.oneOf(['inline', 'vertical']),
   helperMessage: PropTypes.string,
+  /** @uxpinignoreprop */
   helperMessageState: PropTypes.oneOf(['default', 'danger']),
   checkbox: PropTypes.bool,
   /** @uxpinignoreprop */

@@ -6,7 +6,6 @@ export default (
     uxpId="checkbox"
     fieldLabel="Field Label"
     required="none"
-    helperMessageState="default"
     info={false}
     inline={false}
     layout="vertical"

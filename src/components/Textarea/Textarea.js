@@ -57,12 +57,6 @@ export default class Textarea extends React.Component {
       )
       : null
     const value = this.props.value ? this.props.value : '';
-    const helperMessage = this.props.helperMessage
-      ? this.props.helperMessageState === 'danger' ? (
-      <chi-helper-message state={this.props.helperMessageState}>{this.props.helperMessage}</chi-helper-message>
-    ) : (
-      <chi-helper-message>{this.props.helperMessage}</chi-helper-message>
-    ) : '';
     return (
       <div className="chi-form__item">
         <div className={`${LABEL_CLASSES.WRAPPER}`}>
@@ -93,7 +87,7 @@ export default class Textarea extends React.Component {
           >
             {value}
         </textarea>
-        {helperMessage}
+        <chi-helper-message>{this.props.helperMessage}</chi-helper-message>
       </div>
     );
   }
@@ -105,6 +99,7 @@ Textarea.propTypes = {
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   helperMessage: PropTypes.string,
+  /** @uxpinignoreprop */
   helperMessageState: PropTypes.oneOf(['default', 'danger']),
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,
@@ -147,7 +142,6 @@ Textarea.defaultProps = {
   size: 'md',
   state: 'default',
   required: 'none',
-  helperMessageState: 'default',
   placeholder: '',
   info: false,
   infoPopoverTitle: 'Popover Title',

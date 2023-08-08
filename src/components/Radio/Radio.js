@@ -48,11 +48,7 @@ export default class Radio extends React.Component {
     const helperMessage = this.props.helperMessage
       ? (
         <div className={this.props.layout === 'inline' ? '' : `chi-col -w--12 -mb--1`}>
-          {this.props.helperMessageState === 'danger' ? (
-            <chi-helper-message state={this.props.helperMessageState}>{this.props.helperMessage}</chi-helper-message>
-          ) : (
-            <chi-helper-message>{this.props.helperMessage}</chi-helper-message>
-          )}
+          <chi-helper-message>{this.props.helperMessage}</chi-helper-message>
         </div>
       ) : '';  
 
@@ -154,6 +150,7 @@ Radio.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   helperMessage: PropTypes.string,
+  /** @uxpinignoreprop */
   helperMessageState: PropTypes.oneOf(['default', 'danger']),
   layout: PropTypes.oneOf(['inline', 'vertical']),
   selectedOption: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
@@ -209,7 +206,6 @@ Radio.defaultProps = {
   selectedOption: 1,
   layout: 'vertical',
   required: 'none',
-  helperMessageState: 'default',
   info: false,
   infoPopoverTitle: 'Popover Title',
   infoPopoverDescription: `Line 1

@@ -6,7 +6,6 @@ export default (
     uxpId="toggle-switch"
     size="sm"
     label="Label"
-    helperMessageState="default"
     toggleLabel="Toggle Label"
     on={false}
     required="none"

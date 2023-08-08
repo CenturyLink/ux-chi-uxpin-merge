@@ -127,13 +127,9 @@ export default class Checkbox extends React.Component {
       const helperMessage = this.props.helperMessage
       ? (
         <div className={this.props.layout === 'inline' ? '' : `chi-col -w--12 -mb--1`}>
-          {this.props.helperMessageState === 'danger' ? (
-            <chi-helper-message state={this.props.helperMessageState}>{this.props.helperMessage}</chi-helper-message>
-          ) : (
-            <chi-helper-message>{this.props.helperMessage}</chi-helper-message>
-          )}
+          <chi-helper-message>{this.props.helperMessage}</chi-helper-message>
         </div>
-      ) : '';    
+      ) : '';
 
     const content = layoutOptions === `${INLINE_CLASS}`
       ? (
@@ -165,6 +161,7 @@ Checkbox.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   helperMessage: PropTypes.string,
+  /** @uxpinignoreprop */
   helperMessageState: PropTypes.oneOf(['default', 'danger']),
   /** @uxpinignoreprop */
   inline: PropTypes.bool,
@@ -239,7 +236,6 @@ Checkbox.propTypes = {
 
 Checkbox.defaultProps = {
   required: 'none',
-  helperMessageState: 'default',
   layout: 'vertical',
   infoPopoverTitle: 'Popover Title',
   infoPopoverDescription: `Line 1

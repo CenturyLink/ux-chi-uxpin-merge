@@ -8,12 +8,7 @@ const uuid = uuid4();
  * @uxpincomponent
  */
 const FileInput = (props) => {
-  const helperMessage = props.helperMessage
-      ? props.helperMessageState === 'danger' ? (
-      <chi-helper-message state={props.helperMessageState}>{props.helperMessage}</chi-helper-message>
-    ) : (
-      <chi-helper-message>{props.helperMessage}</chi-helper-message>
-    ) : '';
+
   return <>
       <div className="chi-form__item"
           onMouseEnter={props.mouseOver}
@@ -30,7 +25,7 @@ const FileInput = (props) => {
             onBlur={props.focusLost} />
           <label htmlFor={uuid}>{props.label}</label>
       </div>
-      {helperMessage}
+      <chi-helper-message>{props.helperMessage}</chi-helper-message>
     </>;
 };
 
@@ -38,6 +33,7 @@ FileInput.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   label: PropTypes.string,
   helperMessage: PropTypes.string,
+  /** @uxpinignoreprop */
   helperMessageState: PropTypes.oneOf(['default', 'danger']),
   click: PropTypes.func,
   focus: PropTypes.func,
@@ -51,7 +47,6 @@ FileInput.propTypes = {
 
 FileInput.defaultProps = {
   size: 'md',
-  helperMessageState: 'default',
 };
 
 export default FileInput;

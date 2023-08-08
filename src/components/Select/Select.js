@@ -48,13 +48,6 @@ export default class Select extends React.Component {
       )
       : null;
 
-    const helperMessage = this.props.helperMessage
-      ? this.props.helperMessageState === 'danger' ? (
-      <chi-helper-message state={this.props.helperMessageState}>{this.props.helperMessage}</chi-helper-message>
-    ) : (
-      <chi-helper-message>{this.props.helperMessage}</chi-helper-message>
-    ) : '';
-
     Array(16).fill()
       .forEach((_, i) => {
         if (this.props[`option${i}`]) {
@@ -91,7 +84,7 @@ export default class Select extends React.Component {
           disabled={this.props.disabled}>
           {optionsToRender}
         </select>
-        {helperMessage}
+        <chi-helper-message>{this.props.helperMessage}</chi-helper-message>
       </div>
     );
   }
@@ -101,6 +94,7 @@ Select.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   label: PropTypes.string, 
   helperMessage: PropTypes.string,
+  /** @uxpinignoreprop */
   helperMessageState: PropTypes.oneOf(['default', 'danger']),
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   selectedOption: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]),
@@ -164,7 +158,6 @@ Select.propTypes = {
 
 Select.defaultProps = {
   size: 'md',
-  helperMessageState: 'default',
   required: 'none',
   selectedOption: 1,
   info: false,
