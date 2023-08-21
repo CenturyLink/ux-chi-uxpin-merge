@@ -19,6 +19,7 @@ export default class Alert extends React.Component {
     super(props);
     this.state = {
       defaultIcon: 'circle-info',
+      showAlert: true,
     };
   }
 
@@ -64,6 +65,9 @@ export default class Alert extends React.Component {
     return (
       <button
         type="button"
+        onClick={() => {
+          this.setState({ showAlert: false });
+        }}
         className={`
           ${ALERT_CLASSES.CLOSE_BUTTON} 
           ${BUTTON_CLASSES.BUTTON} 
@@ -155,8 +159,7 @@ export default class Alert extends React.Component {
 
   render() {
     this._setIconAndText();
-
-    return <div ref={this.props.uxpinRef}>{this._alert()}</div>;
+    return this.state.showAlert ? <div ref={this.props.uxpinRef}>{this._alert()}</div> : null;
   }
 }
 
