@@ -12,9 +12,12 @@ export default class Text extends React.Component {
         fontWeight = 'normal';
         break;
       case 'semi-bold':
-        fontWeight = 'bold';
+        fontWeight = 'semi-bold';
         break;
       case 'bold':
+        fontWeight = 'bold';
+        break;
+      case 'bolder':
         fontWeight = 'bolder';
         break;
       case 'black':
@@ -50,7 +53,7 @@ Text.propTypes = {
   color: PropTypes.oneOf(['body', 'primary', 'secondary', 'light', 'success', 'info', 'warning', 'danger', 'muted', 'navy', 'orange']),
   textAlign: PropTypes.oneOf(['left', 'center', 'right']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-  weight: PropTypes.oneOf(['regular', 'semi-bold', 'bold', 'black']),
+  weight: PropTypes.oneOf(['regular', 'semi-bold', 'bold', 'bolder', 'black']),
   truncate: PropTypes.bool,
   lineHeight: PropTypes.oneOf([8, 16, '24 (default)', 32, 40, 48, 56, 64, 72]),
   textTransform: PropTypes.oneOf(['no-transform', 'lowercase', 'uppercase', 'capitalized', 'italic']),
