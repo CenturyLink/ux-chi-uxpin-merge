@@ -142,7 +142,7 @@ export default class DropdownMenu extends React.Component {
         `}
         style={{
           height: `${this.props.height && this.props.scrollItems ? `${this.props.height}px` : ''}`,
-          maxHeight: `${this.props.height && !this.props.scrollItems ? `${this.props.height}px` : ''}`,
+          minHeight: `${this.props.height && !this.props.scrollItems ? `${this.props.height}px` : ''}`,
           minWidth: `${this.props.width ? `${this.props.width}px` : ''}`,
           overflow: `${this.props.height && this.props.scrollItems ? 'auto' : ''}`,
         }}>
