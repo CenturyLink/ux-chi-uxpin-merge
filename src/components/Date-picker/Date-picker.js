@@ -89,6 +89,18 @@ export default class DatePicker extends React.Component {
         ${!this.props.sa ? '6' : ''}
     `;
 
+    let timeFormat = null;
+    let modeValue = this.props.mode
+    if (this.props.mode === 'datetime - 12hr') {
+        timeFormat = '12hr';
+        modeValue = 'datetime';
+    } else if (this.props.mode === 'datetime - 24hr') {
+        timeFormat = '24hr';
+        modeValue = 'datetime';
+    } else if (this.props.mode !== 'datetime') {
+        timeFormat = null;
+    }
+
     return (
       <div className="chi-form__item">
         <div className={`${LABEL_CLASSES.WRAPPER}`}>
@@ -105,7 +117,8 @@ export default class DatePicker extends React.Component {
             max={this.props.max}
             value={this.props.selected}
             onClick={this.props.click}
-            mode={this.props.mode}
+            mode={modeValue}
+            time-format={timeFormat}
             onMouseEnter={this.props.mouseOver}
             onMouseLeave={this.props.mouseLeave}
             onMouseDown={this.props.mouseDown}
@@ -136,7 +149,7 @@ DatePicker.propTypes = {
   mouseOverInfo: PropTypes.func,
   /** @uxpinignoreprop */
   mouseLeaveInfo: PropTypes.func,
-  mode: PropTypes.oneOf(['date', 'datetime']),
+  mode: PropTypes.oneOf(['date', 'datetime - 12hr', 'datetime - 24hr']),
   min: PropTypes.string,
   max: PropTypes.string,
   selected: PropTypes.string,
