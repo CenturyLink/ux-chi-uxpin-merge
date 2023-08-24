@@ -67,6 +67,9 @@ export default class Alert extends React.Component {
         type="button"
         onClick={() => {
           this.setState({ showAlert: false });
+          if (this.props.click) {
+            this.props.click();
+          }
         }}
         className={`
           ${ALERT_CLASSES.CLOSE_BUTTON} 
