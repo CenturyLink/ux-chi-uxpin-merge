@@ -54,10 +54,6 @@ export default class Link extends React.Component {
 Link.propTypes = {
   title: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-  /**
-   * Icon that goes after the children
-   * @uxpinpropname  CTA
-   * */
   cta: PropTypes.bool,
   disabled: PropTypes.bool,
   lineHeight: PropTypes.oneOf([8, 16, '24 (default)', 32, 40, 48, 56, 64, 72]),
