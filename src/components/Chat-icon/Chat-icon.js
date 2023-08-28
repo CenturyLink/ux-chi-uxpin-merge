@@ -31,31 +31,45 @@ export default class ChatIcon extends React.Component {
       <div data-tooltip={this.props.tooltipMessage || null} id={this.state.id}>
         <svg
           id="chat-icon"
-          viewBox="0 0 48 52"
+          viewBox="0 0 128 128"
           width={size}
           height={size}
-          xmlns="http://www.w3.org/2000/svg">
+          xmlns="http://www.w3.org/2000/svg"
+          filter="url(#multiShadow  )">
           <defs>
-            <radialGradient id="a" cx="24.145" cy="28" r="23.94" fx="24.145" fy="28" gradientTransform="translate(-.095 .057)" gradientUnits="userSpaceOnUse">
-              <stop offset=".569" stopColor="gray" stopOpacity=".9" />
-              <stop offset=".772" stopColor="#828282" stopOpacity=".882" />
-              <stop offset=".845" stopColor="#8b8b8b" stopOpacity=".818" />
-              <stop offset=".898" stopColor="#9b9b9b" stopOpacity=".707" />
-              <stop offset=".94" stopColor="#b2b2b2" stopOpacity=".547" />
-              <stop offset=".975" stopColor="#cfcfcf" stopOpacity=".343" />
-              <stop offset="1" stopColor="#ebebeb" stopOpacity=".154" />
-            </radialGradient>
+            <filter id="multiShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur1" />
+              <feOffset in="blur1" dx="0" dy="2" result="offsetBlur1" />
+              <feFlood floodColor="rgba(0,0,0,.18)" result="color1" />
+              <feComposite in2="offsetBlur1" in="color1" operator="in" result="shadow1" />
+
+              <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur2" />
+              <feOffset in="blur2" dx="0" dy="6" result="offsetBlur2" />
+              <feFlood floodColor="rgba(0,0,0,.10)" result="color2" />
+              <feComposite in2="offsetBlur2" in="color2" operator="in" result="shadow2" />
+
+              <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur3" />
+              <feOffset in="blur3" dx="0" dy="1" result="offsetBlur3" />
+              <feFlood floodColor="rgba(0,0,0,.10)" result="color3" />
+              <feComposite in2="offsetBlur3" in="color3" operator="in" result="shadow3" />
+
+              <feMerge>
+                <feMergeNode in="shadow1" />
+                <feMergeNode in="shadow2" />
+                <feMergeNode in="shadow3" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
           </defs>
-          <circle cx="24" cy="28" r="24" fill="url(#a)" />
-          <circle cx="24" cy="24" r="24" fill="#0075c9" />
+          <circle cx="64" cy="64" r="64" fill="#0075c9" />
           <path
             fill="#fff"
             // eslint-disable-next-line max-len
-            d="M24.252 10.701c-7.815 0-14.15 5.954-14.15 13.299 0 2.478.734 4.789 1.99 6.775a14.433 14.433 0 0 1-2.37 3.573.45.45 0 0 0-.085.494c.07.167.234.274.415.272a12.978 12.978 0 0 0 4.936-1.077c2.484 2.027 5.717 3.262 9.264 3.262 7.815 0 14.15-5.954 14.15-13.299s-6.335-13.299-14.15-13.299Z"
+            d="M64.672 28.536c-20.84 0-37.734 15.878-37.734 35.464 0 6.608 1.958 12.77 5.306 18.066a38.488 38.488 0 0 1-6.318 9.528 1.2 1.2 0 0 0-.228 1.32 1.186 1.186 0 0 0 1.106.724c4.566-.078 9.03-1.08 13.164-2.872 6.624 5.404 15.246 8.698 24.704 8.698 20.84 0 37.734-15.878 37.734-35.464s-16.894-35.464-37.734-35.464Z"
           />
-          <circle cx="17.087" cy="24" r="2.49" fill="#e77528" />
-          <circle cx="24" cy="24" r="2.49" fill="#e77528" />
-          <circle cx="30.913" cy="24" r="2.49" fill="#e77528" />
+          <circle cx="45.564" cy="64" r="6.638" fill="#e77528" />
+          <circle cx="64" cy="64" r="6.638" fill="#e77528" />
+          <circle cx="82.436" cy="64" r="6.638" fill="#e77528" />
         </svg>
       </div>
     );
