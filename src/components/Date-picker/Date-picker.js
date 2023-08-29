@@ -27,6 +27,11 @@ const selected = function() {
  * SkipContainerWrapper
  */
 export default class DatePicker extends React.Component {
+  dateModes = {
+    "datetime - 12hr": { timeFormat: "12hr", dateMode: "datetime" },
+    "datetime - 24hr": { timeFormat: "24hr", dateMode: "datetime" }
+  };
+
   componentDidMount() {
     setTimeout(() => {
       const datePicker = document.getElementById('chi-datepicker-control');
@@ -88,18 +93,10 @@ export default class DatePicker extends React.Component {
         ${!this.props.fr ? '5,' : ''}
         ${!this.props.sa ? '6' : ''}
     `;
-
-    let timeFormat = null;
-    let modeValue = this.props.mode
-    if (this.props.mode === 'datetime - 12hr') {
-        timeFormat = '12hr';
-        modeValue = 'datetime';
-    } else if (this.props.mode === 'datetime - 24hr') {
-        timeFormat = '24hr';
-        modeValue = 'datetime';
-    } else if (this.props.mode !== 'datetime') {
-        timeFormat = null;
-    }
+    const { timeFormat, dateMode } = this.dateModes[this.props.mode] || {
+      timeFormat: null,
+      dateMode: null
+    };
 
     return (
       <div className="chi-form__item">
@@ -117,7 +114,7 @@ export default class DatePicker extends React.Component {
             max={this.props.max}
             value={this.props.selected}
             onClick={this.props.click}
-            mode={modeValue}
+            mode={dateMode}
             time-format={timeFormat}
             onMouseEnter={this.props.mouseOver}
             onMouseLeave={this.props.mouseLeave}
