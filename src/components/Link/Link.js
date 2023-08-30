@@ -41,7 +41,7 @@ export default class Link extends React.Component {
         <div className="chi-link__content">
           {this.props.iconPosition === 'left' ? help : null}
           <span
-            className={`${this.props.lineHeight ? `-lh--${this.props.lineHeight === '24 (default)' ? 3 : this.props.lineHeight / 8}` : ''}`}
+            className={`${!this.props.cta ? this.props.lineHeight ? `-lh--${this.props.lineHeight === '24 (default)' ? 3 : this.props.lineHeight / 8}` : '' : ''}`}
             dangerouslySetInnerHTML={textRender()}>
           </span>
           {this.props.iconPosition === 'right' ? help : null}
