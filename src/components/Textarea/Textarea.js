@@ -101,8 +101,7 @@ Textarea.propTypes = {
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,
   /**
-    * A textArea controller for Text
-    * @uxpinpropname text
+    * @uxpinpropname info popover text
     * @uxpincontroltype textfield(10)
     * */
   infoPopoverDescription: PropTypes.string,
@@ -146,4 +145,5 @@ Textarea.defaultProps = {
 Line 2
 Line 3`,
   infoPopoverPosition: 'right-start',
+  value: '',
 };
