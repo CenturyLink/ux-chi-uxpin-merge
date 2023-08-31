@@ -6,6 +6,7 @@ import {
   ACTIVE_CLASS,
   COMPLETED_CLASS,
   STEPS_CLASSES,
+  TABS_CLASSES,
   UX_PIN_WRAPPER,
 } from '../../constants/classes';
 
@@ -56,6 +57,7 @@ export default function Steps(props) {
       <ul
         className={`
           ${STEPS_CLASSES.STEPS}
+          ${props.layout === 'vertical' ? TABS_CLASSES.VERTICAL : ''}
           ${props.horizontalLabel ? STEPS_CLASSES.HORIZONTAL_LABEL : ''}
         `}
         id={uuid}>
@@ -66,6 +68,7 @@ export default function Steps(props) {
 }
 
 Steps.propTypes = {
+  layout: PropTypes.oneOf(['inline', 'vertical']),
   step1: PropTypes.string,
   step2: PropTypes.string,
   step3: PropTypes.string,
@@ -82,5 +85,6 @@ Steps.propTypes = {
 /* eslint-enable */
 
 Steps.defaultProps = {
+  layout: 'inline',
   activeSteps: 3,
 };
