@@ -38,12 +38,6 @@ InfoIcon.propTypes = {
 
 /* eslint-enable */
 
-InfoIcon.defaultProps = {
-  popoverTitle: 'Popover Title',
-  popoverDescription: `Line 1
-Line 2
-Line 3`,
-  popoverPosition: 'right-start',
-};
+InfoIcon.defaultProps = {};
 
 export { InfoIcon as default };

@@ -9,6 +9,11 @@ export default (
     pillSize="sm"
     pillLayout="inline"
     info={false}
+    infoPopoverTitle="Popover Title"
+    infoPopoverDescription={`Line 1
+Line 2
+Line 3`}
+    infoPopoverPosition="right-start"
     selected={1}
     picker1="Pill 1"
     disabled1={false}

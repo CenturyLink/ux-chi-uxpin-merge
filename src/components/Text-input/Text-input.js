@@ -137,12 +137,6 @@ TextInput.propTypes = {
 TextInput.defaultProps = {
   disabled: false,
   required: 'none',
-  info: false,
-  infoPopoverTitle: 'Popover Title',
-  infoPopoverDescription: `Line 1
-Line 2
-Line 3`,
-  infoPopoverPosition: 'right-start',
   size: 'md',
   state: 'default',
   placeholder: '',
