@@ -26,29 +26,29 @@ export default class PhoneInput extends React.Component {
   mapCountry(country) {
     switch (country) {
       case 'United States':
-        return 'US';
+        return { code: 'US', phoneCode: '+1-' };
       case 'Brazil':
-        return 'BR';
+        return { code: 'BR', phoneCode: '+55-' };
       case 'China':
-        return 'CN';
+        return { code: 'CN', phoneCode: '+86-' };
       case 'France':
-        return 'FR';
+        return { code: 'FR', phoneCode: '+33-' };
       case 'Germany':
-        return 'DE';
+        return { code: 'DE', phoneCode: '+49-' };
       case 'India':
-        return 'IN';
+        return { code: 'IN', phoneCode: '+91-' };
       case 'Italy':
-        return 'IT';
+        return { code: 'IT', phoneCode: '+39-' };
       case 'Russia':
-        return 'RU';
+        return { code: 'RU', phoneCode: '+7-' };
       case 'Spain':
-        return 'ES';
+        return { code: 'ES', phoneCode: '+34-' };
       case 'United Kingdom':
-        return 'GB';
+        return { code: 'GB', phoneCode: '+44-' };
       default:
-        return 'United States';
+        return { code: 'US', phoneCode: '+1-' };
     }
-  }
+}
 
   render() {
     const label = this.props.label
@@ -88,13 +88,13 @@ export default class PhoneInput extends React.Component {
           {info}
         </div>
         <chi-phone-input
-          default-country={this.mapCountry(this.props.country)}
+          default-country={this.mapCountry(this.props.country).code}
           disabled={this.props.disabled}
           id={`phone-input-${this.state.id}`}
           placeholder={this.props.placeholder}
           size={this.props.size}
           state={this.props.state}
-          value={this.props.value}>
+          value={`${this.mapCountry(this.props.country).phoneCode}${this.props.value}`}>
         </chi-phone-input>
       </div>
     );
