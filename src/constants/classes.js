@@ -71,6 +71,16 @@ export const DRAWER_CLASSES = {
   CONTENT: 'chi-drawer__content'
 };
 
+export const FOOTER_CLASSES = {
+  FOOTER: 'chi-footer',
+  FOOTER_CONTENT: 'chi-footer__content',
+  FOOTER_INTERNAL: 'chi-footer__internal',
+  FOOTER_INTERNAL_CONTENT: 'chi-footer__internal-content',
+  FOOTER_LINKS: 'chi-footer__links',
+  FOOTER_COPYWRIGHT: 'chi-footer__copyright',
+  FOOTER_LANGUAGE: 'chi-footer__language'
+};
+
 /* Icon */
 export const ICON_CLASS = 'chi-icon';
 
@@ -146,6 +156,7 @@ export const UTILITY_CLASSES = {
     TEXT_SEMI_BOLD: '-text--semi-bold',
     TEXT_BOLD: '-text--bold',
     TEXT_NO_TRANSFORM: '-text--no-transform',
+    TEXT_BODY: '-text--body',
   },
   GRID: 'chi-grid',
   COLUMN: 'chi-col',
