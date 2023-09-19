@@ -102,10 +102,4 @@ ToggleSwitch.defaultProps = {
   disabled: false,
   size: 'sm',
   required: 'none',
-  info: false,
-  infoPopoverTitle: 'Popover Title',
-  infoPopoverDescription: `Line 1
-  Line 2
-  Line 3`,
-  infoPopoverPosition: 'right-start',
 };

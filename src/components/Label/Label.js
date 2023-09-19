@@ -95,10 +95,4 @@ Label.propTypes = {
 Label.defaultProps = {
   size: 'md',
   required: 'none',
-  info: false,
-  infoPopoverTitle: 'Popover Title',
-  infoPopoverDescription: `Line 1
-Line 2
-Line 3`,
-  infoPopoverPosition: 'right-start',
 };

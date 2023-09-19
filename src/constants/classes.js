@@ -12,6 +12,7 @@ export const INVERSE_CLASS = '-inverse';
 export const ANIMATED_CLASS = '-animated';
 export const ANIMATE_CHEVRON_CLASS = '-animate';
 export const PORTAL_CLASS = '-portal';
+export const VERTICAL_CLASS = '-vertical';
 export const TRANSITIONING_CLASS = '-transitioning';
 export const SR_ONLY_CLASS = '-sr--only';
 export const UX_PIN_WRAPPER = 'uxPin__wrapper';
@@ -313,7 +314,6 @@ export const SKELETON_CLASSES = {
 export const TABS_CLASSES = {
   BORDER: '-border',
   SOLID: '-solid',
-  VERTICAL: '-vertical',
   TABS: 'chi-tabs',
 }
 

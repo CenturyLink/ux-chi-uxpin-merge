@@ -193,10 +193,4 @@ PickerPillMulti.defaultProps = {
   pillLayout: 'inline',
   contentWidth: '100%',
   required: 'none',
-  info: false,
-  infoPopoverTitle: 'Popover Title',
-  infoPopoverDescription: `Line 1
-Line 2
-Line 3`,
-  infoPopoverPosition: 'right-start',
 };

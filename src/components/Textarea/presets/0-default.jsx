@@ -10,6 +10,11 @@ export default (
     required="none"
     disabled={false}
     info={false}
+    infoPopoverTitle="Popover Title"
+    infoPopoverDescription={`Line 1
+Line 2
+Line 3`}
+    infoPopoverPosition="right-start"
     value=""
     placeholder=""
     state="default"

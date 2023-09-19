@@ -8,6 +8,11 @@ export default (
     label="Label"
     toggleLabel="Toggle Label"
     on={false}
+    infoPopoverTitle="Popover Title"
+    infoPopoverDescription={`Line 1
+Line 2
+Line 3`}
+    infoPopoverPosition="right-start"
     required="none"
     disabled={false}
     info={false}
