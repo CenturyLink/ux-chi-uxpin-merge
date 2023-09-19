@@ -4,7 +4,7 @@ import PhoneInput from '../PhoneInput';
 export default (
   <PhoneInput
     uxpId="phoneInput"
-    country="United States"
+    countryCode="1"
     click={() => {}}
     info={false}
     label="Phone Number"

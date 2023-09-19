@@ -6,6 +6,5 @@ export default (
     uxpId="progress"
     label=""
     progress={50}
-    state="success"
   />
 );

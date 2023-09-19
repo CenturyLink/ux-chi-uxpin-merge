@@ -96,41 +96,66 @@ export default class TextInput extends React.Component {
 
 /* eslint-disable */
 TextInput.propTypes = {
-  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  /**
+   * @uxpinpropname field label
+   * */
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  value: PropTypes.string,
+  placeholder: PropTypes.string,
+  disabled: PropTypes.bool,
+  /**
+   * @uxpinpropname info icon
+   * */
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,
   /**
-    * A textArea controller for Text
-    * @uxpinpropname text
-    * @uxpincontroltype textfield(10)
-    * */
+   * @uxpinpropname info popover text
+   * */
   infoPopoverDescription: PropTypes.string,
   infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
+  iconLeft: PropTypes.string,
+  iconLeftColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
+  iconRight: PropTypes.string,
+  iconRightColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
+  state: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
+  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  /**
+   * @uxpinpropname on click
+   * */
+  click: PropTypes.func,
+  /**
+   * @uxpinpropname on input
+   * */
+  input: PropTypes.func,
+  /**
+   * @uxpinpropname on value change
+   * */
+  valueChange: PropTypes.func,
+  /**
+   * @uxpinpropname on mouse over
+   * */
+  mouseOver: PropTypes.func,
+  /**
+   * @uxpinpropname on mouse leave
+   * */
+  mouseLeave: PropTypes.func,
+  /**
+   * @uxpinpropname on mouse down
+   * */
+  mouseDown: PropTypes.func,
+  /**
+   * @uxpinpropname on mouse up
+   * */
+  mouseUp: PropTypes.func,
+  focus: PropTypes.func,
+  focusLost: PropTypes.func,
   /** @uxpinignoreprop */
   clickInfo: PropTypes.func,
   /** @uxpinignoreprop */
   mouseOverInfo: PropTypes.func,
   /** @uxpinignoreprop */
   mouseLeaveInfo: PropTypes.func,
-  disabled: PropTypes.bool,
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
-  iconLeft: PropTypes.string,
-  iconLeftColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
-  iconRight: PropTypes.string,
-  iconRightColor: PropTypes.oneOf(['', 'primary', 'secondary', 'dark', 'light', 'danger', 'grey', 'muted']),
-  state: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
-  click: PropTypes.func,
-  focus: PropTypes.func,
-  focusLost: PropTypes.func,
-  input: PropTypes.func,
-  mouseDown: PropTypes.func,
-  mouseLeave: PropTypes.func,
-  mouseOver: PropTypes.func,
-  mouseUp: PropTypes.func,
-  valueChange: PropTypes.func,
 };
 /* eslint-enable */
 
