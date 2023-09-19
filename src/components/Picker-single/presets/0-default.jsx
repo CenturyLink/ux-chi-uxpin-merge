@@ -8,6 +8,11 @@ export default (
     required="none"
     size="md"
     info={false}
+    infoPopoverTitle="Popover Title"
+    infoPopoverDescription={`Line 1
+Line 2
+Line 3`}
+    infoPopoverPosition="right-start"
     selectedOption={1}
     picker1="Picker 1"
     disabled1={false}

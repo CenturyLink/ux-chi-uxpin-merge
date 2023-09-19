@@ -7,6 +7,11 @@ export default (
     fieldLabel="Field Label"
     required="none"
     info={false}
+    infoPopoverTitle="Popover Title"
+    infoPopoverDescription={`Line 1
+Line 2
+Line 3`}
+    infoPopoverPosition="right-start"
     inline={false}
     layout="vertical"
     label1="Checkbox 1 label"

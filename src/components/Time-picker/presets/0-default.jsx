@@ -9,6 +9,11 @@ export default (
     required="none"
     active={false}
     info={false}
+    infoPopoverTitle="Popover Title"
+    infoPopoverDescription={`Line 1
+Line 2
+Line 3`}
+    infoPopoverPosition="right-start"
     displaySeconds={false}
     format="12hr"
     value=""

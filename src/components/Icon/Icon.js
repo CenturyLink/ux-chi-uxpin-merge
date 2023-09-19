@@ -107,12 +107,7 @@ Icon.defaultProps = {
   size: 'sm',
   color: 'primary',
   icon: 'atom',
-  popoverTitle: 'Popover Title',
   mode: 'icon',
-  popoverDescription: `Line 1
-Line 2
-Line 3`,
-  popoverPosition: 'right-start',
   tooltipMessage: '',
   tooltipPosition: 'top',
 };

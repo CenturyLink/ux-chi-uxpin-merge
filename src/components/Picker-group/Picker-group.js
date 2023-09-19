@@ -195,9 +195,4 @@ PickerGroup.defaultProps = {
   required: 'none',
   selected: 1,
   info: false,
-  infoPopoverTitle: 'Popover Title',
-  infoPopoverDescription: `Line 1
-Line 2
-Line 3`,
-  infoPopoverPosition: 'right-start',
 };
