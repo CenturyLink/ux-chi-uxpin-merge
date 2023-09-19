@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { uuid4 } from '../../utils/utils';
-import { TABS_CLASSES } from '../../constants/classes';
+import { TABS_CLASSES, VERTICAL_CLASS } from '../../constants/classes';
 import './Tabs.css';
 
 /* eslint-disable */
@@ -64,7 +64,7 @@ export default class Tabs extends React.Component {
     const tabList = <ul className=
     {`
       ${TABS_CLASSES.TABS}
-      ${this.props.vertical ? TABS_CLASSES.VERTICAL : TABS_CLASSES.BORDER}
+      ${this.props.vertical ? VERTICAL_CLASS : TABS_CLASSES.BORDER}
       ${this.props.style === 'solid' ? TABS_CLASSES.SOLID : ''}
       ${this.props.size ? `-${this.props.size}` : ''}
     `}
