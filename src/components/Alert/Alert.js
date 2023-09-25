@@ -18,35 +18,45 @@ export default class Alert extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      defaultIcon: 'circle-info',
+      defaultIcon: 'flag',
       showAlert: true,
     };
   }
 
   // TODO: Change name to _setIcon()
   _setIconAndText() {
+    let defaultText = this.props.text;
+    let defaultIconName = this.state.defaultIcon;
+
     switch (this.props.state) {
       case 'success':
-        this.state.defaultIcon = 'circle-check';
+        defaultIconName = 'circle-check';
+        defaultText = defaultText || 'This is a success alert';
         break;
       case 'warning':
-        this.state.defaultIcon = 'warning';
+        defaultIconName = 'warning';
+        defaultText = defaultText || 'This is a warning alert';
         break;
       case 'danger':
-        this.state.defaultIcon = 'circle-x';
+        defaultIconName = 'circle-x';
+        defaultText = defaultText || 'This is a danger alert';
         break;
       case 'info':
-        this.state.defaultIcon = 'circle-info';
+        defaultIconName = 'flag';
+        defaultText = defaultText || 'This is an info alert';
         break;
       case 'muted':
-        this.state.defaultIcon = 'circle-info';
+        defaultIconName = 'flag';
+        defaultText = defaultText || 'This is a muted alert';
         break;
-      case 'inprogress':
-        break;
+      case 'base':
       default:
-        this.state.defaultIcon = 'circle-info';
+        defaultIconName = 'flag';
+        defaultText = defaultText || 'This is a base alert';
         break;
     }
+
+    return { defaultIconName, defaultText };
   }
 
   _iconToRender() {
@@ -110,8 +120,9 @@ export default class Alert extends React.Component {
       : '';
     const type = this.props.type ? `-${this.props.type}` : '';
     const size = this.props.size ? `-${this.props.size}` : '';
-    const iconName = `icon-${this._iconToRender()}`;
-    const icon = this.props.inProgress ? (
+    const { defaultIconName, defaultText } = this._setIconAndText();
+    const iconName = `icon-${this.props.icon || defaultIconName}`;
+    const iconToDisplay = this.props.inProgress ? (
       this._progressIcon()
     ) : (
       <i
@@ -122,13 +133,13 @@ export default class Alert extends React.Component {
     const title = this.props.title ? this._alertTitle() : null;
     const alertContent = (
       <>
-        {icon}
+        {iconToDisplay}
         <div className={ALERT_CLASSES.CONTENT}>
           {title}
           <p
             className={ALERT_CLASSES.TEXT}
             style={{ whiteSpace: 'pre-line' }}>
-            {this.props.text}
+            {defaultText}
           </p>
         </div>
       </>
@@ -192,6 +203,6 @@ Alert.propTypes = {
 
 Alert.defaultProps = {
   size: 'md',
-  state: 'base',
+  state: 'info',
   type: 'bubble',
 };

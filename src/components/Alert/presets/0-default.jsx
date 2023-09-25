@@ -5,8 +5,7 @@ export default (
   <Alert
     uxpId="alert"
     size="md"
-    state="base"
-    text="This is an alert message"
+    state="info"
     title=""
     icon=""
     type="bubble"
