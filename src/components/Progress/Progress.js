@@ -17,8 +17,6 @@ const Progress = (props) => (
 Progress.propTypes = {
   label: PropTypes.string,
   progress: PropTypes.string,
-  /** @uxpinignoreprop */
-  state: PropTypes.oneOf(['success', 'warning', 'danger']),
 };
 /* eslint-enable */
 
