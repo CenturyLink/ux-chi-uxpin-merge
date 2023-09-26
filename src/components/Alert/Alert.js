@@ -42,7 +42,7 @@ export default class Alert extends React.Component {
         defaultText = defaultText || 'This is a danger alert';
         break;
       case 'info':
-        defaultIconName = 'flag';
+        defaultIconName = 'circle-info';
         defaultText = defaultText || 'This is an info alert';
         break;
       case 'muted':
