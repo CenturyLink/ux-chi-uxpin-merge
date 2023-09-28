@@ -6,11 +6,20 @@ import {
   BUTTON_CLASSES, DROPDOWN_CLASSES, FOOTER_CLASSES, GENERIC_SIZES, ICON_CLASS, LIGHT_CLASS, UTILITY_CLASSES,
 } from '../../constants/classes';
 
-function LanguageDropdown() {
+// eslint-disable-next-line react/prop-types
+function LanguageDropdown({ isMobile }) {
   const languages = ['English', 'Español', 'Português', 'Français', 'Deutsch', '简体中文', '日本語'];
+  const style = isMobile ? {
+    justifyContent: 'center',
+    width: '100%',
+    paddingRight: 0,
+    paddingBottom: '1rem',
+  } : {};
 
   return (
-    <div className={`${DROPDOWN_CLASSES.DROPDOWN} ${FOOTER_CLASSES.FOOTER_LANGUAGE}`}>
+    <div
+      className={`${DROPDOWN_CLASSES.DROPDOWN} ${FOOTER_CLASSES.FOOTER_LANGUAGE}`}
+      style={isMobile ? { style } : null}>
       <a
         className={`${BUTTON_CLASSES.BUTTON} ${BUTTON_CLASSES.ICON_BUTTON} ${BUTTON_CLASSES.FLAT} ${LIGHT_CLASS} ${GENERIC_SIZES.SM} ${DROPDOWN_CLASSES.TRIGGER}`}
         id="language-dropdown-button"
@@ -47,7 +56,12 @@ export default class Footer extends Component {
 
   render() {
     const { id } = this.state;
-
+    const isTabletSize = this.props.footerSize === 'Portrait tablet';
+    const isDesktopSize = this.props.footerSize === 'Desktop';
+    const footerStyle = !isDesktopSize ? { width: isTabletSize ? '736px' : '368px' } : { minWidth: '1256px' };
+    const footerInternalContentStyle = { flexDirection: !isDesktopSize ? 'column' : 'row' };
+    const ulElementStyle = { flexDirection: !isDesktopSize ? 'column' : 'row' };
+    const liElementStyle = { padding: !isDesktopSize ? '0.25rem 0' : '0' };
     const links = [
       { url: 'https://www.lumen.com/en-us/about.html', text: 'About Us', newTab: false },
       { url: 'https://www.centurylink.com/aboutus/community/community-development/programs-for-customers-with-disabilities.html', text: 'Accessibility', newTab: false },
@@ -69,15 +83,15 @@ export default class Footer extends Component {
 
     return (
       <>
-        <footer id={id} className={`${FOOTER_CLASSES.FOOTER}`} style={{ width: this.props.footerSize === 'Mobile' ? '720px' : '1200px' }}>
+        <footer id={id} className={`${FOOTER_CLASSES.FOOTER}`} style={footerStyle}>
           <div className={`${FOOTER_CLASSES.FOOTER_CONTENT}`}>
             <div className={`${FOOTER_CLASSES.FOOTER_INTERNAL}`}>
-              <div className={`${FOOTER_CLASSES.FOOTER_INTERNAL_CONTENT}`}>
-                <LanguageDropdown />
+              <div className={`${FOOTER_CLASSES.FOOTER_INTERNAL_CONTENT}`} style={footerInternalContentStyle}>
+                <LanguageDropdown isMobile={!isDesktopSize} />
                 <div className={`${FOOTER_CLASSES.FOOTER_LINKS}`}>
-                  <ul>
+                  <ul style={ulElementStyle}>
                     {links.map((link) => (
-                      <li key={link.url}>
+                      <li key={link.url} style={liElementStyle}>
                         <a href={link.url} target={link.newTab ? '_blank' : undefined}>
                           {link.text}
                         </a>
@@ -98,7 +112,7 @@ export default class Footer extends Component {
 }
 
 Footer.propTypes = {
-  footerSize: PropTypes.oneOf(['Desktop', 'Mobile']),
+  footerSize: PropTypes.oneOf(['Desktop', 'Portrait phone', 'Portrait tablet']),
 };
 
 Footer.defaultProps = {
