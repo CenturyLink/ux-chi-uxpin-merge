@@ -77,7 +77,7 @@ export const FOOTER_CLASSES = {
   FOOTER_INTERNAL: 'chi-footer__internal',
   FOOTER_INTERNAL_CONTENT: 'chi-footer__internal-content',
   FOOTER_LINKS: 'chi-footer__links',
-  FOOTER_COPYWRIGHT: 'chi-footer__copyright',
+  FOOTER_COPYRIGHT: 'chi-footer__copyright',
   FOOTER_LANGUAGE: 'chi-footer__language'
 };
 

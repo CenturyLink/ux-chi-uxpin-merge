@@ -7,32 +7,44 @@ import {
 } from '../../constants/classes';
 
 // eslint-disable-next-line react/prop-types
-function LanguageDropdown({ isMobile }) {
-  const languages = ['English', 'Español', 'Português', 'Français', 'Deutsch', '简体中文', '日本語'];
-  const style = isMobile ? {
-    justifyContent: 'center',
-    width: '100%',
-    paddingRight: 0,
-    paddingBottom: '1rem',
-  } : {};
+function LanguageDropdown({ isMobile, buttonId }) {
+  const languages = [
+    'English',
+    'Español',
+    'Português',
+    'Français',
+    'Deutsch',
+    '简体中文',
+    '日本語',
+  ];
+  const footerLanguageClass = isMobile
+    ? ['-justify-content--center -w--100 -pr--0 -pb--2']
+    : [];
 
   return (
     <div
-      className={`${DROPDOWN_CLASSES.DROPDOWN} ${FOOTER_CLASSES.FOOTER_LANGUAGE}`}
-      style={isMobile ? { style } : null}>
+      className={`${DROPDOWN_CLASSES.DROPDOWN} ${FOOTER_CLASSES.FOOTER_LANGUAGE} ${footerLanguageClass}`}>
       <a
         className={`${BUTTON_CLASSES.BUTTON} ${BUTTON_CLASSES.ICON_BUTTON} ${BUTTON_CLASSES.FLAT} ${LIGHT_CLASS} ${GENERIC_SIZES.SM} ${DROPDOWN_CLASSES.TRIGGER}`}
-        id="language-dropdown-button"
+        id={buttonId}
         data-position="top-start"
         aria-label="Select your preferred language">
-        <div className={`${BUTTON_CLASSES.CONTENT}`}>
-          <i className={`${ICON_CLASS} icon-globe-network-outline`} aria-hidden="true"></i>
+        <div className={BUTTON_CLASSES.CONTENT}>
+          <i
+            className={`${ICON_CLASS} icon-globe-network-outline`}
+            aria-hidden="true">
+          </i>
           <span>English</span>
         </div>
       </a>
       <div className={`${DROPDOWN_CLASSES.MENU} -w--sm ${UTILITY_CLASSES.TYPOGRAPHY.TEXT_BODY}`}>
         {languages.map((lang) => (
-          <a key={lang} className={`${DROPDOWN_CLASSES.ITEM} ${lang === 'English' ? '-active' : ''}`} href="#">{lang}</a>
+          <a
+            key={lang}
+            className={`${DROPDOWN_CLASSES.ITEM} ${lang === 'English' ? '-active' : ''}`}
+            href="#">
+            {lang}
+          </a>
         ))}
       </div>
     </div>
@@ -46,9 +58,10 @@ export default class Footer extends Component {
   }
 
   componentDidMount() {
+    const buttonId = `${this.state.id}-language-dropdown-button`;
     const initialize = setInterval(() => {
-      if (window.chi && document.getElementById(this.state.id)) {
-        window.chi.dropdown(document.getElementById('language-dropdown-button'));
+      if (window.chi && document.getElementById(buttonId)) {
+        window.chi.dropdown(document.getElementById(buttonId));
         clearInterval(initialize);
       }
     }, 1000);
@@ -56,12 +69,14 @@ export default class Footer extends Component {
 
   render() {
     const { id } = this.state;
+    const buttonId = `${id}-language-dropdown-button`;
     const isTabletSize = this.props.footerSize === 'Portrait tablet';
     const isDesktopSize = this.props.footerSize === 'Desktop';
-    const footerStyle = !isDesktopSize ? { width: isTabletSize ? '736px' : '368px' } : { minWidth: '1256px' };
-    const footerInternalContentStyle = { flexDirection: !isDesktopSize ? 'column' : 'row' };
-    const ulElementStyle = { flexDirection: !isDesktopSize ? 'column' : 'row' };
-    const liElementStyle = { padding: !isDesktopSize ? '0.25rem 0' : '0' };
+    const footerStyle = isDesktopSize
+      ? { minWidth: '1256px' }
+      : { width: isTabletSize ? '736px' : '368px' };
+    const footerInternalContentStyle = isDesktopSize ? '-flex--row' : '-flex--column';
+    const ulElementStyle = isDesktopSize ? '-flex--row' : '-flex--column';
     const links = [
       { url: 'https://www.lumen.com/en-us/about.html', text: 'About Us', newTab: false },
       { url: 'https://www.centurylink.com/aboutus/community/community-development/programs-for-customers-with-disabilities.html', text: 'Accessibility', newTab: false },
@@ -83,22 +98,34 @@ export default class Footer extends Component {
 
     return (
       <>
-        <footer id={id} className={`${FOOTER_CLASSES.FOOTER}`} style={footerStyle}>
-          <div className={`${FOOTER_CLASSES.FOOTER_CONTENT}`}>
-            <div className={`${FOOTER_CLASSES.FOOTER_INTERNAL}`}>
-              <div className={`${FOOTER_CLASSES.FOOTER_INTERNAL_CONTENT}`} style={footerInternalContentStyle}>
-                <LanguageDropdown isMobile={!isDesktopSize} />
-                <div className={`${FOOTER_CLASSES.FOOTER_LINKS}`}>
-                  <ul style={ulElementStyle}>
+        <footer
+          id={id}
+          className={FOOTER_CLASSES.FOOTER}
+          style={footerStyle}>
+          <div className={FOOTER_CLASSES.FOOTER_CONTENT}>
+            <div className={FOOTER_CLASSES.FOOTER_INTERNAL}>
+              <div
+                className={`${FOOTER_CLASSES.FOOTER_INTERNAL_CONTENT} ${footerInternalContentStyle}`}>
+                <LanguageDropdown
+                  isMobile={!isDesktopSize}
+                  buttonId={buttonId}
+                />
+                <div className={FOOTER_CLASSES.FOOTER_LINKS}>
+                  <ul className={ulElementStyle}>
                     {links.map((link) => (
-                      <li key={link.url} style={liElementStyle}>
-                        <a href={link.url} target={link.newTab ? '_blank' : undefined}>
+                      <li
+                        key={link.url}
+                        className={isDesktopSize ? '-p--0' : ''}
+                        style={isDesktopSize ? {} : { padding: '0.25rem 0' }}>
+                        <a
+                          href={link.url}
+                          target={link.newTab ? '_blank' : undefined}>
                           {link.text}
                         </a>
                       </li>
                     ))}
                   </ul>
-                  <div className={`${FOOTER_CLASSES.FOOTER_COPYWRIGHT}`}>
+                  <div className={FOOTER_CLASSES.FOOTER_COPYRIGHT}>
                     &copy; 2023 Lumen Technologies. All Rights Reserved. Lumen is a registered trademark in the United States, EU, and certain other countries.
                   </div>
                 </div>
