@@ -18,7 +18,7 @@ function LanguageDropdown({ isMobile, buttonId }) {
     '日本語',
   ];
   const footerLanguageClass = isMobile
-    ? ['-justify-content--center -w--100 -pr--0 -pb--2']
+    ? [`${UTILITY_CLASSES.JUSTIFY.CENTER} ${UTILITY_CLASSES.WIDTH[100]} ${UTILITY_CLASSES.PADDING.RIGHT[0]} ${UTILITY_CLASSES.PADDING.BOTTOM[2]}`]
     : [];
 
   return (
@@ -75,8 +75,7 @@ export default class Footer extends Component {
     const footerStyle = isDesktopSize
       ? { minWidth: '1256px' }
       : { width: isTabletSize ? '736px' : '368px' };
-    const footerInternalContentStyle = isDesktopSize ? '-flex--row' : '-flex--column';
-    const ulElementStyle = isDesktopSize ? '-flex--row' : '-flex--column';
+    const footerInternalContentStyle = isDesktopSize ? UTILITY_CLASSES.DISPLAY.FLEX_ROW : UTILITY_CLASSES.DISPLAY.FLEX_COLUMN;
     const links = [
       { url: 'https://www.lumen.com/en-us/about.html', text: 'About Us', newTab: false },
       { url: 'https://www.centurylink.com/aboutus/community/community-development/programs-for-customers-with-disabilities.html', text: 'Accessibility', newTab: false },
@@ -97,43 +96,41 @@ export default class Footer extends Component {
     ];
 
     return (
-      <>
-        <footer
-          id={id}
-          className={FOOTER_CLASSES.FOOTER}
-          style={footerStyle}>
-          <div className={FOOTER_CLASSES.FOOTER_CONTENT}>
-            <div className={FOOTER_CLASSES.FOOTER_INTERNAL}>
-              <div
-                className={`${FOOTER_CLASSES.FOOTER_INTERNAL_CONTENT} ${footerInternalContentStyle}`}>
-                <LanguageDropdown
-                  isMobile={!isDesktopSize}
-                  buttonId={buttonId}
-                />
-                <div className={FOOTER_CLASSES.FOOTER_LINKS}>
-                  <ul className={ulElementStyle}>
-                    {links.map((link) => (
-                      <li
-                        key={link.url}
-                        className={isDesktopSize ? '-p--0' : ''}
-                        style={isDesktopSize ? {} : { padding: '0.25rem 0' }}>
-                        <a
-                          href={link.url}
-                          target={link.newTab ? '_blank' : undefined}>
-                          {link.text}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className={FOOTER_CLASSES.FOOTER_COPYRIGHT}>
-                    &copy; 2023 Lumen Technologies. All Rights Reserved. Lumen is a registered trademark in the United States, EU, and certain other countries.
-                  </div>
+      <footer
+        id={id}
+        className={FOOTER_CLASSES.FOOTER}
+        style={footerStyle}>
+        <div className={FOOTER_CLASSES.FOOTER_CONTENT}>
+          <div className={FOOTER_CLASSES.FOOTER_INTERNAL}>
+            <div
+              className={`${FOOTER_CLASSES.FOOTER_INTERNAL_CONTENT} ${footerInternalContentStyle}`}>
+              <LanguageDropdown
+                isMobile={!isDesktopSize}
+                buttonId={buttonId}
+              />
+              <div className={FOOTER_CLASSES.FOOTER_LINKS}>
+                <ul className={footerInternalContentStyle}>
+                  {links.map((link) => (
+                    <li
+                      key={link.url}
+                      className={isDesktopSize ? '-p--0' : ''}
+                      style={isDesktopSize ? {} : { padding: '0.25rem 0' }}>
+                      <a
+                        href={link.url}
+                        target={link.newTab ? '_blank' : undefined}>
+                        {link.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <div className={FOOTER_CLASSES.FOOTER_COPYRIGHT}>
+                  &copy; 2023 Lumen Technologies. All Rights Reserved. Lumen is a registered trademark in the United States, EU, and certain other countries.
                 </div>
               </div>
             </div>
           </div>
-        </footer>
-      </>
+        </div>
+      </footer>
     );
   }
 }
