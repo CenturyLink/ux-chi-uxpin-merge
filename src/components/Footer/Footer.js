@@ -37,7 +37,7 @@ function LanguageDropdown({ isMobile, buttonId }) {
           <span>English</span>
         </div>
       </a>
-      <div className={`${DROPDOWN_CLASSES.MENU} -w--sm ${UTILITY_CLASSES.TYPOGRAPHY.TEXT_BODY}`}>
+      <div className={`${DROPDOWN_CLASSES.MENU}  ${UTILITY_CLASSES.TYPOGRAPHY.TEXT_BODY}`}>
         {languages.map((lang) => (
           <a
             key={lang}
