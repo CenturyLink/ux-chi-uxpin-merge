@@ -72,6 +72,16 @@ export const DRAWER_CLASSES = {
   CONTENT: 'chi-drawer__content'
 };
 
+export const FOOTER_CLASSES = {
+  FOOTER: 'chi-footer',
+  FOOTER_CONTENT: 'chi-footer__content',
+  FOOTER_INTERNAL: 'chi-footer__internal',
+  FOOTER_INTERNAL_CONTENT: 'chi-footer__internal-content',
+  FOOTER_LINKS: 'chi-footer__links',
+  FOOTER_COPYRIGHT: 'chi-footer__copyright',
+  FOOTER_LANGUAGE: 'chi-footer__language'
+};
+
 /* Icon */
 export const ICON_CLASS = 'chi-icon';
 
@@ -130,15 +140,20 @@ export const DATA_TABLE_CLASSES = {
 /* Utility Classes */
 export const UTILITY_CLASSES = {
   JUSTIFY: {
-    START: '-justify-content-md--start',
-    CENTER: '-justify-content-md--center',
-    END: '-justify-content-md--end'
+    CENTER: '-justify-content--center',
+    MD: {
+      START: '-justify-content-md--start',
+      CENTER: '-justify-content-md--center',
+      END: '-justify-content-md--end'
+    }
   },
   ALIGN_ITEMS: {
     CENTER: '-align-items--center',
   },
   DISPLAY: {
     FLEX: '-d--flex',
+    FLEX_ROW: '-flex--row',
+    FLEX_COLUMN: '-flex--column',
   },
   TYPOGRAPHY: {
     TEXT_PRIMARY: '-text--primary',
@@ -147,6 +162,7 @@ export const UTILITY_CLASSES = {
     TEXT_SEMI_BOLD: '-text--semi-bold',
     TEXT_BOLD: '-text--bold',
     TEXT_NO_TRANSFORM: '-text--no-transform',
+    TEXT_BODY: '-text--body',
   },
   GRID: 'chi-grid',
   COLUMN: 'chi-col',
@@ -203,6 +219,20 @@ export const UTILITY_CLASSES = {
       2: '-pl--2',
       3: '-pl--3',
       4: '-pl--4',
+    },
+    RIGHT: {
+      0: '-pr--0',
+      1: '-pr--1',
+      2: '-pr--2',
+      3: '-pr--3',
+      4: '-pr--4',
+    },
+    BOTTOM: {
+      0: '-pb--0',
+      1: '-pb--1',
+      2: '-pb--2',
+      3: '-pb--3',
+      4: '-pb--4',
     },
   },
   TEXT: {

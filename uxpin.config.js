@@ -47,6 +47,7 @@ module.exports = {
       {
         name: 'Flow & control',
         include: [
+          'src/components/Footer/Footer.js',
           'src/components/Pagination/Pagination.js',
           'src/components/StatBase/StatBase.js',
           'src/components/StatCompact/StatCompact.js',
