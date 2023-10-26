@@ -111,6 +111,7 @@ TextInput.propTypes = {
   infoPopoverTitle: PropTypes.string,
   /**
    * @uxpinpropname info popover text
+   * @uxpincontroltype textfield(10)
    * */
   infoPopoverDescription: PropTypes.string,
   infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),

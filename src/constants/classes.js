@@ -39,6 +39,9 @@ export const ALERT_CLASSES = {
   TITLE: 'chi-alert__title',
 };
 
+/* Brand */
+export const CHI_BRAND = 'chi-brand';
+
 /* Backdrop */
 export const BACKDROP_CLASSES = {
   BACKDROP: 'chi-backdrop',
@@ -75,11 +78,19 @@ export const DRAWER_CLASSES = {
 export const FOOTER_CLASSES = {
   FOOTER: 'chi-footer',
   FOOTER_CONTENT: 'chi-footer__content',
+  FOOTER_HEADER: 'chi-footer__header',
   FOOTER_INTERNAL: 'chi-footer__internal',
   FOOTER_INTERNAL_CONTENT: 'chi-footer__internal-content',
+  FOOTER_EXTERNAL: 'chi-footer__external',
+  FOOTER_EXTERNAL_CONTENT: 'chi-footer__external-content',
   FOOTER_LINKS: 'chi-footer__links',
+  FOOTER_LINKS_TITLE: 'chi-footer__links-title',
   FOOTER_COPYRIGHT: 'chi-footer__copyright',
-  FOOTER_LANGUAGE: 'chi-footer__language'
+  FOOTER_LANGUAGE: 'chi-footer__language',
+  FOOTER_SOCIAL: 'chi-footer__social',
+  FOOTER_BRAND: 'chi-footer__brand',
+  FOOTER_SEARCH: 'chi-footer__search',
+  FOOTER_SEARCH_INPUT: 'chi-footer-search-input',
 };
 
 /* Icon */
@@ -109,7 +120,7 @@ export const PAGINATION_CLASSES = {
 };
 
 /* Input */
-export const inputClass = 'chi-input';
+export const CHI_INPUT = 'chi-input';
 
 /* Tooltip */
 export const TOOLTIP_CLASSES = {
@@ -154,6 +165,7 @@ export const UTILITY_CLASSES = {
     FLEX: '-d--flex',
     FLEX_ROW: '-flex--row',
     FLEX_COLUMN: '-flex--column',
+    NONE: '-d--none',
   },
   TYPOGRAPHY: {
     TEXT_PRIMARY: '-text--primary',
