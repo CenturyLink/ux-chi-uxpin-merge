@@ -25,6 +25,7 @@ export default class DropdownMenu extends React.Component {
       id: uuid4(),
       active: this.props.active,
       selectedItem: this.props.selectedItem,
+      searchedInput: "",
     };
   }
 
@@ -56,7 +57,7 @@ export default class DropdownMenu extends React.Component {
     if (this.props.syncText) {
       this.props.syncText(this.props[`item${menuItemIndex}`]);
       this.setState({ active: false });
-    }  
+    }
     this.setState({ selectedItem: menuItemIndex });
     this.props[`select${menuItemIndex}`]();
   }
@@ -65,66 +66,211 @@ export default class DropdownMenu extends React.Component {
     const itemsToRender = [];
     const ITEMS_TO_RENDER = 11;
 
-    Array(ITEMS_TO_RENDER).fill()
+    Array(ITEMS_TO_RENDER)
+      .fill()
       .forEach((_, i) => {
         if (this.props[`item${i}`]) {
-          const itemContent = this.props[`item${i}Description`] ? (
-            <>
-              <span className={`${DROPDOWN_CLASSES.ITEM_TITLE}`}>{this.props[`item${i}`]}</span>
-              <span className={`${DROPDOWN_CLASSES.ITEM_DESCRIPTION}`}>{this.props[`item${i}Description`]}</span>
-            </>
-          ) : this.props[`item${i}`];
-          const iconRight = this.props[`iconRight${i}`] ? (
-            <i
-              className={`
+          if (this.state.searchedInput) {
+            if (
+              (this.props[`item${i}Description`] &&
+                this.props[`item${i}Description`].includes(
+                  this.state.searchedInput
+                )) ||
+              (this.props[`item${i}`] &&
+                this.props[`item${i}`].includes(this.state.searchedInput))
+            ) {
+              const itemContent = this.props[`item${i}Description`] ? (
+                <>
+                  <span className={`${DROPDOWN_CLASSES.ITEM_TITLE}`}>
+                    {this.props[`item${i}`]}
+                  </span>
+                  <span className={`${DROPDOWN_CLASSES.ITEM_DESCRIPTION}`}>
+                    {this.props[`item${i}Description`]}
+                  </span>
+                </>
+              ) : (
+                this.props[`item${i}`]
+              );
+              const iconRight = this.props[`iconRight${i}`] ? (
+                <i
+                  className={`
+                  ${ICON_CLASS}
+                  icon-${this.props[`iconRight${i}`]} 
+                  ${
+                    this.props[`iconRight${i}`] ===
+                    DROPDOWN_CLASSES.ICON_CHEVRON_RIGHT
+                      ? UTILITY_CLASSES.MARGIN.LEFT.AUTO
+                      : UTILITY_CLASSES.MARGIN.LEFT[2]
+                  } 
+                  ${UTILITY_CLASSES.MARGIN.RIGHT[0]}
+                `}
+                  aria-hidden="true"
+                ></i>
+              ) : null;
+              const iconLeft = this.props[`iconLeft${i}`] ? (
+                <i
+                  className={`
+                ${ICON_CLASS} 
+                icon-${this.props[`iconLeft${i}`]} 
+                ${UTILITY_CLASSES.MARGIN.LEFT[0]}
+                ${UTILITY_CLASSES.MARGIN.RIGHT[1]}
+              `}
+                  aria-hidden="true"
+                ></i>
+              ) : null;
+
+              itemsToRender.push(
+                this.props.mode === "base" ? (
+                  // eslint-disable-next-line
+                  <a
+                    className={`
+                    ${DROPDOWN_CLASSES.ITEM} 
+                    ${
+                      i === this.state.selectedItem &&
+                      this.props.retainSelection
+                        ? ACTIVE_CLASS
+                        : ""
+                    }
+                  `}
+                    onClick={() => this._handlerClickMenuItem(i)}
+                  >
+                    {iconLeft}
+                    {itemContent}
+                    {iconRight}
+                  </a>
+                ) : this.props.mode === "checkbox" ? (
+                  <div className={DROPDOWN_CLASSES.ITEM}>
+                    <div className={CHECKBOX_CLASSES.checkbox}>
+                      <input
+                        className={CHECKBOX_CLASSES.INPUT}
+                        type="checkbox"
+                        id={`checkbox${i}`}
+                      />
+                      <label
+                        className={CHECKBOX_CLASSES.LABEL}
+                        htmlFor={`checkbox${i}`}
+                      >
+                        {itemContent}
+                      </label>
+                    </div>
+                  </div>
+                ) : (
+                  <div className={DROPDOWN_CLASSES.ITEM}>
+                    <div className={RADIO_CLASSES.RADIO}>
+                      <input
+                        className={RADIO_CLASSES.INPUT}
+                        type="radio"
+                        name="radios"
+                        id={`radio${i}`}
+                        onClick={() => this._handlerClickMenuItem(i)}
+                      />
+                      <label
+                        className={RADIO_CLASSES.LABEL}
+                        htmlFor={`radio${i}`}
+                      >
+                        {itemContent}
+                      </label>
+                    </div>
+                  </div>
+                )
+              );
+            }
+          } else {
+            const itemContent = this.props[`item${i}Description`] ? (
+              <>
+                <span className={`${DROPDOWN_CLASSES.ITEM_TITLE}`}>
+                  {this.props[`item${i}`]}
+                </span>
+                <span className={`${DROPDOWN_CLASSES.ITEM_DESCRIPTION}`}>
+                  {this.props[`item${i}Description`]}
+                </span>
+              </>
+            ) : (
+              this.props[`item${i}`]
+            );
+            const iconRight = this.props[`iconRight${i}`] ? (
+              <i
+                className={`
                 ${ICON_CLASS}
                 icon-${this.props[`iconRight${i}`]} 
-                ${this.props[`iconRight${i}`] === DROPDOWN_CLASSES.ICON_CHEVRON_RIGHT ? UTILITY_CLASSES.MARGIN.LEFT.AUTO : UTILITY_CLASSES.MARGIN.LEFT[2]} 
+                ${
+                  this.props[`iconRight${i}`] ===
+                  DROPDOWN_CLASSES.ICON_CHEVRON_RIGHT
+                    ? UTILITY_CLASSES.MARGIN.LEFT.AUTO
+                    : UTILITY_CLASSES.MARGIN.LEFT[2]
+                } 
                 ${UTILITY_CLASSES.MARGIN.RIGHT[0]}
               `}
-              aria-hidden="true">
-            </i>
-          ) : null;
-          const iconLeft = this.props[`iconLeft${i}`] ? (
-            <i
-              className={`
+                aria-hidden="true"
+              ></i>
+            ) : null;
+            const iconLeft = this.props[`iconLeft${i}`] ? (
+              <i
+                className={`
               ${ICON_CLASS} 
               icon-${this.props[`iconLeft${i}`]} 
               ${UTILITY_CLASSES.MARGIN.LEFT[0]}
               ${UTILITY_CLASSES.MARGIN.RIGHT[1]}
             `}
-              aria-hidden="true">
-            </i>
-          ) : null;
+                aria-hidden="true"
+              ></i>
+            ) : null;
 
-          itemsToRender.push(
-            this.props.mode === 'base' ?
-            // eslint-disable-next-line
-            <a
-              className={`
+            itemsToRender.push(
+              this.props.mode === "base" ? (
+                // eslint-disable-next-line
+                <a
+                  className={`
                   ${DROPDOWN_CLASSES.ITEM} 
-                  ${i === this.state.selectedItem && this.props.retainSelection ? ACTIVE_CLASS : ''}
+                  ${
+                    i === this.state.selectedItem && this.props.retainSelection
+                      ? ACTIVE_CLASS
+                      : ""
+                  }
                 `}
-              onClick={() => this._handlerClickMenuItem(i)}>
-              {iconLeft}
-              {itemContent}
-              {iconRight}
-            </a> : this.props.mode === 'checkbox' ? (
-              <div className={DROPDOWN_CLASSES.ITEM}>
-                <div className={CHECKBOX_CLASSES.checkbox}>
-                  <input className={CHECKBOX_CLASSES.INPUT} type="checkbox" id={`checkbox${i}`} />
-                  <label className={CHECKBOX_CLASSES.LABEL} htmlFor={`checkbox${i}`}>{itemContent}</label>
+                  onClick={() => this._handlerClickMenuItem(i)}
+                >
+                  {iconLeft}
+                  {itemContent}
+                  {iconRight}
+                </a>
+              ) : this.props.mode === "checkbox" ? (
+                <div className={DROPDOWN_CLASSES.ITEM}>
+                  <div className={CHECKBOX_CLASSES.checkbox}>
+                    <input
+                      className={CHECKBOX_CLASSES.INPUT}
+                      type="checkbox"
+                      id={`checkbox${i}`}
+                    />
+                    <label
+                      className={CHECKBOX_CLASSES.LABEL}
+                      htmlFor={`checkbox${i}`}
+                    >
+                      {itemContent}
+                    </label>
+                  </div>
                 </div>
-              </div>
-            ) : (
-              <div className={DROPDOWN_CLASSES.ITEM}>
-                <div className={RADIO_CLASSES.RADIO}>
-                  <input className={RADIO_CLASSES.INPUT} type="radio" name="radios" id={`radio${i}`} onClick={() => this._handlerClickMenuItem(i)} />
-                  <label className={RADIO_CLASSES.LABEL} htmlFor={`radio${i}`}>{itemContent}</label>
+              ) : (
+                <div className={DROPDOWN_CLASSES.ITEM}>
+                  <div className={RADIO_CLASSES.RADIO}>
+                    <input
+                      className={RADIO_CLASSES.INPUT}
+                      type="radio"
+                      name="radios"
+                      id={`radio${i}`}
+                      onClick={() => this._handlerClickMenuItem(i)}
+                    />
+                    <label
+                      className={RADIO_CLASSES.LABEL}
+                      htmlFor={`radio${i}`}
+                    >
+                      {itemContent}
+                    </label>
+                  </div>
                 </div>
-              </div>
-            )
-          );
+              )
+            );
+          }
         }
 
         if (!this.someDescription && this.props[`item${i}Description`]) {
@@ -136,17 +282,59 @@ export default class DropdownMenu extends React.Component {
       <div
         ref={`dropdown-menu-ref-${this.state.id}`}
         className={`
-          ${DROPDOWN_CLASSES.MENU}
-          ${this.state.active ? ACTIVE_CLASS : ''}
-          ${this.someDescription ? LIST_CLASS : ''} 
-        `}
-        style={{
-          height: `${this.props.height && this.props.scrollItems ? `${this.props.height}px` : ''}`,
-          minHeight: `${this.props.height && !this.props.scrollItems ? `${this.props.height}px` : ''}`,
-          minWidth: `${this.props.width ? `${this.props.width}px` : ''}`,
-          overflow: `${this.props.height && this.props.scrollItems ? 'auto' : ''}`,
-        }}>
-        {itemsToRender}
+        ${DROPDOWN_CLASSES.MENU}
+        ${this.state.active ? ACTIVE_CLASS : ""}
+        ${this.someDescription ? LIST_CLASS : ""} 
+      `}
+      style={{overflow: 'hidden'}}
+      >
+        {this.props.showSearch ? <div className={`chi-input__wrapper -icon--right`}>
+          <input
+            className="chi-input chi-search__input -sm"
+            type="search"
+            placeholder="Search"
+            aria-label="search input"
+            onChange={(e) => this.setState({ searchedInput: e.target.value })}
+          />
+          <button
+            className="chi-button -icon -flat -sm -bg--none"
+            aria-label="Search"
+          >
+            <div className="chi-button__content">
+              <i className="chi-icon icon-search" aria-hidden="true"></i>
+            </div>
+          </button>
+        </div> : null}
+        <div
+          style={{
+            height: `${
+              this.props.height &&
+              !this.props.visibleItems
+                ? `${this.props.height}px`
+                : ""
+            }`,
+            minHeight: `${
+              this.props.height &&
+              !this.props.visibleItems
+                ? `${this.props.height}px`
+                : ""
+            }`,
+            minWidth: `${this.props.width ? `${this.props.width}px` : ""}`,
+            overflow: `${
+              (this.props.height &&
+              this.props.scrollItems) || (this.props.visibleItems && this.props.scrollItems)
+                ? "auto"
+                : ""
+            }`,
+            maxHeight: `${
+              this.props.visibleItems
+                ? `${2 * this.props.visibleItems}rem`
+                : this.props.scrollItems ? `${this.props.height}px` : ''
+            }`,
+          }}
+        >
+          {itemsToRender}
+        </div>
       </div>
     );
 
@@ -162,6 +350,10 @@ export default class DropdownMenu extends React.Component {
 DropdownMenu.propTypes = {
   /** @uxpinignoreprop */
   showMenu: PropTypes.bool,
+  /** @uxpinignoreprop */
+  showSearch: PropTypes.bool,
+  /** @uxpinignoreprop */
+  visibleItems: PropTypes.number,
   active: PropTypes.bool,
   retainSelection: PropTypes.bool,
   scrollItems: PropTypes.bool,
