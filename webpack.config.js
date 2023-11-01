@@ -1,6 +1,6 @@
 /* eslint-disable sort-keys */
 const path = require('path');
-
+const ESLintPlugin = require('eslint-webpack-plugin');
 module.exports = {
   entry: ['./src/components/index.js'],
   output: {
@@ -19,16 +19,6 @@ module.exports = {
         test: /\.svg$/,
         exclude: /node_modules/,
         loader: 'svg-react-loader',
-      },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        enforce: 'pre',
-        loader: 'eslint-loader',
-        options: {
-          failOnWarning: false,
-          failOnError: true,
-        },
       },
       {
         loader: 'babel-loader',
@@ -59,4 +49,7 @@ module.exports = {
       },
     ],
   },
+  plugins: [new ESLintPlugin({
+    extensions: [/\.(js|jsx)$/]
+  })]
 };
