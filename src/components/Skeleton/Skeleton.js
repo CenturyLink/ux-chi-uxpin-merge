@@ -20,18 +20,19 @@ const skeletonType = (type) => {
   return '';
 };
 
-const Skeleton = ({ size, type, uxpinRef }) => (
-  <div ref={uxpinRef}>
-    <div
-      className={`
+function Skeleton({ size, type, uxpinRef }) {
+  return (
+    <div ref={uxpinRef}>
+      <div
+        className={`
     ${SKELETON_CLASSES.SKELETON} 
     ${skeletonType(type)}
     ${size ? `-${size}` : ''}
   `}>
+      </div>
     </div>
-  </div>
-);
-
+  );
+}
 
 Skeleton.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
@@ -43,4 +44,4 @@ Skeleton.defaultProps = {
   type: 'default',
 };
 
-export { Skeleton as default };
+export default Skeleton;
