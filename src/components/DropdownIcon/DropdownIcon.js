@@ -16,8 +16,6 @@ import DropdownMenu from '../DropdownMenu/DropdownMenu';
  */
 
 export default class DropdownIcon extends React.Component {
-  activeItem;
-
   constructor(props) {
     super(props);
     this.state = { id: uuid4() };
@@ -45,7 +43,8 @@ export default class DropdownIcon extends React.Component {
           `}
           data-position={this.props.position}
           onClick={() => this.props.buttonClick()}
-          style={{ textTransform: 'none' }}>
+          style={{ textTransform: 'none' }}
+          aria-label={this.props.icon}>
           <div className={BUTTON_CLASSES.CONTENT}>
             <i
               className={` ${ICON_CLASS} 

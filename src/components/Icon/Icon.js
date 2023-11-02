@@ -112,4 +112,4 @@ Icon.defaultProps = {
   tooltipPosition: 'top',
 };
 
-export { Icon as default };
+export default Icon;

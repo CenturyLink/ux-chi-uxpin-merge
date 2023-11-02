@@ -59,10 +59,6 @@ export default class Alert extends React.Component {
     return { defaultIconName, defaultText };
   }
 
-  _iconToRender() {
-    return this.props.icon ? this.props.icon : this.state.defaultIcon;
-  }
-
   _alertTitle() {
     return (
       <p className={`${ALERT_CLASSES.TITLE} ${UTILITY_CLASSES.TEXT.LG}`}>

@@ -6,24 +6,26 @@ import '../../utils/utils.css';
  * @uxpinwrappers
  * SkipContainerWrapper
  */
-const Badge = ({
+function Badge({
   color, size, variant, text, uxpinRef,
-}) => (
-  /* This class is used to solve problems with keys in canvas */
-  <div className="uxPin__wrapper">
-    <div
-      style={{ width: 'fit-content' }}
-      className={
+}) {
+  return (
+    <div className="uxPin__wrapper">
+      <div
+        style={{ width: 'fit-content' }}
+        className={
         `chi-badge
     ${color ? `-${color}` : ''}
     ${size ? `-${size}` : ''}
     ${variant ? `-${variant}` : ''}
-    `}
-      ref={uxpinRef}>
-      <span>{text}</span>
+    `
+}
+        ref={uxpinRef}>
+        <span>{text}</span>
+      </div>
     </div>
-  </div>
-);
+  );
+}
 
 /* eslint-disable sort-keys */
 Badge.propTypes = {
@@ -40,4 +42,4 @@ Badge.defaultProps = {
   variant: 'default',
 };
 
-export { Badge as default };
+export default Badge;
