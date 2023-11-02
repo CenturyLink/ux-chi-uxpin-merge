@@ -3,7 +3,6 @@ import * as React from 'react';
 import './Tooltip.css';
 import { uuid4 } from '../../utils/utils';
 
-
 /**
  * @uxpincomponent
  * @uxpinwrappers
@@ -36,7 +35,8 @@ export default function Tooltip(props) {
       onMouseEnter={props.mouseOver}
       onMouseLeave={props.mouseLeave}
       onMouseDown={props.mouseDown}
-      onMouseUp={props.mouseUp}>
+      onMouseUp={props.mouseUp}
+      aria-label={props.icon}>
       <div className="chi-button__content">
         <i className={`chi-icon icon-${props.icon}`}></i>
       </div>

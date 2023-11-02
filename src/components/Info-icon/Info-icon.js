@@ -40,4 +40,4 @@ InfoIcon.propTypes = {
 
 InfoIcon.defaultProps = {};
 
-export { InfoIcon as default };
+export default InfoIcon;
