@@ -33,7 +33,8 @@ export default function IconButton({
       data-tooltip-color={tooltipColor}
       disabled={disabled}
       onClick={click}
-      ref={uxpinRef}>
+      ref={uxpinRef}
+      aria-label={icon}>
       <div className="chi-button__content">
         <i className={`chi-icon icon-${icon}`}></i>
       </div>

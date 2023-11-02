@@ -5,7 +5,7 @@ import { PRICE_CLASSES } from '../../constants/classes';
 /**
  * @uxpincomponent
  */
-const Price = (props) => {
+function Price(props) {
   const supA = props.supA ? <sup>{props.supA}</sup> : null;
   const supB = props.supB ? <sup>{props.supB}</sup> : null;
 
@@ -16,7 +16,7 @@ const Price = (props) => {
       {supB}
     </div>
   );
-};
+}
 
 Price.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg']),

@@ -117,7 +117,8 @@ export default class Footer extends Component {
                       style={isDesktopSize ? {} : { padding: '0.25rem 0' }}>
                       <a
                         href={link.url}
-                        target={link.newTab ? '_blank' : undefined}>
+                        target={link.newTab ? '_blank' : undefined}
+                        rel="noreferrer">
                         {link.text}
                       </a>
                     </li>
