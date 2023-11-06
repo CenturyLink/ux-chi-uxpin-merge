@@ -1,0 +1,3 @@
+.chi .chi-button.-focus, .chi .chi-button:focus {
+    outline: none !important; /* To override outlining for buttons in uxpin merge */
+}

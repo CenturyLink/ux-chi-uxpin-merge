@@ -1,6 +1,7 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import PrimaryButton from '../Primary-button/Primary-button';
+import '../../common/button-update.css';
 
 /**
  * @uxpincomponent

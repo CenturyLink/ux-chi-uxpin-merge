@@ -1,6 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-
+import '../../common/button-update.css';
 /**
  * @uxpincomponent
  * @uxpinwrappers
