@@ -39,9 +39,6 @@ export const ALERT_CLASSES = {
   TITLE: 'chi-alert__title',
 };
 
-/* Brand */
-export const CHI_BRAND = 'chi-brand';
-
 /* Backdrop */
 export const BACKDROP_CLASSES = {
   BACKDROP: 'chi-backdrop',
@@ -88,7 +85,6 @@ export const FOOTER_CLASSES = {
   FOOTER_COPYRIGHT: 'chi-footer__copyright',
   FOOTER_LANGUAGE: 'chi-footer__language',
   FOOTER_SOCIAL: 'chi-footer__social',
-  FOOTER_BRAND: 'chi-footer__brand',
   FOOTER_SEARCH: 'chi-footer__search',
   FOOTER_SEARCH_INPUT: 'chi-footer-search-input',
 };
@@ -120,7 +116,7 @@ export const PAGINATION_CLASSES = {
 };
 
 /* Input */
-export const CHI_INPUT = 'chi-input';
+export const INPUT_CLASS = 'chi-input';
 
 /* Tooltip */
 export const TOOLTIP_CLASSES = {
@@ -257,7 +253,14 @@ export const UTILITY_CLASSES = {
     LEFT: '-text--left',
   },
   WIDTH : {
-    100: '-w--100'
+    12: '-w--12',
+    100: '-w--100',
+    MD: {
+      6: '-w-md--6',
+    },
+    LG: {
+      3: '-w-lg--3',
+    }
   },
 };
 
