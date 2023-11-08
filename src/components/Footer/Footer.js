@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import * as PropTypes from 'prop-types';
 import { uuid4 } from '../../utils/utils';
+import Brand from '../Brand/Brand';
+import Icon from '../Icon/Icon';
 import {
   BUTTON_CLASSES,
   INPUT_CLASS,
@@ -87,9 +89,10 @@ export default class Footer extends Component {
     const logoLink = "https://assets.ctl.io/";
     return (
       <div className={FOOTER_CLASSES.FOOTER_HEADER}>
-        <chi-link href={logoLink} target="_blank" alternative-text="Lumen">
-          <chi-brand logo="lumen"></chi-brand>
-        </chi-link>
+        <Brand 
+          size="md (20px)"
+          color="default"
+        />
         <div className={FOOTER_CLASSES.FOOTER_SEARCH}>
           <div className={FORM_CLASSES.ITEM}>
             <label className={`${LABEL_CLASSES.LABEL} ${UTILITY_CLASSES.DISPLAY.NONE}`} htmlFor={FOOTER_CLASSES.FOOTER_SEARCH_INPUT}>
@@ -107,7 +110,10 @@ export default class Footer extends Component {
       <div className={FOOTER_CLASSES.FOOTER_SOCIAL}>
         {SOCIAL_MEDIA.map(media => (
           <a key={media.link} href={media.link} aria-label={media.label} rel="noopener" target="_blank">
-            <chi-icon icon={media.icon} size="md"></chi-icon>
+            <Icon
+              icon={media.icon}
+              size="md"
+            />
           </a>
         ))}
       </div>
