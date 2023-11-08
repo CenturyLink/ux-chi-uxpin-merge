@@ -4,16 +4,15 @@ import * as PropTypes from 'prop-types';
 import { uuid4 } from '../../utils/utils';
 import Brand from '../Brand/Brand';
 import Icon from '../Icon/Icon';
+import SearchInput from '../Search-input/Search-input';
+import Text from '../Text/Text';
 import {
   BUTTON_CLASSES,
-  INPUT_CLASS,
   DROPDOWN_CLASSES,
   FOOTER_CLASSES,
   FORM_CLASSES,
   GENERIC_SIZES,
-  ICON_CLASS,
   LIGHT_CLASS,
-  LABEL_CLASSES,
   UTILITY_CLASSES,
 } from '../../constants/classes';
 
@@ -48,10 +47,11 @@ function LanguageDropdown({ isMobile, buttonId }) {
         data-position="top-start"
         aria-label="Select your preferred language">
         <div className={BUTTON_CLASSES.CONTENT}>
-          <i
-            className={`${ICON_CLASS} icon-globe-network-outline`}
-            aria-hidden="true">
-          </i>
+          <Icon
+            icon="globe-network-outline"
+            color="light"
+          >
+          </Icon>
           <span>English</span>
         </div>
       </a>
@@ -86,7 +86,6 @@ export default class Footer extends Component {
   }
 
   renderFooterHeader() {
-    const logoLink = "https://assets.ctl.io/";
     return (
       <div className={FOOTER_CLASSES.FOOTER_HEADER}>
         <Brand 
@@ -95,10 +94,7 @@ export default class Footer extends Component {
         />
         <div className={FOOTER_CLASSES.FOOTER_SEARCH}>
           <div className={FORM_CLASSES.ITEM}>
-            <label className={`${LABEL_CLASSES.LABEL} ${UTILITY_CLASSES.DISPLAY.NONE}`} htmlFor={FOOTER_CLASSES.FOOTER_SEARCH_INPUT}>
-              Search Lumen
-            </label>
-            <input className={INPUT_CLASS} type="text" placeholder="Search" id={FOOTER_CLASSES.FOOTER_SEARCH_INPUT} />
+            <SearchInput placeholder="Search"></SearchInput>
           </div>
         </div>
       </div>
@@ -126,9 +122,9 @@ export default class Footer extends Component {
       <ul>
         <li className={FOOTER_CLASSES.FOOTER_LINKS_TITLE}>SHOP</li>
         <li>
-          <a href={marketplaceLink} target="_blank">
+          <chi-link href={marketplaceLink} target="_blank">
             Marketplace
-          </a>
+          </chi-link>
         </li>
       </ul>
     );
@@ -142,15 +138,19 @@ export default class Footer extends Component {
         className={isHeading ? FOOTER_CLASSES.FOOTER_LINKS_TITLE : ""}
       >
         {isHeading ? (
-          <span>{link.text}</span>
+          <Text
+            text={link.text}
+            weight="bold"
+          >
+          </Text>
         ) : (
-          <a
+          <chi-link
             href={link.url}
             target={link.newTab ? '_blank' : undefined}
             rel={link.newTab ? 'noopener noreferrer' : undefined}
           >
             {link.text}
-          </a>
+          </chi-link>
         )}
       </li>
     );
@@ -258,17 +258,23 @@ export default class Footer extends Component {
                       key={link.url}
                       className={isDesktopSize ? '-p--0' : ''}
                       style={isDesktopSize ? {} : { padding: '0.25rem 0' }}>
-                      <a
+                      <chi-link
                         href={link.url}
                         target={link.newTab ? '_blank' : undefined}
-                        rel="noreferrer">
+                        rel="noreferrer"
+                      >
                         {link.text}
-                      </a>
+                      </chi-link>
                     </li>
                   ))}
                 </ul>
-                <div className={FOOTER_CLASSES.FOOTER_COPYRIGHT}>
-                  &copy; 2023 Lumen Technologies. All Rights Reserved. Lumen is a registered trademark in the United States, EU, and certain other countries.
+                <div className={FOOTER_CLASSES.FOOTER_COPYRIGHT}> 
+                  <Text
+                    text="&copy; 2023 Lumen Technologies. All Rights Reserved. Lumen is a registered trademark in the United States, EU, and certain other countries."
+                    color="light"
+                    size="xs"
+                  >
+                  </Text>
                 </div>
               </div>
             </div>
