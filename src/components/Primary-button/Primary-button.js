@@ -1,6 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import '../../common/button-update.css';
+import { MOUSE_CONTROL } from '../../constants/classes';
 /**
  * @uxpincomponent
  * @uxpinwrappers
@@ -42,24 +42,26 @@ export default function PrimaryButton({
   );
 
   return (
-    <button
-      type="button"
-      className={`
-        chi-button
-        -primary
-        ${size ? `-${size}` : ''}
-        ${fluid ? '-fluid -justify-content--center' : ''}
-        ${flat ? '-flat' : ''}
-        `}
-      disabled={disabled}
-      onClick={click}
-      onMouseEnter={mouseOver}
-      onMouseLeave={mouseLeave}
-      onMouseDown={mouseDown}
-      onMouseUp={mouseUp}
-      ref={uxpinRef}>
-      {buttonContent}
-    </button>
+    <span className={`${MOUSE_CONTROL}`}>
+      <button
+        type="button"
+        className={`
+          chi-button
+          -primary
+          ${size ? `-${size}` : ''}
+          ${fluid ? '-fluid -justify-content--center' : ''}
+          ${flat ? '-flat' : ''}
+          `}
+        disabled={disabled}
+        onClick={click}
+        onMouseEnter={mouseOver}
+        onMouseLeave={mouseLeave}
+        onMouseDown={mouseDown}
+        onMouseUp={mouseUp}
+        ref={uxpinRef}>
+        {buttonContent}
+      </button>
+    </span>
   );
 }
 

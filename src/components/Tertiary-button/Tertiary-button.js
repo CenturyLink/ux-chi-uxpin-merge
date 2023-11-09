@@ -1,6 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import '../../common/button-update.css';
+import { MOUSE_CONTROL } from '../../constants/classes';
 
 /**
  * @uxpincomponent
@@ -18,22 +18,24 @@ export default class TertiaryButton extends React.Component {
     ) : this.props.value;
 
     return (
-      <button
-        type="button"
-        className={`
-          chi-button
-          ${this.props.size ? `-${this.props.size}` : ''}
-          ${this.props.fluid ? '-fluid -justify-content--center' : ''}
-          `}
-        disabled={this.props.disabled}
-        onClick={this.props.click}
-        onMouseEnter={this.props.mouseOver}
-        onMouseLeave={this.props.mouseLeave}
-        onMouseDown={this.props.mouseDown}
-        onMouseUp={this.props.mouseUp}
-        ref={this.props.uxpinRef}>
-        {buttonContent}
-      </button>
+      <span className={`${MOUSE_CONTROL}`}>
+        <button
+          type="button"
+          className={`
+            chi-button
+            ${this.props.size ? `-${this.props.size}` : ''}
+            ${this.props.fluid ? '-fluid -justify-content--center' : ''}
+            `}
+          disabled={this.props.disabled}
+          onClick={this.props.click}
+          onMouseEnter={this.props.mouseOver}
+          onMouseLeave={this.props.mouseLeave}
+          onMouseDown={this.props.mouseDown}
+          onMouseUp={this.props.mouseUp}
+          ref={this.props.uxpinRef}>
+          {buttonContent}
+        </button>
+      </span>
     );
   }
 }

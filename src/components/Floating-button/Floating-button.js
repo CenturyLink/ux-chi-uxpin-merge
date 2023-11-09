@@ -2,7 +2,7 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { uuid4 } from '../../utils/utils';
-import '../../common/button-update.css';
+import { MOUSE_CONTROL } from '../../constants/classes';
 
 /**
  * @uxpinwrappers
@@ -27,7 +27,11 @@ export default class FloatingButton extends React.Component {
 
   render() {
     return (
-      <div data-tooltip={this.props.tooltipMessage || null} id={this.state.id}>
+      <div
+        data-tooltip={this.props.tooltipMessage || null}
+        id={this.state.id}
+        className={`${MOUSE_CONTROL}`}
+      >
         <chi-button
           ref={this.props.uxpinRef}
           type="float"

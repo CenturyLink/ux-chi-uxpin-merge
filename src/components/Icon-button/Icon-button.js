@@ -2,7 +2,7 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { uuid4 } from '../../utils/utils';
 import './IconButton.css';
-import '../../common/button-update.css';
+import { MOUSE_CONTROL } from '../../constants/classes';
 
 /**
  * @uxpincomponent
@@ -24,22 +24,24 @@ export default function IconButton({
   }
 
   return (
-    <button
-      type="button"
-      id={uuid}
-      className={`
-        chi-button -icon -flat`}
-      data-tooltip={tooltipMessage}
-      data-position={tooltipPosition}
-      data-tooltip-color={tooltipColor}
-      disabled={disabled}
-      onClick={click}
-      ref={uxpinRef}
-      aria-label={icon}>
-      <div className="chi-button__content">
-        <i className={`chi-icon icon-${icon}`}></i>
-      </div>
-    </button>
+    <span className={`${MOUSE_CONTROL}`}>
+      <button
+        type="button"
+        id={uuid}
+        className={`
+          chi-button -icon -flat`}
+        data-tooltip={tooltipMessage}
+        data-position={tooltipPosition}
+        data-tooltip-color={tooltipColor}
+        disabled={disabled}
+        onClick={click}
+        ref={uxpinRef}
+        aria-label={icon}>
+        <div className="chi-button__content">
+          <i className={`chi-icon icon-${icon}`}></i>
+        </div>
+      </button>
+    </span>
   );
 }
 

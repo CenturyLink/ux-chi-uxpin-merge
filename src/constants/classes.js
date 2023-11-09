@@ -11,6 +11,7 @@ export const DISABLED_CLASS = '-disabled';
 export const INVERSE_CLASS = '-inverse';
 export const ANIMATED_CLASS = '-animated';
 export const ANIMATE_CHEVRON_CLASS = '-animate';
+export const MOUSE_CONTROL = '-mouse-control'
 export const PORTAL_CLASS = '-portal';
 export const VERTICAL_CLASS = '-vertical';
 export const TRANSITIONING_CLASS = '-transitioning';
