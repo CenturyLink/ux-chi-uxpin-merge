@@ -20,7 +20,7 @@ const SOCIAL_MEDIA = [
   { link: 'https://www.twitter.com/lumentechco', label: 'Lumen on Twitter', icon: 'logo-twitter' },
   { link: 'https://www.linkedin.com/company/lumen-tech', label: 'Lumen on LinkedIn', icon: 'logo-linkedin' },
   { link: 'https://www.facebook.com/lumentechnologies', label: 'Lumen on Facebook', icon: 'logo-facebook' },
-  { link: 'https://www.youtube.com/lumentechnologies', label: 'Lumen on YouTube', icon: 'logo-youtube' }
+  { link: 'https://www.youtube.com/lumentechnologies', label: 'Lumen on YouTube', icon: 'logo-youtube' },
 ];
 
 // eslint-disable-next-line react/prop-types
@@ -49,8 +49,7 @@ function LanguageDropdown({ isMobile, buttonId }) {
         <div className={BUTTON_CLASSES.CONTENT}>
           <Icon
             icon="globe-network-outline"
-            color="light"
-          >
+            color="light">
           </Icon>
           <span>English</span>
         </div>
@@ -88,7 +87,7 @@ export default class Footer extends Component {
   renderFooterHeader() {
     return (
       <div className={FOOTER_CLASSES.FOOTER_HEADER}>
-        <Brand 
+        <Brand
           size="md (20px)"
           color="default"
         />
@@ -104,7 +103,7 @@ export default class Footer extends Component {
   renderSocialMedia() {
     return (
       <div className={FOOTER_CLASSES.FOOTER_SOCIAL}>
-        {SOCIAL_MEDIA.map(media => (
+        {SOCIAL_MEDIA.map((media) => (
           <a key={media.link} href={media.link} aria-label={media.label} rel="noopener" target="_blank">
             <Icon
               icon={media.icon}
@@ -117,12 +116,12 @@ export default class Footer extends Component {
   }
 
   renderShopSection() {
-    const marketplaceLink = "https://www.lumen.com/en-us/marketplace.html";
+    const marketplaceLink = 'https://www.lumen.com/en-us/marketplace.html';
     return (
       <ul>
         <li className={FOOTER_CLASSES.FOOTER_LINKS_TITLE}>SHOP</li>
         <li>
-          <chi-link href={marketplaceLink} target="_blank">
+          <chi-link href={marketplaceLink} rel="noopener" target="_blank">
             Marketplace
           </chi-link>
         </li>
@@ -131,24 +130,21 @@ export default class Footer extends Component {
   }
 
   renderLinkItem(link, index) {
-    const isHeading = link.isHeading || ["Solutions", "Resources"].includes(link.text);
+    const isHeading = link.isHeading || ['Solutions', 'Resources'].includes(link.text);
     return (
       <li
         key={link.url + index}
-        className={isHeading ? FOOTER_CLASSES.FOOTER_LINKS_TITLE : ""}
-      >
+        className={isHeading ? FOOTER_CLASSES.FOOTER_LINKS_TITLE : ''}>
         {isHeading ? (
           <Text
             text={link.text}
-            weight="bold"
-          >
+            weight="bold">
           </Text>
         ) : (
           <chi-link
             href={link.url}
             target={link.newTab ? '_blank' : undefined}
-            rel={link.newTab ? 'noopener noreferrer' : undefined}
-          >
+            rel={link.newTab ? 'noopener noreferrer' : undefined}>
             {link.text}
           </chi-link>
         )}
@@ -160,9 +156,7 @@ export default class Footer extends Component {
     const { id } = this.state;
     const buttonId = `${id}-language-dropdown-button`;
     const isTabletSize = this.props.footerSize === 'Portrait tablet';
-    const isDesktopSize =
-      this.props.footerSize === "Desktop" ||
-      this.props.footerSize === "Desktop - Unauthenticated";
+    const isDesktopSize = this.props.footerSize === 'Desktop' || this.props.footerSize === 'Desktop - Unauthenticated';
     const footerStyle = isDesktopSize
       ? { minWidth: '1256px' }
       : { width: isTabletSize ? '736px' : '368px' };
@@ -201,7 +195,7 @@ export default class Footer extends Component {
         { text: 'Wholesale', url: 'https://www.lumen.com/wholesale.html', newTab: true },
       ],
       [
-        { text: 'Solutions', isHeading: true },,
+        { text: 'Solutions', isHeading: true },
         { text: 'Adaptive Networking', url: 'https://www.lumen.com/en-us/solutions/adaptive-networking.html', newTab: false },
         { text: 'Collaboration', url: 'https://www.lumen.com/en-us/solutions/collaboration.html', newTab: false },
         { text: 'Connected Security', url: 'https://www.lumen.com/en-us/solutions/connected-security.html', newTab: false },
@@ -216,7 +210,7 @@ export default class Footer extends Component {
         { text: 'Network Maps', url: 'https://www.lumen.com/en-us/resources/network-maps.html', newTab: false },
         { text: 'Partners', url: 'https://www.lumen.com/en-us/partner.html', newTab: true },
         { text: 'Support', url: 'https://www.lumen.com/help/en-us/home.html', newTab: true },
-      ]
+      ],
     ];
 
     return (
@@ -225,14 +219,14 @@ export default class Footer extends Component {
         className={FOOTER_CLASSES.FOOTER}
         style={footerStyle}>
         <div className={FOOTER_CLASSES.FOOTER_CONTENT}>
-          {this.props.footerSize === "Desktop - Unauthenticated" && (
+          {this.props.footerSize === 'Desktop - Unauthenticated' && (
             <div className={FOOTER_CLASSES.FOOTER_EXTERNAL}>
               <div className={FOOTER_CLASSES.FOOTER_EXTERNAL_CONTENT}>
                 {this.renderFooterHeader()}
-                <div className={`${FOOTER_CLASSES.FOOTER_LINKS} ${UTILITY_CLASSES.GRID}`} >
+                <div className={`${FOOTER_CLASSES.FOOTER_LINKS} ${UTILITY_CLASSES.GRID}`}>
                   {unauthenticatedLinksGroups.map((group, idx) => (
                     <div key={idx} className={`${UTILITY_CLASSES.COLUMN} ${UTILITY_CLASSES.WIDTH[12]} ${UTILITY_CLASSES.WIDTH.MD[6]} ${UTILITY_CLASSES.WIDTH.LG[3]}`}>
-                      <ul className={idx === 0 || idx === 1 ? UTILITY_CLASSES.TYPOGRAPHY.TEXT_BOLD : ""}>
+                      <ul className={idx === 0 || idx === 1 ? UTILITY_CLASSES.TYPOGRAPHY.TEXT_BOLD : ''}>
                         {group.map((link, index) => this.renderLinkItem(link, index))}
                       </ul>
                       {idx === 0 && this.renderSocialMedia()}
@@ -261,19 +255,18 @@ export default class Footer extends Component {
                       <chi-link
                         href={link.url}
                         target={link.newTab ? '_blank' : undefined}
-                        rel="noreferrer"
-                      >
+                        rel="noreferrer">
                         {link.text}
                       </chi-link>
                     </li>
                   ))}
                 </ul>
-                <div className={FOOTER_CLASSES.FOOTER_COPYRIGHT}> 
+                <div className={FOOTER_CLASSES.FOOTER_COPYRIGHT}>
                   <Text
                     text="&copy; 2023 Lumen Technologies. All Rights Reserved. Lumen is a registered trademark in the United States, EU, and certain other countries."
                     color="light"
-                    size="xs"
-                  >
+                    textAlign="center"
+                    size="xs">
                   </Text>
                 </div>
               </div>

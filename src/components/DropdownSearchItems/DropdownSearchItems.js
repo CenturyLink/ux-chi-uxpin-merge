@@ -209,6 +209,7 @@ DropdownSearchItems.defaultProps = {
   animateChevron: false,
   retainSelection: false,
   syncTextWithSelectedItem: false,
+  scrollItems: true,
   buttonColor: 'base',
   buttonType: 'flat',
   buttonSize: 'md',
