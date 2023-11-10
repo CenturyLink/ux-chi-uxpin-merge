@@ -5,11 +5,10 @@ export default (
   <DropdownSearchItems
     uxpId="dropdown-search-items"
     active={false}
-    showSearch= {false}
+    showSearch={false}
     animateChevron={false}
     retainSelection={false}
     visibleItems="3"
-    scrollItems={true}
     selectedItem={1}
     item1="Item 1"
     item2="Item 2"
