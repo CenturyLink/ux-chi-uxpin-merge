@@ -1,5 +1,6 @@
 /* eslint-disable */
 /* Common */
+export const CHI = "chi";
 export const ACTIVE_CLASS = '-active';
 export const COMPLETED_CLASS = '-completed';
 export const CLOSED_CLASS = '-closed';
@@ -11,7 +12,7 @@ export const DISABLED_CLASS = '-disabled';
 export const INVERSE_CLASS = '-inverse';
 export const ANIMATED_CLASS = '-animated';
 export const ANIMATE_CHEVRON_CLASS = '-animate';
-export const MOUSE_CONTROL = '-mouse-control'
+export const MOUSE_CONTROL = '-mouse-control';
 export const PORTAL_CLASS = '-portal';
 export const VERTICAL_CLASS = '-vertical';
 export const TRANSITIONING_CLASS = '-transitioning';
