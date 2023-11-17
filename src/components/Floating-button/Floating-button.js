@@ -26,7 +26,9 @@ export default class FloatingButton extends React.Component {
 
   render() {
     return (
-      <div data-tooltip={this.props.tooltipMessage || null} id={this.state.id}>
+      <div
+        data-tooltip={this.props.tooltipMessage || null}
+        id={this.state.id}>
         <chi-button
           ref={this.props.uxpinRef}
           type="float"

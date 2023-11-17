@@ -1,6 +1,5 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-
 /**
  * @uxpincomponent
  * @uxpinwrappers
@@ -45,12 +44,12 @@ export default function PrimaryButton({
     <button
       type="button"
       className={`
-        chi-button
-        -primary
-        ${size ? `-${size}` : ''}
-        ${fluid ? '-fluid -justify-content--center' : ''}
-        ${flat ? '-flat' : ''}
-        `}
+          chi-button
+          -primary
+          ${size ? `-${size}` : ''}
+          ${fluid ? '-fluid -justify-content--center' : ''}
+          ${flat ? '-flat' : ''}
+          `}
       disabled={disabled}
       onClick={click}
       onMouseEnter={mouseOver}

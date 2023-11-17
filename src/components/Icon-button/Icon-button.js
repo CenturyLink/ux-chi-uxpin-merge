@@ -26,8 +26,7 @@ export default function IconButton({
     <button
       type="button"
       id={uuid}
-      className={`
-        chi-button -icon -flat`}
+      className="chi-button -icon -flat"
       data-tooltip={tooltipMessage}
       data-position={tooltipPosition}
       data-tooltip-color={tooltipColor}
