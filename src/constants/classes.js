@@ -158,6 +158,7 @@ export const UTILITY_CLASSES = {
     CENTER: '-align-items--center',
   },
   DISPLAY: {
+    BLOCK: '-d--block',
     FLEX: '-d--flex',
     FLEX_ROW: '-flex--row',
     FLEX_COLUMN: '-flex--column',
