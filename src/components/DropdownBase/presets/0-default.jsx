@@ -8,10 +8,17 @@ export default (
     animateChevron={false}
     retainSelection={false}
     selectedItem={1}
+    label="Label"
+    infoPopoverTitle="Popover Title"
+    infoPopoverDescription={`Line 1
+Line 2
+Line 3`}
+    infoPopoverPosition="right-start"
+    required="none"
     text="Dropdown component"
     syncTextWithSelectedItem={false}
     buttonColor="base"
-    buttonType="flat"
+    buttonType="outline"
     buttonSize="md"
     dropdownPosition="bottom-start"
     dropdownHeight="200"
