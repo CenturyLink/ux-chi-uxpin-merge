@@ -11,7 +11,7 @@
     "generate-presets": "uxpin-merge generate-presets",
     "server": "uxpin-merge server --webpack-config ./webpack.uxpin.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js",
     "start": "uxpin-merge --disable-tunneling --webpack-config ./webpack.uxpin.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js",
-    "push-dev": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_DEV_TOKEN} --tag 1.0.46",
+    "push-dev": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_DEV_TOKEN} --tag 1.0.47",
     "push-lumen": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_LUMEN_TOKEN}",
     "push-test": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_TEST_LIBRARY_TOKEN}"
   },
@@ -24,6 +24,7 @@
   "devDependencies": {
     "@babel/cli": "^7.23.0",
     "@babel/core": "^7.23.2",
+    "@babel/eslint-parser": "^7.23.3",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-proposal-decorators": "^7.23.2",
     "@babel/plugin-proposal-do-expressions": "^7.22.5",
@@ -81,7 +82,6 @@
   },
   "homepage": "https://github.com/uxpin-merge/uxpin-merge-boilerplate#readme",
   "dependencies": {
-    "@babel/eslint-parser": "^7.22.15",
     "@emotion/core": "^11.0.0",
     "@emotion/styled": "^11.11.0",
     "@pixi/react": "^7.1.1",
