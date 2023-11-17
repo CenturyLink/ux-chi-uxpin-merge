@@ -2,7 +2,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import Label from '../Label/Label';
-import Icon from '../Icon/Icon';
 import {
   ACTIVE_CLASS,
   ANIMATE_CHEVRON_CLASS,
@@ -53,27 +52,15 @@ export default class DropdownBase extends React.Component {
   }
 
   render() {
-    const info = this.props.info ? (
-      <div className={LABEL_CLASSES.HELP}>
-        <Icon
-          uxpId={`infoIcon-${this.state.id}`}
-          icon="circle-info-outline"
-          size="xs"
-          color="primary"
-          mode="button"
-          popover
-          popoverTitle={this.props.infoPopoverTitle}
-          popoverDescription={this.props.infoPopoverDescription}
-          popoverPosition={this.props.infoPopoverPosition}
-        />
-      </div>
-    ) : null;
-
     const label = this.props.label ? (
       <Label
         htmlFor={this.state.id}
         required={this.props.required}
-        label={this.props.label}>
+        label={this.props.label}
+        info={this.props.info}
+        infoPopoverTitle={this.props.infoPopoverTitle}
+        infoPopoverDescription={this.props.infoPopoverDescription}
+        infoPopoverPosition={this.props.infoPopoverPosition}>
       </Label>
     ) : null;
 
@@ -84,7 +71,6 @@ export default class DropdownBase extends React.Component {
         ref={this.props.uxpinRef}>
         <div className={LABEL_CLASSES.WRAPPER}>
           {label}
-          {info}
         </div>
         <chi-button
           ref={this.dropdownBaseRef}
