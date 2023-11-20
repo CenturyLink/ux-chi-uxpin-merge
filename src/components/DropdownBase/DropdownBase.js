@@ -1,11 +1,13 @@
 /* eslint-disable react/no-unused-prop-types */
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import Label from '../Label/Label';
 import {
   ACTIVE_CLASS,
   ANIMATE_CHEVRON_CLASS,
   BUTTON_CLASSES,
   DROPDOWN_CLASSES,
+  LABEL_CLASSES,
   OVERFLOW_HIDDEN,
   UTILITY_CLASSES,
 } from '../../constants/classes';
@@ -50,11 +52,26 @@ export default class DropdownBase extends React.Component {
   }
 
   render() {
+    const label = this.props.label ? (
+      <Label
+        htmlFor={this.state.id}
+        required={this.props.required}
+        label={this.props.label}
+        info={this.props.info}
+        infoPopoverTitle={this.props.infoPopoverTitle}
+        infoPopoverDescription={this.props.infoPopoverDescription}
+        infoPopoverPosition={this.props.infoPopoverPosition}>
+      </Label>
+    ) : null;
+
     return (
       // eslint-disable-next-line react/prop-types
       <div
         className={`${DROPDOWN_CLASSES.DROPDOWN} ${UTILITY_CLASSES.WIDTH[100]}`}
         ref={this.props.uxpinRef}>
+        <div className={LABEL_CLASSES.WRAPPER}>
+          {label}
+        </div>
         <chi-button
           ref={this.dropdownBaseRef}
           id={this.state.id}
@@ -145,6 +162,7 @@ export default class DropdownBase extends React.Component {
 
 /* eslint-disable sort-keys */
 DropdownBase.propTypes = {
+  label: PropTypes.string,
   active: PropTypes.bool,
   animateChevron: PropTypes.bool,
   retainSelection: PropTypes.bool,
@@ -155,9 +173,18 @@ DropdownBase.propTypes = {
   syncTextWithSelectedItem: PropTypes.bool,
   buttonColor: PropTypes.oneOf(['base', 'primary', 'dark', 'secondary', 'light']),
   buttonType: PropTypes.oneOf(['solid', 'outline', 'flat']),
-  buttonSize: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  buttonSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   disabled: PropTypes.bool,
   appSwitcher: PropTypes.bool,
+  required: PropTypes.oneOf(['none', 'required', 'optional']),
+  info: PropTypes.bool,
+  infoPopoverTitle: PropTypes.string,
+  /**
+   * @uxpinpropname text
+   * @uxpincontroltype textfield(10)
+   * */
+  infoPopoverDescription: PropTypes.string,
+  infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
   dropdownPosition: PropTypes.oneOf(['top-start', 'top', 'top-end', 'left-start', 'left', 'left-end', 'right-start', 'right', 'right-end', 'bottom-start', 'bottom', 'bottom-end']),
   dropdownHeight: PropTypes.string,
   dropdownFixedWidth: PropTypes.string,
