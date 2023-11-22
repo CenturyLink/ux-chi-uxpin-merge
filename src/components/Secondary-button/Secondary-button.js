@@ -20,10 +20,10 @@ export default class SecondaryButton extends React.Component {
       <button
         type="button"
         className={`
-            chi-button
-            ${this.props.size ? `-${this.props.size}` : ''}
-            ${this.props.fluid ? '-fluid -justify-content--center' : ''}
-            `}
+          chi-button
+          ${this.props.size ? `-${this.props.size}` : ''}
+          ${this.props.fluid ? '-fluid -justify-content--center' : ''}
+          `}
         disabled={this.props.disabled}
         onClick={this.props.click}
         onMouseEnter={this.props.mouseOver}
