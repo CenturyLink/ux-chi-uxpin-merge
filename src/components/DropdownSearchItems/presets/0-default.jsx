@@ -10,13 +10,6 @@ export default (
     retainSelection={false}
     visibleItems="3"
     selectedItem={1}
-    label="Label"
-    infoPopoverTitle="Popover Title"
-    infoPopoverDescription={`Line 1
-Line 2
-Line 3`}
-    infoPopoverPosition="right-start"
-    required="none"
     item1="Item 1"
     item2="Item 2"
     item3="Item 3"
@@ -25,7 +18,7 @@ Line 3`}
     text="Dropdown component"
     syncTextWithSelectedItem={false}
     buttonColor="base"
-    buttonType="outline"
+    buttonType="flat"
     buttonSize="md"
     dropdownPosition="bottom-start"
     dropdownHeight="200"
