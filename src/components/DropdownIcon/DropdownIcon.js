@@ -18,13 +18,14 @@ import DropdownMenu from '../DropdownMenu/DropdownMenu';
 export default class DropdownIcon extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { id: uuid4() };
+    this.state = { id: uuid4(), tooltipId: uuid4() };
   }
 
   componentDidMount() {
     const initialize = setInterval(() => {
       if (window.chi && document.getElementById(this.state.id)) {
         window.chi.dropdown(document.getElementById(this.state.id));
+        window.chi.tooltip(document.getElementById(this.state.tooltipId));
         clearInterval(initialize);
       }
     }, 1000);
@@ -34,27 +35,29 @@ export default class DropdownIcon extends React.Component {
     return (
       // eslint-disable-next-line react/prop-types
       <div className={`${DROPDOWN_CLASSES.DROPDOWN}`} ref={this.props.uxpinRef}>
-        <button
-          id={this.state.id}
-          type="button"
-          className={`
+        <div data-tooltip={this.props.tooltipMessage} data-position={this.props.tooltipPosition} id={this.state.tooltipId}>
+          <button
+            id={this.state.id}
+            type="button"
+            className={`
             ${BUTTON_CLASSES.BUTTON}  ${BUTTON_CLASSES.ICON_BUTTON}  ${BUTTON_CLASSES.FLAT}
             ${this.props.disabled ? DISABLED_CLASS : ''} ${this.props.size ? `-${this.props.size}` : ''}
           `}
-          data-position={this.props.position}
-          onClick={() => this.props.buttonClick()}
-          style={{ textTransform: 'none' }}
-          aria-label={this.props.icon}>
-          <div className={BUTTON_CLASSES.CONTENT}>
-            <i
-              className={` ${ICON_CLASS} 
+            data-position={this.props.position}
+            onClick={() => this.props.buttonClick()}
+            style={{ textTransform: 'none' }}
+            aria-label={this.props.icon}>
+            <div className={BUTTON_CLASSES.CONTENT}>
+              <i
+                className={` ${ICON_CLASS} 
                 icon-${this.props.icon} 
                 ${this.props.color === 'base' ? '' : `${BUTTON_CLASSES.ICON_BUTTON}--${this.props.color}`}
               `}
-              aria-hidden="true">
-            </i>
-          </div>
-        </button>
+                aria-hidden="true">
+              </i>
+            </div>
+          </button>
+        </div>
         <DropdownMenu
           showMenu
           active={this.props.active}
@@ -108,6 +111,8 @@ DropdownIcon.propTypes = {
   position: PropTypes.oneOf(['initial', 'top-start', 'top', 'top-end', 'left-start', 'left', 'left-end', 'right-start', 'right', 'right-end', 'bottom-start', 'bottom', 'bottom-end']),
   color: PropTypes.oneOf(['primary', 'dark', 'grey', 'secondary', 'light', 'success', 'info', 'warning', 'danger', 'muted', 'navy', 'orange']),
   icon: PropTypes.string,
+  tooltipMessage: PropTypes.string,
+  tooltipPosition: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   width: PropTypes.string,
   height: PropTypes.string,
