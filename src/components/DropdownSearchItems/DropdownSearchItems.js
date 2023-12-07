@@ -52,11 +52,11 @@ export default class DropdownSearchItems extends React.Component {
   }
 
   render() {
-    const label = this.props.showLabel && this.props.label ? (
+    const label = this.props.fieldLabel ? (
       <Label
         htmlFor={this.state.id}
         required={this.props.required}
-        label={this.props.label}
+        label={this.props.fieldLabel}
         info={this.props.info}
         infoPopoverTitle={this.props.infoPopoverTitle}
         infoPopoverDescription={this.props.infoPopoverDescription}
@@ -173,8 +173,7 @@ export default class DropdownSearchItems extends React.Component {
 
 /* eslint-disable sort-keys */
 DropdownSearchItems.propTypes = {
-  label: PropTypes.string,
-  showLabel: PropTypes.bool,
+  fieldLabel: PropTypes.string,
   active: PropTypes.bool,
   showSearch: PropTypes.bool,
   animateChevron: PropTypes.bool,
