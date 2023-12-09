@@ -35,7 +35,7 @@ export default class DropdownIcon extends React.Component {
     return (
       // eslint-disable-next-line react/prop-types
       <div className={`${DROPDOWN_CLASSES.DROPDOWN}`} ref={this.props.uxpinRef}>
-        <div data-tooltip={this.props.tooltipMessage} data-position={this.props.tooltipPosition} id={this.state.tooltipId}>
+        <div data-tooltip={this.props.tooltipMessage} id={this.state.tooltipId}>
           <button
             id={this.state.id}
             type="button"
@@ -112,7 +112,6 @@ DropdownIcon.propTypes = {
   color: PropTypes.oneOf(['primary', 'dark', 'grey', 'secondary', 'light', 'success', 'info', 'warning', 'danger', 'muted', 'navy', 'orange']),
   icon: PropTypes.string,
   tooltipMessage: PropTypes.string,
-  tooltipPosition: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   width: PropTypes.string,
   height: PropTypes.string,

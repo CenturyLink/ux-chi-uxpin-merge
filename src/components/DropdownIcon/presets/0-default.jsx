@@ -7,7 +7,6 @@ export default (
     active={false}
     retainSelection={false}
     tooltipMessage="Tooltip message"
-    tooltipPosition="top"
     icon="more-vert"
     selectedItem={1}
     item1="Item 1"
