@@ -6,6 +6,7 @@ export default (
     uxpId="dropdown-icon"
     active={false}
     retainSelection={false}
+    tooltipMessage="Tooltip message"
     icon="more-vert"
     selectedItem={1}
     item1="Item 1"
