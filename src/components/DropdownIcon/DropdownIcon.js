@@ -25,7 +25,9 @@ export default class DropdownIcon extends React.Component {
     const initialize = setInterval(() => {
       if (window.chi && document.getElementById(this.state.id)) {
         window.chi.dropdown(document.getElementById(this.state.id));
-        window.chi.tooltip(document.getElementById(this.state.tooltipId));
+        if (this.props.tooltipMessage) {
+          window.chi.tooltip(document.getElementById(this.state.tooltipId));
+        }
         clearInterval(initialize);
       }
     }, 1000);
