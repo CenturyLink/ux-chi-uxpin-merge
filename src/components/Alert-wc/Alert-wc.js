@@ -18,7 +18,7 @@ export default class AlertWc extends React.Component {
         ref={this.props.uxpinRef}
         title={`${title}\n`}
         class={UTILITY_CLASSES.WIDTH[100]}>
-        <span style={{whiteSpace: 'pre-wrap'}}>{defaultText}</span>
+        <span style={{ whiteSpace: 'pre-wrap' }}>{defaultText}</span>
         {this.props.type === 'clickable' && <chi-icon icon={DROPDOWN_CLASSES.ICON_CHEVRON_RIGHT} slot={ALERT_CLASSES.CLICKABLE_ICON}></chi-icon>}
       </chi-alert>
     );
@@ -77,7 +77,7 @@ export default class AlertWc extends React.Component {
     const alertContent = this.renderAlertContent(defaultIconName, color, alertSize, alertType, title, defaultText);
 
     return type === 'clickable' ? (
-      <chi-link href="#" no-hover-underline class={UTILITY_CLASSES.DISPLAY.BLOCK}>
+      <chi-link href="#" onClick={this.props.click} no-hover-underline class={UTILITY_CLASSES.DISPLAY.BLOCK}>
         {alertContent}
       </chi-link>
     ) : (
