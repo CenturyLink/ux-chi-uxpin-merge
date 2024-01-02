@@ -18,7 +18,7 @@ export default class AlertWc extends React.Component {
         ref={this.props.uxpinRef}
         title={`${title}\n`}
         class={UTILITY_CLASSES.WIDTH[100]}>
-        {defaultText}
+        <span style={{whiteSpace: 'pre-wrap'}}>{defaultText}</span>
         {this.props.type === 'clickable' && <chi-icon icon={DROPDOWN_CLASSES.ICON_CHEVRON_RIGHT} slot={ALERT_CLASSES.CLICKABLE_ICON}></chi-icon>}
       </chi-alert>
     );
@@ -105,6 +105,7 @@ AlertWc.propTypes = {
 
 AlertWc.defaultProps = {
   size: 'md',
+  title: '',
   state: 'info',
   type: 'bubble',
   active: true,
