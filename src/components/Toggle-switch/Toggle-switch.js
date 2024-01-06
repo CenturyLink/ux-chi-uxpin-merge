@@ -17,14 +17,36 @@ export default class ToggleSwitch extends React.Component {
       checked: this.props.on,
       id: uuid4(),
     };
+    this.switchRef = React.createRef();
+  }
+
+  componentDidMount() {
+    const switchElement = this.switchRef.current;
+    if (switchElement) {
+      switchElement.addEventListener('toggle', this._handlerToggle);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.on !== this.props.on && this.state.checked !== this.props.on) {
+      this.setState({ checked: this.props.on });
+    }
+  }
+
+  componentWillUnmount() {
+    const switchElement = this.switchRef.current;
+    if (switchElement) {
+      switchElement.removeEventListener('toggle', this._handlerToggle);
+    }
   }
 
   _handlerToggle = () => {
-    this.setState({ checked: !this.state.checked }, () => {
-      if (this.state.checked && this.props.turnOn) {
-        this.props.turnOn();
-      } else if (!this.state.checked && this.props.turnOff) {
-        this.props.turnOff();
+    const isNowOn = !this.state.checked;
+    this.setState({ checked: isNowOn }, () => {
+      if (isNowOn) {
+        this.props.turnOn && this.props.turnOn();
+      } else {
+        this.props.turnOff && this.props.turnOff();
       }
     });
   };
@@ -64,12 +86,12 @@ export default class ToggleSwitch extends React.Component {
           {info}
         </div>
         <chi-switch
+          ref={this.switchRef}
           id={this.state.id}
           label={this.props.toggleLabel}
           size={this.props.size}
           checked={this.props.on}
-          disabled={this.props.disabled}
-          onToggle={this._handlerToggle.bind(this)}>
+          disabled={this.props.disabled}>
         </chi-switch>
       </div>
     );
