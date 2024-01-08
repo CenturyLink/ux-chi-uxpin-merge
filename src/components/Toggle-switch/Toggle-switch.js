@@ -22,34 +22,36 @@ export default class ToggleSwitch extends React.Component {
 
   componentDidMount() {
     const switchElement = this.switchRef.current;
-    if (switchElement) {
-      switchElement.addEventListener('toggle', this._handlerToggle);
-    }
+
+    switchElement?.addEventListener('toggle', this._handlerToggle.bind(this));
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.on !== this.props.on && this.state.checked !== this.props.on) {
-      this.setState({ checked: this.props.on });
+    const newPropOn = this.props.on;
+
+    if (prevProps.on !== newPropOn && this.state.checked !== newPropOn) {
+      this.setState({ checked: newPropOn });
     }
   }
 
   componentWillUnmount() {
     const switchElement = this.switchRef.current;
-    if (switchElement) {
-      switchElement.removeEventListener('toggle', this._handlerToggle);
-    }
+
+    switchElement?.removeEventListener('toggle', this._handlerToggle.bind(this));
   }
 
-  _handlerToggle = () => {
-    const isNowOn = !this.state.checked;
-    this.setState({ checked: isNowOn }, () => {
-      if (isNowOn) {
-        this.props.turnOn && this.props.turnOn();
-      } else {
-        this.props.turnOff && this.props.turnOff();
-      }
-    });
-  };
+  _executeInteraction(on) {
+    if (on) {
+      this.props.turnOn?.();
+      return;
+    }
+
+    this.props.turnOff?.();
+  }
+
+  _handlerToggle() {
+    this.setState({ checked: !this.state.checked }, this._executeInteraction(!this.state.checked));
+  }
 
   render() {
     const info = this.props.info ? (
