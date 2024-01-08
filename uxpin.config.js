@@ -71,7 +71,6 @@ module.exports = {
         name: 'Messaging & status',
         include: [
           'src/components/Alert/Alert.js',
-          'src/components/Alert-wc/Alert-wc.js',
           'src/components/Popover/Popover.js',
           'src/components/Progress/Progress.js',
           'src/components/Skeleton/Skeleton.js',
