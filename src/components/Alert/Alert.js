@@ -1,47 +1,25 @@
 import * as PropTypes from 'prop-types';
-import * as React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ALERT_CLASSES, DROPDOWN_CLASSES, UTILITY_CLASSES } from '../../constants/classes';
 
-export default class Alert extends React.Component {
-  alertRef = React.createRef();
+export default function Alert({ size, state, title, icon, type, active, text, animateSpinner, closable, click }) {
+  const alertRef = useRef(null);
 
-  componentDidMount() {
-    const alertElement = this.alertRef.current;
+  useEffect(() => {
+    if (alertRef.current) {
+      const handleClick = () => click();
 
-    alertElement?.addEventListener('dismissAlert', this.handleClick);
-  }
+      alertRef.current.addEventListener('dismissAlert', handleClick);
 
-  componentWillUnmount() {
-    const alertElement = this.alertRef.current;
+      return () => {
+        if (alertRef.current) {
+          alertRef.current.removeEventListener('dismissAlert', handleClick);
+        }
+      };
+    }
+  }, [click]);
 
-    alertElement?.removeEventListener('dismissAlert', this.handleClick);
-  }
-
-  handleClick = () => this.props.click?.();
-
-  renderAlertContent(defaultIconName, color, alertSize, alertType, title, defaultText) {
-    const isClosable = this.props.closable && ['bubble', 'toast'].includes(this.props.type);
-
-    return (
-      <chi-alert
-        ref={this.alertRef}
-        color={color}
-        icon={defaultIconName}
-        size={alertSize}
-        type={alertType}
-        closable={isClosable}
-        spinner={this.props.animateSpinner}
-        title={`${title}\n`}
-        class={UTILITY_CLASSES.WIDTH[100]}>
-        <span style={{ whiteSpace: 'pre-wrap' }}>{defaultText}</span>
-        {this.props.type === 'clickable' && (
-          <chi-icon icon={DROPDOWN_CLASSES.ICON_CHEVRON_RIGHT} slot={ALERT_CLASSES.CLICKABLE_ICON}></chi-icon>
-        )}
-      </chi-alert>
-    );
-  }
-
-  _handleStates(stateIncoming) {
+  const handleStates = (stateIncoming) => {
     const states = {
       success: {
         icon: 'circle-check',
@@ -70,34 +48,50 @@ export default class Alert extends React.Component {
     };
 
     return states[stateIncoming];
-  }
+  };
 
-  render() {
-    const {
-      size, state, title, icon, type, active, text,
-    } = this.props;
+  const renderAlertContent = (defaultIconName, color, alertSize, alertType, title, defaultText) => {
+    const isClosable = closable && ['bubble', 'toast'].includes(type);
 
-    const newState = this._handleStates(state);
-    const defaultIconName = icon || newState.icon;
-    const defaultText = text || newState.text;
-    const color = state;
-    const alertSize = size !== 'md' ? size : undefined;
-    const alertType = type !== 'clickable' ? type : undefined;
-
-    if (!active) {
-      return null;
-    }
-
-    const alertContent = this.renderAlertContent(defaultIconName, color, alertSize, alertType, title, defaultText);
-
-    return type === 'clickable' ? (
-      <chi-link href="#" onClick={this.props.click} no-hover-underline class={UTILITY_CLASSES.DISPLAY.BLOCK}>
-        {alertContent}
-      </chi-link>
-    ) : (
-      alertContent
+    return (
+      <chi-alert
+        ref={alertRef}
+        color={color}
+        icon={defaultIconName}
+        size={alertSize}
+        type={alertType}
+        closable={isClosable}
+        spinner={animateSpinner}
+        title={`${title}\n`}
+        class={UTILITY_CLASSES.WIDTH[100]}>
+        <span style={{ whiteSpace: 'pre-wrap' }}>{defaultText}</span>
+        {type === 'clickable' && (
+          <chi-icon icon={DROPDOWN_CLASSES.ICON_CHEVRON_RIGHT} slot={ALERT_CLASSES.CLICKABLE_ICON}></chi-icon>
+        )}
+      </chi-alert>
     );
+  };
+
+  const newState = handleStates(state);
+  const defaultIconName = icon || newState.icon;
+  const defaultText = text || newState.text;
+  const color = state;
+  const alertSize = size !== 'md' ? size : undefined;
+  const alertType = type !== 'clickable' ? type : undefined;
+
+  if (!active) {
+    return null;
   }
+
+  const alertContent = renderAlertContent(defaultIconName, color, alertSize, alertType, title, defaultText);
+
+  return type === 'clickable' ? (
+    <chi-link href="#" onClick={click} no-hover-underline class={UTILITY_CLASSES.DISPLAY.BLOCK}>
+      {alertContent}
+    </chi-link>
+  ) : (
+    alertContent
+  );
 }
 
 Alert.propTypes = {
