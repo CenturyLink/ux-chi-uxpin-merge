@@ -1,4 +1,3 @@
-/* eslint-disable object-curly-newline */
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { ALERT_CLASSES, DROPDOWN_CLASSES, UTILITY_CLASSES } from '../../constants/classes';
@@ -8,16 +7,14 @@ export default class Alert extends React.Component {
 
   componentDidMount() {
     const alertElement = this.alertRef.current;
-    if (alertElement) {
-      alertElement.addEventListener('dismissAlert', this.handleClick);
-    }
+
+    alertElement?.addEventListener('dismissAlert', this.handleClick);
   }
 
   componentWillUnmount() {
     const alertElement = this.alertRef.current;
-    if (alertElement) {
-      alertElement.removeEventListener('dismissAlert', this.handleClick);
-    }
+
+    alertElement?.removeEventListener('dismissAlert', this.handleClick);
   }
 
   handleClick = () => this.props.click?.();
@@ -76,7 +73,9 @@ export default class Alert extends React.Component {
   }
 
   render() {
-    const { size, state, title, icon, type, active, text } = this.props;
+    const {
+      size, state, title, icon, type, active, text,
+    } = this.props;
 
     const newState = this._handleStates(state);
     const defaultIconName = icon || newState.icon;
