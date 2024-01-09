@@ -86,6 +86,12 @@ module.exports = {
           'src/components/Text/Text.js',
         ],
       },
+      /*{
+        name: 'Archived components',
+        include: [
+          'src/components/Alert-archive/AlertArchive.js',
+        ],
+      },*/
     ],
   },
   name: 'Chi',

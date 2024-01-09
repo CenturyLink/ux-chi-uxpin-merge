@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable object-curly-newline */
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { ALERT_CLASSES, DROPDOWN_CLASSES, UTILITY_CLASSES } from '../../constants/classes';
@@ -9,22 +9,18 @@ export default class Alert extends React.Component {
   componentDidMount() {
     const alertElement = this.alertRef.current;
     if (alertElement) {
-      alertElement.addEventListener('dismissAlert', this.handleDismiss);
+      alertElement.addEventListener('dismissAlert', this.handleClick);
     }
   }
 
   componentWillUnmount() {
     const alertElement = this.alertRef.current;
     if (alertElement) {
-      alertElement.removeEventListener('dismissAlert', this.handleDismiss);
+      alertElement.removeEventListener('dismissAlert', this.handleClick);
     }
   }
 
-  handleDismiss = () => {
-    if (this.props.onDismiss) {
-      this.props.onDismiss();
-    }
-  };
+  handleClick = () => this.props.click?.();
 
   renderAlertContent(defaultIconName, color, alertSize, alertType, title, defaultText) {
     const isClosable = this.props.closable && ['bubble', 'toast'].includes(this.props.type);
@@ -41,53 +37,50 @@ export default class Alert extends React.Component {
         title={`${title}\n`}
         class={UTILITY_CLASSES.WIDTH[100]}>
         <span style={{ whiteSpace: 'pre-wrap' }}>{defaultText}</span>
-        {this.props.type === 'clickable' && <chi-icon icon={DROPDOWN_CLASSES.ICON_CHEVRON_RIGHT} slot={ALERT_CLASSES.CLICKABLE_ICON}></chi-icon>}
+        {this.props.type === 'clickable' && (
+          <chi-icon icon={DROPDOWN_CLASSES.ICON_CHEVRON_RIGHT} slot={ALERT_CLASSES.CLICKABLE_ICON}></chi-icon>
+        )}
       </chi-alert>
     );
   }
 
+  _handleStates(stateIncoming) {
+    const states = {
+      success: {
+        icon: 'circle-check',
+        text: 'This is a success alert',
+      },
+      warning: {
+        icon: 'warning',
+        text: 'This is a warning alert',
+      },
+      danger: {
+        icon: 'circle-x',
+        text: 'This is a danger alert',
+      },
+      info: {
+        icon: 'circle-info',
+        text: 'This is an info alert',
+      },
+      muted: {
+        icon: 'flag',
+        text: 'This is a muted alert',
+      },
+      base: {
+        icon: 'flag',
+        text: 'This is a base alert',
+      },
+    };
+
+    return states[stateIncoming];
+  }
+
   render() {
-    const {
-      size,
-      state,
-      title,
-      icon,
-      type,
-      active,
-      text,
-    } = this.props;
+    const { size, state, title, icon, type, active, text } = this.props;
 
-    let defaultIconName;
-    let defaultText = text;
-
-    switch (state) {
-      case 'success':
-        defaultIconName = icon || 'circle-check';
-        defaultText = defaultText || 'This is a success alert';
-        break;
-      case 'warning':
-        defaultIconName = icon || 'warning';
-        defaultText = defaultText || 'This is a warning alert';
-        break;
-      case 'danger':
-        defaultIconName = icon || 'circle-x';
-        defaultText = defaultText || 'This is a danger alert';
-        break;
-      case 'info':
-        defaultIconName = icon || 'circle-info';
-        defaultText = defaultText || 'This is an info alert';
-        break;
-      case 'muted':
-        defaultIconName = icon || 'flag';
-        defaultText = defaultText || 'This is a muted alert';
-        break;
-      case 'base':
-      default:
-        defaultIconName = icon || 'flag';
-        defaultText = defaultText || 'This is a base alert';
-        break;
-    }
-
+    const newState = this._handleStates(state);
+    const defaultIconName = icon || newState.icon;
+    const defaultText = text || newState.text;
     const color = state;
     const alertSize = size !== 'md' ? size : undefined;
     const alertType = type !== 'clickable' ? type : undefined;
@@ -127,10 +120,6 @@ Alert.propTypes = {
    * @uxpinpropname On Click
    */
   click: PropTypes.func,
-  /**
-   * @uxpinpropname On Dismiss
-   */
-  onDismiss: PropTypes.func,
 };
 
 Alert.defaultProps = {
@@ -139,5 +128,4 @@ Alert.defaultProps = {
   state: 'info',
   type: 'bubble',
   active: true,
-  onDismiss: null,
 };
