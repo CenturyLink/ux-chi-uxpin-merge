@@ -18,7 +18,7 @@ export const SR_ONLY_CLASS = '-sr--only';
 export const UX_PIN_WRAPPER = 'uxPin__wrapper';
 export const NO_HOVER_UNDERLINE = '-no-hover-underline';
 export const OVERFLOW_HIDDEN = '-overflow--hidden';
-export const ICON_CHEVRON_RIGHT = 'icon-chevron-right';
+export const CHEVRON_RIGHT = 'chevron-right';
 export const ROW_CLASS = '-row';
 export const GENERIC_SIZES = {
   XS: '-xs',
@@ -32,7 +32,6 @@ export const GENERIC_SIZES = {
 export const ALERT_CLASSES = {
   ALERT: 'chi-alert',
   CLOSE_BUTTON: 'chi-alert__close-button',
-  CLICKABLE_ICON: 'chi-alert__clickable-icon',
   CONTENT: 'chi-alert__content',
   ICON: 'chi-alert__icon',
   TEXT: 'chi-alert__text',

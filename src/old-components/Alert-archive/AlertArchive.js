@@ -4,8 +4,8 @@ import * as React from 'react';
 import {
   ALERT_CLASSES,
   BUTTON_CLASSES,
+  CHEVRON_RIGHT,
   CLOSE_CLASS,
-  ICON_CHEVRON_RIGHT,
   ICON_CLASS,
   INFO_CLASS,
   LINK_CLASSES,
@@ -142,7 +142,7 @@ export default class AlertArchive extends React.Component {
     );
     const chevronRight = (
       <div className={ALERT_CLASSES.CLICKABLE_ICON}>
-        <i className={`${ICON_CLASS} ${ICON_CHEVRON_RIGHT}`}></i>
+        <i className={`${ICON_CLASS} icon-${CHEVRON_RIGHT}`}></i>
       </div>
     );
     const closeButton = this.props.closable ? this._closableButton() : null;
