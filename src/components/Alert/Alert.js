@@ -45,8 +45,8 @@ const renderAlertContent = (props, alertRef) => {
       size={props.size}
       type={type}
       closable={props.closable}
-      spinner={props.animateSpinner}
-      title={`${props.title}\n`}
+      spinner={props.animatedSpinner}
+      title={props.title ? `${props.title}\n` : undefined}
       class={UTILITY_CLASSES.WIDTH[100]}>
       <span style={{ whiteSpace: 'pre-wrap' }}>{props.text}</span>
       {props.type === 'clickable' && <chi-icon icon={CHEVRON_RIGHT} slot="chi-alert__clickable-icon"></chi-icon>}
@@ -83,7 +83,7 @@ export default function Alert(props) {
 
   const state = manageState(props.state);
   const defaultProps = {
-    animateSpinner: props.animateSpinner,
+    animatedSpinner: props.animatedSpinner,
     color: props.state,
     closable: props.closable && ['bubble', 'toast'].includes(props.type),
     icon: props.icon || state.icon,
@@ -105,18 +105,18 @@ export default function Alert(props) {
 Alert.propTypes = {
   size: PropTypes.oneOf(['sm', 'md']),
   state: PropTypes.oneOf(['base', 'success', 'warning', 'danger', 'info', 'muted']),
-  animateSpinner: PropTypes.bool,
+  title: PropTypes.string,
   /**
    * A textArea controller for Text
    * @uxpinpropname text
    * @uxpincontroltype textfield(10)
    * */
   text: PropTypes.string,
-  title: PropTypes.string,
   icon: PropTypes.string,
-  active: PropTypes.bool,
-  type: PropTypes.oneOf(['bubble', 'toast', 'clickable']),
+  animatedSpinner: PropTypes.bool,
   closable: PropTypes.bool,
+  type: PropTypes.oneOf(['bubble', 'toast', 'clickable']),
+  active: PropTypes.bool,
   /**
    * @uxpinpropname On Click
    */
