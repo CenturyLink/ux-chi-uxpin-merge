@@ -126,7 +126,6 @@ Alert.propTypes = {
 
 Alert.defaultProps = {
   size: 'md',
-  title: '',
   state: 'info',
   type: 'bubble',
   active: true,
