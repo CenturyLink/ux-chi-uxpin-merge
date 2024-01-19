@@ -45,7 +45,7 @@ const renderAlertContent = (props, alertRef) => {
       size={props.size}
       type={type}
       closable={props.closable}
-      spinner={props.animatedSpinner}
+      spinner={props.animateSpinner}
       title={props.title ? `${props.title}\n` : undefined}
       class={UTILITY_CLASSES.WIDTH[100]}>
       <span style={{ whiteSpace: 'pre-wrap' }}>{props.text}</span>
@@ -83,7 +83,7 @@ export default function Alert(props) {
 
   const state = manageState(props.state);
   const defaultProps = {
-    animatedSpinner: props.animatedSpinner,
+    animateSpinner: props.animateSpinner,
     color: props.state,
     closable: props.closable && ['bubble', 'toast'].includes(props.type),
     icon: props.icon || state.icon,
@@ -113,7 +113,10 @@ Alert.propTypes = {
    * */
   text: PropTypes.string,
   icon: PropTypes.string,
-  animatedSpinner: PropTypes.bool,
+  /**
+   * @uxpinpropname Animated Spinner
+   */
+  animateSpinner: PropTypes.bool,
   closable: PropTypes.bool,
   type: PropTypes.oneOf(['bubble', 'toast', 'clickable']),
   active: PropTypes.bool,
