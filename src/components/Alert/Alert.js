@@ -46,7 +46,7 @@ const renderAlertContent = (props, alertRef) => {
       type={type}
       closable={props.closable}
       spinner={props.animateSpinner}
-      title={`${props.title}\n`}
+      title={props.title ? `${props.title}\n` : undefined}
       class={UTILITY_CLASSES.WIDTH[100]}>
       <span style={{ whiteSpace: 'pre-wrap' }}>{props.text}</span>
       {props.type === 'clickable' && <chi-icon icon={CHEVRON_RIGHT} slot="chi-alert__clickable-icon"></chi-icon>}
@@ -105,18 +105,21 @@ export default function Alert(props) {
 Alert.propTypes = {
   size: PropTypes.oneOf(['sm', 'md']),
   state: PropTypes.oneOf(['base', 'success', 'warning', 'danger', 'info', 'muted']),
-  animateSpinner: PropTypes.bool,
+  title: PropTypes.string,
   /**
    * A textArea controller for Text
    * @uxpinpropname text
    * @uxpincontroltype textfield(10)
    * */
   text: PropTypes.string,
-  title: PropTypes.string,
   icon: PropTypes.string,
-  active: PropTypes.bool,
-  type: PropTypes.oneOf(['bubble', 'toast', 'clickable']),
+  /**
+   * @uxpinpropname Animated Spinner
+   */
+  animateSpinner: PropTypes.bool,
   closable: PropTypes.bool,
+  type: PropTypes.oneOf(['bubble', 'toast', 'clickable']),
+  active: PropTypes.bool,
   /**
    * @uxpinpropname On Click
    */
@@ -126,7 +129,6 @@ Alert.propTypes = {
 
 Alert.defaultProps = {
   size: 'md',
-  title: '',
   state: 'info',
   type: 'bubble',
   active: true,
