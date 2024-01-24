@@ -39,6 +39,7 @@ module.exports = {
       {
         name: 'Dropdowns',
         include: [
+          'src/components/DropdownBaseWc/DropdownBaseWc.js',
           'src/components/DropdownBase/DropdownBase.js',
           'src/components/DropdownIcon/DropdownIcon.js',
           'src/components/DropdownMenu/DropdownMenu.js',
