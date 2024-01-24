@@ -117,7 +117,13 @@ ToggleSwitch.propTypes = {
    * */
   infoPopoverDescription: PropTypes.string,
   infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
+  /**
+   * @uxpinpropname On turn-on
+   */
   turnOn: PropTypes.func,
+  /**
+   * @uxpinpropname On turn-off
+   */
   turnOff: PropTypes.func,
 };
 
