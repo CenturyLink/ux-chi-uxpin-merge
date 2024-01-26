@@ -20,6 +20,8 @@ export default function TimePicker({
   active,
   displaySeconds,
   format,
+  minutesStep,
+  secondsStep,
   value,
   click,
   focus,
@@ -92,6 +94,8 @@ export default function TimePicker({
         active={active}
         display-seconds={displaySeconds}
         format={format}
+        minutes-step={minutesStep}
+        seconds-step={secondsStep}
         disabled={disabled}
         value={value}
         id={uuid}
@@ -108,6 +112,8 @@ TimePicker.propTypes = {
   active: PropTypes.bool,
   displaySeconds: PropTypes.bool,
   format: PropTypes.oneOf(['12hr', '24hr']),
+  minutesStep: PropTypes.oneOf(['1', '5', '10', '15', '20', '30']),
+  secondsStep: PropTypes.oneOf(['1', '5', '10', '15', '20', '30']),
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,
   /**
@@ -136,5 +142,7 @@ TimePicker.propTypes = {
 TimePicker.defaultProps = {
   disabled: false,
   format: '12hr',
+  minutesStep: '15',
+  secondsStep: '15',
   required: 'none',
 };
