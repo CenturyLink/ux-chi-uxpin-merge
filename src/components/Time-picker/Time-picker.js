@@ -111,8 +111,17 @@ TimePicker.propTypes = {
   label: PropTypes.string,
   active: PropTypes.bool,
   displaySeconds: PropTypes.bool,
+  /**
+   * @uxpinpropname Time Format
+   */
   format: PropTypes.oneOf(['12hr', '24hr']),
+  /**
+   * @uxpinpropname Time Step (Minutes)
+   */
   minutesStep: PropTypes.oneOf(['1', '5', '10', '15', '20', '30']),
+  /**
+   * @uxpinpropname Time Step (Seconds)
+   */
   secondsStep: PropTypes.oneOf(['1', '5', '10', '15', '20', '30']),
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,
