@@ -151,7 +151,7 @@ DatePicker.propTypes = {
   /**
    * @uxpinpropname Date format
    */
-  format: PropTypes.oneOf([ 'MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD']),
+  format: PropTypes.oneOf(['MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD']),
   min: PropTypes.string,
   max: PropTypes.string,
   selected: PropTypes.string,
