@@ -8,7 +8,7 @@ export default (
     label="Label"
     required="none"
     mode="date"
-    format= 'MM/DD/YYYY'
+    format="MM/DD/YYYY"
     min=""
     max=""
     selected=""
