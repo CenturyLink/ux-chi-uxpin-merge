@@ -115,6 +115,7 @@ export default class DatePicker extends React.Component {
             value={this.props.selected}
             onClick={this.props.click}
             mode={dateMode}
+            format={this.props.format}
             time-format={timeFormat}
             onMouseEnter={this.props.mouseOver}
             onMouseLeave={this.props.mouseLeave}
@@ -147,6 +148,10 @@ DatePicker.propTypes = {
   /** @uxpinignoreprop */
   mouseLeaveInfo: PropTypes.func,
   mode: PropTypes.oneOf(['date', 'datetime - 12hr', 'datetime - 24hr']),
+  /**
+   * @uxpinpropname Date format
+   */
+  format: PropTypes.oneOf(['MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD']),
   min: PropTypes.string,
   max: PropTypes.string,
   selected: PropTypes.string,
@@ -174,6 +179,7 @@ DatePicker.defaultProps = {
   disabled: false,
   required: 'none',
   mode: 'date',
+  format: 'MM/DD/YYYY',
   selected: selected(),
   info: false,
   mo: true,
