@@ -1,18 +1,9 @@
 /* eslint-disable */
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { DROPDOWN_CLASSES, ICON_CLASS, RADIO_CLASSES } from '../../constants/classes';
 
-export default function DropdownMenuItems({
-  active,
-  retainSelection = true,
-  mode,
-  preventAutoHide,
-  selectedItem,
-  items,
-}) {
-  const dropdownMenuItemsRef = useRef(null);
-
+export default function DropdownMenuItems({ retainSelection, mode, selectedItem, items }) {
   // #region Methods
   const renderBaseItem = (item, index, isActive) => {
     const baseItemClass = `${DROPDOWN_CLASSES.ITEM} ${isActive ? '-active' : ''}`;
@@ -72,25 +63,9 @@ export default function DropdownMenuItems({
       }
     });
   };
-
-  const hasItemDescription = () => {
-    return items.some((item) => item.description);
-  };
   // #endregion
 
-  return (
-    <div className={DROPDOWN_CLASSES.DROPDOWN}>
-      <chi-dropdown
-        id={`dropdown-${active ? 'active' : 'default'}`}
-        ref={dropdownMenuItemsRef}
-        key={mode}
-        active={active}
-        prevent-auto-hide={preventAutoHide}
-        description={hasItemDescription()}>
-        {renderDropdownItems()}
-      </chi-dropdown>
-    </div>
-  );
+  return renderDropdownItems();
 }
 
 // #region PropTypes
@@ -104,17 +79,9 @@ DropdownMenuItems.propTypes = {
       onSelect: PropTypes.func,
     })
   ),
-  active: PropTypes.bool,
-  retainSelection: PropTypes.bool,
-  mode: PropTypes.oneOf(['base', 'checkbox', 'radio']),
-  selectedItem: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
 };
 
 DropdownMenuItems.defaultProps = {
   items: [],
-  active: false,
-  mode: 'base',
-  preventAutoHide: undefined,
-  selectedItem: 1,
 };
 // #endregion
