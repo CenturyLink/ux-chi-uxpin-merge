@@ -2,12 +2,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DropdownMenuItems from '../DropdownMenuItems/DropdownMenuItems';
+import { DROPDOWN_CLASSES } from '../../constants/classes';
 
 /**
  * @uxpincomponent
  */
 export default function DropdownMenuWc(props) {
-  const { active, retainSelection, scrollItems, selectedItem, mode, preventAutoHide, showButton } = props;
+  const { active, retainSelection, scrollItems, selectedItem, mode, preventAutoHide } = props;
 
   // #region Methods
   const createDropdownItems = (props) => {
@@ -29,6 +30,8 @@ export default function DropdownMenuWc(props) {
 
   const items = createDropdownItems(props);
 
+  const hasDescription = items.some((item) => item.description);
+
   const handleSelect = (item, index) => {
     if (items[index].onSelect) {
       items[index].onSelect(item);
@@ -37,17 +40,22 @@ export default function DropdownMenuWc(props) {
   // #endregion
 
   return (
-    <DropdownMenuItems
-      active={active}
-      retainSelection={retainSelection}
-      selectedItem={selectedItem}
-      mode={mode}
-      preventAutoHide={preventAutoHide}
-      showButton={showButton}
-      items={items}
-      onSelect={handleSelect}
-      scrollItems={scrollItems}
-    />
+    <div className={DROPDOWN_CLASSES.DROPDOWN}>
+      <chi-dropdown
+        id={`dropdown-${active ? 'active' : 'default'}`}
+        active={active}
+        description={hasDescription ? true : undefined}
+        prevent-auto-hide={preventAutoHide}>
+        <DropdownMenuItems
+          items={items}
+          mode={mode}
+          selectedItem={selectedItem}
+          retainSelection={retainSelection}
+          scrollItems={scrollItems}
+          onSelect={handleSelect}
+        />
+      </chi-dropdown>
+    </div>
   );
 }
 
@@ -60,8 +68,6 @@ DropdownMenuWc.propTypes = {
   height: PropTypes.string,
   selectedItem: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   mode: PropTypes.oneOf(['base', 'checkbox', 'radio']),
-  /** @uxpinignoreprop */
-  showButton: PropTypes.bool,
   /** @uxpinignoreprop */
   preventAutoHide: PropTypes.bool,
   item1: PropTypes.string,
@@ -118,7 +124,6 @@ DropdownMenuWc.propTypes = {
 
 DropdownMenuWc.defaultProps = {
   mode: 'base',
-  showButton: false,
   active: true,
   retainSelection: false,
   preventAutoHide: true,
