@@ -168,14 +168,41 @@ DatePicker.propTypes = {
   sa: PropTypes.bool,
   su: PropTypes.bool,
   dates: PropTypes.string,
+  /**
+   * @uxpinpropname On click
+   */
   click: PropTypes.func,
+  /**
+   * @uxpinpropname On focus
+   */
   focus: PropTypes.func,
+  /**
+   * @uxpinpropname On focus lost
+   */
   focusLost: PropTypes.func,
+  /**
+   * @uxpinpropname On input
+   */
   input: PropTypes.func,
+  /**
+   * @uxpinpropname On mouse down
+   */
   mouseDown: PropTypes.func,
+  /**
+   * @uxpinpropname On mouse leave
+   */
   mouseLeave: PropTypes.func,
+  /**
+   * @uxpinpropname On mouse over
+   */
   mouseOver: PropTypes.func,
+  /**
+   * @uxpinpropname On mouse up
+   */
   mouseUp: PropTypes.func,
+  /**
+   * @uxpinpropname On value change
+   */
   valueChange: PropTypes.func,
 };
 /* eslint-enable */
