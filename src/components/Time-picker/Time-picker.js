@@ -140,10 +140,25 @@ TimePicker.propTypes = {
   mouseLeaveInfo: PropTypes.func,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   value: PropTypes.string,
+  /**
+   * @uxpinpropname On click
+   */
   click: PropTypes.func,
+  /**
+   * @uxpinpropname On focus
+   */
   focus: PropTypes.func,
+  /**
+   * @uxpinpropname On focus lost
+   */
   focusLost: PropTypes.func,
+  /**
+   * @uxpinpropname On input
+   */
   input: PropTypes.func,
+  /**
+   * @uxpinpropname On time change
+   */
   timeChange: PropTypes.func,
 };
 /* eslint-enable */
