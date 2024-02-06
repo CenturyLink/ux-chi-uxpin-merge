@@ -17,6 +17,7 @@
     "jsx-a11y/anchor-is-valid": "off",
     "no-else-return": "off",
     "arrow-body-style": "off",
+    "no-plusplus": "off",
     "no-cond-assign": 2,
     "no-prototype-builtins": 1,
     "no-unreachable": 2,
@@ -137,7 +138,7 @@
     "react/no-string-refs": 1,
     "react/no-unescaped-entities": 1,
     "react/no-unused-prop-types": [
-      2,
+      1,
       {
         "customValidators": [],
         "skipShapeProps": true
