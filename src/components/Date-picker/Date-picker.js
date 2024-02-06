@@ -115,6 +115,8 @@ export default class DatePicker extends React.Component {
             value={this.props.selected}
             onClick={this.props.click}
             mode={dateMode}
+            format={this.props.format}
+            minutes-step={this.props.minutesStep}
             time-format={timeFormat}
             onMouseEnter={this.props.mouseOver}
             onMouseLeave={this.props.mouseLeave}
@@ -147,6 +149,14 @@ DatePicker.propTypes = {
   /** @uxpinignoreprop */
   mouseLeaveInfo: PropTypes.func,
   mode: PropTypes.oneOf(['date', 'datetime - 12hr', 'datetime - 24hr']),
+  /**
+   * @uxpinpropname Date format
+   */
+  format: PropTypes.oneOf(['MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD']),
+  /**
+   * @uxpinpropname Time Step (Minutes)
+   */
+  minutesStep: PropTypes.oneOf(['5', '10', '15', '20', '30']),
   min: PropTypes.string,
   max: PropTypes.string,
   selected: PropTypes.string,
@@ -158,14 +168,41 @@ DatePicker.propTypes = {
   sa: PropTypes.bool,
   su: PropTypes.bool,
   dates: PropTypes.string,
+  /**
+   * @uxpinpropname On click
+   */
   click: PropTypes.func,
+  /**
+   * @uxpinpropname On focus
+   */
   focus: PropTypes.func,
+  /**
+   * @uxpinpropname On focus lost
+   */
   focusLost: PropTypes.func,
+  /**
+   * @uxpinpropname On input
+   */
   input: PropTypes.func,
+  /**
+   * @uxpinpropname On mouse down
+   */
   mouseDown: PropTypes.func,
+  /**
+   * @uxpinpropname On mouse leave
+   */
   mouseLeave: PropTypes.func,
+  /**
+   * @uxpinpropname On mouse over
+   */
   mouseOver: PropTypes.func,
+  /**
+   * @uxpinpropname On mouse up
+   */
   mouseUp: PropTypes.func,
+  /**
+   * @uxpinpropname On value change
+   */
   valueChange: PropTypes.func,
 };
 /* eslint-enable */
@@ -174,6 +211,7 @@ DatePicker.defaultProps = {
   disabled: false,
   required: 'none',
   mode: 'date',
+  format: 'MM/DD/YYYY',
   selected: selected(),
   info: false,
   mo: true,

@@ -1,21 +1,22 @@
 {
   "extends": "airbnb",
   "parser": "@babel/eslint-parser",
-  "plugins": [
-    "react",
-    "jest"
-  ],
+  "plugins": ["react", "jest"],
   "env": {
     "browser": true,
     "jest": true
   },
   "root": true,
   "rules": {
+    "object-curly-newline": "off",
     "jest/no-disabled-tests": "warn",
     "jest/no-focused-tests": "error",
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error",
+    "jsx-a11y/anchor-is-valid": "off",
+    "no-else-return": "off",
+    "arrow-body-style": "off",
     "no-cond-assign": 2,
     "no-prototype-builtins": 1,
     "no-unreachable": 2,
@@ -73,52 +74,16 @@
       1,
       {
         "groups": [
-          [
-            "+",
-            "-",
-            "*",
-            "/",
-            "%",
-            "**"
-          ],
-          [
-            "&",
-            "|",
-            "^",
-            "~",
-            "<<",
-            ">>",
-            ">>>"
-          ],
-          [
-            "==",
-            "!=",
-            "===",
-            "!==",
-            ">",
-            ">=",
-            "<",
-            "<="
-          ],
-          [
-            "&&",
-            "||"
-          ],
-          [
-            "in",
-            "instanceof"
-          ]
+          ["+", "-", "*", "/", "%", "**"],
+          ["&", "|", "^", "~", "<<", ">>", ">>>"],
+          ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+          ["&&", "||"],
+          ["in", "instanceof"]
         ],
         "allowSamePrecedence": true
       }
     ],
-    "no-restricted-syntax": [
-      1,
-      "ForInStatement",
-      "ForOfStatement",
-      "LabeledStatement",
-      "WithStatement"
-    ],
+    "no-restricted-syntax": [1, "ForInStatement", "ForOfStatement", "LabeledStatement", "WithStatement"],
     "no-underscore-dangle": [
       1,
       {
@@ -128,22 +93,10 @@
     "operator-assignment": 0,
     "no-bitwise": 2,
     // TODO: change complexity to 10 after refactor
-    "complexity": [
-      2,
-      100
-    ],
-    "max-depth": [
-      2,
-      6
-    ],
-    "max-len": [
-      2,
-      200
-    ],
-    "arrow-parens": [
-      2,
-      "always"
-    ],
+    "complexity": [2, 100],
+    "max-depth": [2, 6],
+    "max-len": [2, 200],
+    "arrow-parens": [2, "always"],
     "object-shorthand": [
       1,
       "always",
@@ -162,11 +115,14 @@
     "prefer-rest-params": 1,
     "prefer-spread": 1,
     "global-require": 0,
-    "sort-imports": [2, {
-      "ignoreCase": false,
-      "ignoreDeclarationSort": true,
-      "ignoreMemberSort": false
-    }],
+    "sort-imports": [
+      2,
+      {
+        "ignoreCase": false,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false
+      }
+    ],
     "react/forbid-prop-types": 0,
     "react/jsx-closing-bracket-location": [
       2,

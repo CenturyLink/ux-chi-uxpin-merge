@@ -20,6 +20,8 @@ export default function TimePicker({
   active,
   displaySeconds,
   format,
+  minutesStep,
+  secondsStep,
   value,
   click,
   focus,
@@ -92,6 +94,8 @@ export default function TimePicker({
         active={active}
         display-seconds={displaySeconds}
         format={format}
+        minutes-step={minutesStep}
+        seconds-step={secondsStep}
         disabled={disabled}
         value={value}
         id={uuid}
@@ -107,7 +111,18 @@ TimePicker.propTypes = {
   label: PropTypes.string,
   active: PropTypes.bool,
   displaySeconds: PropTypes.bool,
+  /**
+   * @uxpinpropname Time Format
+   */
   format: PropTypes.oneOf(['12hr', '24hr']),
+  /**
+   * @uxpinpropname Time Step (Minutes)
+   */
+  minutesStep: PropTypes.oneOf(['5', '10', '15', '20', '30']),
+  /**
+   * @uxpinpropname Time Step (Seconds)
+   */
+  secondsStep: PropTypes.oneOf(['5', '10', '15', '20', '30']),
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,
   /**
@@ -125,10 +140,25 @@ TimePicker.propTypes = {
   mouseLeaveInfo: PropTypes.func,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   value: PropTypes.string,
+  /**
+   * @uxpinpropname On click
+   */
   click: PropTypes.func,
+  /**
+   * @uxpinpropname On focus
+   */
   focus: PropTypes.func,
+  /**
+   * @uxpinpropname On focus lost
+   */
   focusLost: PropTypes.func,
+  /**
+   * @uxpinpropname On input
+   */
   input: PropTypes.func,
+  /**
+   * @uxpinpropname On time change
+   */
   timeChange: PropTypes.func,
 };
 /* eslint-enable */
