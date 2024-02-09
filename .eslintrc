@@ -126,7 +126,7 @@
     ],
     "react/forbid-prop-types": 0,
     "react/jsx-closing-bracket-location": [
-      2,
+      1,
       {
         "selfClosing": "line-aligned",
         "nonEmpty": "after-props"

@@ -10,7 +10,7 @@ export default function DropdownMenuWc(props) {
   const { active, retainSelection, scrollItems, selectedItem, mode, preventAutoHide } = props;
 
   // #region Methods
-  const createDropdownItems = (props) => {
+  const createDropdownItems = () => {
     const items = [];
     for (let i = 1; i <= 10; i++) {
       const title = props[`item${i}`];
@@ -31,11 +31,6 @@ export default function DropdownMenuWc(props) {
 
   const hasDescription = items.some((item) => item.description);
 
-  const handleSelect = (item, index) => {
-    if (items[index].onSelect) {
-      items[index].onSelect(item);
-    }
-  };
   // #endregion
 
   return (
@@ -44,14 +39,14 @@ export default function DropdownMenuWc(props) {
         id={`dropdown-${active ? 'active' : 'default'}`}
         active={active}
         description={hasDescription ? true : undefined}
-        prevent-auto-hide={preventAutoHide}>
+        prevent-auto-hide={preventAutoHide}
+      >
         <DropdownMenuItems
           items={items}
           mode={mode}
           selectedItem={selectedItem}
           retainSelection={retainSelection}
           scrollItems={scrollItems}
-          onSelect={handleSelect}
         />
       </chi-dropdown>
     </div>
