@@ -63,6 +63,9 @@ export default function DropdownBaseWc(props) {
   );
   // #endregion
 
+  // TODO: Implement custom dropdown fixed width and height for dropdown on chi
+  // TODO: Retain selection with active selected items should be implemented on chi
+  // TODO: Selected dropdown title item should update/sync dropdown text (from chi)
   return (
     <>
       <div className={LABEL_CLASSES.WRAPPER}>{labelElement}</div>
