@@ -35,6 +35,9 @@ export default function DropdownMenuWc(props) {
   const hasDescription = items.some((item) => item.description);
   // #endregion
 
+  // TODO: Implement custom width and height for dropdown menu (both with items and when empty) on chi
+  // TODO: Retain selection with active selected items should be implemented on chi
+  // TODO: Visible items should be able to add scroll on dropdown menu and must be compatible with custom height
   return (
     <chi-dropdown
       active={active}
