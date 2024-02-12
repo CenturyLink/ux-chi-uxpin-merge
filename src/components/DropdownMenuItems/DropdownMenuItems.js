@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ACTIVE_CLASS, DROPDOWN_CLASSES, ICON_CLASS, RADIO_CLASSES } from '../../constants/classes';
 
-export default function DropdownMenuItems({ items, mode, selectedItem, retainSelection }) {
+export default function DropdownMenuItems({ retainSelection, mode, selectedItem, items }) {
   // #region Methods
   const renderMenuItem = (item, index, isActive) => {
     const menuItemClass = `${DROPDOWN_CLASSES.ITEM} ${isActive ? ACTIVE_CLASS : ''}`;
 
     if (item.description) {
       return (
-        <a key={`base-desc-${index}`} className={menuItemClass} href="#" slot="menu" onClick={item.onSelect}>
+        <a key={`base-desc-${index}`} className={menuItemClass} href="#" slot="menu">
           <span className={DROPDOWN_CLASSES.ITEM_TITLE} slot="menu">
             {item.title}
           </span>
@@ -20,7 +20,7 @@ export default function DropdownMenuItems({ items, mode, selectedItem, retainSel
       );
     } else {
       return (
-        <a key={`base-${index}`} className={menuItemClass} href="#" slot="menu" onClick={item.onSelect}>
+        <a key={`base-${index}`} className={menuItemClass} href="#" slot="menu">
           {item.iconLeft && <i className={`${ICON_CLASS} icon-${item.iconLeft}`} aria-hidden="true"></i>}
           {item.title}
           {item.iconRight && <i className={`${ICON_CLASS} icon-${item.iconRight}`} aria-hidden="true"></i>}
@@ -38,13 +38,7 @@ export default function DropdownMenuItems({ items, mode, selectedItem, retainSel
   const renderRadioItem = (item, index) => (
     <div key={`radio-${index}`} className={DROPDOWN_CLASSES.ITEM} slot="menu">
       <div className={RADIO_CLASSES.RADIO}>
-        <input
-          type="radio"
-          name="radios"
-          id={`radio-${index}`}
-          className={RADIO_CLASSES.INPUT}
-          onClick={item.onSelect}
-        />
+        <input type="radio" name="radios" id={`radio-${index}`} className={RADIO_CLASSES.INPUT} />
         <label className={RADIO_CLASSES.LABEL} htmlFor={`radio-${index}`}>
           {item.title}
         </label>
