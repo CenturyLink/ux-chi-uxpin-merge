@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DropdownMenuItems from '../DropdownMenuItems/DropdownMenuItems';
-import { DROPDOWN_CLASSES } from '../../constants/classes';
 
 /**
  * @uxpincomponent
  */
 export default function DropdownMenuWc(props) {
-  const { active, retainSelection, scrollItems, selectedItem, mode, preventAutoHide } = props;
+  const { active, mode, visibleItems } = props;
 
   // #region Methods
-  const createDropdownItems = () => {
+  const getDropdownItems = () => {
     const items = [];
+
     for (let i = 1; i <= 10; i++) {
       const title = props[`item${i}`];
+
       if (title) {
         items.push({
           title,
@@ -26,30 +27,23 @@ export default function DropdownMenuWc(props) {
     }
     return items;
   };
+  // #endregion
 
-  const items = createDropdownItems(props);
+  // #region Attributes
+  const items = getDropdownItems(props);
 
   const hasDescription = items.some((item) => item.description);
-
   // #endregion
 
   return (
-    <div className={DROPDOWN_CLASSES.DROPDOWN}>
-      <chi-dropdown
-        id={`dropdown-${active ? 'active' : 'default'}`}
-        active={active}
-        description={hasDescription ? true : undefined}
-        prevent-auto-hide={preventAutoHide}
-      >
-        <DropdownMenuItems
-          items={items}
-          mode={mode}
-          selectedItem={selectedItem}
-          retainSelection={retainSelection}
-          scrollItems={scrollItems}
-        />
-      </chi-dropdown>
-    </div>
+    <chi-dropdown
+      active={active}
+      description={hasDescription ? true : undefined}
+      prevent-auto-hide
+      visible-items={visibleItems}
+    >
+      <DropdownMenuItems items={items} mode={mode} />
+    </chi-dropdown>
   );
 }
 
@@ -62,8 +56,6 @@ DropdownMenuWc.propTypes = {
   height: PropTypes.string,
   selectedItem: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   mode: PropTypes.oneOf(['base', 'checkbox', 'radio']),
-  /** @uxpinignoreprop */
-  preventAutoHide: PropTypes.bool,
   item1: PropTypes.string,
   item2: PropTypes.string,
   item3: PropTypes.string,
@@ -119,8 +111,5 @@ DropdownMenuWc.propTypes = {
 DropdownMenuWc.defaultProps = {
   mode: 'base',
   active: true,
-  retainSelection: false,
-  preventAutoHide: true,
-  selectedItem: 1,
 };
 // #endregion
