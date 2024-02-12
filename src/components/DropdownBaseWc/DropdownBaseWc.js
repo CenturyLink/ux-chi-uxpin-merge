@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import DropdownMenuItems from '../DropdownMenuItems/DropdownMenuItems';
 import Label from '../Label/Label';
-import { DROPDOWN_CLASSES, LABEL_CLASSES } from '../../constants/classes';
+import { LABEL_CLASSES } from '../../constants/classes';
 
 /**
  * @uxpincomponent
@@ -23,18 +23,14 @@ export default function DropdownBaseWc(props) {
     infoPopoverPosition,
     mode,
     required,
-    retainSelection,
-    selectedItem,
-    syncTextWithSelectedItem,
     text,
   } = props;
 
   // #region Methods
 
-  const [buttonText, setButtonText] = useState(text);
   const dropdownRef = useRef(null);
 
-  const createDropdownItems = () => {
+  const getDropdownItems = () => {
     const items = [];
     for (let i = 1; i <= 10; i++) {
       const title = props[`item${i}`];
@@ -44,32 +40,14 @@ export default function DropdownBaseWc(props) {
           iconLeft: props[`iconLeft${i}`],
           iconRight: props[`iconRight${i}`],
           description: props[`item${i}Description`],
-          onSelect: () => handleSelect(i),
+          onSelect: props[`select${i}`],
         });
       }
     }
     return items;
   };
 
-  const items = createDropdownItems();
-
-  const handleSelect = (index) => {
-    const item = items[index - 1];
-    if (item) {
-      if (syncTextWithSelectedItem && ['base', 'radio'].includes(mode)) {
-        setButtonText(item.title);
-      }
-      if (mode === 'base' && dropdownRef.current) {
-        dropdownRef.current.hide();
-      }
-    }
-  };
-
-  useEffect(() => {
-    if (!syncTextWithSelectedItem) {
-      setButtonText(text);
-    }
-  }, [text, syncTextWithSelectedItem]);
+  const items = getDropdownItems();
 
   const hasDescription = items.some((item) => item.description);
 
@@ -86,30 +64,23 @@ export default function DropdownBaseWc(props) {
   // #endregion
 
   return (
-    <div className={DROPDOWN_CLASSES.DROPDOWN}>
+    <>
       <div className={LABEL_CLASSES.WRAPPER}>{labelElement}</div>
       <chi-dropdown
-        id={`dropdown-base-${active ? 'active' : 'default'}`}
         ref={dropdownRef}
         active={active}
         description={hasDescription ? true : undefined}
         animate-chevron={animateChevron}
-        button={buttonText}
+        button={text}
         color={buttonColor}
         disabled={disabled}
         position={dropdownPosition}
         size={buttonSize}
         variant={buttonType}
       >
-        <DropdownMenuItems
-          items={items}
-          mode={mode}
-          selectedItem={selectedItem}
-          retainSelection={retainSelection}
-          onSelect={(index) => handleSelect(index)}
-        />
+        <DropdownMenuItems items={items} mode={mode} />
       </chi-dropdown>
-    </div>
+    </>
   );
 }
 
@@ -209,9 +180,7 @@ DropdownBaseWc.propTypes = {
 DropdownBaseWc.defaultProps = {
   active: false,
   mode: 'base',
-  syncTextWithSelectedItem: false,
   selectedItem: 1,
-  retainSelection: false,
   text: 'Dropdown component',
 };
 // #endregion
