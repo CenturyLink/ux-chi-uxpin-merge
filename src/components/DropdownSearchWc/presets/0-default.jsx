@@ -8,7 +8,6 @@ export default (
     animateChevron={false}
     showSearch={false}
     visibleItems="3"
-    selectedItem={1}
     infoPopoverTitle="Popover Title"
     infoPopoverDescription={`Line 1
 Line 2

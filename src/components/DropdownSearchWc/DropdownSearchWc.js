@@ -1,91 +1,13 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import DropdownMenuItems from '../DropdownMenuItems/DropdownMenuItems';
-import Label from '../Label/Label';
-import { LABEL_CLASSES } from '../../constants/classes';
+import DropdownBaseWc from '../DropdownBaseWc/DropdownBaseWc';
 
 /**
  * @uxpincomponent
  */
 export default function DropdownSearchWc(props) {
-  const {
-    active,
-    animateChevron,
-    buttonColor,
-    buttonSize,
-    buttonType,
-    disabled,
-    dropdownPosition,
-    fieldLabel,
-    info,
-    infoPopoverTitle,
-    infoPopoverDescription,
-    infoPopoverPosition,
-    required,
-    showSearch,
-    text,
-    visibleItems,
-  } = props;
-
-  // #region Methods
-
-  const dropdownRef = useRef(null);
-
-  const getDropdownItems = () => {
-    const items = [];
-    for (let i = 1; i <= 10; i++) {
-      const title = props[`item${i}`];
-      if (title) {
-        items.push({
-          title,
-          iconLeft: props[`iconLeft${i}`],
-          iconRight: props[`iconRight${i}`],
-          description: props[`item${i}Description`],
-          onSelect: props[`select${i}`],
-        });
-      }
-    }
-    return items;
-  };
-
-  const items = getDropdownItems();
-
-  const hasDescription = items.some((item) => item.description);
-
-  const labelElement = fieldLabel && (
-    <Label
-      required={required}
-      label={fieldLabel}
-      info={info}
-      infoPopoverTitle={infoPopoverTitle}
-      infoPopoverDescription={infoPopoverDescription}
-      infoPopoverPosition={infoPopoverPosition}
-    />
-  );
-  // #endregion
-
-  // TODO: Visible items is not showing correct number of items as expected when search input is enabled.
-  return (
-    <>
-      <div className={LABEL_CLASSES.WRAPPER}>{labelElement}</div>
-      <chi-dropdown
-        ref={dropdownRef}
-        active={active}
-        description={hasDescription ? true : undefined}
-        animate-chevron={animateChevron}
-        button={text}
-        color={buttonColor}
-        disabled={disabled}
-        position={dropdownPosition}
-        visible-items={visibleItems}
-        size={buttonSize}
-        variant={buttonType}
-      >
-        {showSearch && <chi-search-input placeholder="Search" slot="menu"></chi-search-input>}
-        <DropdownMenuItems items={items} />
-      </chi-dropdown>
-    </>
-  );
+  // TODO: To check with Tom if scroll items flag is needed as scroll is automatically controlled by number of visible items now.
+  return <DropdownBaseWc {...props} />;
 }
 
 // #region PropTypes

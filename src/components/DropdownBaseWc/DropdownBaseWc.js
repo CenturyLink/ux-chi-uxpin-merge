@@ -23,7 +23,9 @@ export default function DropdownBaseWc(props) {
     infoPopoverPosition,
     mode,
     required,
+    showSearch,
     text,
+    visibleItems,
   } = props;
 
   // #region Methods
@@ -32,7 +34,7 @@ export default function DropdownBaseWc(props) {
 
   const getDropdownItems = () => {
     const items = [];
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 15; i++) {
       const title = props[`item${i}`];
       if (title) {
         items.push({
@@ -81,7 +83,9 @@ export default function DropdownBaseWc(props) {
         position={dropdownPosition}
         size={buttonSize}
         variant={buttonType}
+        visible-items={visibleItems}
       >
+        {showSearch && <chi-search-input placeholder="Search" slot="menu-header"></chi-search-input>}
         <DropdownMenuItems items={items} mode={mode} />
       </chi-dropdown>
     </>
@@ -97,6 +101,8 @@ DropdownBaseWc.propTypes = {
   text: PropTypes.string,
   mode: PropTypes.oneOf(['base', 'checkbox', 'radio']),
   syncTextWithSelectedItem: PropTypes.bool,
+  /** @uxpinignoreprop */
+  visibleItems: PropTypes.number,
   buttonColor: PropTypes.oneOf(['base', 'primary', 'secondary', 'danger', 'dark', 'light']),
   buttonType: PropTypes.oneOf(['solid', 'outline', 'flat']),
   buttonSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
