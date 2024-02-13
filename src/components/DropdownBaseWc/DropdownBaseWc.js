@@ -102,6 +102,8 @@ DropdownBaseWc.propTypes = {
   mode: PropTypes.oneOf(['base', 'checkbox', 'radio']),
   syncTextWithSelectedItem: PropTypes.bool,
   /** @uxpinignoreprop */
+  showSearch: PropTypes.bool,
+  /** @uxpinignoreprop */
   visibleItems: PropTypes.number,
   buttonColor: PropTypes.oneOf(['base', 'primary', 'secondary', 'danger', 'dark', 'light']),
   buttonType: PropTypes.oneOf(['solid', 'outline', 'flat']),
