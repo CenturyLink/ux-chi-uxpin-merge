@@ -43,6 +43,7 @@ module.exports = {
           'src/components/DropdownIcon/DropdownIcon.js',
           'src/components/DropdownMenu/DropdownMenu.js',
           'src/components/DropdownSearchItems/DropdownSearchItems.js',
+          'src/components/DropdownSearchWc/DropdownSearchWc.js',
         ],
       },
       {
