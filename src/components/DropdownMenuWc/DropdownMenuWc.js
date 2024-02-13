@@ -25,13 +25,13 @@ export default function DropdownMenuWc(props) {
         });
       }
     }
+
     return items;
   };
   // #endregion
 
   // #region Attributes
   const items = getDropdownItems(props);
-
   const hasDescription = items.some((item) => item.description);
   // #endregion
 
