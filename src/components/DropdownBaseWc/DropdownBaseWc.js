@@ -65,10 +65,8 @@ export default function DropdownBaseWc(props) {
   );
   // #endregion
 
-  // TODO: Implement custom dropdown fixed width and height for dropdown on chi
-  // TODO: Retain selection with active selected items should be implemented on chi
-  // TODO: Selected dropdown title item should update/sync dropdown text (from chi)
-  // TODO: appSwitcher property is appending -text--xl -px--1 classes in previous implementation
+  // TODO: Retain selection with active selected items should be implemented on chi (sync text)
+  // TODO: fluid is not working as expected in uxpin, additional div inside the button element is impacting the layout of button text
   return (
     <>
       <div className={LABEL_CLASSES.WRAPPER}>{labelElement}</div>
@@ -80,6 +78,7 @@ export default function DropdownBaseWc(props) {
         button={text}
         color={buttonColor}
         disabled={disabled}
+        fluid
         position={dropdownPosition}
         size={buttonSize}
         variant={buttonType}
