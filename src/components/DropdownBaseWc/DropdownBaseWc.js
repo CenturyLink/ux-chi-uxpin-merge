@@ -65,10 +65,8 @@ export default function DropdownBaseWc(props) {
   );
   // #endregion
 
-  // TODO: Implement custom dropdown fixed width and height for dropdown on chi
-  // TODO: Retain selection with active selected items should be implemented on chi
-  // TODO: Selected dropdown title item should update/sync dropdown text (from chi)
-  // TODO: appSwitcher property is appending -text--xl -px--1 classes in previous implementation
+  // TODO: Retain selection with active selected items should be implemented on chi (sync text)
+  // TODO: fluid is not working as expected in uxpin, additional div inside the button element is impacting the layout of button text
   return (
     <>
       <div className={LABEL_CLASSES.WRAPPER}>{labelElement}</div>
@@ -80,6 +78,7 @@ export default function DropdownBaseWc(props) {
         button={text}
         color={buttonColor}
         disabled={disabled}
+        fluid
         position={dropdownPosition}
         size={buttonSize}
         variant={buttonType}
@@ -100,16 +99,13 @@ DropdownBaseWc.propTypes = {
   retainSelection: PropTypes.bool,
   text: PropTypes.string,
   mode: PropTypes.oneOf(['base', 'checkbox', 'radio']),
-  syncTextWithSelectedItem: PropTypes.bool,
   /** @uxpinignoreprop */
   showSearch: PropTypes.bool,
-  /** @uxpinignoreprop */
   visibleItems: PropTypes.number,
   buttonColor: PropTypes.oneOf(['base', 'primary', 'secondary', 'danger', 'dark', 'light']),
   buttonType: PropTypes.oneOf(['solid', 'outline', 'flat']),
   buttonSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   disabled: PropTypes.bool,
-  appSwitcher: PropTypes.bool,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,
@@ -119,8 +115,6 @@ DropdownBaseWc.propTypes = {
    * */
   infoPopoverDescription: PropTypes.string,
   infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
-  dropdownHeight: PropTypes.string,
-  dropdownFixedWidth: PropTypes.string,
   dropdownPosition: PropTypes.oneOf([
     'top-start',
     'top',
