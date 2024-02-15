@@ -100,16 +100,13 @@ DropdownBaseWc.propTypes = {
   retainSelection: PropTypes.bool,
   text: PropTypes.string,
   mode: PropTypes.oneOf(['base', 'checkbox', 'radio']),
-  syncTextWithSelectedItem: PropTypes.bool,
   /** @uxpinignoreprop */
   showSearch: PropTypes.bool,
-  /** @uxpinignoreprop */
   visibleItems: PropTypes.number,
   buttonColor: PropTypes.oneOf(['base', 'primary', 'secondary', 'danger', 'dark', 'light']),
   buttonType: PropTypes.oneOf(['solid', 'outline', 'flat']),
   buttonSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   disabled: PropTypes.bool,
-  appSwitcher: PropTypes.bool,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,
@@ -119,8 +116,6 @@ DropdownBaseWc.propTypes = {
    * */
   infoPopoverDescription: PropTypes.string,
   infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
-  dropdownHeight: PropTypes.string,
-  dropdownFixedWidth: PropTypes.string,
   dropdownPosition: PropTypes.oneOf([
     'top-start',
     'top',
