@@ -35,12 +35,9 @@ export default function DropdownMenuWc(props) {
   const hasDescription = items.some((item) => item.description);
   // #endregion
 
-  // TODO: Implement custom width and height for dropdown menu (both with items and when empty) on chi
   // TODO: Retain selection with active selected items should be implemented on chi
-  // TODO: Visible items should be able to add scroll on dropdown menu and must be compatible with custom height
-  // TODO: Tom to decide if existing scroll items property is needed as number of visible items control scroll automatically
+  // TODO: Visible items is not working as expected in dropdown menu without button attribute on chi-dropdown
   // TODO: Appropriate padding must be provided between item and icon right
-  // TODO: Tom to decide if active toggle flag is needed for this component
   return (
     <chi-dropdown
       active={active}
@@ -57,10 +54,8 @@ export default function DropdownMenuWc(props) {
 DropdownMenuWc.propTypes = {
   active: PropTypes.bool,
   retainSelection: PropTypes.bool,
-  scrollItems: PropTypes.bool,
-  width: PropTypes.string,
-  height: PropTypes.string,
   selectedItem: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  visibleItems: PropTypes.number,
   mode: PropTypes.oneOf(['base', 'checkbox', 'radio']),
   item1: PropTypes.string,
   item2: PropTypes.string,
