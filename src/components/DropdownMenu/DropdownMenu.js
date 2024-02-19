@@ -211,7 +211,6 @@ export default class DropdownMenu extends React.Component {
               ${ICON_CLASS} 
               icon-${this.props[`iconLeft${i}`]} 
               ${UTILITY_CLASSES.MARGIN.LEFT[0]}
-              ${UTILITY_CLASSES.MARGIN.RIGHT[1]}
             `}
                 aria-hidden="true"
               ></i>

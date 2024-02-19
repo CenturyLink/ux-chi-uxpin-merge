@@ -82,7 +82,6 @@ export default class DropdownBase extends React.Component {
             ${DROPDOWN_CLASSES.TRIGGER}
             ${this.state.active ? ACTIVE_CLASS : ''}
             ${this.props.animateChevron ? ANIMATE_CHEVRON_CLASS : ''}
-            ${this.props.appSwitcher ? '-text--xl -px--1' : ''}
             ${UTILITY_CLASSES.TYPOGRAPHY.TEXT_NO_TRANSFORM}
           `}
           disabled={this.props.disabled}
@@ -175,7 +174,6 @@ DropdownBase.propTypes = {
   buttonType: PropTypes.oneOf(['solid', 'outline', 'flat']),
   buttonSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   disabled: PropTypes.bool,
-  appSwitcher: PropTypes.bool,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,
