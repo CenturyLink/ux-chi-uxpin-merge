@@ -278,6 +278,22 @@ export default class DropdownMenu extends React.Component {
         }
       });
 
+    const dynamicStyles = {
+      height: this.props.visibleItems ? undefined : this.props.height ? `${this.props.height}px` : undefined,
+      minHeight: this.props.visibleItems ? undefined : this.props.height ? `${this.props.height}px` : undefined,
+      minWidth: this.props.width ? `${this.props.width}px` : undefined,
+      overflow:
+        (this.props.height && this.props.scrollItems) || (this.props.visibleItems && this.props.scrollItems)
+          ? 'auto'
+          : undefined,
+      maxHeight: this.props.visibleItems
+        ? `${2 * this.props.visibleItems}rem`
+        : this.props.scrollItems
+        ? `${this.props.height}px`
+        : undefined,
+      overflow: `hidden`,
+    };
+
     const dropdownMenu = (
       <div
         ref={`dropdown-menu-ref-${this.state.id}`}
@@ -286,7 +302,7 @@ export default class DropdownMenu extends React.Component {
         ${this.state.active ? ACTIVE_CLASS : ""}
         ${this.someDescription ? LIST_CLASS : ""} 
       `}
-      style={{overflow: 'hidden'}}
+      style={dynamicStyles}
       >
         {this.props.showSearch ? <div className={`chi-input__wrapper -icon--right`}>
           <input
@@ -305,36 +321,7 @@ export default class DropdownMenu extends React.Component {
             </div>
           </button>
         </div> : null}
-        <div
-          style={{
-            height: `${
-              this.props.height &&
-              !this.props.visibleItems
-                ? `${this.props.height}px`
-                : ""
-            }`,
-            minHeight: `${
-              this.props.height &&
-              !this.props.visibleItems
-                ? `${this.props.height}px`
-                : ""
-            }`,
-            minWidth: `${this.props.width ? `${this.props.width}px` : ""}`,
-            overflow: `${
-              (this.props.height &&
-              this.props.scrollItems) || (this.props.visibleItems && this.props.scrollItems)
-                ? "auto"
-                : ""
-            }`,
-            maxHeight: `${
-              this.props.visibleItems
-                ? `${2 * this.props.visibleItems}rem`
-                : this.props.scrollItems ? `${this.props.height}px` : ''
-            }`,
-          }}
-        >
-          {itemsToRender}
-        </div>
+        {itemsToRender}
       </div>
     );
 
