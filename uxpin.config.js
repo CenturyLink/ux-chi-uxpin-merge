@@ -78,6 +78,16 @@ module.exports = {
         ],
       },
       {
+        name: 'Accessibility Popovers',
+        include: [
+          'src/components/Popover-headings/PopoverHeadings.js',
+          'src/components/Popover-tabs/PopoverTabs.js',
+          'src/components/Popover-links/PopoverLinks.js',
+          'src/components/Popover-buttons/PopoverButtons.js',
+          'src/components/Popover-images/PopoverImages.js',
+        ],
+      },
+      {
         name: 'Text',
         include: [
           'src/components/Link/Link.js',
