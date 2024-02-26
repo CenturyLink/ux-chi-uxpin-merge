@@ -33,7 +33,7 @@ PopoverLinks.propTypes = {
 };
 
 PopoverLinks.defaultProps = {
-  position: 'top',
+  position: 'top-start',
 };
 
 export default PopoverLinks;

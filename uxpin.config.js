@@ -78,7 +78,7 @@ module.exports = {
         ],
       },
       {
-        name: 'Accessibility Popovers',
+        name: 'Accessibility',
         include: [
           'src/components/Popover-headings/PopoverHeadings.js',
           'src/components/Popover-tabs/PopoverTabs.js',

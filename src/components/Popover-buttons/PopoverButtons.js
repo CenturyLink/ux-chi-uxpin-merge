@@ -33,7 +33,7 @@ PopoverButtons.propTypes = {
 };
 
 PopoverButtons.defaultProps = {
-  position: 'top',
+  position: 'top-start',
 };
 
 export default PopoverButtons;

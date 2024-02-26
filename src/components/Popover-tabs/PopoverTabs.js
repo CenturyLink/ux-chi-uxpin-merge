@@ -28,7 +28,7 @@ PopoverTabs.propTypes = {
 };
 
 PopoverTabs.defaultProps = {
-  position: 'top',
+  position: 'top-start',
 };
 
 export default PopoverTabs;

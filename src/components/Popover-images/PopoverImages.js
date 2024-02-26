@@ -33,7 +33,7 @@ PopoverImages.propTypes = {
 };
 
 PopoverImages.defaultProps = {
-  position: 'right',
+  position: 'top-start',
 };
 
 export default PopoverImages;
