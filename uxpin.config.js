@@ -78,22 +78,22 @@ module.exports = {
         ],
       },
       {
-        name: 'Accessibility',
-        include: [
-          'src/components/Popover-headings/PopoverHeadings.js',
-          'src/components/Popover-tabs/PopoverTabs.js',
-          'src/components/Popover-links/PopoverLinks.js',
-          'src/components/Popover-buttons/PopoverButtons.js',
-          'src/components/Popover-images/PopoverImages.js',
-        ],
-      },
-      {
         name: 'Text',
         include: [
           'src/components/Link/Link.js',
           'src/components/Page-Title/Page-Title.js',
           'src/components/Price/Price.js',
           'src/components/Text/Text.js',
+        ],
+      },
+      {
+        name: 'Accessibility',
+        include: [
+          'src/components/Popover-buttons/PopoverButtons.js',
+          'src/components/Popover-headings/PopoverHeadings.js',
+          'src/components/Popover-images/PopoverImages.js',
+          'src/components/Popover-links/PopoverLinks.js',
+          'src/components/Popover-tabs/PopoverTabs.js',
         ],
       },
     ],

@@ -24,6 +24,7 @@ PopoverButtons.propTypes = {
     'left-start',
     'left-end',
   ]),
+  /** @uxpinignoreprop */
   title: PropTypes.string,
   /**
    * @uxpinpropname text
