@@ -14,6 +14,8 @@ export default (
 Line 2
 Line 3`}
     infoPopoverPosition="right-start"
+    helperMessage={false}
+    helperMessageText="Optional helper message"
     placeholder=""
     value=""
     iconLeft=""
