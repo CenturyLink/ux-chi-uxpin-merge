@@ -53,14 +53,10 @@ export default class TextInput extends React.Component {
       ''
     );
     const label = this.props.label ? (
-      <Label
-        htmlFor="number-input"
-        className={this.state.id}
-        required={this.props.required}
-        label={this.props.label}
-      ></Label>
+      <Label htmlFor="text-input" required={this.props.required} label={this.props.label}></Label>
     ) : null;
-    const helperMessageAttr = this.props.helperMessage ? this.props.helperMessageText : '';
+    const states = ['success', 'warning', 'danger'];
+    const state = states.includes(this.props.helperMessageType) ? this.props.helperMessageType : '';
 
     return (
       <div className="chi-form__item">
@@ -72,16 +68,14 @@ export default class TextInput extends React.Component {
           id={this.state.id}
           disabled={this.props.disabled}
           size={this.props.size}
-          state={
-            ['success', 'warning', 'danger'].includes(this.props.helperMessageType) ? this.props.helperMessageType : ''
-          }
+          state={state}
           icon-left={this.props.iconLeft}
           icon-left-color={this.props.iconLeftColor}
           icon-right={this.props.iconRight}
           icon-right-color={this.props.iconRightColor}
           placeholder={this.props.placeholder}
           value={this.props.value}
-          helper-message={helperMessageAttr}
+          helper-message={this.props.helperMessageText}
           onClick={this.props.click}
           onMouseEnter={this.props.mouseOver}
           onMouseLeave={this.props.mouseLeave}
@@ -102,7 +96,6 @@ TextInput.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
-  helperMessage: PropTypes.bool,
   helperMessageText: PropTypes.string,
   helperMessageType: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
   /**
