@@ -5,7 +5,6 @@ import Icon from '../Icon/Icon';
 import { uuid4 } from '../../utils/utils';
 import { LABEL_CLASSES, STAT_CLASSES } from '../../constants/classes';
 
-/* eslint-disable */
 /**
  * @uxpincomponent
  */
@@ -40,11 +39,11 @@ export default class TextInput extends React.Component {
       <div className={`${STAT_CLASSES.TITLE_HELP}`}>
         <Icon
           uxpId={`infoIcon-${this.state.id}`}
-          icon={'circle-info-outline'}
+          icon="circle-info-outline"
           size="xs"
           color="primary"
           mode="button"
-          popover={true}
+          popover
           popoverTitle={this.props.infoPopoverTitle}
           popoverDescription={this.props.infoPopoverDescription}
           popoverPosition={this.props.infoPopoverPosition}
@@ -94,7 +93,6 @@ export default class TextInput extends React.Component {
   }
 }
 
-/* eslint-disable */
 TextInput.propTypes = {
   /**
    * @uxpinpropname field label
@@ -166,7 +164,6 @@ TextInput.propTypes = {
   /** @uxpinignoreprop */
   mouseLeaveInfo: PropTypes.func,
 };
-/* eslint-enable */
 
 TextInput.defaultProps = {
   disabled: false,
