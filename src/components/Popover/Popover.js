@@ -14,9 +14,7 @@ function Popover(props) {
   return (
     <>
       <div style={{ border: '1px solid #e9e9e9', height: '16px', width: '16px' }} id={referenceId}>
-        <span className={SR_ONLY_CLASS}>
-          i
-        </span>
+        <span className={SR_ONLY_CLASS}>i</span>
       </div>
       <chi-popover
         active={props.active}
@@ -28,7 +26,7 @@ function Popover(props) {
         reference={`#${referenceId}`}
         closable={props.closeButton}
         prevent-auto-hide={props.preventAutoHide}
-        portal={props.portal}>
+      >
         {text || ''}
       </chi-popover>
     </>
@@ -39,7 +37,20 @@ function Popover(props) {
 Popover.propTypes = {
   active: PropTypes.bool,
   arrow: PropTypes.bool,
-  position: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'top-start', 'top-end', 'right-start', 'right-end', 'bottom-start', 'bottom-end', 'left-start', 'left-end']),
+  position: PropTypes.oneOf([
+    'top',
+    'right',
+    'bottom',
+    'left',
+    'top-start',
+    'top-end',
+    'right-start',
+    'right-end',
+    'bottom-start',
+    'bottom-end',
+    'left-start',
+    'left-end',
+  ]),
   title: PropTypes.string,
   /**
    * A textArea controller for Text
@@ -51,13 +62,11 @@ Popover.propTypes = {
   popover: PropTypes.string,
   closeButton: PropTypes.bool,
   preventAutoHide: PropTypes.bool,
-  portal: PropTypes.bool,
 };
 
 Popover.defaultProps = {
   active: true,
   arrow: true,
-  position: 'bottom',
   closeButton: false,
   preventAutoHide: true,
 };

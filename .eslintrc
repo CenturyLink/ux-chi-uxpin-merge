@@ -125,7 +125,7 @@
     ],
     "react/forbid-prop-types": 0,
     "react/jsx-closing-bracket-location": [
-      2,
+      1,
       {
         "selfClosing": "line-aligned",
         "nonEmpty": "after-props"
@@ -137,7 +137,7 @@
     "react/no-string-refs": 1,
     "react/no-unescaped-entities": 1,
     "react/no-unused-prop-types": [
-      2,
+      1,
       {
         "customValidators": [],
         "skipShapeProps": true
