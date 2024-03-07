@@ -36,7 +36,7 @@ export default class TextInput extends React.Component {
 
   render() {
     const info = this.props.info ? (
-      <div className={`${LABEL_CLASSES.HELP}`}>
+      <div className={LABEL_CLASSES.HELP}>
         <Icon
           uxpId={`infoIcon-${this.state.id}`}
           icon="circle-info-outline"
@@ -53,7 +53,7 @@ export default class TextInput extends React.Component {
       ''
     );
     const label = this.props.label ? (
-      <Label htmlFor="text-input" required={this.props.required} label={this.props.label}></Label>
+      <Label htmlFor={this.state.id} required={this.props.required} label={this.props.label}></Label>
     ) : null;
     const states = ['success', 'warning', 'danger'];
     const state = states.includes(this.props.helperMessageType) ? this.props.helperMessageType : '';
