@@ -3,7 +3,7 @@ import * as React from 'react';
 import Label from '../Label/Label';
 import Icon from '../Icon/Icon';
 import { uuid4 } from '../../utils/utils';
-import { LABEL_CLASSES, STAT_CLASSES } from '../../constants/classes';
+import { LABEL_CLASSES } from '../../constants/classes';
 
 /**
  * @uxpincomponent
@@ -36,7 +36,7 @@ export default class TextInput extends React.Component {
 
   render() {
     const info = this.props.info ? (
-      <div className={`${STAT_CLASSES.TITLE_HELP}`}>
+      <div className={`${LABEL_CLASSES.HELP}`}>
         <Icon
           uxpId={`infoIcon-${this.state.id}`}
           icon="circle-info-outline"
