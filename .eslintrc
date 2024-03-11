@@ -132,6 +132,7 @@
       }
     ],
     "react/jsx-no-target-blank": 1,
+    "react/jsx-props-no-spreading": 1,
     "react/no-is-mounted": 1,
     "react/no-find-dom-node": 1,
     "react/no-string-refs": 1,
