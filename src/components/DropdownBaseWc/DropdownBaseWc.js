@@ -65,7 +65,6 @@ export default function DropdownBaseWc(props) {
   );
   // #endregion
 
-  // TODO: Retain selection with active selected items should be implemented on chi (sync text)
   // TODO: fluid is not working as expected in uxpin, additional div inside the button element is impacting the layout of button text
   return (
     <div ref={props.uxPinRef}>
