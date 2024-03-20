@@ -33,7 +33,7 @@ export default class Textarea extends React.Component {
         />
       </div>
     ) : (
-      'asd'
+      ''
     );
     const label = this.props.label ? (
       <Label
