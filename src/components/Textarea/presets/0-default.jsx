@@ -5,7 +5,6 @@ export default (
   <Textarea
     uxpId="textarea"
     size="md"
-    height={1}
     label="Label"
     required="none"
     disabled={false}
@@ -17,15 +16,5 @@ Line 3`}
     infoPopoverPosition="right-start"
     value=""
     placeholder=""
-    state="default"
-    click={() => {}}
-    focus={() => {}}
-    focusLost={() => {}}
-    input={() => {}}
-    mouseDown={() => {}}
-    mouseUp={() => {}}
-    mouseOver={() => {}}
-    mouseLeave={() => {}}
-    valueChange={() => {}}
   />
 );

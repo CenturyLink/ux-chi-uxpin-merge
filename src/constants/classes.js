@@ -93,7 +93,7 @@ export const ICON_CLASS = 'chi-icon';
 
 /* Icon classes */
 export const ICON_CLASSES = {
-    ICON_CIRCLE_INFO: 'icon-circle-info-outline',
+    ICON_CIRCLE_INFO: 'circle-info-outline',
     ICON_PRIMARY: '-icon--primary'
 };
 
