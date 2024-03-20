@@ -16,6 +16,5 @@ Line 3`}
     infoPopoverPosition="right-start"
     value=""
     placeholder=""
-    helperMessageType="default"
   />
 );
