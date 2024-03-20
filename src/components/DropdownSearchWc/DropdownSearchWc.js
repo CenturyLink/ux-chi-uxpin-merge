@@ -6,7 +6,6 @@ import DropdownBaseWc from '../DropdownBaseWc/DropdownBaseWc';
  * @uxpincomponent
  */
 export default function DropdownSearchWc(props) {
-  // TODO: To check with Tom if scroll items flag is needed as scroll is automatically controlled by number of visible items now.
   return <DropdownBaseWc {...props} />;
 }
 
@@ -17,10 +16,8 @@ DropdownSearchWc.propTypes = {
   showSearch: PropTypes.bool,
   animateChevron: PropTypes.bool,
   retainSelection: PropTypes.bool,
-  scrollItems: PropTypes.bool,
   visibleItems: PropTypes.number,
   text: PropTypes.string,
-  syncTextWithSelectedItem: PropTypes.bool,
   buttonColor: PropTypes.oneOf(['base', 'primary', 'secondary', 'danger', 'dark', 'light']),
   buttonType: PropTypes.oneOf(['solid', 'outline', 'flat']),
   buttonSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
@@ -50,7 +47,6 @@ DropdownSearchWc.propTypes = {
     'bottom',
     'bottom-end',
   ]),
-  selectedItem: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]),
   item1: PropTypes.string,
   item2: PropTypes.string,
   item3: PropTypes.string,
@@ -116,7 +112,6 @@ DropdownSearchWc.propTypes = {
 
 DropdownSearchWc.defaultProps = {
   active: false,
-  selectedItem: 1,
   text: 'Dropdown component',
 };
 // #endregion
