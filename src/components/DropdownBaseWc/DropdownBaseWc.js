@@ -68,7 +68,7 @@ export default function DropdownBaseWc(props) {
   // TODO: Retain selection with active selected items should be implemented on chi (sync text)
   // TODO: fluid is not working as expected in uxpin, additional div inside the button element is impacting the layout of button text
   return (
-    <>
+    <div ref={props.uxPinRef}>
       <div className={LABEL_CLASSES.WRAPPER}>{labelElement}</div>
       <chi-dropdown
         ref={dropdownRef}
@@ -76,6 +76,7 @@ export default function DropdownBaseWc(props) {
         description={hasDescription ? true : undefined}
         animate-chevron={animateChevron}
         button={text}
+        {...(props.retainSelection ? {'retain-selection': true} : {})}
         color={buttonColor}
         disabled={disabled}
         fluid
@@ -87,7 +88,7 @@ export default function DropdownBaseWc(props) {
         {showSearch && <chi-search-input placeholder="Search" slot="menu-header"></chi-search-input>}
         <DropdownMenuItems items={items} mode={mode} />
       </chi-dropdown>
-    </>
+    </div>
   );
 }
 
@@ -129,7 +130,6 @@ DropdownBaseWc.propTypes = {
     'bottom',
     'bottom-end',
   ]),
-  selectedItem: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   item1: PropTypes.string,
   item2: PropTypes.string,
   item3: PropTypes.string,
@@ -186,7 +186,6 @@ DropdownBaseWc.propTypes = {
 DropdownBaseWc.defaultProps = {
   active: false,
   mode: 'base',
-  selectedItem: 1,
   text: 'Dropdown component',
 };
 // #endregion
