@@ -3,7 +3,7 @@ import * as React from 'react';
 import Label from '../Label/Label';
 import Icon from '../Icon/Icon';
 import { uuid4 } from '../../utils/utils';
-import { LABEL_CLASSES } from '../../constants/classes';
+import { LABEL_CLASSES, ICON_CLASSES, FORM_CLASSES } from '../../constants/classes';
 
 /**
  * @uxpincomponent
@@ -11,7 +11,6 @@ import { LABEL_CLASSES } from '../../constants/classes';
  * SkipContainerWrapper
  */
 
-/* eslint-disable */
 export default class Textarea extends React.Component {
   constructor(props) {
     super(props);
@@ -20,38 +19,38 @@ export default class Textarea extends React.Component {
 
   render() {
     const info = this.props.info ? (
-      <div className={`${LABEL_CLASSES.HELP}`}>
+      <div className={LABEL_CLASSES.HELP}>
         <Icon
           uxpId={`infoIcon-${this.state.id}`}
-          icon={'circle-info-outline'}
+          icon={ICON_CLASSES.ICON_CIRCLE_INFO}
           size="xs"
           color="primary"
           mode="button"
-          popover={true}
+          popover
           popoverTitle={this.props.infoPopoverTitle}
           popoverDescription={this.props.infoPopoverDescription}
           popoverPosition={this.props.infoPopoverPosition}
         />
       </div>
     ) : (
-      ''
+      'asd'
     );
     const label = this.props.label ? (
       <Label
         htmlFor={this.state.id}
-        className="chi-label"
+        className={LABEL_CLASSES.LABEL}
         required={this.props.required}
         label={this.props.label}
       ></Label>
     ) : null;
-    const value = this.props.value ? this.props.value : '';
+    const value = this.props.value || '';
 
     const states = ['success', 'warning', 'danger'];
     const state = states.includes(this.props.helperMessageType) ? this.props.helperMessageType : '';
 
     return (
-      <div className="chi-form__item">
-        <div className={`${LABEL_CLASSES.WRAPPER}`}>
+      <div className={FORM_CLASSES.ITEM}>
+        <div className={LABEL_CLASSES.WRAPPER}>
           {label}
           {info}
         </div>
@@ -66,7 +65,7 @@ export default class Textarea extends React.Component {
           onFocus={this.props.focus}
           onBlur={this.props.focusLost}
           onInput={this.props.input}
-          onChange={this.props.change}
+          onChange={this.props.valueChange}
           onMouseEnter={this.props.mouseOver}
           onMouseLeave={this.props.mouseLeave}
           onMouseDown={this.props.mouseDown}
@@ -81,7 +80,6 @@ export default class Textarea extends React.Component {
 
 Textarea.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-  height: PropTypes.number,
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   helperMessageText: PropTypes.string,
@@ -94,12 +92,6 @@ Textarea.propTypes = {
    * */
   infoPopoverDescription: PropTypes.string,
   infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
-  /** @uxpinignoreprop */
-  clickInfo: PropTypes.func,
-  /** @uxpinignoreprop */
-  mouseOverInfo: PropTypes.func,
-  /** @uxpinignoreprop */
-  mouseLeaveInfo: PropTypes.func,
   disabled: PropTypes.bool,
   /**
    * A textArea controller for Text
@@ -108,7 +100,6 @@ Textarea.propTypes = {
    * */
   value: PropTypes.string,
   placeholder: PropTypes.string,
-  state: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
   /**
    * @uxpinpropname on click
    * */
@@ -146,12 +137,10 @@ Textarea.propTypes = {
    * */
   valueChange: PropTypes.func,
 };
-/* eslint-enable */
 
 Textarea.defaultProps = {
   disabled: false,
   size: 'md',
-  state: 'default',
   required: 'none',
   helperMessageType: 'default',
   placeholder: '',
