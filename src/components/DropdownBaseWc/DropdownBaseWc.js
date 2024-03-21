@@ -17,6 +17,7 @@ export default function DropdownBaseWc(props) {
     disabled,
     dropdownPosition,
     fieldLabel,
+    icon,
     info,
     infoPopoverTitle,
     infoPopoverDescription,
@@ -75,6 +76,7 @@ export default function DropdownBaseWc(props) {
         description={hasDescription ? true : undefined}
         animate-chevron={animateChevron}
         button={text}
+        icon={icon}
         {...(props.retainSelection ? {'retain-selection': true} : {})}
         color={buttonColor}
         disabled={disabled}

@@ -42,6 +42,7 @@ module.exports = {
           'src/components/DropdownBase/DropdownBase.js',
           'src/components/DropdownBaseWc/DropdownBaseWc.js',
           'src/components/DropdownIcon/DropdownIcon.js',
+          'src/components/DropdownIconWc/DropdownIconWc.js',
           'src/components/DropdownMenu/DropdownMenu.js',
           'src/components/DropdownSearchItems/DropdownSearchItems.js',
         ],
