@@ -1,0 +1,4 @@
+/* UX PIN always renders additional div inside button trigger, so its property is set manually */
+.chi-button__content {
+    justify-content: left !important;
+}
