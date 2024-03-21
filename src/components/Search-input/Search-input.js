@@ -19,15 +19,17 @@ export default function SearchInput(props) {
   });
 
   return (
+    <div ref={props.uxPinRef}>
       <chi-search-input
-          size={props.size}
-          disabled={props.disabled}
-          value={props.value}
-          placeholder={props.placeholder}
-          ref={chiSearchInput}
+        size={props.size}
+        disabled={props.disabled}
+        value={props.value}
+        placeholder={props.placeholder}
+        ref={chiSearchInput}
       >
         <div className="-sr--only">SI</div>
       </chi-search-input>
+    </div>
   );
 }
 

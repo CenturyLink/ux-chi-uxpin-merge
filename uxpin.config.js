@@ -87,6 +87,16 @@ module.exports = {
           'src/components/Text/Text.js',
         ],
       },
+      {
+        name: 'Accessibility',
+        include: [
+          'src/components/Popover-buttons/PopoverButtons.js',
+          'src/components/Popover-headings/PopoverHeadings.js',
+          'src/components/Popover-images/PopoverImages.js',
+          'src/components/Popover-links/PopoverLinks.js',
+          'src/components/Popover-tabs/PopoverTabs.js',
+        ],
+      },
     ],
   },
   name: 'Chi',

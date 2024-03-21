@@ -6,7 +6,7 @@ export default (
     uxpId="popover"
     active
     arrow
-    position="bottom"
+    position="top"
     title="Popover Title"
     text={
       `Line 1
@@ -16,6 +16,5 @@ Line 3`
     popover={[{ title: 'Popover Title', text: 'Line 1 \nLine 2 \nLine 3' }]}
     closeButton={false}
     preventAutoHide
-    portal={false}
   />
 );
