@@ -5,6 +5,8 @@ export default (
   <DropdownBaseWc
     uxpId="dropdown-base-wc"
     info={false}
+    fluid
+    selectedItem={1}
     animateChevron={false}
     infoPopoverTitle="Popover Title"
     infoPopoverDescription={`Line 1

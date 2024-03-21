@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ACTIVE_CLASS, DROPDOWN_CLASSES, ICON_CLASS, RADIO_CLASSES } from '../../constants/classes';
+import { ACTIVE_CLASS, DROPDOWN_CLASSES, ICON_CLASS, ICON_CLASSES, RADIO_CLASSES } from '../../constants/classes';
 
 export default function DropdownMenuItems({ retainSelection, mode, selectedItem, items }) {
   // #region Methods
@@ -23,7 +23,7 @@ export default function DropdownMenuItems({ retainSelection, mode, selectedItem,
         <a key={`base-${index}`} className={menuItemClass} href="#" slot="menu">
           {item.iconLeft && <i className={`${ICON_CLASS} icon-${item.iconLeft}`} aria-hidden="true"></i>}
           {item.title}
-          {item.iconRight && <i className={`${ICON_CLASS} icon-${item.iconRight}`} aria-hidden="true"></i>}
+          {item.iconRight && <i className={`${ICON_CLASS} ${ICON_CLASSES.ICON_RIGHT} icon-${item.iconRight}`} aria-hidden="true"></i>}
         </a>
       );
     }
@@ -78,6 +78,8 @@ DropdownMenuItems.propTypes = {
       onSelect: PropTypes.func,
     })
   ),
+  selectedItem: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+  retainSelection: PropTypes.boolean
 };
 
 DropdownMenuItems.defaultProps = {

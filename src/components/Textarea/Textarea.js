@@ -121,14 +121,41 @@ Textarea.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
   state: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
+  /**
+   * @uxpinpropname on click
+   * */
   click: PropTypes.func,
+  /**
+   * @uxpinpropname on focus
+   * */
   focus: PropTypes.func,
+  /**
+   * @uxpinpropname on focus lost
+   * */
   focusLost: PropTypes.func,
+  /**
+   * @uxpinpropname on input
+   * */
   input: PropTypes.func,
+  /**
+   * @uxpinpropname on mouse down
+   * */
   mouseDown: PropTypes.func,
+  /**
+   * @uxpinpropname on mouse up
+   * */
   mouseUp: PropTypes.func,
+  /**
+   * @uxpinpropname on mouse over
+   * */
   mouseOver: PropTypes.func,
+  /**
+   * @uxpinpropname on mouse leave
+   * */
   mouseLeave: PropTypes.func,
+  /**
+   * @uxpinpropname on value change
+   * */
   valueChange: PropTypes.func,
 };
 /* eslint-enable */

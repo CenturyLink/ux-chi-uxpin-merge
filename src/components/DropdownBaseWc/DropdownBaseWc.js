@@ -2,7 +2,8 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import DropdownMenuItems from '../DropdownMenuItems/DropdownMenuItems';
 import Label from '../Label/Label';
-import { LABEL_CLASSES } from '../../constants/classes';
+import { LABEL_CLASSES, UTILITY_CLASSES } from '../../constants/classes';
+import './DropdownBaseWc.css';
 
 /**
  * @uxpincomponent
@@ -17,6 +18,7 @@ export default function DropdownBaseWc(props) {
     disabled,
     dropdownPosition,
     fieldLabel,
+    fluid,
     info,
     infoPopoverTitle,
     infoPopoverDescription,
@@ -26,6 +28,8 @@ export default function DropdownBaseWc(props) {
     showSearch,
     text,
     visibleItems,
+    retainSelection,
+    selectedItem
   } = props;
 
   // #region Methods
@@ -65,9 +69,8 @@ export default function DropdownBaseWc(props) {
   );
   // #endregion
 
-  // TODO: fluid is not working as expected in uxpin, additional div inside the button element is impacting the layout of button text
   return (
-    <div ref={props.uxPinRef}>
+    <div ref={props.uxPinRef} className={`${UTILITY_CLASSES.WIDTH[100]}`}>
       <div className={LABEL_CLASSES.WRAPPER}>{labelElement}</div>
       <chi-dropdown
         ref={dropdownRef}
@@ -75,17 +78,18 @@ export default function DropdownBaseWc(props) {
         description={hasDescription ? true : undefined}
         animate-chevron={animateChevron}
         button={text}
-        {...(props.retainSelection ? {'retain-selection': true} : {})}
         color={buttonColor}
         disabled={disabled}
-        fluid
+        fluid={fluid}
         position={dropdownPosition}
         size={buttonSize}
         variant={buttonType}
         visible-items={visibleItems}
+        retain-selection={retainSelection}
       >
         {showSearch && <chi-search-input placeholder="Search" slot="menu-header"></chi-search-input>}
-        <DropdownMenuItems items={items} mode={mode} />
+
+        <DropdownMenuItems items={items} mode={mode} selectedItem={selectedItem} retainSelection={retainSelection} />
       </chi-dropdown>
     </div>
   );
@@ -106,6 +110,7 @@ DropdownBaseWc.propTypes = {
   buttonType: PropTypes.oneOf(['solid', 'outline', 'flat']),
   buttonSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   disabled: PropTypes.bool,
+  fluid: PropTypes.bool,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,
@@ -129,6 +134,7 @@ DropdownBaseWc.propTypes = {
     'bottom',
     'bottom-end',
   ]),
+  selectedItem: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   item1: PropTypes.string,
   item2: PropTypes.string,
   item3: PropTypes.string,
@@ -184,7 +190,9 @@ DropdownBaseWc.propTypes = {
 
 DropdownBaseWc.defaultProps = {
   active: false,
+  fluid: true,
   mode: 'base',
   text: 'Dropdown component',
+  selectedItem: 1
 };
 // #endregion
