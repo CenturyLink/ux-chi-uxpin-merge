@@ -11,9 +11,9 @@ export default function DropdownSearchWc(props) {
 
 // #region PropTypes
 DropdownSearchWc.propTypes = {
+  showSearch: PropTypes.bool,
   fieldLabel: PropTypes.string,
   active: PropTypes.bool,
-  showSearch: PropTypes.bool,
   animateChevron: PropTypes.bool,
   retainSelection: PropTypes.bool,
   visibleItems: PropTypes.number,
@@ -31,8 +31,6 @@ DropdownSearchWc.propTypes = {
    * */
   infoPopoverDescription: PropTypes.string,
   infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
-  dropdownHeight: PropTypes.string,
-  dropdownFixedWidth: PropTypes.string,
   dropdownPosition: PropTypes.oneOf([
     'top-start',
     'top',
@@ -57,11 +55,6 @@ DropdownSearchWc.propTypes = {
   item8: PropTypes.string,
   item9: PropTypes.string,
   item10: PropTypes.string,
-  item11: PropTypes.string,
-  item12: PropTypes.string,
-  item13: PropTypes.string,
-  item14: PropTypes.string,
-  item15: PropTypes.string,
   iconLeft1: PropTypes.string,
   iconRight1: PropTypes.string,
   iconLeft2: PropTypes.string,
@@ -82,16 +75,6 @@ DropdownSearchWc.propTypes = {
   iconRight9: PropTypes.string,
   iconLeft10: PropTypes.string,
   iconRight10: PropTypes.string,
-  iconLeft11: PropTypes.string,
-  iconRight11: PropTypes.string,
-  iconLeft12: PropTypes.string,
-  iconRight12: PropTypes.string,
-  iconLeft13: PropTypes.string,
-  iconRight13: PropTypes.string,
-  iconLeft14: PropTypes.string,
-  iconRight14: PropTypes.string,
-  iconLeft15: PropTypes.string,
-  iconRight15: PropTypes.string,
   buttonClick: PropTypes.func,
   select1: PropTypes.func,
   select2: PropTypes.func,
@@ -103,11 +86,6 @@ DropdownSearchWc.propTypes = {
   select8: PropTypes.func,
   select9: PropTypes.func,
   select10: PropTypes.func,
-  select11: PropTypes.func,
-  select12: PropTypes.func,
-  select13: PropTypes.func,
-  select14: PropTypes.func,
-  select15: PropTypes.func,
 };
 
 DropdownSearchWc.defaultProps = {

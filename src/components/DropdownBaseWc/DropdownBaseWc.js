@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import DropdownMenuItems from '../DropdownMenuItems/DropdownMenuItems';
 import Label from '../Label/Label';
@@ -29,7 +29,7 @@ export default function DropdownBaseWc(props) {
     text,
     visibleItems,
     retainSelection,
-    selectedItem
+    selectedItem,
   } = props;
 
   // #region Methods
@@ -38,8 +38,9 @@ export default function DropdownBaseWc(props) {
 
   const getDropdownItems = () => {
     const items = [];
-    for (let i = 1; i <= 15; i++) {
+    for (let i = 1; i <= 10; i++) {
       const title = props[`item${i}`];
+
       if (title) {
         items.push({
           title,
@@ -50,13 +51,12 @@ export default function DropdownBaseWc(props) {
         });
       }
     }
+
     return items;
   };
 
-  const items = getDropdownItems();
-
+  let items = getDropdownItems();
   const hasDescription = items.some((item) => item.description);
-
   const labelElement = fieldLabel && (
     <Label
       required={required}
@@ -69,6 +69,8 @@ export default function DropdownBaseWc(props) {
   );
   // #endregion
 
+  const color = buttonColor === 'base' ? '' : buttonColor;
+
   return (
     <div ref={props.uxPinRef} className={`${UTILITY_CLASSES.WIDTH[100]}`}>
       <div className={LABEL_CLASSES.WRAPPER}>{labelElement}</div>
@@ -78,7 +80,7 @@ export default function DropdownBaseWc(props) {
         description={hasDescription ? true : undefined}
         animate-chevron={animateChevron}
         button={text}
-        color={buttonColor}
+        color={color}
         disabled={disabled}
         fluid={fluid}
         position={dropdownPosition}
@@ -193,6 +195,6 @@ DropdownBaseWc.defaultProps = {
   fluid: true,
   mode: 'base',
   text: 'Dropdown component',
-  selectedItem: 1
+  selectedItem: 1,
 };
 // #endregion
