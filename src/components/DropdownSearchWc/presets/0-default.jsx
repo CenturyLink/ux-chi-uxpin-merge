@@ -7,7 +7,7 @@ export default (
     info={false}
     animateChevron={false}
     showSearch={false}
-    visibleItems="3"
+    visibleItems={3}
     infoPopoverTitle="Popover Title"
     infoPopoverDescription={`Line 1
 Line 2
