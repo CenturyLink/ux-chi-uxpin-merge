@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import DropdownMenuItems from '../DropdownMenuItems/DropdownMenuItems';
 import Label from '../Label/Label';
@@ -20,6 +20,7 @@ export default function DropdownBaseWc(props) {
     fieldLabel,
     fluid,
     info,
+    icon,
     infoPopoverTitle,
     infoPopoverDescription,
     infoPopoverPosition,
@@ -81,6 +82,7 @@ export default function DropdownBaseWc(props) {
         animate-chevron={animateChevron}
         button={text}
         color={color}
+        icon={icon}
         disabled={disabled}
         fluid={fluid}
         position={dropdownPosition}
