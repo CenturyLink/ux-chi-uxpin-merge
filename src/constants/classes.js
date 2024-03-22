@@ -93,8 +93,9 @@ export const ICON_CLASS = 'chi-icon';
 
 /* Icon classes */
 export const ICON_CLASSES = {
-    ICON_CIRCLE_INFO: 'circle-info-outline',
-    ICON_PRIMARY: '-icon--primary'
+  ICON_CIRCLE_INFO: 'circle-info-outline',
+  ICON_PRIMARY: '-icon--primary',
+  ICON_RIGHT: '-icon--right'
 };
 
 /* Checkbox inline */
@@ -261,6 +262,11 @@ export const UTILITY_CLASSES = {
     LG: {
       3: '-w-lg--3',
     }
+  },
+  Z_INDEX: {
+    Z_10: '-z--10',
+    Z_30: '-z--30',
+    Z_40: '-z--40',
   },
 };
 
