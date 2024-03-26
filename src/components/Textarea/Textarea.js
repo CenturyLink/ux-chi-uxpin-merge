@@ -43,7 +43,6 @@ export default class Textarea extends React.Component {
         label={this.props.label}
       ></Label>
     ) : null;
-    const value = this.props.value || '';
 
     const states = ['success', 'warning', 'danger'];
     const state = states.includes(this.props.helperMessageType) ? this.props.helperMessageType : '';
@@ -71,7 +70,8 @@ export default class Textarea extends React.Component {
           onMouseDown={this.props.mouseDown}
           onMouseUp={this.props.mouseUp}
         >
-          {value}
+          {''}
+          {this.props.value}
         </chi-textarea>
       </div>
     );
