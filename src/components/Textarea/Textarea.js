@@ -3,7 +3,7 @@ import * as React from 'react';
 import Label from '../Label/Label';
 import Icon from '../Icon/Icon';
 import { uuid4 } from '../../utils/utils';
-import { LABEL_CLASSES, ICON_CLASSES, FORM_CLASSES } from '../../constants/classes';
+import { FORM_CLASSES, ICON_CLASSES, LABEL_CLASSES } from '../../constants/classes';
 
 /**
  * @uxpincomponent
