@@ -3,7 +3,7 @@ import * as React from 'react';
 import Label from '../Label/Label';
 import Icon from '../Icon/Icon';
 import { uuid4 } from '../../utils/utils';
-import { LABEL_CLASSES, ICON_CLASSES, FORM_CLASSES } from '../../constants/classes';
+import { FORM_CLASSES, ICON_CLASSES, LABEL_CLASSES } from '../../constants/classes';
 
 /**
  * @uxpincomponent
@@ -15,6 +15,38 @@ export default class Textarea extends React.Component {
   constructor(props) {
     super(props);
     this.state = { id: uuid4() };
+  }
+
+  componentDidMount() {
+    const intervalId = setInterval(() => {
+      const assignedElement = document.getElementById(`${this.state.id}-control`);
+      if (assignedElement) {
+        assignedElement.value = this.props.value;
+        clearInterval(intervalId);
+      }
+    }, 250);
+
+    this.cleanupInterval = () => clearInterval(intervalId);
+  }
+
+  componentWillUnmount() {
+    if (this.cleanupInterval) {
+      this.cleanupInterval();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const assignedElement = document.getElementById(`${this.state.id}-control`);
+    if (assignedElement) {
+      if (this.props.value !== prevProps.value) {
+        assignedElement.value = this.props.value;
+      } else if (this.props.helperMessageText !== prevProps.helperMessageText) {
+        setTimeout(() => {
+          // Using direct DOM element, because it was updated after the assignment
+          document.getElementById(`${this.state.id}-control`).value = this.props.value;
+        }, 200);
+      }
+    }
   }
 
   render() {
@@ -69,10 +101,7 @@ export default class Textarea extends React.Component {
           onMouseLeave={this.props.mouseLeave}
           onMouseDown={this.props.mouseDown}
           onMouseUp={this.props.mouseUp}
-        >
-          {''}
-          {this.props.value}
-        </chi-textarea>
+        ></chi-textarea>
       </div>
     );
   }
