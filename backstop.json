@@ -730,6 +730,27 @@
       "expect": 0,
       "misMatchThreshold" : 0.1,
       "requireSameDimensions": true
+    },
+    {
+      "label": "Pagination - Types / Sizes",
+      "url": "https://preview.uxpin.com/ef942a3f2f67bcccd29b3b441a13714502a6de90#/pages/168677806/simulate/no-panels",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
     }
   ],
   "paths": {
