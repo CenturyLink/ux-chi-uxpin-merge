@@ -1,39 +1,83 @@
-import * as PropTypes from 'prop-types';
-import * as React from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { uuid4 } from '../../utils/utils';
 import { SR_ONLY_CLASS } from '../../constants/classes';
 
-/**
- * @uxpincomponent
- */
-function Popover(props) {
-  const popoverId = `popover-${uuid4()}`;
-  const referenceId = `button-${uuid4()}`;
-  const text = <p style={{ whiteSpace: 'pre-line' }}>{props.text}</p>;
+class Popover extends React.Component {
+  constructor(props) {
+    super(props);
+    this.popoverId = `popover-${uuid4()}`;
+    this.referenceId = `button-${uuid4()}`;
+    this.observer = null;
+  }
 
-  return (
-    <>
-      <div style={{ border: '1px solid #e9e9e9', height: '16px', width: '16px' }} id={referenceId}>
-        <span className={SR_ONLY_CLASS}>i</span>
-      </div>
-      <chi-popover
-        active={props.active}
-        arrow={props.arrow}
-        id={popoverId}
-        position={props.position}
-        title={props.title || null}
-        variant="text"
-        reference={`#${referenceId}`}
-        closable={props.closeButton}
-        prevent-auto-hide={props.preventAutoHide}
-      >
-        {text || ''}
-      </chi-popover>
-    </>
-  );
+  componentDidMount() {
+    const targetNode = document.getElementById(this.popoverId);
+    let transformValue = null;
+    let arrowPlacementValue = null;
+
+    const intervalId = setInterval(() => {
+      const section = targetNode.querySelector('section');
+      transformValue = section?.style.transform;
+      arrowPlacementValue = section?.getAttribute('x-placement');
+
+      if (transformValue && arrowPlacementValue) {
+        clearInterval(intervalId);
+      }
+    }, 100);
+
+    this.cleanupInterval = () => clearInterval(intervalId);
+
+    if (targetNode) {
+      const config = { attributes: true, childList: true, subtree: true };
+      const callback = (mutationsList, observer) => {
+        for (const mutation of mutationsList) {
+          if (mutation.type === 'attributes') {
+            const section = targetNode.querySelector('section');
+            if (section && section?.style.transform !== transformValue && arrowPlacementValue && transformValue) {
+              section.style.transform = transformValue;
+              section.setAttribute('x-placement', arrowPlacementValue);
+            }
+          }
+        }
+      };
+
+      this.observer = new MutationObserver(callback);
+      this.observer.observe(targetNode, config);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+
+  render() {
+    const text = <p style={{ whiteSpace: 'pre-line' }}>{this.props.text}</p>;
+    return (
+      <>
+        <div style={{ border: '1px solid #e9e9e9', height: '16px', width: '16px' }} id={this.referenceId}>
+          <span className={SR_ONLY_CLASS}>i</span>
+        </div>
+        <chi-popover
+          active={this.props.active}
+          arrow={this.props.arrow}
+          id={this.popoverId}
+          position={this.props.position}
+          title={this.props.title || null}
+          variant="text"
+          reference={`#${this.referenceId}`}
+          closable={this.props.closeButton}
+          prevent-auto-hide={this.props.preventAutoHide}
+        >
+          {text || ''}
+        </chi-popover>
+      </>
+    );
+  }
 }
 
-/* eslint-disable */
 Popover.propTypes = {
   active: PropTypes.bool,
   arrow: PropTypes.bool,
@@ -70,6 +114,5 @@ Popover.defaultProps = {
   closeButton: false,
   preventAutoHide: true,
 };
-/* eslint-enable */
 
 export default Popover;
