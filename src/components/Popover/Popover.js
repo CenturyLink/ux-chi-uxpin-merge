@@ -12,9 +12,34 @@ class Popover extends React.Component {
   }
 
   componentDidMount() {
+    this.setupPositioning();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.position !== prevProps.position) {
+      this.setupPositioning(true);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+    if (this.cleanupInterval) {
+      this.cleanupInterval();
+    }
+  }
+
+  setupPositioning(forceUpdate = false) {
     const targetNode = document.getElementById(this.popoverId);
+    if (!targetNode) return;
+
     let transformValue = null;
     let arrowPlacementValue = null;
+
+    if (forceUpdate && this.cleanupInterval) {
+      this.cleanupInterval();
+    }
 
     const intervalId = setInterval(() => {
       const section = targetNode.querySelector('section');
@@ -28,29 +53,25 @@ class Popover extends React.Component {
 
     this.cleanupInterval = () => clearInterval(intervalId);
 
-    if (targetNode) {
-      const config = { attributes: true, childList: true, subtree: true };
-      const callback = (mutationsList, observer) => {
-        for (const mutation of mutationsList) {
-          if (mutation.type === 'attributes') {
-            const section = targetNode.querySelector('section');
-            if (section && section?.style.transform !== transformValue && arrowPlacementValue && transformValue) {
-              section.style.transform = transformValue;
-              section.setAttribute('x-placement', arrowPlacementValue);
-            }
+    const config = { attributes: true, childList: true, subtree: true };
+    const callback = (mutationsList) => {
+      for (const mutation of mutationsList) {
+        if (mutation.type === 'attributes') {
+          const section = targetNode.querySelector('section');
+          if (section && section?.style.transform !== transformValue && arrowPlacementValue && transformValue) {
+            section.style.transform = transformValue;
+            section.setAttribute('x-placement', arrowPlacementValue);
           }
         }
-      };
+      }
+    };
 
-      this.observer = new MutationObserver(callback);
-      this.observer.observe(targetNode, config);
-    }
-  }
-
-  componentWillUnmount() {
     if (this.observer) {
       this.observer.disconnect();
     }
+
+    this.observer = new MutationObserver(callback);
+    this.observer.observe(targetNode, config);
   }
 
   render() {
