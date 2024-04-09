@@ -7,12 +7,19 @@ const uuid = uuid4();
 /**
  * @uxpincomponent
  */
-const Progress = (props) => (
-  <div>
-    <div className="chi-label" id={uuid}>{props.label} {props.progress}%</div>
-    <progress aria-labelledby={uuid} value={props.progress} max="100"> </progress>
-  </div>
+const Progress = (props) => {
+  const { label, progress } = props;
+  const progressDisplay = progress ? `${progress}%` : '';
+
+  return (
+    <div>
+      <div className="chi-label" id={uuid}>
+        {label} {progressDisplay}
+      </div>
+      <progress aria-labelledby={uuid} value={progress} max="100"></progress>
+    </div>
   );
+};
 
 Progress.propTypes = {
   label: PropTypes.string,
