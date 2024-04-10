@@ -108,11 +108,19 @@ export default class Textarea extends React.Component {
 }
 
 Textarea.propTypes = {
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  /**
+   * @uxpinpropname field label
+   * */
   label: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
+  value: PropTypes.string,
+  placeholder: PropTypes.string,
+  disabled: PropTypes.bool,
   helperMessageText: PropTypes.string,
   helperMessageType: PropTypes.oneOf(['default', 'success', 'warning', 'danger']),
+  /**
+   * @uxpinpropname info icon
+   * */
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,
   /**
@@ -121,38 +129,19 @@ Textarea.propTypes = {
    * */
   infoPopoverDescription: PropTypes.string,
   infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
-  disabled: PropTypes.bool,
-  /**
-   * A textArea controller for Text
-   * @uxpinpropname text
-   * @uxpincontroltype textfield(10)
-   * */
-  value: PropTypes.string,
-  placeholder: PropTypes.string,
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   /**
    * @uxpinpropname on click
    * */
   click: PropTypes.func,
   /**
-   * @uxpinpropname on focus
-   * */
-  focus: PropTypes.func,
-  /**
-   * @uxpinpropname on focus lost
-   * */
-  focusLost: PropTypes.func,
-  /**
    * @uxpinpropname on input
    * */
   input: PropTypes.func,
   /**
-   * @uxpinpropname on mouse down
+   * @uxpinpropname on value change
    * */
-  mouseDown: PropTypes.func,
-  /**
-   * @uxpinpropname on mouse up
-   * */
-  mouseUp: PropTypes.func,
+  valueChange: PropTypes.func,
   /**
    * @uxpinpropname on mouse over
    * */
@@ -162,9 +151,21 @@ Textarea.propTypes = {
    * */
   mouseLeave: PropTypes.func,
   /**
-   * @uxpinpropname on value change
+   * @uxpinpropname on mouse down
    * */
-  valueChange: PropTypes.func,
+  mouseDown: PropTypes.func,
+  /**
+   * @uxpinpropname on mouse up
+   * */
+  mouseUp: PropTypes.func,
+  /**
+   * @uxpinpropname on focus
+   * */
+  focus: PropTypes.func,
+  /**
+   * @uxpinpropname on focus lost
+   * */
+  focusLost: PropTypes.func,
 };
 
 Textarea.defaultProps = {
