@@ -1,16 +1,32 @@
 import * as PropTypes from 'prop-types';
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { BUTTON_CLASSES } from '../../constants/classes';
 import { uuid4 } from '../../utils/utils';
 import './Icon.css';
 
-/* eslint-disable */
 /**
  * @uxpincomponent
  * @uxpinwrappers
  * SkipContainerWrapper
  */
-const Icon = ({tooltipMessage, tooltipPosition, popover, popoverTitle, popoverDescription, popoverPosition, mode, click, clickInfo, mouseDown, mouseUp, mouseLeave, mouseOver, icon, color, size}) => {
+const Icon = ({
+  tooltipMessage,
+  tooltipPosition,
+  popover,
+  popoverTitle,
+  popoverDescription,
+  popoverPosition,
+  mode,
+  click,
+  clickInfo,
+  mouseDown,
+  mouseUp,
+  mouseLeave,
+  mouseOver,
+  icon,
+  color,
+  size,
+}) => {
   const uuid = uuid4();
   const popOverRef = React.createRef();
 
@@ -25,17 +41,28 @@ const Icon = ({tooltipMessage, tooltipPosition, popover, popoverTitle, popoverDe
 
   const checkAndCallFunction = (fn) => {
     if (typeof fn === 'function') {
-      fn(); 
+      fn();
     }
-  }
+  };
 
   const handlerClick = () => {
     if (popover) {
       checkAndCallFunction(clickInfo);
       popOverRef.current.toggle();
     }
-    checkAndCallFunction(click); 
-  }
+    checkAndCallFunction(click);
+  };
+
+  useEffect(() => {
+    // For sizes sm and xs we need to set lineHeight to 0.75rem, due to Global chi class css properties. 
+    if (size === 'sm' || size === 'xs') {
+      const element = document.getElementById(`popover-hook-${uuid}`);
+      const chiParent = element.closest('.chi');
+      if (chiParent) {
+        chiParent.style.lineHeight = '0.75rem';
+      }
+    }
+  }, [size, uuid]);
 
   return (
     <>
@@ -51,10 +78,9 @@ const Icon = ({tooltipMessage, tooltipPosition, popover, popoverTitle, popoverDe
           onMouseEnter={mouseOver}
           onMouseLeave={mouseLeave}
           onMouseDown={mouseDown}
-          onMouseUp={mouseUp}>
-          <span className="-sr--only">
-            i
-          </span>
+          onMouseUp={mouseUp}
+        >
+          <span className="-sr--only">i</span>
         </chi-icon>
       </div>
       {popover && (popoverTitle || popoverDescription) && (
@@ -73,17 +99,43 @@ const Icon = ({tooltipMessage, tooltipPosition, popover, popoverTitle, popoverDe
         </>
       )}
     </>
-  )
+  );
 };
 
 Icon.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'sm--2', 'sm--3', 'md', 'lg', 'xl', 'xxl']),
   icon: PropTypes.string,
-  color: PropTypes.oneOf(['primary', 'secondary', 'dark', 'light', 'info', 'grey', 'muted', 'success', 'warning', 'danger', 'navy', 'orange']),
+  color: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'dark',
+    'light',
+    'info',
+    'grey',
+    'muted',
+    'success',
+    'warning',
+    'danger',
+    'navy',
+    'orange',
+  ]),
   tooltipMessage: PropTypes.string,
   tooltipPosition: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
   popover: PropTypes.bool,
-  popoverPosition: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'top-start', 'top-end', 'right-start', 'right-end', 'bottom-start', 'bottom-end', 'left-start', 'left-end']),
+  popoverPosition: PropTypes.oneOf([
+    'top',
+    'right',
+    'bottom',
+    'left',
+    'top-start',
+    'top-end',
+    'right-start',
+    'right-end',
+    'bottom-start',
+    'bottom-end',
+    'left-start',
+    'left-end',
+  ]),
   popoverTitle: PropTypes.string,
   /**
    * A textArea controller for Text
