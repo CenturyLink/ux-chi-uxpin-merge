@@ -6,7 +6,7 @@ import Popover from '../Popover/Popover';
  * @uxpincomponent
  */
 function PopoverTabs(props) {
-  return <Popover title={props.title} position={props.position}></Popover>;
+  return <Popover title={props.title} position={props.position} stopRepositioning></Popover>;
 }
 
 PopoverTabs.propTypes = {
