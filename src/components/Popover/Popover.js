@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { uuid4 } from '../../utils/utils';
 import { SR_ONLY_CLASS } from '../../constants/classes';
 
-class Popover extends React.Component {
+class Popover extends Component {
   constructor(props) {
     super(props);
     this.popoverId = `popover-${uuid4()}`;
     this.referenceId = `button-${uuid4()}`;
     this.observer = null;
+    this.intervalId = null;
   }
 
   componentDidMount() {
-    this.setupPositioning();
+    if (this.props.stopRepositioning) {
+      this.setupPositioning();
+    }
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.position !== prevProps.position) {
+    if (this.props.stopRepositioning && this.props.position !== prevProps.position) {
       this.setupPositioning(true);
     }
   }
@@ -25,9 +28,7 @@ class Popover extends React.Component {
     if (this.observer) {
       this.observer.disconnect();
     }
-    if (this.cleanupInterval) {
-      this.cleanupInterval();
-    }
+    clearInterval(this.intervalId);
   }
 
   setupPositioning(forceUpdate = false) {
@@ -37,28 +38,26 @@ class Popover extends React.Component {
     let transformValue = null;
     let arrowPlacementValue = null;
 
-    if (forceUpdate && this.cleanupInterval) {
-      this.cleanupInterval();
+    if (forceUpdate && this.intervalId) {
+      clearInterval(this.intervalId);
     }
 
-    const intervalId = setInterval(() => {
+    this.intervalId = setInterval(() => {
       const section = targetNode.querySelector('section');
       transformValue = section?.style.transform;
       arrowPlacementValue = section?.getAttribute('x-placement');
 
       if (transformValue && arrowPlacementValue) {
-        clearInterval(intervalId);
+        clearInterval(this.intervalId);
       }
     }, 100);
-
-    this.cleanupInterval = () => clearInterval(intervalId);
 
     const config = { attributes: true, childList: true, subtree: true };
     const callback = (mutationsList) => {
       for (const mutation of mutationsList) {
         if (mutation.type === 'attributes') {
           const section = targetNode.querySelector('section');
-          if (section && section?.style.transform !== transformValue && arrowPlacementValue && transformValue) {
+          if (section && section.style.transform !== transformValue && arrowPlacementValue && transformValue) {
             section.style.transform = transformValue;
             section.setAttribute('x-placement', arrowPlacementValue);
           }
@@ -75,24 +74,26 @@ class Popover extends React.Component {
   }
 
   render() {
-    const text = <p style={{ whiteSpace: 'pre-line' }}>{this.props.text}</p>;
+    const { active, arrow, position, title, text, closeButton, preventAutoHide } = this.props;
+    const renderedText = <p style={{ whiteSpace: 'pre-line' }}>{text}</p>;
+
     return (
       <>
         <div style={{ border: '1px solid #e9e9e9', height: '16px', width: '16px' }} id={this.referenceId}>
           <span className={SR_ONLY_CLASS}>i</span>
         </div>
         <chi-popover
-          active={this.props.active}
-          arrow={this.props.arrow}
+          active={active}
+          arrow={arrow}
           id={this.popoverId}
-          position={this.props.position}
-          title={this.props.title || null}
+          position={position}
+          title={title || null}
           variant="text"
           reference={`#${this.referenceId}`}
-          closable={this.props.closeButton}
-          prevent-auto-hide={this.props.preventAutoHide}
+          closable={closeButton}
+          prevent-auto-hide={preventAutoHide}
         >
-          {text || ''}
+          {renderedText || ''}
         </chi-popover>
       </>
     );
@@ -127,6 +128,7 @@ Popover.propTypes = {
   popover: PropTypes.string,
   closeButton: PropTypes.bool,
   preventAutoHide: PropTypes.bool,
+  stopRepositioning: PropTypes.bool,
 };
 
 Popover.defaultProps = {
@@ -134,6 +136,7 @@ Popover.defaultProps = {
   arrow: true,
   closeButton: false,
   preventAutoHide: true,
+  stopRepositioning: false,
 };
 
 export default Popover;
