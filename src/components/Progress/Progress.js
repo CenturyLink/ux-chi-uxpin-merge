@@ -8,8 +8,8 @@ const uuid = uuid4();
  * @uxpincomponent
  */
 const Progress = (props) => {
-  const { label, progress } = props;
-  const progressDisplay = progress ? `${progress}%` : '';
+  const { label, progress, showPercentage } = props;
+  const progressDisplay = progress && showPercentage ? `${progress}%` : '';
 
   return (
     <div>
@@ -24,6 +24,11 @@ const Progress = (props) => {
 Progress.propTypes = {
   label: PropTypes.string,
   progress: PropTypes.string,
+  showPercentage: PropTypes.bool,
+};
+
+Progress.defaultProps = {
+  showPercentage: true,
 };
 /* eslint-enable */
 
