@@ -196,6 +196,7 @@ DropdownBaseWc.defaultProps = {
   active: false,
   fluid: true,
   mode: 'base',
+  dropdownPosition: 'bottom-start',
   text: 'Dropdown component',
   selectedItem: 1,
 };
