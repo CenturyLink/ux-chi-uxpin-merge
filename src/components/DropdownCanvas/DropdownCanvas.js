@@ -114,6 +114,7 @@ DropdownCanvas.defaultProps = {
   height: 300,
   active: true,
   text: 'Dropdown component',
+  dropdownPosition: 'bottom-start',
   fluid: true,
 };
 // #endregion
