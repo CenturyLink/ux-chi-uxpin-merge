@@ -30,14 +30,16 @@ export default function DropdownCanvas(props) {
   const color = buttonColor === 'base' ? '' : buttonColor;
   const dropdownRef = useRef(null);
   const labelElement = fieldLabel && (
-    <Label
-      required={required}
-      label={fieldLabel}
-      info={info}
-      infoPopoverTitle={infoPopoverTitle}
-      infoPopoverDescription={infoPopoverDescription}
-      infoPopoverPosition={infoPopoverPosition}
-    />
+    <div className={LABEL_CLASSES.WRAPPER}>
+      <Label
+        required={required}
+        label={fieldLabel}
+        info={info}
+        infoPopoverTitle={infoPopoverTitle}
+        infoPopoverDescription={infoPopoverDescription}
+        infoPopoverPosition={infoPopoverPosition}
+      />
+    </div>
   );
 
   const menuDimensions = {
@@ -47,7 +49,7 @@ export default function DropdownCanvas(props) {
 
   return (
     <div ref={props.uxPinRef} className={`${UTILITY_CLASSES.WIDTH[100]}`}>
-      <div className={LABEL_CLASSES.WRAPPER}>{labelElement}</div>
+      {labelElement}
       <chi-dropdown
         ref={dropdownRef}
         active={active}

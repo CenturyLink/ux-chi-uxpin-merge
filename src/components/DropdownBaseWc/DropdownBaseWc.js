@@ -59,14 +59,16 @@ export default function DropdownBaseWc(props) {
   let items = getDropdownItems();
   const hasDescription = items.some((item) => item.description);
   const labelElement = fieldLabel && (
-    <Label
-      required={required}
-      label={fieldLabel}
-      info={info}
-      infoPopoverTitle={infoPopoverTitle}
-      infoPopoverDescription={infoPopoverDescription}
-      infoPopoverPosition={infoPopoverPosition}
-    />
+    <div className={LABEL_CLASSES.WRAPPER}>
+      <Label
+        required={required}
+        label={fieldLabel}
+        info={info}
+        infoPopoverTitle={infoPopoverTitle}
+        infoPopoverDescription={infoPopoverDescription}
+        infoPopoverPosition={infoPopoverPosition}
+      />
+    </div>
   );
   // #endregion
 
@@ -74,7 +76,7 @@ export default function DropdownBaseWc(props) {
 
   return (
     <div ref={props.uxPinRef} className={`${UTILITY_CLASSES.WIDTH[100]}`}>
-      <div className={LABEL_CLASSES.WRAPPER}>{labelElement}</div>
+      {labelElement}
       <chi-dropdown
         ref={dropdownRef}
         active={active}

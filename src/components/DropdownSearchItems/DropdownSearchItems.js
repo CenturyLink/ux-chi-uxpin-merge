@@ -53,25 +53,23 @@ export default class DropdownSearchItems extends React.Component {
 
   render() {
     const label = this.props.fieldLabel ? (
-      <Label
-        htmlFor={this.state.id}
-        required={this.props.required}
-        label={this.props.fieldLabel}
-        info={this.props.info}
-        infoPopoverTitle={this.props.infoPopoverTitle}
-        infoPopoverDescription={this.props.infoPopoverDescription}
-        infoPopoverPosition={this.props.infoPopoverPosition}>
-      </Label>
+      <div className={LABEL_CLASSES.WRAPPER}>
+        <Label
+          htmlFor={this.state.id}
+          required={this.props.required}
+          label={this.props.fieldLabel}
+          info={this.props.info}
+          infoPopoverTitle={this.props.infoPopoverTitle}
+          infoPopoverDescription={this.props.infoPopoverDescription}
+          infoPopoverPosition={this.props.infoPopoverPosition}
+        ></Label>
+      </div>
     ) : null;
 
     return (
       // eslint-disable-next-line react/prop-types
-      <div
-        className={`${DROPDOWN_CLASSES.DROPDOWN} ${UTILITY_CLASSES.WIDTH[100]}`}
-        ref={this.props.uxpinRef}>
-        <div className={LABEL_CLASSES.WRAPPER}>
-          {label}
-        </div>
+      <div className={`${DROPDOWN_CLASSES.DROPDOWN} ${UTILITY_CLASSES.WIDTH[100]}`} ref={this.props.uxpinRef}>
+        {label}
         <chi-button
           ref={this.dropdownSearchItemsRef}
           id={this.state.id}
@@ -90,8 +88,11 @@ export default class DropdownSearchItems extends React.Component {
           color={this.props.buttonColor === 'base' ? '' : `${this.props.buttonColor}`}
           variant={this.props.buttonType === 'solid' ? '' : `${this.props.buttonType}`}
           data-position={this.props.dropdownPosition}
-          onClick={() => this.handleButtonClick()}>
-          <span className={`${OVERFLOW_HIDDEN} ${UTILITY_CLASSES.TYPOGRAPHY.TEXT_TRUNCATE} ${UTILITY_CLASSES.WIDTH[100]} ${UTILITY_CLASSES.TEXT.LEFT}`}>
+          onClick={() => this.handleButtonClick()}
+        >
+          <span
+            className={`${OVERFLOW_HIDDEN} ${UTILITY_CLASSES.TYPOGRAPHY.TEXT_TRUNCATE} ${UTILITY_CLASSES.WIDTH[100]} ${UTILITY_CLASSES.TEXT.LEFT}`}
+          >
             {this.state.text || this.props.text}
           </span>
         </chi-button>
@@ -164,8 +165,8 @@ export default class DropdownSearchItems extends React.Component {
           iconLeft12={this.props.iconLeft12}
           iconLeft13={this.props.iconLeft13}
           iconLeft14={this.props.iconLeft14}
-          iconLeft15={this.props.iconLeft15}>
-        </DropdownMenu>
+          iconLeft15={this.props.iconLeft15}
+        ></DropdownMenu>
       </div>
     );
   }
@@ -186,7 +187,20 @@ DropdownSearchItems.propTypes = {
   buttonType: PropTypes.oneOf(['solid', 'outline', 'flat']),
   buttonSize: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   disabled: PropTypes.bool,
-  dropdownPosition: PropTypes.oneOf(['top-start', 'top', 'top-end', 'left-start', 'left', 'left-end', 'right-start', 'right', 'right-end', 'bottom-start', 'bottom', 'bottom-end']),
+  dropdownPosition: PropTypes.oneOf([
+    'top-start',
+    'top',
+    'top-end',
+    'left-start',
+    'left',
+    'left-end',
+    'right-start',
+    'right',
+    'right-end',
+    'bottom-start',
+    'bottom',
+    'bottom-end',
+  ]),
   dropdownFixedWidth: PropTypes.string,
   selectedItem: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]),
   required: PropTypes.oneOf(['none', 'required', 'optional']),
