@@ -6,7 +6,7 @@ import Popover from '../Popover/Popover';
  * @uxpincomponent
  */
 function PopoverImages(props) {
-  return <Popover title={props.title} position={props.position} text={props.text}></Popover>;
+  return <Popover title={props.title} position={props.position} text={props.text} stopRepositioning></Popover>;
 }
 
 PopoverImages.propTypes = {
