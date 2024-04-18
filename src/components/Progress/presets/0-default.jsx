@@ -5,7 +5,7 @@ export default (
   <Progress
     uxpId="progress"
     label=""
-    showPercentage={true}
+    showPercentage
     progress={50}
   />
 );
