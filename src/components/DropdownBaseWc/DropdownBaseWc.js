@@ -39,7 +39,7 @@ export default function DropdownBaseWc(props) {
 
   const getDropdownItems = () => {
     const items = [];
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 10; i += 1) {
       const title = props[`item${i}`];
 
       if (title) {
@@ -56,7 +56,7 @@ export default function DropdownBaseWc(props) {
     return items;
   };
 
-  let items = getDropdownItems();
+  const items = getDropdownItems();
   const hasDescription = items.some((item) => item.description);
   const labelElement = fieldLabel && (
     <div className={LABEL_CLASSES.WRAPPER}>
