@@ -86,6 +86,6 @@ DropdownMenuItems.propTypes = {
 
 DropdownMenuItems.defaultProps = {
   items: [],
-  retainSelection: false
+  retainSelection: false,
 };
 // #endregion

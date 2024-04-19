@@ -4,6 +4,7 @@ import { BUTTON_CLASSES } from '../../constants/classes';
 import { uuid4 } from '../../utils/utils';
 import './Icon.css';
 
+/* eslint-disable */
 /**
  * @uxpincomponent
  * @uxpinwrappers
