@@ -100,7 +100,7 @@ export default class PickerGroup extends React.Component {
           );
           pickersToRender.push(
             <label
-              className={this.props[`description${i}`] ? PICKER_GROUP_CLASSES.LABEL_WRAPPER : ''}
+              className={`${this.props[`description${i}`] ? PICKER_GROUP_CLASSES.LABEL_WRAPPER : ''} -${this.props.size}`}
               htmlFor={`picker-${uuid}-${i}`}
               onClick={() => handlerPickerClick(i)}>
               {this.props[`description${i}`] ?
@@ -130,6 +130,7 @@ export default class PickerGroup extends React.Component {
 
 PickerGroup.propTypes = {
   fieldLabel: PropTypes.string,
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   selected: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
   info: PropTypes.bool,
@@ -192,6 +193,7 @@ PickerGroup.propTypes = {
 /* eslint-enable */
 
 PickerGroup.defaultProps = {
+  size: 'md',
   required: 'none',
   selected: 1,
   info: false,
