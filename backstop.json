@@ -732,6 +732,27 @@
       "requireSameDimensions": true
     },
     {
+      "label": "StatBase",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/174049742/simulate/sitemap",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
       "label": "Footer - Sizes",
       "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/172234505/simulate/sitemap",
       "referenceUrl": "",
@@ -755,6 +776,27 @@
     {
       "label": "Pagination - Types / Sizes",
       "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/174044445/simulate/sitemap",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "StatCompact",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/175425361/simulate/sitemap",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",

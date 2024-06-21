@@ -8,11 +8,12 @@ import * as React from 'react';
  */
 export default class TertiaryButton extends React.Component {
   render() {
-    const buttonContent = this.props.leftIcon || this.props.rightIcon ? (
+    const buttonContent = this.props.leftIcon || this.props.rightIcon || this.props.spinner ? (
       <div className="chi-button__content">
         {this.props.leftIcon ? <i style={{ display: 'flex' }} className={`chi-icon icon-${this.props.leftIcon}`}></i> : null}
         <span>{this.props.value}</span>
         {this.props.rightIcon ? <i style={{ display: 'flex' }} className={`chi-icon icon-${this.props.rightIcon}`}></i> : null}
+        {this.props.spinner ? <chi-spinner style={{ display: 'flex' }} /> : null}
       </div>
     ) : this.props.value;
 
@@ -42,6 +43,7 @@ TertiaryButton.propTypes = {
   disabled: PropTypes.bool,
   leftIcon: PropTypes.string,
   rightIcon: PropTypes.string,
+  spinner: PropTypes.bool,
   size: PropTypes.oneOf(['xs']),
   value: PropTypes.string,
   fluid: PropTypes.bool,

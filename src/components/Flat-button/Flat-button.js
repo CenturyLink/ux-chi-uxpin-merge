@@ -19,12 +19,14 @@ export default function FlatButton({
   mouseOver,
   mouseLeave,
   uxpinRef,
+  spinner
 }) {
   return (
     <PrimaryButton
       disabled={disabled}
       leftIcon={leftIcon}
       rightIcon={rightIcon}
+      spinner={spinner}
       size={size}
       value={value}
       flat
@@ -43,6 +45,7 @@ FlatButton.propTypes = {
   disabled: PropTypes.bool,
   leftIcon: PropTypes.string,
   rightIcon: PropTypes.string,
+  spinner: PropTypes.bool,
   size: PropTypes.oneOf(['xs','md']),
   value: PropTypes.string,
   click: PropTypes.func,
