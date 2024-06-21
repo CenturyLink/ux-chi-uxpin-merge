@@ -11,6 +11,7 @@ export default function PrimaryButton({
   leftIcon,
   rightIcon,
   size,
+  spinner,
   value,
   fluid,
   flat,
@@ -21,25 +22,17 @@ export default function PrimaryButton({
   mouseLeave,
   uxpinRef,
 }) {
-  const buttonContent = leftIcon || rightIcon ? (
-    <div className="chi-button__content">
-      {leftIcon ? (
-        <i
-          style={{ display: 'flex' }}
-          className={`chi-icon icon-${leftIcon}`}
-        />
-      ) : null}
-      <span>{value}</span>
-      {rightIcon ? (
-        <i
-          style={{ display: 'flex' }}
-          className={`chi-icon icon-${rightIcon}`}
-        />
-      ) : null}
-    </div>
-  ) : (
-    value
-  );
+  const buttonContent =
+    leftIcon || rightIcon || spinner ? (
+      <div className="chi-button__content">
+        {leftIcon ? <i style={{ display: 'flex' }} className={`chi-icon icon-${leftIcon}`} /> : null}
+        <span>{value}</span>
+        {rightIcon ? <i style={{ display: 'flex' }} className={`chi-icon icon-${rightIcon}`} /> : null}
+        {spinner ? <chi-spinner color={flat ? '' : 'light'} style={{ display: 'flex' }} /> : null}
+      </div>
+    ) : (
+      value
+    );
 
   return (
     <button
@@ -57,7 +50,8 @@ export default function PrimaryButton({
       onMouseLeave={mouseLeave}
       onMouseDown={mouseDown}
       onMouseUp={mouseUp}
-      ref={uxpinRef}>
+      ref={uxpinRef}
+    >
       {buttonContent}
     </button>
   );
@@ -68,7 +62,8 @@ PrimaryButton.propTypes = {
   disabled: PropTypes.bool,
   leftIcon: PropTypes.string,
   rightIcon: PropTypes.string,
-  size: PropTypes.oneOf(['xs','md']),
+  spinner: PropTypes.bool,
+  size: PropTypes.oneOf(['xs', 'md']),
   value: PropTypes.string,
   fluid: PropTypes.bool,
   /** @uxpinignoreprop */
