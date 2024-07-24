@@ -942,6 +942,27 @@
       "requireSameDimensions": true
     },
     {
+      "label": "Popover / Position / Arrow",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/165722808/simulate/sitemap",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
       "label": "Marketing Icons",
       "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/179916481/simulate/sitemap",
       "referenceUrl": "",
@@ -960,14 +981,56 @@
       "selectorExpansion": false,
       "expect": 0,
       "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true,
       "viewports": [
         {
           "label":"viewport_large",
           "width":2860,
           "height":1440
         }
-      ]
+      ],
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Icons / Color / Size",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/179431531/simulate/sitemap",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Icons",
+      "url": "https://preview.uxpin.com/0af224b9ca960f5134a15e71ad9d681bfe589d63#/pages/179494150/simulate/sitemap",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "clickSelectors": ["#submit-button"],
+      "postInteractionWait": 5000,
+      "selectors": [
+        ".ng-canvas"
+      ],
+      "selectorExpansion": false,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
     }
   ],
   "paths": {

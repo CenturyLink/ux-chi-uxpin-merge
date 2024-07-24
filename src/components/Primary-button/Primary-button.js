@@ -22,17 +22,16 @@ export default function PrimaryButton({
   mouseLeave,
   uxpinRef,
 }) {
-  const buttonContent =
-    leftIcon || rightIcon || spinner ? (
-      <div className="chi-button__content">
-        {leftIcon ? <i style={{ display: 'flex' }} className={`chi-icon icon-${leftIcon}`} /> : null}
-        <span>{value}</span>
-        {rightIcon ? <i style={{ display: 'flex' }} className={`chi-icon icon-${rightIcon}`} /> : null}
-        {spinner ? <chi-spinner color={flat ? '' : 'light'} style={{ display: 'flex' }} /> : null}
-      </div>
-    ) : (
-      value
-    );
+  const buttonContent = leftIcon || rightIcon || spinner ? (
+    <div className="chi-button__content">
+      {leftIcon ? <i style={{ display: 'flex' }} className={`chi-icon icon-${leftIcon}`} /> : null}
+      <span>{value}</span>
+      {rightIcon ? <i style={{ display: 'flex' }} className={`chi-icon icon-${rightIcon}`} /> : null}
+      {spinner ? <chi-spinner color={flat ? '' : 'light'} style={{ display: 'flex' }} /> : null}
+    </div>
+  ) : (
+    value
+  );
 
   return (
     <button
@@ -50,8 +49,7 @@ export default function PrimaryButton({
       onMouseLeave={mouseLeave}
       onMouseDown={mouseDown}
       onMouseUp={mouseUp}
-      ref={uxpinRef}
-    >
+      ref={uxpinRef}>
       {buttonContent}
     </button>
   );
