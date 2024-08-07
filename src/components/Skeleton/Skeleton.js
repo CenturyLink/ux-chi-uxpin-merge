@@ -20,40 +20,24 @@ const skeletonType = (type) => {
   return '';
 };
 
-const getStyles = () => {
-  switch (type) {
-    case 'circle':
-      return {
-        height: `${height}px`,
-        width: `${height}px`,
-        borderRadius: '50%',
-      };
-    case 'rounded':
-      return {
-        height: `${height}px`,
-      };
-    case 'rounded squared':
-      return {
-        height: `${height}px`,
-        width: `${height}px`,
-      };
-    case 'square':
-      return {
-        height: `${height}px`,
-        width: `${height}px`,
-      };
-    default:
-      return {
-        height: `${height}px`,
-      };
+const getStyles = (size, type, customSize) => {
+  if (size === 'custom') {
+    const typesWithWidth = ['circle', 'rounded squared', 'square'];
+    return {
+      height: `${customSize}px`,
+      width: typesWithWidth.includes(type) ? `${customSize}px` : undefined,
+      borderRadius: type === 'circle' ? '50%' : undefined,
+    };
+  } else {
+    return {};
   }
 };
 
-function Skeleton({ size, type, height, uxpinRef }) {
+function Skeleton({ size, type, customSize, uxpinRef }) {
   return (
     <div ref={uxpinRef}>
       <div
-        style={getStyles()}
+        style={getStyles(size, type, customSize)}
         className={`
     ${SKELETON_CLASSES.SKELETON} 
     ${skeletonType(type)}
@@ -65,14 +49,18 @@ function Skeleton({ size, type, height, uxpinRef }) {
 }
 
 Skeleton.propTypes = {
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'custom']),
   type: PropTypes.oneOf(['circle', 'rounded', 'rounded squared', 'square']),
-  height: PropTypes.number,
+  /**
+   * @uxpinpropname Custom Size
+   * */
+  customSize: PropTypes.number,
 };
 
 Skeleton.defaultProps = {
   size: 'md',
   type: 'default',
+  customSize: 50,
 };
 
 export default Skeleton;
