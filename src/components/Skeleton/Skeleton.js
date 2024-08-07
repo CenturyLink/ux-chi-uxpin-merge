@@ -21,7 +21,7 @@ const skeletonType = (type) => {
 };
 
 const getStyles = (size, type, customSize) => {
-  if (size === 'custom') return {};
+  if (size !== 'custom') return {};
 
   const typesWithWidth = ['circle', 'rounded squared', 'square'];
 
