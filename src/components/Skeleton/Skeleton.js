@@ -21,16 +21,15 @@ const skeletonType = (type) => {
 };
 
 const getStyles = (size, type, customSize) => {
-  if (size === 'custom') {
-    const typesWithWidth = ['circle', 'rounded squared', 'square'];
-    return {
-      height: `${customSize}px`,
-      width: typesWithWidth.includes(type) ? `${customSize}px` : undefined,
-      borderRadius: type === 'circle' ? '50%' : undefined,
-    };
-  } else {
-    return {};
-  }
+  if (size === 'custom') return {};
+
+  const typesWithWidth = ['circle', 'rounded squared', 'square'];
+
+  return {
+    height: `${customSize}px`,
+    width: typesWithWidth.includes(type) ? `${customSize}px` : undefined,
+    borderRadius: type === 'circle' ? '50%' : undefined,
+  };
 };
 
 function Skeleton({ size, type, customSize, uxpinRef }) {
