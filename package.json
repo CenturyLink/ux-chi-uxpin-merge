@@ -10,11 +10,12 @@
     "reference": "backstop reference",
     "approve": "backstop approve",
     "generate-presets": "uxpin-merge generate-presets",
-    "server": "uxpin-merge server --webpack-config ./webpack.uxpin.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js",
-    "start": "uxpin-merge --disable-tunneling --webpack-config ./webpack.uxpin.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js",
-    "push-dev": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_DEV_TOKEN} --tag 1.0.59",
-    "push-lumen": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_LUMEN_TOKEN} --tag 1.2.0",
-    "push-test": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_TEST_LIBRARY_TOKEN}"
+    "start:portal": "THEME=portal uxpin-merge --disable-tunneling --webpack-config ./webpack.uxpin.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js",
+    "start:portal-rebrand": "THEME=portal-rebrand uxpin-merge --disable-tunneling --webpack-config ./webpack.uxpin.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js",
+    "push-portal": "THEME=portal uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_LUMEN_TOKEN} --tag 1.2.0",
+    "push-portal-rebrand": "THEME=portal-rebrand uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_LUMEN_REBRAND_TOKEN} --tag 1.0.0",
+    "push-dev": "THEME=portal-rebrand uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_DEV_TOKEN} --tag 2.0.0",
+    "push-prod": "npm run push-portal && npm run push-portal-rebrand"
   },
   "repository": {
     "type": "git",
@@ -54,7 +55,6 @@
     "babel-plugin-emotion": "^11.0.0",
     "bundlesize": "^0.2.1",
     "chalk": "^5.3.0",
-    "cross-env": "^7.0.3",
     "date-fns": "^2.30.0",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
