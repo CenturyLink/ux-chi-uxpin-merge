@@ -1,3 +1,2 @@
-export const CHI_VERSION = '5.75.0';
-
-export default CHI_VERSION;
+export const CHI_VERSION = '5.78.0';
+export const CHI_REBRAND_VERSION = '6.3.0';

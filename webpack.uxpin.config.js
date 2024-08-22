@@ -1,5 +1,5 @@
-/* eslint-disable sort-keys */
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: ['./src/components/index.js'],
@@ -51,4 +51,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.THEME': JSON.stringify(process.env.THEME),
+    }),
+  ],
 };
