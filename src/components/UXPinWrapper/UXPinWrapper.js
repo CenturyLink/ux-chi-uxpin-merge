@@ -1,9 +1,9 @@
 import React from 'react';
 import './UXPinWrapper.css';
-import { CHI_REBRAND_VERSION, CHI_VERSION } from '../../constants/constants';
 
 export default function UXPinWrapper({ children }) {
-  const chiVersion = process.env.THEME === 'portal' ? CHI_VERSION : CHI_REBRAND_VERSION ?? CHI_REBRAND_VERSION;
+  const formatVersion = (version) => version.replace(/[';]/g, "");
+  const chiVersion = process.env.THEME === 'portal-rebrand' ? formatVersion(process.env.CHI_REBRAND_VERSION) : formatVersion(process.env.CHI_VERSION);
 
   if (!document.getElementById('chi-css')) {
     const chiCss = document.createElement('link');
