@@ -4,7 +4,6 @@ import PrimaryButton from '../Primary-button';
 export default (
   <PrimaryButton
     uxpId="primary-button"
-    disabled={false}
     leftIcon=""
     rightIcon=""
     size="md"
