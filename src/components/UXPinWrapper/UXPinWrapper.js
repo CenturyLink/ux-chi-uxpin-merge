@@ -3,7 +3,7 @@ import './UXPinWrapper.css';
 import { CHI_REBRAND_VERSION, CHI_VERSION } from '../../constants/constants';
 
 export default function UXPinWrapper({ children }) {
-  const chiVersion = process.env.THEME === 'portal' ? CHI_VERSION : CHI_REBRAND_VERSION;
+  const chiVersion = process.env.THEME === 'portal' ? CHI_VERSION : CHI_REBRAND_VERSION ?? CHI_REBRAND_VERSION;
 
   if (!document.getElementById('chi-css')) {
     const chiCss = document.createElement('link');
