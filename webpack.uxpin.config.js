@@ -55,7 +55,6 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.THEME': JSON.stringify(process.env.THEME),
       'process.env.CHI_VERSION': JSON.stringify(process.env.CHI_VERSION),
       'process.env.CHI_REBRAND_VERSION': JSON.stringify(process.env.CHI_REBRAND_VERSION),
     }),
