@@ -1,7 +1,4 @@
-require('dotenv').config();
-
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
   entry: ['./src/components/index.js'],
@@ -53,10 +50,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.CHI_VERSION': JSON.stringify(process.env.CHI_VERSION),
-      'process.env.CHI_REBRAND_VERSION': JSON.stringify(process.env.CHI_REBRAND_VERSION),
-    }),
-  ],
+  plugins: [],
 };
