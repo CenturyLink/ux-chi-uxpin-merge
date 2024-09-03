@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const path = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const webpack = require('webpack');
@@ -59,6 +61,8 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.THEME': JSON.stringify(process.env.THEME),
+      'process.env.CHI_VERSION': JSON.stringify(process.env.CHI_VERSION),
+      'process.env.CHI_REBRAND_VERSION': JSON.stringify(process.env.CHI_REBRAND_VERSION),
     }),
   ],
 };
