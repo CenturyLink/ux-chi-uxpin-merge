@@ -7,6 +7,7 @@ import * as React from 'react';
  * SkipContainerWrapper
  */
 export default function PrimaryButton({
+  disabled,
   leftIcon,
   rightIcon,
   size,
@@ -42,6 +43,7 @@ export default function PrimaryButton({
         ${fluid ? '-fluid -justify-content--center' : ''}
         ${flat ? '-flat' : ''}
         `}
+      disabled={disabled}
       onClick={click}
       onMouseEnter={mouseOver}
       onMouseLeave={mouseLeave}
@@ -55,6 +57,7 @@ export default function PrimaryButton({
 
 /* eslint-disable */
 PrimaryButton.propTypes = {
+  disabled: PropTypes.bool,
   leftIcon: PropTypes.string,
   rightIcon: PropTypes.string,
   spinner: PropTypes.bool,
@@ -72,5 +75,6 @@ PrimaryButton.propTypes = {
 /* eslint-enable */
 
 PrimaryButton.defaultProps = {
+  disabled: false,
   size: 'md',
 };
