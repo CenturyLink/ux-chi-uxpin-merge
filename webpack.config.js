@@ -1,6 +1,5 @@
 const path = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const webpack = require('webpack');
 
 module.exports = {
   entry: ['./src/components/index.js'],
@@ -22,9 +21,11 @@ module.exports = {
         loader: 'svg-react-loader',
       },
       {
-        loader: 'babel-loader',
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
       },
       {
         enforce: 'pre',
@@ -56,9 +57,6 @@ module.exports = {
       exclude: ['/node_modules/'],
       emitError: true,
       emitWarning: false,
-    }),
-    new webpack.DefinePlugin({
-      'process.env.THEME': JSON.stringify(process.env.THEME),
     }),
   ],
 };
