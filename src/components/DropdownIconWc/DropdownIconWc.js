@@ -20,10 +20,12 @@ export default function DropdownIconWc(props) {
     return () => clearInterval(initialize);
   }, [tooltipId, props.tooltipMessage]);
 
+  const Wrapper = props.tooltipMessage ? 'div' : React.Fragment;
+
   return (
-    <div data-tooltip={props.tooltipMessage} id={tooltipId}>
+    <Wrapper {...(props.tooltipMessage ? { 'data-tooltip': props.tooltipMessage, id: tooltipId } : {})}>
       <DropdownBaseWc {...props} />
-    </div>
+    </Wrapper>
   );
 }
 
