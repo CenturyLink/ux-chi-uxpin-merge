@@ -8,9 +8,7 @@ import './IconButton.css';
  * @uxpinwrappers
  * SkipContainerWrapper
  */
-export default function IconButton({
-  tooltipMessage, tooltipPosition, tooltipColor, disabled, click, icon, uxpinRef,
-}) {
+export default function IconButton({ tooltipMessage, tooltipPosition, tooltipColor, disabled, click, icon, uxpinRef }) {
   const uuid = uuid4();
 
   if (tooltipMessage) {
@@ -23,22 +21,21 @@ export default function IconButton({
   }
 
   return (
-    <button
-      type="button"
+    <chi-button
+      ref={uxpinRef}
       id={uuid}
-      className={`
-        chi-button -icon -flat`}
       data-tooltip={tooltipMessage}
       data-position={tooltipPosition}
       data-tooltip-color={tooltipColor}
-      disabled={disabled}
+      aria-label={icon}
+      variant="flat"
       onClick={click}
-      ref={uxpinRef}
-      aria-label={icon}>
-      <div className="chi-button__content">
-        <i className={`chi-icon icon-${icon}`}></i>
-      </div>
-    </button>
+      disabled={disabled}
+      type="icon"
+      alternative-text="Button action"
+    >
+      <chi-icon icon={icon}></chi-icon>
+    </chi-button>
   );
 }
 
