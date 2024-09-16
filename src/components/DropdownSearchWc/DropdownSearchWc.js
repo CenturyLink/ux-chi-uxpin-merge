@@ -15,6 +15,7 @@ DropdownSearchWc.propTypes = {
   fieldLabel: PropTypes.string,
   active: PropTypes.bool,
   animateChevron: PropTypes.bool,
+  selectMode: PropTypes.oneOf(['none', 'single', 'multi']),
   retainSelection: PropTypes.bool,
   visibleItems: PropTypes.number,
   text: PropTypes.string,
@@ -91,5 +92,6 @@ DropdownSearchWc.propTypes = {
 DropdownSearchWc.defaultProps = {
   active: false,
   text: 'Dropdown component',
+  selectMode: 'none'
 };
 // #endregion

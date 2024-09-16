@@ -31,6 +31,7 @@ export default function DropdownBaseWc(props) {
     visibleItems,
     retainSelection,
     selectedItem,
+    selectMode
   } = props;
 
   // #region Methods
@@ -73,6 +74,7 @@ export default function DropdownBaseWc(props) {
   // #endregion
 
   const color = buttonColor === 'base' ? '' : buttonColor;
+  const selectModeValue = selectMode === 'none' ? undefined : selectMode;
 
   return (
     <div ref={props.uxPinRef} className={`${UTILITY_CLASSES.WIDTH[100]}`}>
@@ -92,6 +94,7 @@ export default function DropdownBaseWc(props) {
         variant={buttonType}
         visible-items={visibleItems}
         retain-selection={retainSelection}
+        select-mode={selectModeValue}
       >
         {showSearch && <chi-search-input placeholder="Search" slot="menu-header"></chi-search-input>}
 
@@ -106,6 +109,7 @@ DropdownBaseWc.propTypes = {
   fieldLabel: PropTypes.string,
   active: PropTypes.bool,
   animateChevron: PropTypes.bool,
+  selectMode: PropTypes.oneOf(['none', 'single', 'multi']),
   retainSelection: PropTypes.bool,
   text: PropTypes.string,
   mode: PropTypes.oneOf(['base', 'checkbox', 'radio']),
@@ -201,5 +205,6 @@ DropdownBaseWc.defaultProps = {
   dropdownPosition: 'bottom-start',
   text: 'Dropdown component',
   selectedItem: 1,
+  selectMode: 'none'
 };
 // #endregion
