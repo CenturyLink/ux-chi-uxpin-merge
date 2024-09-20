@@ -70,7 +70,7 @@ export default class PickerGroup extends React.Component {
         <div className={PICKER_GROUP_CLASSES.LABEL}>
           {picker}
         </div>
-        <div className={PICKER_GROUP_CLASSES.LABEL}>
+        <div style={{ whiteSpace: 'pre-wrap' }} className={PICKER_GROUP_CLASSES.LABEL}>
           {description}
         </div>
       </>
@@ -150,33 +150,43 @@ PickerGroup.propTypes = {
   mouseLeaveInfo: PropTypes.func,
   fluid: PropTypes.bool,
   picker1: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description1: PropTypes.string,
   disabled1: PropTypes.bool,
   picker2: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description2: PropTypes.string,
   disabled2: PropTypes.bool,
   picker3: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description3: PropTypes.string,
   disabled3: PropTypes.bool,
   picker4: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description4: PropTypes.string,
   disabled4: PropTypes.bool,
   picker5: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description5: PropTypes.string,
   disabled5: PropTypes.bool,
   picker6: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description6: PropTypes.string,
   disabled6: PropTypes.bool,
   picker7: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description7: PropTypes.string,
   disabled7: PropTypes.bool,
   picker8: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description8: PropTypes.string,
   disabled8: PropTypes.bool,
   picker9: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description9: PropTypes.string,
   disabled9: PropTypes.bool,
   picker10: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description10: PropTypes.string,
   disabled10: PropTypes.bool,
   select1: PropTypes.func,
