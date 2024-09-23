@@ -63,11 +63,11 @@ export default class PickerMulti extends React.Component {
       </abbr>
     );
 
-    if (this.props.required !== "none") {
-      return this.props.required === "required" ? required : optional;
+    if (this.props.required !== 'none') {
+      return this.props.required === 'required' ? required : optional;
     }
 
-    return "";
+    return '';
   }
 
   _setInfo() {
@@ -98,9 +98,7 @@ export default class PickerMulti extends React.Component {
           <span className={PICKER_CLASSES.LABEL}>{picker}</span>
         </div>
       ) : (
-        <div
-          className={`${FORM_CLASSES.ITEM} ${ROW_CLASS} ${UTILITY_CLASSES.MARGIN.LEFT[0]}`}
-        >
+        <div className={`${FORM_CLASSES.ITEM} ${ROW_CLASS} ${UTILITY_CLASSES.MARGIN.LEFT[0]}`}>
           <span
             className={`${PICKER_CLASSES.LABEL} ${UTILITY_CLASSES.MARGIN.LEFT[0]} ${UTILITY_CLASSES.PADDING.LEFT[0]}`}
           >
@@ -108,16 +106,14 @@ export default class PickerMulti extends React.Component {
           </span>
         </div>
       );
-    const maxContentWidth = "100%";
-    const contentWidth = this.props["contentWidth"] && this.props["contentWidth"] !== maxContentWidth
-      ? `-w--${this.props["contentWidth"].split("%")[0]}`
-      : "";
+    const maxContentWidth = '100%';
+    const contentWidth =
+      this.props['contentWidth'] && this.props['contentWidth'] !== maxContentWidth
+        ? `-w--${this.props['contentWidth'].split('%')[0]}`
+        : '';
 
     return (
-      <label
-        htmlFor={`picker-${this.state.id}-${pickerIndex}`}
-        onClick={() => this._handlerPickerClick(pickerIndex)}
-      >
+      <label htmlFor={`picker-${this.state.id}-${pickerIndex}`} onClick={() => this._handlerPickerClick(pickerIndex)}>
         {!this.props[`description${pickerIndex}`] ? (
           content
         ) : (
@@ -125,7 +121,10 @@ export default class PickerMulti extends React.Component {
             <div className={PICKER_CLASSES.CONTENT_START}>
               {content}
               <div
-                className={`${PICKER_CLASSES.DESCRIPTION} ${contentWidth} ${!(this.props.checkbox || this.props.radio) ? '-ml--0' : ''}`}
+                style={{ whiteSpace: 'pre-wrap' }}
+                className={`${PICKER_CLASSES.DESCRIPTION} ${contentWidth} ${
+                  !(this.props.checkbox || this.props.radio) ? '-ml--0' : ''
+                }`}
               >
                 {this.props[`description${pickerIndex}`]}
               </div>
@@ -140,14 +139,14 @@ export default class PickerMulti extends React.Component {
     return (
       <legend className={`${LABEL_CLASSES.LABEL}`}>
         {this.props.fieldLabel}
-        {this.props.required ? this._setMessage() : ""}
+        {this.props.required ? this._setMessage() : ''}
         {info}
       </legend>
     );
   }
 
   _setChecked(pickerIndex) {
-    if (this.props.mode === "multi" || this.props.mode === "pillMulti") {
+    if (this.props.mode === 'multi' || this.props.mode === 'pillMulti') {
       return this.state[`checked${pickerIndex}`];
     } else {
       return pickerIndex === this.state.selectedOption;
@@ -157,23 +156,21 @@ export default class PickerMulti extends React.Component {
   render() {
     const pickersToRender = [];
     const PICKERS_TO_RENDER = 11;
-    const info = this.props.info ? this._setInfo() : "";
-    const fieldLabel = this.props.fieldLabel ? this._setFieldLabel(info) : "";
+    const info = this.props.info ? this._setInfo() : '';
+    const fieldLabel = this.props.fieldLabel ? this._setFieldLabel(info) : '';
 
     Array(PICKERS_TO_RENDER)
       .fill()
       .forEach((_, i) => {
         if (this.props[`picker${i}`]) {
           pickersToRender.push(
-            <div className={`${PICKER_CLASSES.PICKER} -${this.props.size} 
-              ${(this.props.pill) 
-              ? `${this.props.pill ? '-pill' : ''} -${this.props.pillSize}`
-              : ''
-              }`}
+            <div
+              className={`${PICKER_CLASSES.PICKER} -${this.props.size} 
+              ${this.props.pill ? `${this.props.pill ? '-pill' : ''} -${this.props.pillSize}` : ''}`}
             >
               <input
                 className={PICKER_CLASSES.INPUT}
-                type={(this.props.mode === "multi" || this.props.mode === "pillMulti") ? "checkbox" : "radio"}
+                type={this.props.mode === 'multi' || this.props.mode === 'pillMulti' ? 'checkbox' : 'radio'}
                 id={`picker-${this.state.id}-${i}`}
                 disabled={this.props[`disabled${i}`]}
                 checked={this._setChecked(i)}
@@ -189,13 +186,13 @@ export default class PickerMulti extends React.Component {
       <div ref={this.props.uxpinRef}>
         <fieldset>
           {fieldLabel}
-          {this.props.pill ? 
+          {this.props.pill ? (
             <div className={`${this.props.pillLayout === 'vertical' ? '' : UTILITY_CLASSES.DISPLAY.FLEX}`}>
               {pickersToRender}
             </div>
-            :
+          ) : (
             pickersToRender
-          }
+          )}
         </fieldset>
       </div>
     );
@@ -217,24 +214,14 @@ PickerMulti.propTypes = {
   /** @uxpinignoreprop */
   pillLayout: PropTypes.oneOf(['inline', 'vertical']),
   required: PropTypes.oneOf(['none', 'required', 'optional']),
-  contentWidth: PropTypes.oneOf([
-    '100%',
-    '90%',
-    '80%',
-    '70%',
-    '60%',
-    '50%',
-    '40%',
-    '30%',
-    '20%',
-  ]),
+  contentWidth: PropTypes.oneOf(['100%', '90%', '80%', '70%', '60%', '50%', '40%', '30%', '20%']),
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,
   /**
-    * A textArea controller for Text
-    * @uxpinpropname text
-    * @uxpincontroltype textfield(10)
-    * */
+   * A textArea controller for Text
+   * @uxpinpropname text
+   * @uxpincontroltype textfield(10)
+   * */
   infoPopoverDescription: PropTypes.string,
   infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
   size: PropTypes.oneOf(['md', 'lg']),
@@ -246,42 +233,52 @@ PickerMulti.propTypes = {
   /** @uxpinignoreprop */
   mouseLeaveInfo: PropTypes.func,
   picker1: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description1: PropTypes.string,
   disabled1: PropTypes.bool,
   checked1: PropTypes.bool,
   picker2: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description2: PropTypes.string,
   disabled2: PropTypes.bool,
   checked2: PropTypes.bool,
   picker3: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description3: PropTypes.string,
   disabled3: PropTypes.bool,
   checked3: PropTypes.bool,
   picker4: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description4: PropTypes.string,
   disabled4: PropTypes.bool,
   checked4: PropTypes.bool,
   picker5: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description5: PropTypes.string,
   disabled5: PropTypes.bool,
   checked5: PropTypes.bool,
   picker6: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description6: PropTypes.string,
   disabled6: PropTypes.bool,
   checked6: PropTypes.bool,
   picker7: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description7: PropTypes.string,
   disabled7: PropTypes.bool,
   checked7: PropTypes.bool,
   picker8: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description8: PropTypes.string,
   disabled8: PropTypes.bool,
   checked8: PropTypes.bool,
   picker9: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description9: PropTypes.string,
   disabled9: PropTypes.bool,
   checked9: PropTypes.bool,
   picker10: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description10: PropTypes.string,
   disabled10: PropTypes.bool,
   checked10: PropTypes.bool,
