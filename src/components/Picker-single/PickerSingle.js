@@ -74,24 +74,14 @@ PickerSingle.propTypes = {
   fieldLabel: PropTypes.string,
   required: PropTypes.oneOf(['none', 'required', 'optional']),
   selectedOption: PropTypes.oneOf(['None', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
-  contentWidth: PropTypes.oneOf([
-    '100%',
-    '90%',
-    '80%',
-    '70%',
-    '60%',
-    '50%',
-    '40%',
-    '30%',
-    '20%',
-  ]),
+  contentWidth: PropTypes.oneOf(['100%', '90%', '80%', '70%', '60%', '50%', '40%', '30%', '20%']),
   info: PropTypes.bool,
   infoPopoverTitle: PropTypes.string,
   /**
-    * A textArea controller for Text
-    * @uxpinpropname text
-    * @uxpincontroltype textfield(10)
-    * */
+   * A textArea controller for Text
+   * @uxpinpropname text
+   * @uxpincontroltype textfield(10)
+   * */
   infoPopoverDescription: PropTypes.string,
   infoPopoverPosition: PropTypes.oneOf(['right-start', 'top']),
   size: PropTypes.oneOf(['md', 'lg']),
@@ -103,33 +93,43 @@ PickerSingle.propTypes = {
   /** @uxpinignoreprop */
   mouseLeaveInfo: PropTypes.func,
   picker1: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description1: PropTypes.string,
   disabled1: PropTypes.bool,
   picker2: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description2: PropTypes.string,
   disabled2: PropTypes.bool,
   picker3: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description3: PropTypes.string,
   disabled3: PropTypes.bool,
   picker4: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description4: PropTypes.string,
   disabled4: PropTypes.bool,
   picker5: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description5: PropTypes.string,
   disabled5: PropTypes.bool,
   picker6: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description6: PropTypes.string,
   disabled6: PropTypes.bool,
   picker7: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description7: PropTypes.string,
   disabled7: PropTypes.bool,
   picker8: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description8: PropTypes.string,
   disabled8: PropTypes.bool,
   picker9: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description9: PropTypes.string,
   disabled9: PropTypes.bool,
   picker10: PropTypes.string,
+  /** @uxpincontroltype textfield(4) */
   description10: PropTypes.string,
   disabled10: PropTypes.bool,
   select1: PropTypes.func,
