@@ -44,11 +44,18 @@ export default class PickerMulti extends React.Component {
   }
 
   _handlerPickerClick(pickerIndex) {
+    const newValue = !this.state[`checked${pickerIndex}`];
+
     this.setState({
-      [`checked${pickerIndex}`]: !this.state[`checked${pickerIndex}`],
+      [`checked${pickerIndex}`]: newValue,
       selectedOption: pickerIndex,
     });
-    this.props[`select${pickerIndex}`]();
+
+    if (newValue) {
+      this.props[`select${pickerIndex}`]();
+    } else {
+      this.props[`deselect${pickerIndex}`]();
+    }
   }
 
   _setMessage() {
@@ -283,15 +290,25 @@ PickerMulti.propTypes = {
   disabled10: PropTypes.bool,
   checked10: PropTypes.bool,
   select1: PropTypes.func,
+  deselect1: PropTypes.func,
   select2: PropTypes.func,
+  deselect2: PropTypes.func,
   select3: PropTypes.func,
+  deselect3: PropTypes.func,
   select4: PropTypes.func,
+  deselect4: PropTypes.func,
   select5: PropTypes.func,
+  deselect5: PropTypes.func,
   select6: PropTypes.func,
+  deselect6: PropTypes.func,
   select7: PropTypes.func,
+  deselect7: PropTypes.func,
   select8: PropTypes.func,
+  deselect8: PropTypes.func,
   select9: PropTypes.func,
+  deselect9: PropTypes.func,
   select10: PropTypes.func,
+  deselect10: PropTypes.func,
 };
 
 /* eslint-enable */

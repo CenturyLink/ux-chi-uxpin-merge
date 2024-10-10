@@ -45,14 +45,24 @@ Line 3`}
     disabled10={false}
     checked10={false}
     select1={() => {}}
+    deselect1={() => {}}
     select2={() => {}}
+    deselect2={() => {}}
     select3={() => {}}
+    deselect3={() => {}}
     select4={() => {}}
+    deselect4={() => {}}
     select5={() => {}}
+    deselect5={() => {}}
     select6={() => {}}
+    deselect6={() => {}}
     select7={() => {}}
+    deselect7={() => {}}
     select8={() => {}}
+    deselect8={() => {}}
     select9={() => {}}
+    deselect9={() => {}}
     select10={() => {}}
+    deselect10={() => {}}
   />
 );
