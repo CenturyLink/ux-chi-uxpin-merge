@@ -51,11 +51,7 @@ export default class PickerMulti extends React.Component {
       selectedOption: pickerIndex,
     });
 
-    if (newValue) {
-      this.props[`select${pickerIndex}`]();
-    } else {
-      this.props[`deselect${pickerIndex}`]();
-    }
+    this.props[newValue ? `select${pickerIndex}` : `deselect${pickerIndex}`]();
   }
 
   _setMessage() {
