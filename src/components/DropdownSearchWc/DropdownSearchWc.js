@@ -92,6 +92,6 @@ DropdownSearchWc.propTypes = {
 DropdownSearchWc.defaultProps = {
   active: false,
   text: 'Dropdown component',
-  selectMode: 'none'
+  selectMode: 'none',
 };
 // #endregion

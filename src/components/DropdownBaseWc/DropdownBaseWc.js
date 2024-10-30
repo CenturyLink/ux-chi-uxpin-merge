@@ -31,7 +31,7 @@ export default function DropdownBaseWc(props) {
     visibleItems,
     retainSelection,
     selectedItem,
-    selectMode
+    selectMode,
   } = props;
 
   // #region Methods
@@ -205,6 +205,6 @@ DropdownBaseWc.defaultProps = {
   dropdownPosition: 'bottom-start',
   text: 'Dropdown component',
   selectedItem: 1,
-  selectMode: 'none'
+  selectMode: 'none',
 };
 // #endregion
