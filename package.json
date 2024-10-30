@@ -12,7 +12,7 @@
     "generate-presets": "uxpin-merge generate-presets",
     "start:portal": "uxpin-merge --disable-tunneling --webpack-config ./webpack.uxpin.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js",
     "start:portal-rebrand": "uxpin-merge --disable-tunneling --webpack-config ./webpack.uxpin.config.js --wrapper ./src/components/UXPinWrapper/RebrandUXPinWrapper.js",
-    "push-lumen:portal": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_LUMEN_TOKEN} --tag 1.4.0",
+    "push-lumen:portal": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_LUMEN_TOKEN} --tag 2.1.0",
     "push-lumen:portal-rebrand": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/RebrandUXPinWrapper.js --token ${UXPIN_LUMEN_REBRAND_TOKEN} --tag 1.1.0",
     "push-dev:portal": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/RebrandUXPinWrapper.js --token ${UXPIN_DEV_TOKEN} --branch master",
     "push-dev:portal-rebrand": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/RebrandUXPinWrapper.js --token ${UXPIN_DEV_TOKEN} --branch master-rebrand",
