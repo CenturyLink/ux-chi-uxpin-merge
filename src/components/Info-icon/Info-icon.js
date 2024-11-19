@@ -13,7 +13,7 @@ const InfoIcon = ({popoverTitle, popoverDescription, popoverPosition, clickInfo}
   return (
     <Icon
       icon={'circle-info-outline'}
-      color={'primary'}
+      color={'teal'}
       size={'xs'}
       popover={true}
       popoverTitle={popoverTitle}

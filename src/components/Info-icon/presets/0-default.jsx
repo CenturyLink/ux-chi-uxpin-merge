@@ -5,7 +5,7 @@ export default (
   <InfoIcon
     uxpId="infoIcon"
     size="xs"
-    color="primary"
+    color="teal"
     popoverTitle="Popover Title"
     popoverDescription={
       `Line 1
