@@ -10,17 +10,9 @@
     "reference": "backstop reference",
     "approve": "backstop approve",
     "generate-presets": "uxpin-merge generate-presets",
-    "start:portal": "uxpin-merge --disable-tunneling --webpack-config ./webpack.uxpin.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js",
-    "start:portal-rebrand": "uxpin-merge --disable-tunneling --webpack-config ./webpack.uxpin.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js",
-    "push-lumen:portal": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_LUMEN_TOKEN} --tag 2.2.0",
-    "push-lumen:portal-rebrand": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_LUMEN_REBRAND_TOKEN} --tag 1.1.0",
-    "push-dev:portal": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_DEV_TOKEN} --branch master",
-    "push-dev:portal-rebrand": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_DEV_TOKEN} --branch master-rebrand",
-    "push-dev:old-portal": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_DEV_TOKEN} --branch old-portal-theme",
-    "push-dev:tag": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_DEV_TOKEN} --tag 2.3.0",
-    "push-dev:branches": "npm run push-dev:portal && npm run push-dev:portal-rebrand",
-    "push-dev": "npm run push-dev:branches && npm run push-dev:tag",
-    "push-prod": "npm run push-portal && npm run push-portal-rebrand"
+    "serve": "uxpin-merge --disable-tunneling --webpack-config ./webpack.uxpin.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js",
+    "push-lumen": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_LUMEN_TOKEN} --tag 2.2.0",
+    "push-dev": "uxpin-merge push --webpack-config ./webpack.config.js --wrapper ./src/components/UXPinWrapper/UXPinWrapper.js --token ${UXPIN_DEV_TOKEN} --tag 2.3.0"
   },
   "repository": {
     "type": "git",
