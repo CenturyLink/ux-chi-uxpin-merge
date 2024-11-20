@@ -95,7 +95,7 @@ export default class Radio extends React.Component {
         uxpId={`infoIcon-${this.state.id}`}
         icon={'circle-info-outline'}
         size="xs"
-        color="primary"
+        color="teal"
         mode="button"
         popover={true}
         popoverTitle={this.props.infoPopoverTitle}

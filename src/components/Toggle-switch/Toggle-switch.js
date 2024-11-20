@@ -60,7 +60,7 @@ export default class ToggleSwitch extends React.Component {
           uxpId={`infoIcon-${this.state.id}`}
           icon="circle-info-outline"
           size="xs"
-          color="primary"
+          color="teal"
           mode="button"
           popover
           popoverTitle={this.props.infoPopoverTitle}

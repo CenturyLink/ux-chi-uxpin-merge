@@ -55,7 +55,7 @@ const Icon = ({
   };
 
   useEffect(() => {
-    // For sizes sm and xs we need to set lineHeight to 0.75rem, due to Global chi class css properties. 
+    // For sizes sm and xs we need to set lineHeight to 0.75rem, due to Global chi class css properties.
     if (size === 'sm' || size === 'xs') {
       const element = document.getElementById(`popover-hook-${uuid}`);
       const chiParent = element.closest('.chi');
@@ -119,6 +119,7 @@ Icon.propTypes = {
     'danger',
     'navy',
     'orange',
+    'teal',
   ]),
   tooltipMessage: PropTypes.string,
   tooltipPosition: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),

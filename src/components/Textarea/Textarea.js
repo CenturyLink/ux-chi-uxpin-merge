@@ -56,7 +56,7 @@ export default class Textarea extends React.Component {
           uxpId={`infoIcon-${this.state.id}`}
           icon={ICON_CLASSES.ICON_CIRCLE_INFO}
           size="xs"
-          color="primary"
+          color="teal"
           mode="button"
           popover
           popoverTitle={this.props.infoPopoverTitle}

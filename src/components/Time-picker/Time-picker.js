@@ -45,7 +45,7 @@ export default function TimePicker({
           uxpId={`infoIcon-${uuid}`}
           icon={'circle-info-outline'}
           size="xs"
-          color="primary"
+          color="teal"
           mode="button"
           popover={true}
           popoverTitle={infoPopoverTitle}

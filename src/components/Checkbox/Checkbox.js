@@ -68,7 +68,7 @@ export default class Checkbox extends React.Component {
             uxpId={`infoIcon-${uuid}`}
             icon={'circle-info-outline'}
             size="xs"
-            color="primary"
+            color="teal"
             mode="button"
             popover={true}
             popoverTitle={this.props.infoPopoverTitle}
